@@ -1,2 +1,2 @@
 export default class Double {}
-Double.isNaN = n => Number.isNan(n)
+Double.isNaN = n => Number.isNaN(n)

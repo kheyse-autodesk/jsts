@@ -166,6 +166,14 @@ Iterator_.prototype.hasNext = function() {
   }
 };
 
+/**
+ * TODO: should be in ListIterator
+ * @override
+ */
+Iterator_.prototype.set = function(element) {
+  return this.arrayList_.set(this.position_, element);
+};
+
 
 /**
  * @override
