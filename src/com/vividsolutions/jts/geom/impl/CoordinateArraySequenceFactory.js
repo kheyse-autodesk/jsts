@@ -61,5 +61,8 @@ export default class CoordinateArraySequenceFactory {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return CoordinateArraySequenceFactory;
+	}
 }
 

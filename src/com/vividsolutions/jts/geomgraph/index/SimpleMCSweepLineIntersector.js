@@ -119,5 +119,8 @@ export default class SimpleMCSweepLineIntersector extends EdgeSetIntersector {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return SimpleMCSweepLineIntersector;
+	}
 }
 

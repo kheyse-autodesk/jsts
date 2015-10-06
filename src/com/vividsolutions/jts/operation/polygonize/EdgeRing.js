@@ -141,7 +141,7 @@ export default class EdgeRing {
 	getPolygon() {
 		var holeLR = null;
 		if (this.holes !== null) {
-			holeLR = [];
+			holeLR = new Array(this.holes.size());
 			for (var i = 0; i < this.holes.size(); i++) {
 				holeLR[i] = this.holes.get(i);
 			}
@@ -245,6 +245,9 @@ export default class EdgeRing {
 	setProcessed(isProcessed) {
 		this.isProcessed = isProcessed;
 	}
+	getClass() {
+		return EdgeRing;
+	}
 }
 class EnvelopeComparator {
 	get interfaces_() {
@@ -254,6 +257,9 @@ class EnvelopeComparator {
 		var r0 = obj0;
 		var r1 = obj1;
 		return r0.getRing().getEnvelopeInternal().compareTo(r1.getRing().getEnvelopeInternal());
+	}
+	getClass() {
+		return EnvelopeComparator;
 	}
 }
 

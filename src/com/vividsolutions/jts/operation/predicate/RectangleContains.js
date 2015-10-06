@@ -79,5 +79,8 @@ export default class RectangleContains {
 		if (this.isContainedInBoundary(geom)) return false;
 		return true;
 	}
+	getClass() {
+		return RectangleContains;
+	}
 }
 

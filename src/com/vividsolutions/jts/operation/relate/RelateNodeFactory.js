@@ -8,5 +8,8 @@ export default class RelateNodeFactory extends NodeFactory {
 	createNode(coord) {
 		return new RelateNode(coord, new EdgeEndBundleStar());
 	}
+	getClass() {
+		return RelateNodeFactory;
+	}
 }
 

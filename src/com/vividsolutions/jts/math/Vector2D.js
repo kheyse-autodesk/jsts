@@ -207,5 +207,8 @@ export default class Vector2D {
 		result = 37 * result + Coordinate.hashCode(this.y);
 		return result;
 	}
+	getClass() {
+		return Vector2D;
+	}
 }
 

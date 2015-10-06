@@ -32,5 +32,8 @@ export default class EdgeEndBundleStar extends EdgeEndStar {
 			eb.insert(e);
 		}
 	}
+	getClass() {
+		return EdgeEndBundleStar;
+	}
 }
 

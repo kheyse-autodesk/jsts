@@ -145,6 +145,9 @@ export default class PrecisionModel {
 	setScale(scale) {
 		this.scale = Math.abs(scale);
 	}
+	getClass() {
+		return PrecisionModel;
+	}
 }
 class Type {
 	constructor(...args) {
@@ -177,6 +180,9 @@ class Type {
 	}
 	toString() {
 		return this.name;
+	}
+	getClass() {
+		return Type;
 	}
 }
 

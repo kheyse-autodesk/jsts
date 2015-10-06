@@ -94,5 +94,8 @@ export default class Quadtree {
 		if (this.root === null) return true;
 		return false;
 	}
+	getClass() {
+		return Quadtree;
+	}
 }
 

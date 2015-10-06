@@ -12,5 +12,8 @@ export default class QuadEdgeUtil {
 		} while (qe !== start);
 		return incEdge;
 	}
+	getClass() {
+		return QuadEdgeUtil;
+	}
 }
 

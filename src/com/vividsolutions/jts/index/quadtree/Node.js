@@ -116,5 +116,8 @@ export default class Node extends NodeBase {
 			this.subnode[index] = childNode;
 		}
 	}
+	getClass() {
+		return Node;
+	}
 }
 

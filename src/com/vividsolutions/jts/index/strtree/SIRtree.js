@@ -76,5 +76,8 @@ export default class SIRtree extends AbstractSTRtree {
 	getComparator() {
 		return this.comparator;
 	}
+	getClass() {
+		return SIRtree;
+	}
 }
 

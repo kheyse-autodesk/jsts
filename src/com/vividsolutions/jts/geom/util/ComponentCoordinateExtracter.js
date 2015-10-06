@@ -29,5 +29,8 @@ export default class ComponentCoordinateExtracter {
 	filter(geom) {
 		if (geom instanceof LineString || geom instanceof Point) this.coords.add(geom.getCoordinate());
 	}
+	getClass() {
+		return ComponentCoordinateExtracter;
+	}
 }
 

@@ -31,5 +31,8 @@ export default class ConnectedElementLocationFilter {
 	filter(geom) {
 		if (geom instanceof Point || geom instanceof LineString || geom instanceof Polygon) this.locations.add(new GeometryLocation(geom, 0, geom.getCoordinate()));
 	}
+	getClass() {
+		return ConnectedElementLocationFilter;
+	}
 }
 

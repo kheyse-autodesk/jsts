@@ -36,6 +36,9 @@ export default class IndexedFacetDistance {
 		var obj = this.cachedTree.nearestNeighbour(tree2, new FacetSequenceDistance());
 		return IndexedFacetDistance.facetDistance(obj);
 	}
+	getClass() {
+		return IndexedFacetDistance;
+	}
 }
 class FacetSequenceDistance {
 	get interfaces_() {
@@ -45,6 +48,9 @@ class FacetSequenceDistance {
 		var fs1 = item1.getItem();
 		var fs2 = item2.getItem();
 		return fs1.distance(fs2);
+	}
+	getClass() {
+		return FacetSequenceDistance;
 	}
 }
 

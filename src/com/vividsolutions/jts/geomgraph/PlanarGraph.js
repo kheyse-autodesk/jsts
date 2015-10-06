@@ -155,5 +155,8 @@ export default class PlanarGraph {
 		}
 		return null;
 	}
+	getClass() {
+		return PlanarGraph;
+	}
 }
 

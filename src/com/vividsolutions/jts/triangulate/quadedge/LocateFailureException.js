@@ -41,5 +41,8 @@ export default class LocateFailureException extends RuntimeException {
 	getSegment() {
 		return this.seg;
 	}
+	getClass() {
+		return LocateFailureException;
+	}
 }
 

@@ -56,5 +56,8 @@ export default class EdgeIntersection {
 		if (this.dist > dist) return 1;
 		return 0;
 	}
+	getClass() {
+		return EdgeIntersection;
+	}
 }
 

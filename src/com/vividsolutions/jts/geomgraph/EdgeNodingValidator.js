@@ -35,5 +35,8 @@ export default class EdgeNodingValidator {
 	checkValid() {
 		this.nv.checkValid();
 	}
+	getClass() {
+		return EdgeNodingValidator;
+	}
 }
 

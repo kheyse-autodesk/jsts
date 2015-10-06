@@ -56,7 +56,7 @@ export default class WKBReader {
 	}
 	static hexToBytes(hex) {
 		var byteLen = hex.length() / 2;
-		var bytes = [];
+		var bytes = new Array(byteLen);
 		for (var i = 0; i < hex.length() / 2; i++) {
 			var i2 = 2 * i;
 			if (i2 + 1 > hex.length()) throw new IllegalArgumentException("Hex string has odd length");
@@ -127,7 +127,7 @@ export default class WKBReader {
 		if (this.hasSRID) {
 			SRID = this.dis.readInt();
 		}
-		if (this.ordValues === null || this.ordValues.length < this.inputDimension) this.ordValues = [];
+		if (this.ordValues === null || this.ordValues.length < this.inputDimension) this.ordValues = new Array(this.inputDimension);
 		var geom = null;
 		switch (geometryType) {
 			case WKBConstants.wkbPoint:
@@ -159,7 +159,7 @@ export default class WKBReader {
 	}
 	readGeometryCollection() {
 		var numGeom = this.dis.readInt();
-		var geoms = [];
+		var geoms = new Array(numGeom);
 		for (var i = 0; i < numGeom; i++) {
 			geoms[i] = this.readGeometry();
 		}
@@ -178,7 +178,7 @@ export default class WKBReader {
 	}
 	readMultiPolygon() {
 		var numGeom = this.dis.readInt();
-		var geoms = [];
+		var geoms = new Array(numGeom);
 		for (var i = 0; i < numGeom; i++) {
 			var g = this.readGeometry();
 			if (!(g instanceof Polygon)) throw new ParseException(WKBReader.INVALID_GEOM_TYPE_MSG + "MultiPolygon");
@@ -189,7 +189,7 @@ export default class WKBReader {
 	readPolygon() {
 		var numRings = this.dis.readInt();
 		var holes = null;
-		if (numRings > 1) holes = [];
+		if (numRings > 1) holes = new Array(numRings - 1);
 		var shell = this.readLinearRing();
 		for (var i = 0; i < numRings - 1; i++) {
 			holes[i] = this.readLinearRing();
@@ -198,7 +198,7 @@ export default class WKBReader {
 	}
 	readMultiLineString() {
 		var numGeom = this.dis.readInt();
-		var geoms = [];
+		var geoms = new Array(numGeom);
 		for (var i = 0; i < numGeom; i++) {
 			var g = this.readGeometry();
 			if (!(g instanceof LineString)) throw new ParseException(WKBReader.INVALID_GEOM_TYPE_MSG + "MultiLineString");
@@ -216,7 +216,7 @@ export default class WKBReader {
 	}
 	readMultiPoint() {
 		var numGeom = this.dis.readInt();
-		var geoms = [];
+		var geoms = new Array(numGeom);
 		for (var i = 0; i < numGeom; i++) {
 			var g = this.readGeometry();
 			if (!(g instanceof Point)) throw new ParseException(WKBReader.INVALID_GEOM_TYPE_MSG + "MultiPoint");
@@ -240,6 +240,9 @@ export default class WKBReader {
 		var size = this.dis.readInt();
 		var pts = this.readCoordinateSequenceLineString(size);
 		return this.factory.createLineString(pts);
+	}
+	getClass() {
+		return WKBReader;
 	}
 }
 

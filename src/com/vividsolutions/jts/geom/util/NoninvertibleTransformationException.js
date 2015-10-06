@@ -22,5 +22,8 @@ export default class NoninvertibleTransformationException extends Exception {
 	get interfaces_() {
 		return [];
 	}
+	getClass() {
+		return NoninvertibleTransformationException;
+	}
 }
 

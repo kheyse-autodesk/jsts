@@ -38,5 +38,8 @@ export default class TopologyPreservingSimplifier {
 		if (distanceTolerance < 0.0) throw new IllegalArgumentException("Tolerance must be non-negative");
 		this.lineSimplifier.setDistanceTolerance(distanceTolerance);
 	}
+	getClass() {
+		return TopologyPreservingSimplifier;
+	}
 }
 

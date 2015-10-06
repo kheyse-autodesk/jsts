@@ -71,7 +71,7 @@ export default class Point extends Geometry {
 		if (this.getCoordinate() === null) {
 			throw new IllegalStateException("getX called on empty Point");
 		}
-		return this.x;
+		return this.getCoordinate().x;
 	}
 	compareToSameClass(...args) {
 		const overloads = (...args) => {
@@ -143,7 +143,7 @@ export default class Point extends Geometry {
 		if (this.getCoordinate() === null) {
 			throw new IllegalStateException("getY called on empty Point");
 		}
-		return this.y;
+		return this.getCoordinate().y;
 	}
 	isEmpty() {
 		return this.coordinates.size() === 0;
@@ -157,6 +157,9 @@ export default class Point extends Geometry {
 	}
 	isSimple() {
 		return true;
+	}
+	getClass() {
+		return Point;
 	}
 }
 

@@ -23,7 +23,7 @@ export default class OffsetSegmentString {
 		return [];
 	}
 	static get COORDINATE_ARRAY_TYPE() {
-		return [];
+		return new Array(0);
 	}
 	getCoordinates() {
 		var coord = this.ptList.toArray(OffsetSegmentString.COORDINATE_ARRAY_TYPE);
@@ -73,6 +73,9 @@ export default class OffsetSegmentString {
 	}
 	setMinimumVertexDistance(minimimVertexDistance) {
 		this.minimimVertexDistance = minimimVertexDistance;
+	}
+	getClass() {
+		return OffsetSegmentString;
 	}
 }
 

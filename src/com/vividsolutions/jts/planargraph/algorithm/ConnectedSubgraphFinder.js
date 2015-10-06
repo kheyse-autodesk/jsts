@@ -55,5 +55,8 @@ export default class ConnectedSubgraphFinder {
 			if (!toNode.isVisited()) nodeStack.push(toNode);
 		}
 	}
+	getClass() {
+		return ConnectedSubgraphFinder;
+	}
 }
 

@@ -58,5 +58,8 @@ export default class GraphComponent {
 	isVisited() {
 		return this.visited;
 	}
+	getClass() {
+		return GraphComponent;
+	}
 }
 

@@ -22,5 +22,8 @@ export default class SimplePointInRing {
 	isInside(pt) {
 		return CGAlgorithms.isPointInRing(pt, this.pts);
 	}
+	getClass() {
+		return SimplePointInRing;
+	}
 }
 

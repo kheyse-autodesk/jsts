@@ -48,7 +48,7 @@ export default class MonotoneChain {
 		}
 	}
 	getCoordinates() {
-		var coord = [];
+		var coord = new Array(this.end - this.start + 1);
 		var index = 0;
 		for (var i = this.start; i <= this.end; i++) {
 			coord[index++] = this.pts[i];
@@ -117,6 +117,9 @@ export default class MonotoneChain {
 	}
 	getId() {
 		return this.id;
+	}
+	getClass() {
+		return MonotoneChain;
 	}
 }
 

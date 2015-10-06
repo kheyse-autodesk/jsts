@@ -59,7 +59,7 @@ export default class SegmentIntersectionDetector {
 			if (this.findProper && !isProper) saveLocation = false;
 			if (this.intPt === null || saveLocation) {
 				this.intPt = this.li.getIntersection(0);
-				this.intSegments = [];
+				this.intSegments = new Array(4);
 				this.intSegments[0] = p00;
 				this.intSegments[1] = p01;
 				this.intSegments[2] = p10;
@@ -84,6 +84,9 @@ export default class SegmentIntersectionDetector {
 	}
 	setFindProper(findProper) {
 		this.findProper = findProper;
+	}
+	getClass() {
+		return SegmentIntersectionDetector;
 	}
 }
 

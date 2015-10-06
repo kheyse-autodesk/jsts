@@ -1,3 +1,4 @@
+import Integer from 'java/lang/Integer';
 import ArrayList from 'java/util/ArrayList';
 import Quadrant from 'com/vividsolutions/jts/geomgraph/Quadrant';
 export default class MonotoneChainIndexer {
@@ -17,7 +18,7 @@ export default class MonotoneChainIndexer {
 		return [];
 	}
 	static toIntArray(list) {
-		var array = [];
+		var array = new Array(list.size());
 		for (var i = 0; i < array.length; i++) {
 			array[i] = list.get(i).intValue();
 		}
@@ -26,10 +27,10 @@ export default class MonotoneChainIndexer {
 	getChainStartIndices(pts) {
 		var start = 0;
 		var startIndexList = new ArrayList();
-		startIndexList.add(start);
+		startIndexList.add(new Integer(start));
 		do {
 			var last = this.findChainEnd(pts, start);
-			startIndexList.add(last);
+			startIndexList.add(new Integer(last));
 			start = last;
 		} while (start < pts.length - 1);
 		var startIndex = MonotoneChainIndexer.toIntArray(startIndexList);
@@ -44,6 +45,9 @@ export default class MonotoneChainIndexer {
 			last++;
 		}
 		return last - 1;
+	}
+	getClass() {
+		return MonotoneChainIndexer;
 	}
 }
 

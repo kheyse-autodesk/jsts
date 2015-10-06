@@ -66,5 +66,8 @@ export default class AffineTransformationFactory {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return AffineTransformationFactory;
+	}
 }
 

@@ -24,5 +24,8 @@ export default class ArrayListVisitor {
 	getItems() {
 		return this.items;
 	}
+	getClass() {
+		return ArrayListVisitor;
+	}
 }
 

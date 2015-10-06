@@ -76,7 +76,7 @@ export default class InteriorIntersectionFinder {
 		this.li.computeIntersection(p00, p01, p10, p11);
 		if (this.li.hasIntersection()) {
 			if (this.li.isInteriorIntersection()) {
-				this.intSegments = [];
+				this.intSegments = new Array(4);
 				this.intSegments[0] = p00;
 				this.intSegments[1] = p01;
 				this.intSegments[2] = p10;
@@ -98,6 +98,9 @@ export default class InteriorIntersectionFinder {
 	isDone() {
 		if (this.findAllIntersections) return false;
 		return this.interiorIntersection !== null;
+	}
+	getClass() {
+		return InteriorIntersectionFinder;
 	}
 }
 

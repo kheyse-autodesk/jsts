@@ -58,9 +58,9 @@ export default class Centroid {
 			var segmentLen = pts[i].distance(pts[i + 1]);
 			if (segmentLen === 0.0) continue;
 			lineLen += segmentLen;
-			var midx = (this.x + this.x) / 2;
+			var midx = (pts[i].x + pts[i + 1].x) / 2;
 			this.lineCentSum.x += segmentLen * midx;
-			var midy = (this.y + this.y) / 2;
+			var midy = (pts[i].y + pts[i + 1].y) / 2;
 			this.lineCentSum.y += segmentLen * midy;
 		}
 		this.totalLength += lineLen;
@@ -139,6 +139,9 @@ export default class Centroid {
 			}
 		};
 		return overloads.apply(this, args);
+	}
+	getClass() {
+		return Centroid;
 	}
 }
 

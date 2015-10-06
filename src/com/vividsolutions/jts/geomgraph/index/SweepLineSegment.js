@@ -22,17 +22,20 @@ export default class SweepLineSegment {
 		return [];
 	}
 	getMaxX() {
-		var x1 = this.x;
-		var x2 = this.x;
+		var x1 = this.pts[this.ptIndex].x;
+		var x2 = this.pts[this.ptIndex + 1].x;
 		return x1 > x2 ? x1 : x2;
 	}
 	getMinX() {
-		var x1 = this.x;
-		var x2 = this.x;
+		var x1 = this.pts[this.ptIndex].x;
+		var x2 = this.pts[this.ptIndex + 1].x;
 		return x1 < x2 ? x1 : x2;
 	}
 	computeIntersections(ss, si) {
 		si.addIntersections(this.edge, this.ptIndex, ss.edge, ss.ptIndex);
+	}
+	getClass() {
+		return SweepLineSegment;
 	}
 }
 

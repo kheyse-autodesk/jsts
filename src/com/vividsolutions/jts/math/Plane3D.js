@@ -48,5 +48,8 @@ export default class Plane3D {
 		var d = pbdDotNormal / this.normal.length();
 		return d;
 	}
+	getClass() {
+		return Plane3D;
+	}
 }
 

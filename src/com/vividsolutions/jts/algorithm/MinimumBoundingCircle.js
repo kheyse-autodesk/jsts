@@ -49,7 +49,7 @@ export default class MinimumBoundingCircle {
 	static lowestPoint(pts) {
 		var min = pts[0];
 		for (var i = 1; i < pts.length; i++) {
-			if (this.y < min.y) min = pts[i];
+			if (pts[i].y < min.y) min = pts[i];
 		}
 		return min;
 	}
@@ -90,7 +90,7 @@ export default class MinimumBoundingCircle {
 	}
 	computeCirclePoints() {
 		if (this.input.isEmpty()) {
-			this.extremalPts = [];
+			this.extremalPts = new Array(0);
 			return null;
 		}
 		if (this.input.getNumPoints() === 1) {
@@ -102,7 +102,7 @@ export default class MinimumBoundingCircle {
 		var hullPts = convexHull.getCoordinates();
 		var pts = hullPts;
 		if (hullPts[0].equals2D(hullPts[hullPts.length - 1])) {
-			pts = [];
+			pts = new Array(hullPts.length - 1);
 			CoordinateArrays.copyDeep(hullPts, 0, pts, 0, hullPts.length - 1);
 		}
 		if (pts.length <= 2) {
@@ -168,12 +168,15 @@ export default class MinimumBoundingCircle {
 				this.centre = this.extremalPts[0];
 				break;
 			case 2:
-				this.centre = new Coordinate((this.x + this.x) / 2.0, (this.y + this.y) / 2.0);
+				this.centre = new Coordinate((this.extremalPts[0].x + this.extremalPts[1].x) / 2.0, (this.extremalPts[0].y + this.extremalPts[1].y) / 2.0);
 				break;
 			case 3:
 				this.centre = Triangle.circumcentre(this.extremalPts[0], this.extremalPts[1], this.extremalPts[2]);
 				break;
 		}
+	}
+	getClass() {
+		return MinimumBoundingCircle;
 	}
 }
 

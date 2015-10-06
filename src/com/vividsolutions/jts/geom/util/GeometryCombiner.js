@@ -96,5 +96,8 @@ export default class GeometryCombiner {
 		}
 		return this.geomFactory.buildGeometry(elems);
 	}
+	getClass() {
+		return GeometryCombiner;
+	}
 }
 

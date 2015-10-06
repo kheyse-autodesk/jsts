@@ -255,5 +255,8 @@ export default class DirectedEdgeStar extends EdgeEndStar {
 			}
 		}
 	}
+	getClass() {
+		return DirectedEdgeStar;
+	}
 }
 

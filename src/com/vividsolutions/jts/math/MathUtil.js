@@ -75,5 +75,8 @@ export default class MathUtil {
 	static average(x1, x2) {
 		return (x1 + x2) / 2.0;
 	}
+	getClass() {
+		return MathUtil;
+	}
 }
 

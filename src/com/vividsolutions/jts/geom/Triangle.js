@@ -149,5 +149,8 @@ export default class Triangle {
 	inCentre() {
 		return Triangle.inCentre(this.p0, this.p1, this.p2);
 	}
+	getClass() {
+		return Triangle;
+	}
 }
 

@@ -130,5 +130,8 @@ export default class GeometryTransformer {
 		if (seqSize > 0 && seqSize < 4 && !this.preserveType) return this.factory.createLineString(seq);
 		return this.factory.createLinearRing(seq);
 	}
+	getClass() {
+		return GeometryTransformer;
+	}
 }
 

@@ -34,8 +34,11 @@ export default class UniqueCoordinateArrayFilter {
 		}
 	}
 	getCoordinates() {
-		var coordinates = [];
+		var coordinates = new Array(this.list.size());
 		return this.list.toArray(coordinates);
+	}
+	getClass() {
+		return UniqueCoordinateArrayFilter;
 	}
 }
 

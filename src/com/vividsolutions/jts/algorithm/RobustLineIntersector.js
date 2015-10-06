@@ -231,5 +231,8 @@ export default class RobustLineIntersector extends LineIntersector {
 		}
 		return LineIntersector.POINT_INTERSECTION;
 	}
+	getClass() {
+		return RobustLineIntersector;
+	}
 }
 

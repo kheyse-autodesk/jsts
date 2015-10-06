@@ -3,5 +3,8 @@ export default class GeometryFilter {
 		return [];
 	}
 	filter(geom) {}
+	getClass() {
+		return GeometryFilter;
+	}
 }
 

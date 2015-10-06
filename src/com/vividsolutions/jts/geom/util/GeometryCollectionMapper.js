@@ -31,5 +31,8 @@ export default class GeometryCollectionMapper {
 		}
 		return gc.getFactory().createGeometryCollection(GeometryFactory.toGeometryArray(mapped));
 	}
+	getClass() {
+		return GeometryCollectionMapper;
+	}
 }
 

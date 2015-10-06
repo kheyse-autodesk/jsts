@@ -84,5 +84,8 @@ export default class Segment {
 	toString() {
 		return this.ls.toString();
 	}
+	getClass() {
+		return Segment;
+	}
 }
 

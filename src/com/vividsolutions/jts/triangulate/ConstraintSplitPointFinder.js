@@ -3,5 +3,8 @@ export default class ConstraintSplitPointFinder {
 		return [];
 	}
 	findSplitPoint(seg, encroachPt) {}
+	getClass() {
+		return ConstraintSplitPointFinder;
+	}
 }
 

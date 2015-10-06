@@ -4,9 +4,9 @@ export default class ByteOrderDataInStream {
 		(() => {
 			this.byteOrder = ByteOrderValues.BIG_ENDIAN;
 			this.stream = null;
-			this.buf1 = [];
-			this.buf4 = [];
-			this.buf8 = [];
+			this.buf1 = new Array(1);
+			this.buf4 = new Array(4);
+			this.buf8 = new Array(8);
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -48,6 +48,9 @@ export default class ByteOrderDataInStream {
 	readInt() {
 		this.stream.read(this.buf4);
 		return ByteOrderValues.getInt(this.buf4, this.byteOrder);
+	}
+	getClass() {
+		return ByteOrderDataInStream;
 	}
 }
 

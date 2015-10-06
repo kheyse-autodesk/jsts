@@ -65,5 +65,8 @@ export default class Edge extends GraphComponent {
 		if (this.dirEdge[1].getFromNode() === node) return this.dirEdge[1].getToNode();
 		return null;
 	}
+	getClass() {
+		return Edge;
+	}
 }
 

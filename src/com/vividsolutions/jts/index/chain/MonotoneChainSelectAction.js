@@ -27,5 +27,8 @@ export default class MonotoneChainSelectAction {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return MonotoneChainSelectAction;
+	}
 }
 

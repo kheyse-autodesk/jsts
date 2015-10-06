@@ -165,5 +165,8 @@ export default class MinimumDiameter {
 		var shell = this.inputGeom.getFactory().createLinearRing([p0, p1, p2, p3, p0]);
 		return this.inputGeom.getFactory().createPolygon(shell, null);
 	}
+	getClass() {
+		return MinimumDiameter;
+	}
 }
 

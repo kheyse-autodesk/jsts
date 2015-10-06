@@ -1,4 +1,5 @@
 import Double from 'java/lang/Double';
+import Integer from 'java/lang/Integer';
 import Comparator from 'java/util/Comparator';
 export default class CoordinateSequenceComparator {
 	constructor(...args) {
@@ -70,6 +71,9 @@ export default class CoordinateSequenceComparator {
 			if (comp !== 0) return comp;
 		}
 		return 0;
+	}
+	getClass() {
+		return CoordinateSequenceComparator;
 	}
 }
 

@@ -198,5 +198,8 @@ export default class RobustDeterminant {
 			}
 		}
 	}
+	getClass() {
+		return RobustDeterminant;
+	}
 }
 

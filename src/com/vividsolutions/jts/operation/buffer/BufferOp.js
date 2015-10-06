@@ -164,5 +164,8 @@ export default class BufferOp {
 	setEndCapStyle(endCapStyle) {
 		this.bufParams.setEndCapStyle(endCapStyle);
 	}
+	getClass() {
+		return BufferOp;
+	}
 }
 

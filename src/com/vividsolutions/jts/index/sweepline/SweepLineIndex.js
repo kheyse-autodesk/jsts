@@ -57,5 +57,8 @@ export default class SweepLineIndex {
 		this.events.add(insertEvent);
 		this.events.add(new SweepLineEvent(sweepInt.getMax(), insertEvent, sweepInt));
 	}
+	getClass() {
+		return SweepLineIndex;
+	}
 }
 

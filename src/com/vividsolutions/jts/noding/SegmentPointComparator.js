@@ -40,5 +40,8 @@ export default class SegmentPointComparator {
 		if (compareSign1 > 0) return 1;
 		return 0;
 	}
+	getClass() {
+		return SegmentPointComparator;
+	}
 }
 

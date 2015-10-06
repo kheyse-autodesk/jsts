@@ -59,7 +59,7 @@ export default class Polygon extends Geometry {
 		if (this.isEmpty()) {
 			return [];
 		}
-		var coordinates = [];
+		var coordinates = new Array(this.getNumPoints());
 		var k = -1;
 		var shellCoordinates = this.shell.getCoordinates();
 		for (var x = 0; x < shellCoordinates.length; x++) {
@@ -143,7 +143,7 @@ export default class Polygon extends Geometry {
 						if (ring.isEmpty()) {
 							return null;
 						}
-						var uniqueCoordinates = [];
+						var uniqueCoordinates = new Array(ring.getCoordinates().length - 1);
 						System.arraycopy(ring.getCoordinates(), 0, uniqueCoordinates, 0, uniqueCoordinates.length);
 						var minCoordinate = CoordinateArrays.minCoordinate(ring.getCoordinates());
 						CoordinateArrays.scroll(uniqueCoordinates, minCoordinate);
@@ -191,7 +191,7 @@ export default class Polygon extends Geometry {
 					return ((...args) => {
 						let [o] = args;
 						var thisShell = this.shell;
-						var otherShell = this.shell;
+						var otherShell = o.shell;
 						return thisShell.compareToSameClass(otherShell);
 					})(...args);
 				case 2:
@@ -266,7 +266,7 @@ export default class Polygon extends Geometry {
 		if (this.isEmpty()) {
 			return this.getFactory().createMultiLineString(null);
 		}
-		var rings = [];
+		var rings = new Array(this.holes.length + 1);
 		rings[0] = this.shell;
 		for (var i = 0; i < this.holes.length; i++) {
 			rings[i + 1] = this.holes[i];
@@ -277,7 +277,7 @@ export default class Polygon extends Geometry {
 	clone() {
 		var poly = super.clone();
 		poly.shell = this.shell.clone();
-		poly.holes = [];
+		poly.holes = new Array(this.holes.length);
 		for (var i = 0; i < this.holes.length; i++) {
 			poly.holes[i] = this.holes[i].clone();
 		}
@@ -294,6 +294,9 @@ export default class Polygon extends Geometry {
 	}
 	getInteriorRingN(n) {
 		return this.holes[n];
+	}
+	getClass() {
+		return Polygon;
 	}
 }
 

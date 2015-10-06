@@ -51,5 +51,8 @@ export default class MultiLineString extends GeometryCollection {
 	getGeometryType() {
 		return "MultiLineString";
 	}
+	getClass() {
+		return MultiLineString;
+	}
 }
 

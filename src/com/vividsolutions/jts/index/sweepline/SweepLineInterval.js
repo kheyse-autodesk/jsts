@@ -35,5 +35,8 @@ export default class SweepLineInterval {
 	getMax() {
 		return this.max;
 	}
+	getClass() {
+		return SweepLineInterval;
+	}
 }
 

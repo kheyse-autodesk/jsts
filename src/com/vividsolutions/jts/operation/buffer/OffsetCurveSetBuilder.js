@@ -116,5 +116,8 @@ export default class OffsetCurveSetBuilder {
 			this.add(g);
 		}
 	}
+	getClass() {
+		return OffsetCurveSetBuilder;
+	}
 }
 

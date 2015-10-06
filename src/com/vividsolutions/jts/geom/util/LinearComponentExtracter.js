@@ -115,5 +115,8 @@ export default class LinearComponentExtracter {
 	setForceToLineString(isForcedToLineString) {
 		this.isForcedToLineString = isForcedToLineString;
 	}
+	getClass() {
+		return LinearComponentExtracter;
+	}
 }
 

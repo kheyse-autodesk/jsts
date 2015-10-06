@@ -53,5 +53,8 @@ export default class IncrementalDelaunayTriangulator {
 			this.insertSite(v);
 		}
 	}
+	getClass() {
+		return IncrementalDelaunayTriangulator;
+	}
 }
 

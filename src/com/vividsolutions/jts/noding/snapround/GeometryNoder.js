@@ -66,5 +66,8 @@ export default class GeometryNoder {
 		}
 		return lines;
 	}
+	getClass() {
+		return GeometryNoder;
+	}
 }
 

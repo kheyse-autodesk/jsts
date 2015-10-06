@@ -71,5 +71,8 @@ export default class Node extends GraphComponent {
 	getDegree() {
 		return this.deStar.getDegree();
 	}
+	getClass() {
+		return Node;
+	}
 }
 

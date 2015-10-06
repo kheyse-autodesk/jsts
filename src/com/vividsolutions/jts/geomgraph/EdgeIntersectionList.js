@@ -56,7 +56,7 @@ export default class EdgeIntersectionList {
 		if (!useIntPt1) {
 			npts--;
 		}
-		var pts = [];
+		var pts = new Array(npts);
 		var ipt = 0;
 		pts[ipt++] = new Coordinate(ei0.coord);
 		for (var i = ei0.segmentIndex + 1; i <= ei1.segmentIndex; i++) {
@@ -80,6 +80,9 @@ export default class EdgeIntersectionList {
 			if (ei.coord.equals(pt)) return true;
 		}
 		return false;
+	}
+	getClass() {
+		return EdgeIntersectionList;
 	}
 }
 

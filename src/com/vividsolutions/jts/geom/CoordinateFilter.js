@@ -3,5 +3,8 @@ export default class CoordinateFilter {
 		return [];
 	}
 	filter(coord) {}
+	getClass() {
+		return CoordinateFilter;
+	}
 }
 

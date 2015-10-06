@@ -24,5 +24,8 @@ export default class ParseException extends Exception {
 	get interfaces_() {
 		return [];
 	}
+	getClass() {
+		return ParseException;
+	}
 }
 

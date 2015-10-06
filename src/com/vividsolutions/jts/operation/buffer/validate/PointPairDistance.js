@@ -101,5 +101,8 @@ export default class PointPairDistance {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return PointPairDistance;
+	}
 }
 

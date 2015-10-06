@@ -54,5 +54,8 @@ export default class Densifier {
 		if (distanceTolerance <= 0.0) throw new IllegalArgumentException("Tolerance must be positive");
 		this.distanceTolerance = distanceTolerance;
 	}
+	getClass() {
+		return Densifier;
+	}
 }
 

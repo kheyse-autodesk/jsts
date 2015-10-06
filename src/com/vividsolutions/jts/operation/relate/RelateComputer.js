@@ -175,5 +175,8 @@ export default class RelateComputer {
 			im.set(Location.EXTERIOR, Location.BOUNDARY, gb.getBoundaryDimension());
 		}
 	}
+	getClass() {
+		return RelateComputer;
+	}
 }
 

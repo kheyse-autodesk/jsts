@@ -14,7 +14,7 @@ export default class GeometryGraphOperation {
 					return ((...args) => {
 						let [g0] = args;
 						this.setComputationPrecision(g0.getPrecisionModel());
-						this.arg = [];
+						this.arg = new Array(1);
 						this.arg[0] = new GeometryGraph(0, g0);
 						;
 					})(...args);
@@ -27,7 +27,7 @@ export default class GeometryGraphOperation {
 					return ((...args) => {
 						let [g0, g1, boundaryNodeRule] = args;
 						if (g0.getPrecisionModel().compareTo(g1.getPrecisionModel()) >= 0) this.setComputationPrecision(g0.getPrecisionModel()); else this.setComputationPrecision(g1.getPrecisionModel());
-						this.arg = [];
+						this.arg = new Array(2);
 						this.arg[0] = new GeometryGraph(0, g0, boundaryNodeRule);
 						this.arg[1] = new GeometryGraph(1, g1, boundaryNodeRule);
 					})(...args);
@@ -44,6 +44,9 @@ export default class GeometryGraphOperation {
 	setComputationPrecision(pm) {
 		this.resultPrecisionModel = pm;
 		this.li.setPrecisionModel(this.resultPrecisionModel);
+	}
+	getClass() {
+		return GeometryGraphOperation;
 	}
 }
 

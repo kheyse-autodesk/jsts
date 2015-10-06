@@ -25,5 +25,8 @@ export default class CollectionUtil {
 			func.execute(i.next());
 		}
 	}
+	getClass() {
+		return CollectionUtil;
+	}
 }
 

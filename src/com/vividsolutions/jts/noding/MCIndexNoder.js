@@ -72,5 +72,8 @@ export default class MCIndexNoder extends SinglePassNoder {
 			}
 		}
 	}
+	getClass() {
+		return MCIndexNoder;
+	}
 }
 

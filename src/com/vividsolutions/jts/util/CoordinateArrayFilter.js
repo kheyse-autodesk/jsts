@@ -10,7 +10,7 @@ export default class CoordinateArrayFilter {
 				case 1:
 					return ((...args) => {
 						let [size] = args;
-						this.pts = [];
+						this.pts = new Array(size);
 					})(...args);
 			}
 		};
@@ -24,6 +24,9 @@ export default class CoordinateArrayFilter {
 	}
 	getCoordinates() {
 		return this.pts;
+	}
+	getClass() {
+		return CoordinateArrayFilter;
 	}
 }
 

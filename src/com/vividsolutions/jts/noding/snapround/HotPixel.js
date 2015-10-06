@@ -15,7 +15,7 @@ export default class HotPixel {
 			this.maxx = null;
 			this.miny = null;
 			this.maxy = null;
-			this.corner = [];
+			this.corner = new Array(4);
 			this.safeEnv = null;
 		})();
 		const overloads = (...args) => {
@@ -127,6 +127,9 @@ export default class HotPixel {
 			return true;
 		}
 		return false;
+	}
+	getClass() {
+		return HotPixel;
 	}
 }
 

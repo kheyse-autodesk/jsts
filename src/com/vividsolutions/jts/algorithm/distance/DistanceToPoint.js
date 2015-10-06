@@ -72,5 +72,8 @@ export default class DistanceToPoint {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return DistanceToPoint;
+	}
 }
 

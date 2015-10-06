@@ -60,6 +60,9 @@ export default class VWLineSimplifier {
 		}
 		return simp;
 	}
+	getClass() {
+		return VWLineSimplifier;
+	}
 }
 class VWVertex {
 	constructor(...args) {
@@ -146,6 +149,9 @@ class VWVertex {
 	}
 	setNext(next) {
 		this.next = next;
+	}
+	getClass() {
+		return VWVertex;
 	}
 }
 

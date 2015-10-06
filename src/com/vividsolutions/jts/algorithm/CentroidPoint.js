@@ -55,5 +55,8 @@ export default class CentroidPoint {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return CentroidPoint;
+	}
 }
 

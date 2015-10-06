@@ -49,5 +49,8 @@ export default class RectangleLineIntersector {
 		if (this.li.hasIntersection()) return true;
 		return false;
 	}
+	getClass() {
+		return RectangleLineIntersector;
+	}
 }
 

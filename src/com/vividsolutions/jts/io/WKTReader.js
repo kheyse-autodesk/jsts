@@ -112,7 +112,7 @@ export default class WKTReader {
 			coordinates.add(this.getPreciseCoordinate());
 			nextToken = this.getNextCloserOrComma();
 		}
-		var array = [];
+		var array = new Array(coordinates.size());
 		return coordinates.toArray(array);
 	}
 	readLinearRingText() {
@@ -149,7 +149,7 @@ export default class WKTReader {
 	readMultiPointText() {
 		var nextToken = this.getNextEmptyOrOpener();
 		if (nextToken.equals(WKTReader.EMPTY)) {
-			return this.geometryFactory.createMultiPoint([]);
+			return this.geometryFactory.createMultiPoint(new Array(0));
 		}
 		if (WKTReader.ALLOW_OLD_JTS_MULTIPOINT_SYNTAX) {
 			var nextWord = this.lookaheadWord();
@@ -166,7 +166,7 @@ export default class WKTReader {
 			points.add(point);
 			nextToken = this.getNextCloserOrComma();
 		}
-		var array = [];
+		var array = new Array(points.size());
 		return this.geometryFactory.createMultiPoint(points.toArray(array));
 	}
 	readMultiPolygonText() {
@@ -183,7 +183,7 @@ export default class WKTReader {
 			polygons.add(polygon);
 			nextToken = this.getNextCloserOrComma();
 		}
-		var array = [];
+		var array = new Array(polygons.size());
 		return this.geometryFactory.createMultiPolygon(polygons.toArray(array));
 	}
 	getCoordinatesNoLeftParen() {
@@ -195,7 +195,7 @@ export default class WKTReader {
 			coordinates.add(this.getPreciseCoordinate());
 			nextToken = this.getNextCloserOrComma();
 		}
-		var array = [];
+		var array = new Array(coordinates.size());
 		return coordinates.toArray(array);
 	}
 	readMultiLineStringText() {
@@ -212,7 +212,7 @@ export default class WKTReader {
 			lineStrings.add(lineString);
 			nextToken = this.getNextCloserOrComma();
 		}
-		var array = [];
+		var array = new Array(lineStrings.size());
 		return this.geometryFactory.createMultiLineString(lineStrings.toArray(array));
 	}
 	getNextWord() {
@@ -280,7 +280,7 @@ export default class WKTReader {
 			geometries.add(geometry);
 			nextToken = this.getNextCloserOrComma();
 		}
-		var array = [];
+		var array = new Array(geometries.size());
 		return this.geometryFactory.createGeometryCollection(geometries.toArray(array));
 	}
 	parseErrorWithLine(msg) {
@@ -349,7 +349,7 @@ export default class WKTReader {
 			holes.add(hole);
 			nextToken = this.getNextCloserOrComma();
 		}
-		var array = [];
+		var array = new Array(holes.size());
 		return this.geometryFactory.createPolygon(shell, holes.toArray(array));
 	}
 	getNextCloser() {
@@ -367,6 +367,9 @@ export default class WKTReader {
 		}
 		this.parseErrorExpected(WKTReader.EMPTY + " or " + WKTReader.L_PAREN);
 		return null;
+	}
+	getClass() {
+		return WKTReader;
 	}
 }
 

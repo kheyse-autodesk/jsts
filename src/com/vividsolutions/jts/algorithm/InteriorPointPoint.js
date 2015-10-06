@@ -59,5 +59,8 @@ export default class InteriorPointPoint {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return InteriorPointPoint;
+	}
 }
 

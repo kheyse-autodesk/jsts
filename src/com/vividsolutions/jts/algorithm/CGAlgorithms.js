@@ -52,11 +52,11 @@ export default class CGAlgorithms {
 							let [ring] = args;
 							if (ring.length < 3) return 0.0;
 							var sum = 0.0;
-							var x0 = this.x;
+							var x0 = ring[0].x;
 							for (var i = 1; i < ring.length - 1; i++) {
-								var x = this.x - x0;
-								var y1 = this.y;
-								var y2 = this.y;
+								var x = ring[i].x - x0;
+								var y1 = ring[i + 1].y;
+								var y2 = ring[i - 1].y;
 								sum += x * (y2 - y1);
 							}
 							return sum / 2.0;
@@ -223,6 +223,9 @@ export default class CGAlgorithms {
 			y0 = y1;
 		}
 		return len;
+	}
+	getClass() {
+		return CGAlgorithms;
 	}
 }
 

@@ -161,7 +161,7 @@ export default class LineSegment {
 		if (intPt !== null) {
 			return [intPt, intPt];
 		}
-		var closestPt = [];
+		var closestPt = new Array(2);
 		var minDistance = Double.MAX_VALUE;
 		var dist = null;
 		var close00 = this.closestPoint(line.p0);
@@ -262,10 +262,10 @@ export default class LineSegment {
 				case 2:
 					return ((...args) => {
 						let [p0, p1] = args;
-						this.x = p0.x;
-						this.y = p0.y;
-						this.x = p1.x;
-						this.y = p1.y;
+						this.p0.x = p0.x;
+						this.p0.y = p0.y;
+						this.p1.x = p1.x;
+						this.p1.y = p1.y;
 					})(...args);
 			}
 		};
@@ -315,6 +315,9 @@ export default class LineSegment {
 		bits1 ^= java.lang.Double.doubleToLongBits(this.p1.y) * 31;
 		var hash1 = bits1 ^ bits1 >> 32;
 		return hash0 ^ hash1;
+	}
+	getClass() {
+		return LineSegment;
 	}
 }
 

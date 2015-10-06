@@ -17,5 +17,8 @@ export default class NotRepresentableException extends Exception {
 	get interfaces_() {
 		return [];
 	}
+	getClass() {
+		return NotRepresentableException;
+	}
 }
 

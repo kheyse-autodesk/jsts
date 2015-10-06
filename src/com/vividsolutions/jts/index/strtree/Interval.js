@@ -44,5 +44,8 @@ export default class Interval {
 		var other = o;
 		return this.min === other.min && this.max === other.max;
 	}
+	getClass() {
+		return Interval;
+	}
 }
 

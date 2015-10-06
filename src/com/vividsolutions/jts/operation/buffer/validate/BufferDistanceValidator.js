@@ -117,5 +117,8 @@ export default class BufferDistanceValidator {
 	getErrorMessage() {
 		return this.errMsg;
 	}
+	getClass() {
+		return BufferDistanceValidator;
+	}
 }
 

@@ -96,5 +96,8 @@ export default class LineStringSnapper {
 	setAllowSnappingToSourceVertices(allowSnappingToSourceVertices) {
 		this.allowSnappingToSourceVertices = allowSnappingToSourceVertices;
 	}
+	getClass() {
+		return LineStringSnapper;
+	}
 }
 

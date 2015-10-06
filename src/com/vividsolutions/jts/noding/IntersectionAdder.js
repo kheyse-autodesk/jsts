@@ -92,5 +92,8 @@ export default class IntersectionAdder {
 	hasInteriorIntersection() {
 		return this.hasInterior;
 	}
+	getClass() {
+		return IntersectionAdder;
+	}
 }
 

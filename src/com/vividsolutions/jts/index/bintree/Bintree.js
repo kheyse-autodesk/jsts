@@ -87,5 +87,8 @@ export default class Bintree {
 		if (this.root !== null) return this.root.nodeSize();
 		return 0;
 	}
+	getClass() {
+		return Bintree;
+	}
 }
 

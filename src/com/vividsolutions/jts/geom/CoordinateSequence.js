@@ -36,5 +36,8 @@ export default class CoordinateSequence {
 	expandEnvelope(env) {}
 	getY(index) {}
 	toCoordinateArray() {}
+	getClass() {
+		return CoordinateSequence;
+	}
 }
 

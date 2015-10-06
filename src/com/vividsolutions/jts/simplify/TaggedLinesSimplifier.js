@@ -33,5 +33,8 @@ export default class TaggedLinesSimplifier {
 			tlss.simplify(i.next());
 		}
 	}
+	getClass() {
+		return TaggedLinesSimplifier;
+	}
 }
 

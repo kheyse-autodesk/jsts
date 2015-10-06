@@ -30,5 +30,8 @@ export default class ConnectedElementPointFilter {
 	filter(geom) {
 		if (geom instanceof Point || geom instanceof LineString || geom instanceof Polygon) this.pts.add(geom.getCoordinate());
 	}
+	getClass() {
+		return ConnectedElementPointFilter;
+	}
 }
 

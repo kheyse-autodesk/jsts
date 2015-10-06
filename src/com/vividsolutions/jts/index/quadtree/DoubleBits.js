@@ -86,5 +86,8 @@ export default class DoubleBits {
 		var mask = 1 << i;
 		return (this.xBits & mask) !== 0 ? 1 : 0;
 	}
+	getClass() {
+		return DoubleBits;
+	}
 }
 

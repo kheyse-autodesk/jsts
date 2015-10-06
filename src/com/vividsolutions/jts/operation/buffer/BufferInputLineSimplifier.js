@@ -88,7 +88,7 @@ export default class BufferInputLineSimplifier {
 	simplify(distanceTol) {
 		this.distanceTol = Math.abs(distanceTol);
 		if (distanceTol < 0) this.angleOrientation = CGAlgorithms.CLOCKWISE;
-		this.isDeleted = [];
+		this.isDeleted = new Array(this.inputLine.length);
 		var isChanged = false;
 		do {
 			isChanged = this.deleteShallowConcavities();
@@ -110,6 +110,9 @@ export default class BufferInputLineSimplifier {
 			if (this.isDeleted[i] !== BufferInputLineSimplifier.DELETE) coordList.add(this.inputLine[i]);
 		}
 		return coordList.toCoordinateArray();
+	}
+	getClass() {
+		return BufferInputLineSimplifier;
 	}
 }
 

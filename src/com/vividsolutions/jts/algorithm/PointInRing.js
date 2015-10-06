@@ -3,5 +3,8 @@ export default class PointInRing {
 		return [];
 	}
 	isInside(pt) {}
+	getClass() {
+		return PointInRing;
+	}
 }
 

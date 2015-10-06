@@ -4,7 +4,7 @@ import OverlayOp from 'com/vividsolutions/jts/operation/overlay/OverlayOp';
 export default class SnapIfNeededOverlayOp {
 	constructor(...args) {
 		(() => {
-			this.geom = [];
+			this.geom = new Array(2);
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -60,6 +60,9 @@ export default class SnapIfNeededOverlayOp {
 			} finally {}
 		}
 		return result;
+	}
+	getClass() {
+		return SnapIfNeededOverlayOp;
 	}
 }
 

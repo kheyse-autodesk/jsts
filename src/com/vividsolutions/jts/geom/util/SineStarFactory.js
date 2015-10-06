@@ -42,7 +42,7 @@ export default class SineStarFactory extends GeometricShapeFactory {
 		var insideRadius = (1 - armRatio) * radius;
 		var centreX = env.getMinX() + radius;
 		var centreY = env.getMinY() + radius;
-		var pts = [];
+		var pts = new Array(this.nPts + 1);
 		var iPt = 0;
 		for (var i = 0; i < this.nPts; i++) {
 			var ptArcFrac = i / this.nPts * this.numArms;
@@ -59,6 +59,9 @@ export default class SineStarFactory extends GeometricShapeFactory {
 		var ring = this.geomFact.createLinearRing(pts);
 		var poly = this.geomFact.createPolygon(ring, null);
 		return poly;
+	}
+	getClass() {
+		return SineStarFactory;
 	}
 }
 

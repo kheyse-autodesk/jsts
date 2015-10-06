@@ -103,6 +103,9 @@ export default class InteriorPointArea {
 			}
 		}
 	}
+	getClass() {
+		return InteriorPointArea;
+	}
 }
 class SafeBisectorFinder {
 	constructor(...args) {
@@ -156,6 +159,9 @@ class SafeBisectorFinder {
 			var y = seq.getY(i);
 			this.updateInterval(y);
 		}
+	}
+	getClass() {
+		return SafeBisectorFinder;
 	}
 }
 

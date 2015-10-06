@@ -48,5 +48,8 @@ export default class BasicSegmentString {
 	toString() {
 		return WKTWriter.toLineString(new CoordinateArraySequence(this.pts));
 	}
+	getClass() {
+		return BasicSegmentString;
+	}
 }
 

@@ -37,5 +37,8 @@ export default class ConstraintEnforcementException extends RuntimeException {
 	getCoordinate() {
 		return this.pt;
 	}
+	getClass() {
+		return ConstraintEnforcementException;
+	}
 }
 

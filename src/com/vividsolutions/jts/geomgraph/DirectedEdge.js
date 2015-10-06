@@ -150,5 +150,8 @@ export default class DirectedEdge extends EdgeEnd {
 	isVisited() {
 		return this.visited;
 	}
+	getClass() {
+		return DirectedEdge;
+	}
 }
 

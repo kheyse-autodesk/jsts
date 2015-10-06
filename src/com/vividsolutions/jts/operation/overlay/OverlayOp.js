@@ -103,7 +103,7 @@ export default class OverlayOp extends GeometryGraphOperation {
 		var result = null;
 		switch (OverlayOp.resultDimension(overlayOpCode, a, b)) {
 			case -1:
-				result = geomFact.createGeometryCollection([]);
+				result = geomFact.createGeometryCollection(new Array(0));
 				break;
 			case 0:
 				result = geomFact.createPoint(null);
@@ -333,6 +333,9 @@ export default class OverlayOp extends GeometryGraphOperation {
 	isCoveredByA(coord) {
 		if (this.isCovered(coord, this.resultPolyList)) return true;
 		return false;
+	}
+	getClass() {
+		return OverlayOp;
 	}
 }
 

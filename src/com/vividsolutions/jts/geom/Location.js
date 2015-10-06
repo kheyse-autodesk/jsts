@@ -27,5 +27,8 @@ export default class Location {
 		}
 		throw new IllegalArgumentException("Unknown location value: " + locationValue);
 	}
+	getClass() {
+		return Location;
+	}
 }
 

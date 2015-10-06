@@ -64,5 +64,8 @@ export default class QuadtreeNestedRingTester {
 			this.quadtree.insert(env, ring);
 		}
 	}
+	getClass() {
+		return QuadtreeNestedRingTester;
+	}
 }
 

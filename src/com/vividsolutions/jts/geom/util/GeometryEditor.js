@@ -110,6 +110,9 @@ export default class GeometryEditor {
 		}
 		return this.factory.createPolygon(shell, holes.toArray([]));
 	}
+	getClass() {
+		return GeometryEditor;
+	}
 }
 class NoOpGeometryOperation {
 	get interfaces_() {
@@ -117,6 +120,9 @@ class NoOpGeometryOperation {
 	}
 	edit(geometry, factory) {
 		return geometry;
+	}
+	getClass() {
+		return NoOpGeometryOperation;
 	}
 }
 class CoordinateOperation {
@@ -136,6 +142,9 @@ class CoordinateOperation {
 		}
 		return geometry;
 	}
+	getClass() {
+		return CoordinateOperation;
+	}
 }
 class CoordinateSequenceOperation {
 	get interfaces_() {
@@ -152,6 +161,9 @@ class CoordinateSequenceOperation {
 			return factory.createPoint(this.edit(geometry.getCoordinateSequence(), geometry));
 		}
 		return geometry;
+	}
+	getClass() {
+		return CoordinateSequenceOperation;
 	}
 }
 

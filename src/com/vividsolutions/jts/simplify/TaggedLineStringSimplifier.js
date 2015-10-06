@@ -50,7 +50,7 @@ export default class TaggedLineStringSimplifier {
 	}
 	simplifySection(i, j, depth) {
 		depth += 1;
-		var sectionIndex = [];
+		var sectionIndex = new Array(2);
 		if (i + 1 === j) {
 			var newSeg = this.line.getSegment(i);
 			this.line.addToResult(newSeg);
@@ -61,7 +61,7 @@ export default class TaggedLineStringSimplifier {
 			var worstCaseSize = depth + 1;
 			if (worstCaseSize < this.line.getMinimumSize()) isValidToSimplify = false;
 		}
-		var distance = [];
+		var distance = new Array(1);
 		var furthestPtIndex = this.findFurthestPoint(this.linePts, i, j, distance);
 		if (distance[0] > this.distanceTolerance) isValidToSimplify = false;
 		var candidateSeg = new LineSegment();
@@ -130,6 +130,9 @@ export default class TaggedLineStringSimplifier {
 			}
 		}
 		return false;
+	}
+	getClass() {
+		return TaggedLineStringSimplifier;
 	}
 }
 

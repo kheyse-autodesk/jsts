@@ -23,5 +23,8 @@ export default class CoordinateCountFilter {
 	getCount() {
 		return this.n;
 	}
+	getClass() {
+		return CoordinateCountFilter;
+	}
 }
 

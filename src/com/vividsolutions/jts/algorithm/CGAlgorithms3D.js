@@ -57,5 +57,8 @@ export default class CGAlgorithms3D {
 		var dz = p.z - qz;
 		return Math.sqrt(dx * dx + dy * dy + dz * dz);
 	}
+	getClass() {
+		return CGAlgorithms3D;
+	}
 }
 

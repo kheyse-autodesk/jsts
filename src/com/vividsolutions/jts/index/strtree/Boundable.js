@@ -3,5 +3,8 @@ export default class Boundable {
 		return [];
 	}
 	getBounds() {}
+	getClass() {
+		return Boundable;
+	}
 }
 

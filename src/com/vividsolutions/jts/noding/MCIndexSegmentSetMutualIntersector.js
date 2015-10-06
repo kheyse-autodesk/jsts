@@ -64,5 +64,8 @@ export default class MCIndexSegmentSetMutualIntersector {
 			}
 		}
 	}
+	getClass() {
+		return MCIndexSegmentSetMutualIntersector;
+	}
 }
 

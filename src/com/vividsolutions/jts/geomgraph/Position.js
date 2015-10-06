@@ -16,5 +16,8 @@ export default class Position {
 		if (position === Position.RIGHT) return Position.LEFT;
 		return position;
 	}
+	getClass() {
+		return Position;
+	}
 }
 

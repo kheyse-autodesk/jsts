@@ -14,5 +14,8 @@ export default class EdgeSetIntersector {
 	get interfaces_() {
 		return [];
 	}
+	getClass() {
+		return EdgeSetIntersector;
+	}
 }
 

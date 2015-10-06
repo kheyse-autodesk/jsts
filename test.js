@@ -1,7 +1,7 @@
 var Coordinate = require('com/vividsolutions/jts/geom/Coordinate')
 
 var c1 = new Coordinate(1, 1)
-/*var c2 = new Coordinate(1, 2)
+var c2 = new Coordinate(1, 2)
 var c3 = new Coordinate(3, 3)
 
 var GeometryFactory = require('com/vividsolutions/jts/geom/GeometryFactory')
@@ -14,7 +14,7 @@ var a1 = factory.createPolygon(r1)
 
 var RelateOp = require('com/vividsolutions/jts/operation/relate/RelateOp')
 var intersects = RelateOp.intersects(p1, a1)
-console.log(intersects)*/
+console.log(intersects)
 
 var GeometryFactory = require('com/vividsolutions/jts/geom/GeometryFactory')
 var factory = new GeometryFactory()
@@ -22,10 +22,10 @@ var factory = new GeometryFactory()
 var p1 = factory.createPoint(c1)
 
 var BufferOp = require('com/vividsolutions/jts/operation/buffer/BufferOp')
-var buffer = BufferOp.bufferOp(p1, 10)
+var buffer = BufferOp.bufferOp(l1, 10)
 console.log(buffer)
 
-/**
+
 var OverlayOp = require('com/vividsolutions/jts/operation/overlay/OverlayOp')
-var intersection = OverlayOp.intersection(p1, a1)
-console.log(intersection)*/
+var intersection = OverlayOp.intersection(l1, a1)
+console.log(intersection)

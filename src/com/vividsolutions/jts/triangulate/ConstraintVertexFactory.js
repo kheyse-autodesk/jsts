@@ -3,5 +3,8 @@ export default class ConstraintVertexFactory {
 		return [];
 	}
 	createVertex(p, constraintSeg) {}
+	getClass() {
+		return ConstraintVertexFactory;
+	}
 }
 

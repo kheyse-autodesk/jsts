@@ -23,5 +23,8 @@ export default class RelateNode extends Node {
 	computeIM(im) {
 		im.setAtLeastIfValid(this.label.getLocation(0), this.label.getLocation(1), 0);
 	}
+	getClass() {
+		return RelateNode;
+	}
 }
 

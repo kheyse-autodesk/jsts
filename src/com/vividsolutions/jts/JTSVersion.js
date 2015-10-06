@@ -46,5 +46,8 @@ export default class JTSVersion {
 		if (JTSVersion.releaseInfo !== null && JTSVersion.releaseInfo.length() > 0) return ver + " " + JTSVersion.releaseInfo;
 		return ver;
 	}
+	getClass() {
+		return JTSVersion;
+	}
 }
 

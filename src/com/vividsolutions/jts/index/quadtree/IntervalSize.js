@@ -14,5 +14,8 @@ export default class IntervalSize {
 		var level = DoubleBits.exponent(scaledInterval);
 		return level <= IntervalSize.MIN_BINARY_EXPONENT;
 	}
+	getClass() {
+		return IntervalSize;
+	}
 }
 

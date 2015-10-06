@@ -39,5 +39,8 @@ export default class ConstraintVertex extends Vertex {
 		this.isOnConstraint = true;
 		this.constraint = constraint;
 	}
+	getClass() {
+		return ConstraintVertex;
+	}
 }
 

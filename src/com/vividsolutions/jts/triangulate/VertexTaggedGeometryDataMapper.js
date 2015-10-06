@@ -61,5 +61,8 @@ export default class VertexTaggedGeometryDataMapper {
 			this.coordDataMap.put(pts[i], data);
 		}
 	}
+	getClass() {
+		return VertexTaggedGeometryDataMapper;
+	}
 }
 

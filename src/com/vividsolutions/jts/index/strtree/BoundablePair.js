@@ -83,5 +83,8 @@ export default class BoundablePair {
 		}
 		return this.boundable1.getBounds().distance(this.boundable2.getBounds());
 	}
+	getClass() {
+		return BoundablePair;
+	}
 }
 

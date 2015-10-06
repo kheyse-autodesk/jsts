@@ -100,5 +100,8 @@ export default class EdgeEnd {
 		this.quadrant = Quadrant.quadrant(this.dx, this.dy);
 		Assert.isTrue(!(this.dx === 0 && this.dy === 0), "EdgeEnd with identical endpoints found");
 	}
+	getClass() {
+		return EdgeEnd;
+	}
 }
 

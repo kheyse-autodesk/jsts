@@ -27,8 +27,8 @@ export default class CentralEndpointIntersector {
 		var avg = new Coordinate();
 		var n = pts.length;
 		for (var i = 0; i < pts.length; i++) {
-			avg.x += this.x;
-			avg.y += this.y;
+			avg.x += pts[i].x;
+			avg.y += pts[i].y;
 		}
 		if (n > 0) {
 			avg.x /= n;
@@ -71,6 +71,9 @@ export default class CentralEndpointIntersector {
 	}
 	getIntersection() {
 		return this.intPt;
+	}
+	getClass() {
+		return CentralEndpointIntersector;
 	}
 }
 

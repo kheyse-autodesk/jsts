@@ -3,5 +3,8 @@ export default class KdNodeVisitor {
 		return [];
 	}
 	visit(node) {}
+	getClass() {
+		return KdNodeVisitor;
+	}
 }
 

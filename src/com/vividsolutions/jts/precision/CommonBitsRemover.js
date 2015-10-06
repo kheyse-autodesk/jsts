@@ -38,5 +38,8 @@ export default class CommonBitsRemover {
 		geom.apply(this.ccFilter);
 		this.commonCoord = this.ccFilter.getCommonCoordinate();
 	}
+	getClass() {
+		return CommonBitsRemover;
+	}
 }
 

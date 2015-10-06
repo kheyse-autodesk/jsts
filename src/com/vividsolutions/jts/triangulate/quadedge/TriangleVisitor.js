@@ -3,5 +3,8 @@ export default class TriangleVisitor {
 		return [];
 	}
 	visit(triEdges) {}
+	getClass() {
+		return TriangleVisitor;
+	}
 }
 

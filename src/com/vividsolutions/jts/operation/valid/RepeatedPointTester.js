@@ -69,5 +69,8 @@ export default class RepeatedPointTester {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return RepeatedPointTester;
+	}
 }
 

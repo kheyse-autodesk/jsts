@@ -71,5 +71,8 @@ export default class GeometryCollectionIterator {
 		}
 		return true;
 	}
+	getClass() {
+		return GeometryCollectionIterator;
+	}
 }
 

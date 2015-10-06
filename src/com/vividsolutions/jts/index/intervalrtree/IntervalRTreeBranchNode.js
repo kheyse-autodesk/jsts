@@ -33,5 +33,8 @@ export default class IntervalRTreeBranchNode extends IntervalRTreeNode {
 		if (this.node1 !== null) this.node1.query(queryMin, queryMax, visitor);
 		if (this.node2 !== null) this.node2.query(queryMin, queryMax, visitor);
 	}
+	getClass() {
+		return IntervalRTreeBranchNode;
+	}
 }
 

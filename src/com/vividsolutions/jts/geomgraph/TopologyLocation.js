@@ -66,7 +66,7 @@ export default class TopologyLocation {
 	}
 	merge(gl) {
 		if (gl.location.length > this.location.length) {
-			var newLoc = [];
+			var newLoc = new Array(3);
 			newLoc[Position.ON] = this.location[Position.ON];
 			newLoc[Position.LEFT] = Location.NONE;
 			newLoc[Position.RIGHT] = Location.NONE;
@@ -128,7 +128,7 @@ export default class TopologyLocation {
 		return overloads.apply(this, args);
 	}
 	init(size) {
-		this.location = [];
+		this.location = new Array(size);
 		this.setAllLocations(Location.NONE);
 	}
 	isEqualOnSide(le, locIndex) {
@@ -139,6 +139,9 @@ export default class TopologyLocation {
 			if (this.location[i] !== loc) return false;
 		}
 		return true;
+	}
+	getClass() {
+		return TopologyLocation;
 	}
 }
 

@@ -29,5 +29,8 @@ export default class ShortCircuitedGeometryVisitor {
 			} else this.applyTo(element);
 		}
 	}
+	getClass() {
+		return ShortCircuitedGeometryVisitor;
+	}
 }
 

@@ -49,5 +49,8 @@ export default class EdgeString {
 	add(directedEdge) {
 		this.directedEdges.add(directedEdge);
 	}
+	getClass() {
+		return EdgeString;
+	}
 }
 

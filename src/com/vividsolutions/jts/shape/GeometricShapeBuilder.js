@@ -57,5 +57,8 @@ export default class GeometricShapeBuilder {
 		this.geomFactory.getPrecisionModel().makePrecise(pt);
 		return pt;
 	}
+	getClass() {
+		return GeometricShapeBuilder;
+	}
 }
 

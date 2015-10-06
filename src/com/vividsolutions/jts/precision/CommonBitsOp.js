@@ -55,7 +55,7 @@ export default class CommonBitsOp {
 						this.cbr = new CommonBitsRemover();
 						this.cbr.add(geom0);
 						this.cbr.add(geom1);
-						var geom = [];
+						var geom = new Array(2);
 						geom[0] = this.cbr.removeCommonBits(geom0.clone());
 						geom[1] = this.cbr.removeCommonBits(geom1.clone());
 						return geom;
@@ -75,6 +75,9 @@ export default class CommonBitsOp {
 	difference(geom0, geom1) {
 		var geom = this.removeCommonBits(geom0, geom1);
 		return this.computeResultPrecision(OverlayOp.difference(geom[0], geom[1]));
+	}
+	getClass() {
+		return CommonBitsOp;
 	}
 }
 

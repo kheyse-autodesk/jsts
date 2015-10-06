@@ -52,5 +52,8 @@ export default class AbstractNode {
 		}
 		return this.bounds;
 	}
+	getClass() {
+		return AbstractNode;
+	}
 }
 

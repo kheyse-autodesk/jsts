@@ -126,5 +126,8 @@ export default class SimpleSnapRounder {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return SimpleSnapRounder;
+	}
 }
 

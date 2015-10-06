@@ -21,11 +21,11 @@ export default class QuadEdgeSubdivision {
 			this.startingEdge = null;
 			this.tolerance = null;
 			this.edgeCoincidenceTolerance = null;
-			this.frameVertex = [];
+			this.frameVertex = new Array(3);
 			this.frameEnv = null;
 			this.locator = null;
 			this.seg = new LineSegment();
-			this.triEdges = [];
+			this.triEdges = new Array(3);
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -122,9 +122,9 @@ export default class QuadEdgeSubdivision {
 		return ea;
 	}
 	isFrameBorderEdge(e) {
-		var leftTri = [];
+		var leftTri = new Array(3);
 		QuadEdgeSubdivision.getTriangleEdges(e, leftTri);
-		var rightTri = [];
+		var rightTri = new Array(3);
 		QuadEdgeSubdivision.getTriangleEdges(e.sym(), rightTri);
 		var vLeftTriOther = e.lNext().dest();
 		if (this.isFrameVertex(vLeftTriOther)) return true;
@@ -221,7 +221,7 @@ export default class QuadEdgeSubdivision {
 					return ((...args) => {
 						let [geomFact] = args;
 						var quadEdges = this.getPrimaryEdges(false);
-						var edges = [];
+						var edges = new Array(quadEdges.size());
 						var i = 0;
 						for (var it = quadEdges.iterator(); it.hasNext(); ) {
 							var qe = it.next();
@@ -337,7 +337,7 @@ export default class QuadEdgeSubdivision {
 	}
 	getTriangles(geomFact) {
 		var triPtsList = this.getTriangleCoordinates(false);
-		var tris = [];
+		var tris = new Array(triPtsList.size());
 		var i = 0;
 		for (var it = triPtsList.iterator(); it.hasNext(); ) {
 			var triPt = it.next();
@@ -392,6 +392,9 @@ export default class QuadEdgeSubdivision {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return QuadEdgeSubdivision;
+	}
 }
 class TriangleCircumcentreVisitor {
 	constructor(...args) {
@@ -419,6 +422,9 @@ class TriangleCircumcentreVisitor {
 			triEdges[i].rot().setOrig(ccVertex);
 		}
 	}
+	getClass() {
+		return TriangleCircumcentreVisitor;
+	}
 }
 class TriangleEdgesListVisitor {
 	constructor(...args) {
@@ -435,6 +441,9 @@ class TriangleEdgesListVisitor {
 	visit(triEdges) {
 		this.triList.add(triEdges.clone());
 	}
+	getClass() {
+		return TriangleEdgesListVisitor;
+	}
 }
 class TriangleVertexListVisitor {
 	constructor(...args) {
@@ -450,6 +459,9 @@ class TriangleVertexListVisitor {
 	}
 	getTriangleVertices() {
 		return this.triList;
+	}
+	getClass() {
+		return TriangleVertexListVisitor;
 	}
 }
 class TriangleCoordinatesVisitor {
@@ -494,6 +506,9 @@ class TriangleCoordinatesVisitor {
 	}
 	getTriangles() {
 		return this.triCoords;
+	}
+	getClass() {
+		return TriangleCoordinatesVisitor;
 	}
 }
 

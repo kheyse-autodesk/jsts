@@ -79,5 +79,8 @@ export default class MCPointInRing {
 		}
 		return false;
 	}
+	getClass() {
+		return MCPointInRing;
+	}
 }
 

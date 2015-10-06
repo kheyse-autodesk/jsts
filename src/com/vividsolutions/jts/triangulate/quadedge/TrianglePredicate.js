@@ -105,5 +105,8 @@ export default class TrianglePredicate {
 		var t2 = DD.valueOf(b.y).selfSubtract(a.y).selfMultiply(DD.valueOf(c.x).selfSubtract(a.x));
 		return t1.selfSubtract(t2);
 	}
+	getClass() {
+		return TrianglePredicate;
+	}
 }
 

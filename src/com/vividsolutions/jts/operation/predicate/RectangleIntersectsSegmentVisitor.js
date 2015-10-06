@@ -57,5 +57,8 @@ export default class RectangleIntersectsSegmentVisitor extends ShortCircuitedGeo
 			}
 		}
 	}
+	getClass() {
+		return RectangleIntersectsSegmentVisitor;
+	}
 }
 

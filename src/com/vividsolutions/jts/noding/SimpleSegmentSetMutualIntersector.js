@@ -38,5 +38,8 @@ export default class SimpleSegmentSetMutualIntersector {
 			}
 		}
 	}
+	getClass() {
+		return SimpleSegmentSetMutualIntersector;
+	}
 }
 

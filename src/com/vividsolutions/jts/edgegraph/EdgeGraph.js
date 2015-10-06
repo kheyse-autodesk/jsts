@@ -64,5 +64,8 @@ export default class EdgeGraph {
 		if (e === null) return null;
 		return e.find(dest);
 	}
+	getClass() {
+		return EdgeGraph;
+	}
 }
 

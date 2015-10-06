@@ -6,7 +6,7 @@ export default class SegmentStringUtil {
 		return [];
 	}
 	static toGeometry(segStrings, geomFact) {
-		var lines = [];
+		var lines = new Array(segStrings.size());
 		var index = 0;
 		for (var i = segStrings.iterator(); i.hasNext(); ) {
 			var ss = i.next();
@@ -37,6 +37,9 @@ export default class SegmentStringUtil {
 			buf.append("\n");
 		}
 		return buf.toString();
+	}
+	getClass() {
+		return SegmentStringUtil;
 	}
 }
 

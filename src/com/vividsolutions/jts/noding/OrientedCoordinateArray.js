@@ -49,5 +49,8 @@ export default class OrientedCoordinateArray {
 		var comp = OrientedCoordinateArray.compareOriented(this.pts, this.orientation, oca.pts, oca.orientation);
 		return comp;
 	}
+	getClass() {
+		return OrientedCoordinateArray;
+	}
 }
 

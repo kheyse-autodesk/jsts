@@ -68,5 +68,8 @@ export default class SegmentStringDissolver {
 	add(oca, segString) {
 		this.ocaMap.put(oca, segString);
 	}
+	getClass() {
+		return SegmentStringDissolver;
+	}
 }
 

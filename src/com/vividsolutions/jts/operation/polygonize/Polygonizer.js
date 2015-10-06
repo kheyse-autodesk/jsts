@@ -182,5 +182,8 @@ export default class Polygonizer {
 			if (er.isHole()) this.holeList.add(er); else this.shellList.add(er);
 		}
 	}
+	getClass() {
+		return Polygonizer;
+	}
 }
 

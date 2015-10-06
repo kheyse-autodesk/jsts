@@ -35,5 +35,8 @@ export default class GeometryMapper {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return GeometryMapper;
+	}
 }
 

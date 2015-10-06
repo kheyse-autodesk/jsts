@@ -68,5 +68,8 @@ export default class KdNode {
 	setRight(_right) {
 		this.right = _right;
 	}
+	getClass() {
+		return KdNode;
+	}
 }
 

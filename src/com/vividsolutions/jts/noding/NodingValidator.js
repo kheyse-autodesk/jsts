@@ -130,5 +130,8 @@ export default class NodingValidator {
 	checkCollapse(p0, p1, p2) {
 		if (p0.equals(p2)) throw new RuntimeException("found non-noded collapse");
 	}
+	getClass() {
+		return NodingValidator;
+	}
 }
 

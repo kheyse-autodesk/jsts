@@ -23,5 +23,8 @@ export default class MinimalEdgeRing extends EdgeRing {
 	getNext(de) {
 		return de.getNextMin();
 	}
+	getClass() {
+		return MinimalEdgeRing;
+	}
 }
 

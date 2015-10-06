@@ -86,6 +86,9 @@ export default class SubgraphDepthLocater {
 		var ds = Collections.min(stabbedSegments);
 		return ds.leftDepth;
 	}
+	getClass() {
+		return SubgraphDepthLocater;
+	}
 }
 class DepthSegment {
 	constructor(...args) {
@@ -125,6 +128,9 @@ class DepthSegment {
 	}
 	toString() {
 		return this.upwardSeg.toString();
+	}
+	getClass() {
+		return DepthSegment;
 	}
 }
 

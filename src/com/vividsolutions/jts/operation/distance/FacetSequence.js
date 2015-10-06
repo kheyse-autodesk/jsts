@@ -112,5 +112,8 @@ export default class FacetSequence {
 		}
 		return this.computeLineLineDistance(facetSeq);
 	}
+	getClass() {
+		return FacetSequence;
+	}
 }
 

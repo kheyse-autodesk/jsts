@@ -69,5 +69,8 @@ export default class SweepLineEvent {
 	getDeleteEventIndex() {
 		return this.deleteEventIndex;
 	}
+	getClass() {
+		return SweepLineEvent;
+	}
 }
 

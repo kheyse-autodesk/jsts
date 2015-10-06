@@ -65,5 +65,8 @@ export default class ByteOrderValues {
 			return (buf[7] & 0xff) << 56 | (buf[6] & 0xff) << 48 | (buf[5] & 0xff) << 40 | (buf[4] & 0xff) << 32 | (buf[3] & 0xff) << 24 | (buf[2] & 0xff) << 16 | (buf[1] & 0xff) << 8 | buf[0] & 0xff;
 		}
 	}
+	getClass() {
+		return ByteOrderValues;
+	}
 }
 

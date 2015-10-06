@@ -3,5 +3,8 @@ export default class ItemVisitor {
 		return [];
 	}
 	visitItem(item) {}
+	getClass() {
+		return ItemVisitor;
+	}
 }
 

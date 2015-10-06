@@ -58,5 +58,8 @@ export default class OffsetPointGenerator {
 			offsetPts.add(offsetRight);
 		}
 	}
+	getClass() {
+		return OffsetPointGenerator;
+	}
 }
 

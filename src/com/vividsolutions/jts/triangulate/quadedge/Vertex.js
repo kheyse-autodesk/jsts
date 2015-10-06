@@ -235,5 +235,8 @@ export default class Vertex {
 		}
 		return radius / edgeLength;
 	}
+	getClass() {
+		return Vertex;
+	}
 }
 

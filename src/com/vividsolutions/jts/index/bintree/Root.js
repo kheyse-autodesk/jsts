@@ -45,5 +45,8 @@ export default class Root extends NodeBase {
 		if (isZeroArea) node = tree.find(itemInterval); else node = tree.getNode(itemInterval);
 		node.add(item);
 	}
+	getClass() {
+		return Root;
+	}
 }
 

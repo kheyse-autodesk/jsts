@@ -35,5 +35,8 @@ export default class LastFoundQuadEdgeLocator {
 		var edges = this.subdiv.getEdges();
 		return edges.iterator().next();
 	}
+	getClass() {
+		return LastFoundQuadEdgeLocator;
+	}
 }
 

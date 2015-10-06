@@ -58,5 +58,8 @@ export default class LinearRing extends LineString {
 	getGeometryType() {
 		return "LinearRing";
 	}
+	getClass() {
+		return LinearRing;
+	}
 }
 

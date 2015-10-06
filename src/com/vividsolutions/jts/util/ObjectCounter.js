@@ -28,6 +28,9 @@ export default class ObjectCounter {
 		var counter = this.counts.get(o);
 		if (counter === null) this.counts.put(o, new Counter(1)); else counter.increment();
 	}
+	getClass() {
+		return ObjectCounter;
+	}
 }
 class Counter {
 	constructor(...args) {
@@ -57,6 +60,9 @@ class Counter {
 	}
 	increment() {
 		this.count++;
+	}
+	getClass() {
+		return Counter;
 	}
 }
 

@@ -41,5 +41,8 @@ export default class GeometryLocation {
 	getSegmentIndex() {
 		return this.segIndex;
 	}
+	getClass() {
+		return GeometryLocation;
+	}
 }
 

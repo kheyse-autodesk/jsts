@@ -24,5 +24,8 @@ export default class CoordinateSequenceFactory {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return CoordinateSequenceFactory;
+	}
 }
 

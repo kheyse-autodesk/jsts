@@ -95,5 +95,8 @@ export default class DirectedEdgeStar {
 	getDegree() {
 		return this.outEdges.size();
 	}
+	getClass() {
+		return DirectedEdgeStar;
+	}
 }
 

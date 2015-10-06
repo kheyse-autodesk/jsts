@@ -41,12 +41,8 @@ export default class BufferBuilder {
 		return [];
 	}
 	static depthDelta(label) {
-	  // TODO: check here!!
-	  console.log(label);
 		var lLoc = label.getLocation(0, Position.LEFT);
 		var rLoc = label.getLocation(0, Position.RIGHT);
-		console.log(lLoc);
-		console.log(rLoc);
 		if (lLoc === Location.INTERIOR && rLoc === Location.EXTERIOR) return 1; else if (lLoc === Location.EXTERIOR && rLoc === Location.INTERIOR) return -1;
 		return 0;
 	}
@@ -84,7 +80,6 @@ export default class BufferBuilder {
 	}
 	buildSubgraphs(subgraphList, polyBuilder) {
 		var processedGraphs = new ArrayList();
-		
 		for (var i = subgraphList.iterator(); i.hasNext(); ) {
 			var subgraph = i.next();
 			var p = subgraph.getRightmostCoordinate();
@@ -135,8 +130,6 @@ export default class BufferBuilder {
 		this.graph = new PlanarGraph(new OverlayNodeFactory());
 		this.graph.addEdges(this.edgeList.getEdges());
 		var subgraphList = this.createSubgraphs(this.graph);
-		
-		
 		var polyBuilder = new PolygonBuilder(this.geomFact);
 		this.buildSubgraphs(subgraphList, polyBuilder);
 		var resultPolyList = polyBuilder.getPolygons();
@@ -161,6 +154,9 @@ export default class BufferBuilder {
 	}
 	setNoder(noder) {
 		this.workingNoder = noder;
+	}
+	getClass() {
+		return BufferBuilder;
 	}
 }
 

@@ -61,5 +61,8 @@ export default class GraphComponent {
 	setContext(data) {
 		this.data = data;
 	}
+	getClass() {
+		return GraphComponent;
+	}
 }
 

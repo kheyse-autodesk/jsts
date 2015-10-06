@@ -81,5 +81,8 @@ export default class NodeMap {
 		var n = this.addNode(p);
 		n.add(e);
 	}
+	getClass() {
+		return NodeMap;
+	}
 }
 

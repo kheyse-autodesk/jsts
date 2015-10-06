@@ -362,5 +362,8 @@ export default class IsValidOp {
 			}
 		}
 	}
+	getClass() {
+		return IsValidOp;
+	}
 }
 

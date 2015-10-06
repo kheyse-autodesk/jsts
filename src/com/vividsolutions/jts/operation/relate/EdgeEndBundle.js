@@ -98,5 +98,8 @@ export default class EdgeEndBundle extends EdgeEnd {
 			if (isArea) this.computeLabelSides(i);
 		}
 	}
+	getClass() {
+		return EdgeEndBundle;
+	}
 }
 

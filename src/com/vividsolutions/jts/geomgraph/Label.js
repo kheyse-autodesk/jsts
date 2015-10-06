@@ -4,7 +4,7 @@ import TopologyLocation from 'com/vividsolutions/jts/geomgraph/TopologyLocation'
 export default class Label {
 	constructor(...args) {
 		(() => {
-			this.elt = [];
+			this.elt = new Array(2);
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -175,7 +175,10 @@ export default class Label {
 		return this.elt[geomIndex].allPositionsEqual(loc);
 	}
 	toLine(geomIndex) {
-		if (this.elt[geomIndex].isArea()) this.elt[geomIndex] = new TopologyLocation(this.location[0]);
+		if (this.elt[geomIndex].isArea()) this.elt[geomIndex] = new TopologyLocation(this.elt[geomIndex].location[0]);
+	}
+	getClass() {
+		return Label;
 	}
 }
 

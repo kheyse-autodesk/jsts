@@ -38,6 +38,9 @@ export default class IndexedPointInAreaLocator {
 		this.index.query(p.y, p.y, visitor);
 		return rcc.getLocation();
 	}
+	getClass() {
+		return IndexedPointInAreaLocator;
+	}
 }
 class SegmentVisitor {
 	constructor(...args) {
@@ -61,6 +64,9 @@ class SegmentVisitor {
 	visitItem(item) {
 		var seg = item;
 		this.counter.countSegment(seg.getCoordinate(0), seg.getCoordinate(1));
+	}
+	getClass() {
+		return SegmentVisitor;
 	}
 }
 class IntervalIndexedGeometry {
@@ -116,6 +122,9 @@ class IntervalIndexedGeometry {
 			}
 		};
 		return overloads.apply(this, args);
+	}
+	getClass() {
+		return IntervalIndexedGeometry;
 	}
 }
 

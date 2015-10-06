@@ -55,6 +55,9 @@ export default class LineSegmentIndex {
 		var itemsFound = visitor.getItems();
 		return itemsFound;
 	}
+	getClass() {
+		return LineSegmentIndex;
+	}
 }
 class LineSegmentVisitor {
 	constructor(...args) {
@@ -82,6 +85,9 @@ class LineSegmentVisitor {
 	}
 	getItems() {
 		return this.items;
+	}
+	getClass() {
+		return LineSegmentVisitor;
 	}
 }
 

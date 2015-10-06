@@ -8,5 +8,8 @@ export default class OverlayNodeFactory extends NodeFactory {
 	createNode(coord) {
 		return new Node(coord, new DirectedEdgeStar());
 	}
+	getClass() {
+		return OverlayNodeFactory;
+	}
 }
 

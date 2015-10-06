@@ -76,5 +76,8 @@ export default class EdgeEndBuilder {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return EdgeEndBuilder;
+	}
 }
 

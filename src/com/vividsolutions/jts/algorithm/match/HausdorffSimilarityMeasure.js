@@ -34,5 +34,8 @@ export default class HausdorffSimilarityMeasure {
 		var measure = 1 - distance / envSize;
 		return measure;
 	}
+	getClass() {
+		return HausdorffSimilarityMeasure;
+	}
 }
 

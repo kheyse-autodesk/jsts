@@ -52,5 +52,8 @@ export default class Octant {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return Octant;
+	}
 }
 

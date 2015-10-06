@@ -50,5 +50,8 @@ export default class GeometryExtracter {
 	filter(geom) {
 		if (this.clz === null || GeometryExtracter.isOfClass(geom, this.clz)) this.comps.add(geom);
 	}
+	getClass() {
+		return GeometryExtracter;
+	}
 }
 

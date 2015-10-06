@@ -70,5 +70,8 @@ export default class SortedPackedIntervalRTree {
 			}
 		}
 	}
+	getClass() {
+		return SortedPackedIntervalRTree;
+	}
 }
 

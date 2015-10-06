@@ -31,5 +31,8 @@ export default class LineMergeGraph extends PlanarGraph {
 		}
 		return node;
 	}
+	getClass() {
+		return LineMergeGraph;
+	}
 }
 

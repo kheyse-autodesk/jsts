@@ -3,5 +3,8 @@ export default class SimilarityMeasure {
 		return [];
 	}
 	measure(g1, g2) {}
+	getClass() {
+		return SimilarityMeasure;
+	}
 }
 

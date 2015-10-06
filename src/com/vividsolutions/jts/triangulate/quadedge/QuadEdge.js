@@ -150,5 +150,8 @@ export default class QuadEdge {
 	setNext(next) {
 		this.next = next;
 	}
+	getClass() {
+		return QuadEdge;
+	}
 }
 

@@ -62,13 +62,16 @@ export default class SimpleMinimumClearance {
 	}
 	compute() {
 		if (this.minClearancePts !== null) return null;
-		this.minClearancePts = [];
+		this.minClearancePts = new Array(2);
 		this.minClearance = Double.MAX_VALUE;
 		this.inputGeom.apply(new VertexCoordinateFilter());
 	}
 	getDistance() {
 		this.compute();
 		return this.minClearance;
+	}
+	getClass() {
+		return SimpleMinimumClearance;
 	}
 }
 

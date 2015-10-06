@@ -111,5 +111,8 @@ export default class RelateOp extends GeometryGraphOperation {
 	getIntersectionMatrix() {
 		return this.relate.computeIM();
 	}
+	getClass() {
+		return RelateOp;
+	}
 }
 

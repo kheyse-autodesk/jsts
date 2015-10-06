@@ -50,5 +50,8 @@ export default class SegmentNode {
 	isInterior() {
 		return this.interior;
 	}
+	getClass() {
+		return SegmentNode;
+	}
 }
 

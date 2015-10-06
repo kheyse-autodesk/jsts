@@ -31,7 +31,7 @@ export default class DistanceOp {
 				case 3:
 					return ((...args) => {
 						let [g0, g1, terminateDistance] = args;
-						this.geom = [];
+						this.geom = new Array(2);
 						this.geom[0] = g0;
 						this.geom[1] = g1;
 						this.terminateDistance = terminateDistance;
@@ -65,7 +65,7 @@ export default class DistanceOp {
 				case 0:
 					return ((...args) => {
 						let [] = args;
-						var locPtPoly = [];
+						var locPtPoly = new Array(2);
 						this.computeContainmentDistance(0, locPtPoly);
 						if (this.minDistance <= this.terminateDistance) return null;
 						this.computeContainmentDistance(1, locPtPoly);
@@ -125,7 +125,7 @@ export default class DistanceOp {
 		}
 	}
 	computeFacetDistance() {
-		var locGeom = [];
+		var locGeom = new Array(2);
 		var lines0 = LinearComponentExtracter.getLines(this.geom[0]);
 		var lines1 = LinearComponentExtracter.getLines(this.geom[1]);
 		var pts0 = PointExtracter.getPoints(this.geom[0]);
@@ -180,7 +180,7 @@ export default class DistanceOp {
 					return ((...args) => {
 						let [] = args;
 						if (this.minDistanceLocation !== null) return null;
-						this.minDistanceLocation = [];
+						this.minDistanceLocation = new Array(2);
 						this.computeContainmentDistance();
 						if (this.minDistance <= this.terminateDistance) return null;
 						this.computeFacetDistance();
@@ -260,6 +260,9 @@ export default class DistanceOp {
 				if (this.minDistance <= this.terminateDistance) return null;
 			}
 		}
+	}
+	getClass() {
+		return DistanceOp;
 	}
 }
 

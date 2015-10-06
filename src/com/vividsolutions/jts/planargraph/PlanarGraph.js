@@ -138,5 +138,8 @@ export default class PlanarGraph {
 	getNodes() {
 		return this.nodeMap.values();
 	}
+	getClass() {
+		return PlanarGraph;
+	}
 }
 

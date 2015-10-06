@@ -179,5 +179,8 @@ export default class EdgeEndStar {
 		this.edgeMap.put(e, obj);
 		this.edgeList = null;
 	}
+	getClass() {
+		return EdgeEndStar;
+	}
 }
 

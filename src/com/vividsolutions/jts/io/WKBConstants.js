@@ -15,5 +15,8 @@ export default class WKBConstants {
 	get interfaces_() {
 		return [];
 	}
+	getClass() {
+		return WKBConstants;
+	}
 }
 

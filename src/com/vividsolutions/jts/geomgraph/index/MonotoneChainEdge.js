@@ -30,13 +30,13 @@ export default class MonotoneChainEdge {
 		return this.pts;
 	}
 	getMaxX(chainIndex) {
-		var x1 = this.x;
-		var x2 = this.x;
+		var x1 = this.pts[this.startIndex[chainIndex]].x;
+		var x2 = this.pts[this.startIndex[chainIndex + 1]].x;
 		return x1 > x2 ? x1 : x2;
 	}
 	getMinX(chainIndex) {
-		var x1 = this.x;
-		var x2 = this.x;
+		var x1 = this.pts[this.startIndex[chainIndex]].x;
+		var x2 = this.pts[this.startIndex[chainIndex + 1]].x;
 		return x1 < x2 ? x1 : x2;
 	}
 	computeIntersectsForChain(...args) {
@@ -85,6 +85,9 @@ export default class MonotoneChainEdge {
 				this.computeIntersectsForChain(i, mce, j, si);
 			}
 		}
+	}
+	getClass() {
+		return MonotoneChainEdge;
 	}
 }
 

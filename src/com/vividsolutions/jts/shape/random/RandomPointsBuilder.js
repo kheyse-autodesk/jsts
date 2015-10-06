@@ -31,7 +31,7 @@ export default class RandomPointsBuilder extends GeometricShapeBuilder {
 		return [];
 	}
 	getGeometry() {
-		var pts = [];
+		var pts = new Array(this.numPts);
 		var i = 0;
 		while (i < this.numPts) {
 			var p = this.createRandomCoord(this.getExtent());
@@ -59,6 +59,9 @@ export default class RandomPointsBuilder extends GeometricShapeBuilder {
 		var pt = new Coordinate(x, y);
 		this.geomFactory.getPrecisionModel().makePrecise(pt);
 		return pt;
+	}
+	getClass() {
+		return RandomPointsBuilder;
 	}
 }
 

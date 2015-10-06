@@ -36,5 +36,8 @@ export default class NonEncroachingSplitPointFinder {
 		splitSeg.splitAt(projPt);
 		return splitSeg.getSplitPoint();
 	}
+	getClass() {
+		return NonEncroachingSplitPointFinder;
+	}
 }
 

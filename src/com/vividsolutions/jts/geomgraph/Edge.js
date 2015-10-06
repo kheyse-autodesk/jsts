@@ -50,7 +50,7 @@ export default class Edge extends GraphComponent {
 		return this.depth;
 	}
 	getCollapsedEdge() {
-		var newPts = [];
+		var newPts = new Array(2);
 		newPts[0] = this.pts[0];
 		newPts[1] = this.pts[1];
 		var newe = new Edge(newPts, Label.toLineLabel(this.label));
@@ -109,7 +109,7 @@ export default class Edge extends GraphComponent {
 		out.print("LINESTRING (");
 		for (var i = 0; i < this.pts.length; i++) {
 			if (i > 0) out.print(",");
-			out.print(this.x + " " + this.y);
+			out.print(this.pts[i].x + " " + this.pts[i].y);
 		}
 		out.print(")  " + this.label + " " + this.depthDelta);
 	}
@@ -174,7 +174,7 @@ export default class Edge extends GraphComponent {
 		buf.append("LINESTRING (");
 		for (var i = 0; i < this.pts.length; i++) {
 			if (i > 0) buf.append(",");
-			buf.append(this.x + " " + this.y);
+			buf.append(this.pts[i].x + " " + this.pts[i].y);
 		}
 		buf.append(")  " + this.label + " " + this.depthDelta);
 		return buf.toString();
@@ -198,6 +198,9 @@ export default class Edge extends GraphComponent {
 		for (var i = 0; i < li.getIntersectionNum(); i++) {
 			this.addIntersection(li, segmentIndex, geomIndex, i);
 		}
+	}
+	getClass() {
+		return Edge;
 	}
 }
 

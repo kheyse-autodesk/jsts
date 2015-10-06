@@ -57,5 +57,8 @@ export default class Stopwatch {
 		this.startTimestamp = System.currentTimeMillis();
 		this.isRunning = true;
 	}
+	getClass() {
+		return Stopwatch;
+	}
 }
 

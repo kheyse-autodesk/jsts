@@ -45,5 +45,8 @@ export default class MarkHalfEdge extends HalfEdge {
 	isMarked() {
 		return this.isMarked;
 	}
+	getClass() {
+		return MarkHalfEdge;
+	}
 }
 

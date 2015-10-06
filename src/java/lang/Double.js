@@ -1,2 +1,5 @@
-export default class Double {}
-Double.isNaN = n => Number.isNaN(n)
+export default class Double {
+  static isNaN(n) {
+    return Number.isNaN(n)
+  }
+}

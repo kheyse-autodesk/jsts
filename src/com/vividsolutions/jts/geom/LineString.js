@@ -229,5 +229,8 @@ export default class LineString extends Geometry {
 	getPointN(n) {
 		return this.getFactory().createPoint(this.points.getCoordinate(n));
 	}
+	getClass() {
+		return LineString;
+	}
 }
 

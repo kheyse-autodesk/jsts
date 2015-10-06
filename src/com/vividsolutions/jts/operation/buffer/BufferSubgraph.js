@@ -61,10 +61,8 @@ export default class BufferSubgraph {
 		var de = this.finder.getEdge();
 		var n = de.getNode();
 		var label = de.getLabel();
-		//console.log(outsideDepth)
 		de.setEdgeDepths(Position.RIGHT, outsideDepth);
 		this.copySymDepths(de);
-		//console.log(de.getDepth(Position.RIGHT))
 		this.computeDepths(de);
 	}
 	create(node) {
@@ -75,7 +73,6 @@ export default class BufferSubgraph {
 	findResultEdges() {
 		for (var it = this.dirEdgeList.iterator(); it.hasNext(); ) {
 			var de = it.next();
-			//console.log(de.getDepth(Position.RIGHT))
 			if (de.getDepth(Position.RIGHT) >= 1 && de.getDepth(Position.LEFT) <= 0 && !de.isInteriorAreaEdge()) {
 				de.setInResult(true);
 			}
@@ -106,10 +103,10 @@ export default class BufferSubgraph {
 	}
 	compareTo(o) {
 		var graph = o;
-		if (this.x < graph.rightMostCoord.x) {
+		if (this.rightMostCoord.x < graph.rightMostCoord.x) {
 			return -1;
 		}
-		if (this.x > graph.rightMostCoord.x) {
+		if (this.rightMostCoord.x > graph.rightMostCoord.x) {
 			return 1;
 		}
 		return 0;
@@ -157,6 +154,9 @@ export default class BufferSubgraph {
 	}
 	getDirectedEdges() {
 		return this.dirEdgeList;
+	}
+	getClass() {
+		return BufferSubgraph;
 	}
 }
 

@@ -4,6 +4,7 @@ import Geometry from 'com/vividsolutions/jts/geom/Geometry';
 import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
 import Collection from 'java/util/Collection';
 import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import Integer from 'java/lang/Integer';
 import LineMergeGraph from 'com/vividsolutions/jts/operation/linemerge/LineMergeGraph';
 import LinkedList from 'java/util/LinkedList';
 import ArrayList from 'java/util/ArrayList';
@@ -78,7 +79,7 @@ export default class LineSequencer {
 	}
 	static reverse(line) {
 		var pts = line.getCoordinates();
-		var revPts = [];
+		var revPts = new Array(pts.length);
 		var len = pts.length;
 		for (var i = 0; i < len; i++) {
 			revPts[len - 1 - i] = new Coordinate(pts[i]);
@@ -209,7 +210,7 @@ export default class LineSequencer {
 				lines.add(lineToAdd);
 			}
 		}
-		if (lines.size() === 0) return this.factory.createMultiLineString([]);
+		if (lines.size() === 0) return this.factory.createMultiLineString(new Array(0));
 		return this.factory.buildGeometry(lines);
 	}
 	getSequencedLineStrings() {
@@ -247,6 +248,9 @@ export default class LineSequencer {
 			}
 		};
 		return overloads.apply(this, args);
+	}
+	getClass() {
+		return LineSequencer;
 	}
 }
 

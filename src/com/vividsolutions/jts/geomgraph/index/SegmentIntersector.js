@@ -88,7 +88,7 @@ export default class SegmentIntersector {
 		return overloads.apply(this, args);
 	}
 	setBoundaryNodes(bdyNodes0, bdyNodes1) {
-		this.bdyNodes = [];
+		this.bdyNodes = new Array(2);
 		this.bdyNodes[0] = bdyNodes0;
 		this.bdyNodes[1] = bdyNodes1;
 	}
@@ -119,6 +119,9 @@ export default class SegmentIntersector {
 				}
 			}
 		}
+	}
+	getClass() {
+		return SegmentIntersector;
 	}
 }
 

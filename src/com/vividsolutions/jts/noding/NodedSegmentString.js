@@ -116,5 +116,8 @@ export default class NodedSegmentString {
 			this.addIntersection(li, segmentIndex, geomIndex, i);
 		}
 	}
+	getClass() {
+		return NodedSegmentString;
+	}
 }
 

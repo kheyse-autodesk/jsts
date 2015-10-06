@@ -19,5 +19,8 @@ export default class SpatialIndex {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return SpatialIndex;
+	}
 }
 

@@ -25,5 +25,8 @@ export default class SinglePassNoder {
 	setSegmentIntersector(segInt) {
 		this.segInt = segInt;
 	}
+	getClass() {
+		return SinglePassNoder;
+	}
 }
 

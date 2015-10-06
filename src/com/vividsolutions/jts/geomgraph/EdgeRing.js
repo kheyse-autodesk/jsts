@@ -37,7 +37,7 @@ export default class EdgeRing {
 	}
 	computeRing() {
 		if (this.ring !== null) return null;
-		var coord = [];
+		var coord = new Array(this.pts.size());
 		for (var i = 0; i < this.pts.size(); i++) {
 			coord[i] = this.pts.get(i);
 		}
@@ -165,12 +165,15 @@ export default class EdgeRing {
 		if (shell !== null) shell.addHole(this);
 	}
 	toPolygon(geometryFactory) {
-		var holeLR = [];
+		var holeLR = new Array(this.holes.size());
 		for (var i = 0; i < this.holes.size(); i++) {
 			holeLR[i] = this.holes.get(i).getLinearRing();
 		}
 		var poly = geometryFactory.createPolygon(this.getLinearRing(), holeLR);
 		return poly;
+	}
+	getClass() {
+		return EdgeRing;
 	}
 }
 

@@ -112,5 +112,8 @@ export default class EnhancedPrecisionOp {
 			} else throw ex2;
 		} finally {}
 	}
+	getClass() {
+		return EnhancedPrecisionOp;
+	}
 }
 

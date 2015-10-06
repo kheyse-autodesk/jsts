@@ -126,5 +126,8 @@ export default class BufferResultValidator {
 	getErrorMessage() {
 		return this.errorMsg;
 	}
+	getClass() {
+		return BufferResultValidator;
+	}
 }
 

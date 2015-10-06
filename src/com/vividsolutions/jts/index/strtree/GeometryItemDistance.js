@@ -9,5 +9,8 @@ export default class GeometryItemDistance {
 		var g2 = item2.getItem();
 		return DistanceOp.distance(g1, g2);
 	}
+	getClass() {
+		return GeometryItemDistance;
+	}
 }
 

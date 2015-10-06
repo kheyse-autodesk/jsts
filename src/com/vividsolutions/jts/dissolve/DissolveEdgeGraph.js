@@ -7,5 +7,8 @@ export default class DissolveEdgeGraph extends EdgeGraph {
 	createEdge(p0) {
 		return new DissolveHalfEdge(p0);
 	}
+	getClass() {
+		return DissolveEdgeGraph;
+	}
 }
 

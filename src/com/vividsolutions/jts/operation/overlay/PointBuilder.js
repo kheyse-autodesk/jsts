@@ -46,5 +46,8 @@ export default class PointBuilder {
 		this.extractNonCoveredResultNodes(opCode);
 		return this.resultPointList;
 	}
+	getClass() {
+		return PointBuilder;
+	}
 }
 

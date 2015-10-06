@@ -57,7 +57,7 @@ export default class RandomPointsInGridBuilder extends GeometricShapeBuilder {
 		var cellFrac = 1.0 - gutterFrac;
 		var cellDX = cellFrac * gridDX;
 		var cellDY = cellFrac * gridDY;
-		var pts = [];
+		var pts = new Array(nCells * nCells);
 		var index = 0;
 		for (var i = 0; i < nCells; i++) {
 			for (var j = 0; j < nCells; j++) {
@@ -78,6 +78,9 @@ export default class RandomPointsInGridBuilder extends GeometricShapeBuilder {
 		var x = orgX + xLen * Math.random();
 		var y = orgY + yLen * Math.random();
 		return this.createCoord(x, y);
+	}
+	getClass() {
+		return RandomPointsInGridBuilder;
 	}
 }
 

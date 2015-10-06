@@ -42,9 +42,9 @@ export default class CentroidArea {
 		for (var i = 0; i < pts.length - 1; i++) {
 			var segmentLen = pts[i].distance(pts[i + 1]);
 			this.totalLength += segmentLen;
-			var midx = (this.x + this.x) / 2;
+			var midx = (pts[i].x + pts[i + 1].x) / 2;
 			this.centSum.x += segmentLen * midx;
-			var midy = (this.y + this.y) / 2;
+			var midy = (pts[i].y + pts[i + 1].y) / 2;
 			this.centSum.y += segmentLen * midy;
 		}
 	}
@@ -117,6 +117,9 @@ export default class CentroidArea {
 			}
 		};
 		return overloads.apply(this, args);
+	}
+	getClass() {
+		return CentroidArea;
 	}
 }
 

@@ -118,5 +118,8 @@ export default class BufferParameters {
 	setSingleSided(isSingleSided) {
 		this.isSingleSided = isSingleSided;
 	}
+	getClass() {
+		return BufferParameters;
+	}
 }
 

@@ -176,5 +176,8 @@ export default class CascadedPolygonUnion {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return CascadedPolygonUnion;
+	}
 }
 

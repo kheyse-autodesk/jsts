@@ -47,5 +47,8 @@ export default class Root extends NodeBase {
 		if (isZeroX || isZeroY) node = tree.find(itemEnv); else node = tree.getNode(itemEnv);
 		node.add(item);
 	}
+	getClass() {
+		return Root;
+	}
 }
 

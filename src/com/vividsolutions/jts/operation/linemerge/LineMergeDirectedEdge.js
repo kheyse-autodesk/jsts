@@ -28,5 +28,8 @@ export default class LineMergeDirectedEdge extends DirectedEdge {
 		Assert.isTrue(this.getToNode().getOutEdges().getEdges().get(1) === this.getSym());
 		return this.getToNode().getOutEdges().getEdges().get(0);
 	}
+	getClass() {
+		return LineMergeDirectedEdge;
+	}
 }
 

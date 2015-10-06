@@ -47,6 +47,9 @@ export default class BufferCurveMaximumDistanceFinder {
 	getDistancePoints() {
 		return this.maxPtDist;
 	}
+	getClass() {
+		return BufferCurveMaximumDistanceFinder;
+	}
 }
 class MaxPointDistanceFilter {
 	constructor(...args) {
@@ -76,6 +79,9 @@ class MaxPointDistanceFilter {
 	}
 	getMaxPointDistance() {
 		return this.maxPtDist;
+	}
+	getClass() {
+		return MaxPointDistanceFilter;
 	}
 }
 class MaxMidpointDistanceFilter {
@@ -116,6 +122,9 @@ class MaxMidpointDistanceFilter {
 	}
 	getMaxPointDistance() {
 		return this.maxPtDist;
+	}
+	getClass() {
+		return MaxMidpointDistanceFilter;
 	}
 }
 

@@ -3,5 +3,8 @@ export default class InStream {
 		return [];
 	}
 	read(buf) {}
+	getClass() {
+		return InStream;
+	}
 }
 

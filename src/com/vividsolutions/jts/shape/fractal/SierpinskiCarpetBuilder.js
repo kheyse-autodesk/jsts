@@ -61,5 +61,8 @@ export default class SierpinskiCarpetBuilder extends GeometricShapeBuilder {
 		var shell = this.geomFactory.toGeometry(this.getSquareExtent()).getExteriorRing();
 		return this.geomFactory.createPolygon(shell, holes);
 	}
+	getClass() {
+		return SierpinskiCarpetBuilder;
+	}
 }
 

@@ -50,5 +50,8 @@ export default class FacetSequenceTreeBuilder {
 		tree.build();
 		return tree;
 	}
+	getClass() {
+		return FacetSequenceTreeBuilder;
+	}
 }
 

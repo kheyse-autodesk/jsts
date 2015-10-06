@@ -62,5 +62,8 @@ export default class SimpleEdgeSetIntersector extends EdgeSetIntersector {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return SimpleEdgeSetIntersector;
+	}
 }
 

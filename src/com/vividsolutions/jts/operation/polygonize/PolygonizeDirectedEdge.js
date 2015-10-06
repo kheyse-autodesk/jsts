@@ -42,5 +42,8 @@ export default class PolygonizeDirectedEdge extends DirectedEdge {
 	getRing() {
 		return this.edgeRing;
 	}
+	getClass() {
+		return PolygonizeDirectedEdge;
+	}
 }
 

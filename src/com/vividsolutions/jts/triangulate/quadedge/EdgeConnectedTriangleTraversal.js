@@ -52,5 +52,8 @@ export default class EdgeConnectedTriangleTraversal {
 			this.process(tri, visitor);
 		}
 	}
+	getClass() {
+		return EdgeConnectedTriangleTraversal;
+	}
 }
 

@@ -35,5 +35,8 @@ export default class VWSimplifier {
 		if (distanceTolerance < 0.0) throw new IllegalArgumentException("Tolerance must be non-negative");
 		this.distanceTolerance = distanceTolerance;
 	}
+	getClass() {
+		return VWSimplifier;
+	}
 }
 

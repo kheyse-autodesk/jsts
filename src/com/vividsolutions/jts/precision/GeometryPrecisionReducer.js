@@ -88,5 +88,8 @@ export default class GeometryPrecisionReducer {
 		var geomEdit = new GeometryEditor(newFactory);
 		return geomEdit;
 	}
+	getClass() {
+		return GeometryPrecisionReducer;
+	}
 }
 

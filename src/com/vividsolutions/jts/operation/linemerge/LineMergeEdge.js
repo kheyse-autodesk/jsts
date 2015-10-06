@@ -22,5 +22,8 @@ export default class LineMergeEdge extends Edge {
 	getLine() {
 		return this.line;
 	}
+	getClass() {
+		return LineMergeEdge;
+	}
 }
 

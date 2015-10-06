@@ -148,5 +148,8 @@ export default class NonRobustLineIntersector extends LineIntersector {
 		}
 		return LineIntersector.POINT_INTERSECTION;
 	}
+	getClass() {
+		return NonRobustLineIntersector;
+	}
 }
 

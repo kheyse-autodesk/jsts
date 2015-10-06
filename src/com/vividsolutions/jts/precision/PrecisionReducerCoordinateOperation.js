@@ -26,7 +26,7 @@ export default class PrecisionReducerCoordinateOperation extends CoordinateOpera
 	}
 	edit(coordinates, geom) {
 		if (coordinates.length === 0) return null;
-		var reducedCoords = [];
+		var reducedCoords = new Array(coordinates.length);
 		for (var i = 0; i < coordinates.length; i++) {
 			var coord = new Coordinate(coordinates[i]);
 			this.targetPM.makePrecise(coord);
@@ -43,6 +43,9 @@ export default class PrecisionReducerCoordinateOperation extends CoordinateOpera
 			return collapsedCoords;
 		}
 		return noRepeatedCoords;
+	}
+	getClass() {
+		return PrecisionReducerCoordinateOperation;
 	}
 }
 

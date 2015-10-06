@@ -172,6 +172,9 @@ export default class IsSimpleOp {
 		}
 		return true;
 	}
+	getClass() {
+		return IsSimpleOp;
+	}
 }
 class EndpointInfo {
 	constructor(...args) {
@@ -202,6 +205,9 @@ class EndpointInfo {
 	}
 	getCoordinate() {
 		return this.pt;
+	}
+	getClass() {
+		return EndpointInfo;
 	}
 }
 

@@ -62,5 +62,8 @@ export default class Assert {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return Assert;
+	}
 }
 

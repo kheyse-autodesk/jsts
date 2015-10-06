@@ -49,5 +49,8 @@ export default class SimpleNestedRingTester {
 	add(ring) {
 		this.rings.add(ring);
 	}
+	getClass() {
+		return SimpleNestedRingTester;
+	}
 }
 

@@ -21,5 +21,8 @@ export default class OutputStreamOutStream {
 	write(buf, len) {
 		this.os.write(buf, 0, len);
 	}
+	getClass() {
+		return OutputStreamOutStream;
+	}
 }
 

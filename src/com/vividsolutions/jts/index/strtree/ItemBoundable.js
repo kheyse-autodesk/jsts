@@ -27,5 +27,8 @@ export default class ItemBoundable {
 	getBounds() {
 		return this.bounds;
 	}
+	getClass() {
+		return ItemBoundable;
+	}
 }
 

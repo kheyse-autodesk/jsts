@@ -159,7 +159,7 @@ export default class GeometryGraph extends PlanarGraph {
 	}
 	getBoundaryPoints() {
 		var coll = this.getBoundaryNodes();
-		var pts = [];
+		var pts = new Array(coll.size());
 		var i = 0;
 		for (var it = coll.iterator(); it.hasNext(); ) {
 			var node = it.next();
@@ -236,6 +236,9 @@ export default class GeometryGraph extends PlanarGraph {
 	}
 	findEdge(line) {
 		return this.lineEdgeMap.get(line);
+	}
+	getClass() {
+		return GeometryGraph;
 	}
 }
 

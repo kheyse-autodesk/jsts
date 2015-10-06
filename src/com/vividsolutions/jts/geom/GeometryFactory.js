@@ -64,39 +64,39 @@ export default class GeometryFactory {
 		return -6820524753094095635;
 	}
 	static toMultiPolygonArray(multiPolygons) {
-		var multiPolygonArray = [];
+		var multiPolygonArray = new Array(multiPolygons.size());
 		return multiPolygons.toArray(multiPolygonArray);
 	}
 	static toGeometryArray(geometries) {
 		if (geometries === null) return null;
-		var geometryArray = [];
+		var geometryArray = new Array(geometries.size());
 		return geometries.toArray(geometryArray);
 	}
 	static getDefaultCoordinateSequenceFactory() {
 		return CoordinateArraySequenceFactory.instance();
 	}
 	static toMultiLineStringArray(multiLineStrings) {
-		var multiLineStringArray = [];
+		var multiLineStringArray = new Array(multiLineStrings.size());
 		return multiLineStrings.toArray(multiLineStringArray);
 	}
 	static toLineStringArray(lineStrings) {
-		var lineStringArray = [];
+		var lineStringArray = new Array(lineStrings.size());
 		return lineStrings.toArray(lineStringArray);
 	}
 	static toMultiPointArray(multiPoints) {
-		var multiPointArray = [];
+		var multiPointArray = new Array(multiPoints.size());
 		return multiPoints.toArray(multiPointArray);
 	}
 	static toLinearRingArray(linearRings) {
-		var linearRingArray = [];
+		var linearRingArray = new Array(linearRings.size());
 		return linearRings.toArray(linearRingArray);
 	}
 	static toPointArray(points) {
-		var pointArray = [];
+		var pointArray = new Array(points.size());
 		return points.toArray(pointArray);
 	}
 	static toPolygonArray(polygons) {
-		var polygonArray = [];
+		var polygonArray = new Array(polygons.size());
 		return polygons.toArray(polygonArray);
 	}
 	static createPointFromInternalCoord(coord, exemplar) {
@@ -290,9 +290,9 @@ export default class GeometryFactory {
 						return ((...args) => {
 							let [coordinates] = args;
 							if (coordinates === null) {
-								return this.createMultiPoint([]);
+								return this.createMultiPoint(new Array(0));
 							}
-							var points = [];
+							var points = new Array(coordinates.size());
 							for (var i = 0; i < coordinates.size(); i++) {
 								var ptSeq = this.getCoordinateSequenceFactory().create(1, coordinates.getDimension());
 								CoordinateSequences.copy(coordinates, i, ptSeq, 0, 1);
@@ -304,6 +304,9 @@ export default class GeometryFactory {
 			}
 		};
 		return overloads.apply(this, args);
+	}
+	getClass() {
+		return GeometryFactory;
 	}
 }
 

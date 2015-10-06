@@ -45,7 +45,7 @@ export default class MinimumClearance {
 	}
 	compute() {
 		if (this.minClearancePts !== null) return null;
-		this.minClearancePts = [];
+		this.minClearancePts = new Array(2);
 		this.minClearance = Double.MAX_VALUE;
 		if (this.inputGeom.isEmpty()) {
 			return null;
@@ -60,12 +60,15 @@ export default class MinimumClearance {
 		this.compute();
 		return this.minClearance;
 	}
+	getClass() {
+		return MinimumClearance;
+	}
 }
 class MinClearanceDistance {
 	constructor(...args) {
 		(() => {
 			this.minDist = Double.MAX_VALUE;
-			this.minPts = [];
+			this.minPts = new Array(2);
 		})();
 	}
 	get interfaces_() {
@@ -142,6 +145,9 @@ class MinClearanceDistance {
 		this.minPts[0] = p;
 		var seg = new LineSegment(seg0, seg1);
 		this.minPts[1] = new Coordinate(seg.closestPoint(p));
+	}
+	getClass() {
+		return MinClearanceDistance;
 	}
 }
 

@@ -98,7 +98,7 @@ export default class STRtree extends AbstractSTRtree {
 	}
 	verticalSlices(childBoundables, sliceCount) {
 		var sliceCapacity = Math.ceil(childBoundables.size() / sliceCount);
-		var slices = [];
+		var slices = new Array(sliceCount);
 		var i = childBoundables.iterator();
 		for (var j = 0; j < sliceCount; j++) {
 			slices[j] = new ArrayList();
@@ -203,6 +203,9 @@ export default class STRtree extends AbstractSTRtree {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return STRtree;
+	}
 }
 class STRtreeNode extends AbstractNode {
 	constructor(...args) {
@@ -233,6 +236,9 @@ class STRtreeNode extends AbstractNode {
 			}
 		}
 		return bounds;
+	}
+	getClass() {
+		return STRtreeNode;
 	}
 }
 

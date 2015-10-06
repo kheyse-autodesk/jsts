@@ -31,7 +31,7 @@ export default class CoordinateList extends ArrayList {
 		return [];
 	}
 	static get coordArrayType() {
-		return [];
+		return new Array(0);
 	}
 	getCoordinate(i) {
 		return this.get(i);
@@ -132,6 +132,9 @@ export default class CoordinateList extends ArrayList {
 	}
 	closeRing() {
 		if (this.size() > 0) this.add(new Coordinate(this.get(0)), false);
+	}
+	getClass() {
+		return CoordinateList;
 	}
 }
 

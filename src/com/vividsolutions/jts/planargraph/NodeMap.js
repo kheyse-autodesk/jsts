@@ -33,5 +33,8 @@ export default class NodeMap {
 		this.nodeMap.put(n.getCoordinate(), n);
 		return n;
 	}
+	getClass() {
+		return NodeMap;
+	}
 }
 

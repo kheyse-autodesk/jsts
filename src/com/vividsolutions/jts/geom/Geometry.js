@@ -117,5 +117,8 @@ export default class Geometry {
 	hashCode() {
 		return this.getEnvelopeInternal().hashCode();
 	}
+	getClass() {
+		return Geometry;
+	}
 }
 

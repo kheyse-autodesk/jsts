@@ -45,5 +45,8 @@ export default class GeometryContainsPointVisitor extends ShortCircuitedGeometry
 	containsPoint() {
 		return this.containsPoint;
 	}
+	getClass() {
+		return GeometryContainsPointVisitor;
+	}
 }
 

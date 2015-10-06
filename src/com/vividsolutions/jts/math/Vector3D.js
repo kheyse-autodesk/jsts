@@ -109,5 +109,8 @@ export default class Vector3D {
 	getY() {
 		return this.y;
 	}
+	getClass() {
+		return Vector3D;
+	}
 }
 

@@ -21,7 +21,7 @@ export default class WKBWriter {
 			this.includeSRID = false;
 			this.byteArrayOS = new ByteArrayOutputStream();
 			this.byteArrayOutStream = new OutputStreamOutStream(this.byteArrayOS);
-			this.buf = [];
+			this.buf = new Array(8);
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -168,6 +168,9 @@ export default class WKBWriter {
 			}
 		};
 		return overloads.apply(this, args);
+	}
+	getClass() {
+		return WKBWriter;
 	}
 }
 

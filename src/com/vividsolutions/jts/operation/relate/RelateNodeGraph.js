@@ -56,5 +56,8 @@ export default class RelateNodeGraph {
 			}
 		}
 	}
+	getClass() {
+		return RelateNodeGraph;
+	}
 }
 

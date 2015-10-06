@@ -81,6 +81,9 @@ export default class DiscreteHausdorffDistance {
 		this.computeOrientedDistance(this.g0, this.g1, this.ptDist);
 		return this.ptDist.getDistance();
 	}
+	getClass() {
+		return DiscreteHausdorffDistance;
+	}
 }
 class MaxPointDistanceFilter {
 	constructor(...args) {
@@ -111,6 +114,9 @@ class MaxPointDistanceFilter {
 	}
 	getMaxPointDistance() {
 		return this.maxPtDist;
+	}
+	getClass() {
+		return MaxPointDistanceFilter;
 	}
 }
 class MaxDensifiedByFractionDistanceFilter {
@@ -159,6 +165,9 @@ class MaxDensifiedByFractionDistanceFilter {
 	}
 	getMaxPointDistance() {
 		return this.maxPtDist;
+	}
+	getClass() {
+		return MaxDensifiedByFractionDistanceFilter;
 	}
 }
 

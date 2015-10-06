@@ -2,6 +2,7 @@ import SegmentNode from 'com/vividsolutions/jts/noding/SegmentNode';
 import Iterator from 'java/util/Iterator';
 import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
 import NodedSegmentString from 'com/vividsolutions/jts/noding/NodedSegmentString';
+import Integer from 'java/lang/Integer';
 import ArrayList from 'java/util/ArrayList';
 import RuntimeException from 'java/lang/RuntimeException';
 import Assert from 'com/vividsolutions/jts/util/Assert';
@@ -48,7 +49,7 @@ export default class SegmentNodeList {
 			var p1 = this.edge.getCoordinate(i + 1);
 			var p2 = this.edge.getCoordinate(i + 2);
 			if (p0.equals2D(p2)) {
-				collapsedVertexIndexes.add(i + 1);
+				collapsedVertexIndexes.add(new Integer(i + 1));
 			}
 		}
 	}
@@ -80,13 +81,13 @@ export default class SegmentNodeList {
 		return false;
 	}
 	findCollapsesFromInsertedNodes(collapsedVertexIndexes) {
-		var collapsedVertexIndex = [];
+		var collapsedVertexIndex = new Array(1);
 		var it = this.iterator();
 		var eiPrev = it.next();
 		while (it.hasNext()) {
 			var ei = it.next();
 			var isCollapsed = this.findCollapseIndex(eiPrev, ei, collapsedVertexIndex);
-			if (isCollapsed) collapsedVertexIndexes.add(collapsedVertexIndex[0]);
+			if (isCollapsed) collapsedVertexIndexes.add(new Integer(collapsedVertexIndex[0]));
 			eiPrev = ei;
 		}
 	}
@@ -105,7 +106,7 @@ export default class SegmentNodeList {
 		if (!useIntPt1) {
 			npts--;
 		}
-		var pts = [];
+		var pts = new Array(npts);
 		var ipt = 0;
 		pts[ipt++] = new Coordinate(ei0.coord);
 		for (var i = ei0.segmentIndex + 1; i <= ei1.segmentIndex; i++) {
@@ -133,6 +134,9 @@ export default class SegmentNodeList {
 		var splitnPts = splitn.getCoordinates();
 		var ptn = splitnPts[splitnPts.length - 1];
 		if (!ptn.equals2D(edgePts[edgePts.length - 1])) throw new RuntimeException("bad split edge end point at " + ptn);
+	}
+	getClass() {
+		return SegmentNodeList;
 	}
 }
 class NodeVertexIterator {
@@ -188,6 +192,9 @@ class NodeVertexIterator {
 	}
 	readNextNode() {
 		if (this.nodeIt.hasNext()) this.nextNode = this.nodeIt.next(); else this.nextNode = null;
+	}
+	getClass() {
+		return NodeVertexIterator;
 	}
 }
 

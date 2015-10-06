@@ -92,5 +92,8 @@ export default class AxisPlaneCoordinateSequence {
 	toCoordinateArray() {
 		throw new UnsupportedOperationException();
 	}
+	getClass() {
+		return AxisPlaneCoordinateSequence;
+	}
 }
 

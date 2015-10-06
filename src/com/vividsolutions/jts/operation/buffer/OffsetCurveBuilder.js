@@ -27,7 +27,7 @@ export default class OffsetCurveBuilder {
 		return [];
 	}
 	static copyCoordinates(pts) {
-		var copy = [];
+		var copy = new Array(pts.length);
 		for (var i = 0; i < copy.length; i++) {
 			copy[i] = new Coordinate(pts[i]);
 		}
@@ -170,6 +170,9 @@ export default class OffsetCurveBuilder {
 	}
 	getSegGen(distance) {
 		return new OffsetSegmentGenerator(this.precisionModel, this.bufParams, distance);
+	}
+	getClass() {
+		return OffsetCurveBuilder;
 	}
 }
 

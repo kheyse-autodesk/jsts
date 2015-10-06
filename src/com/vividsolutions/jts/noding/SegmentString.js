@@ -8,5 +8,8 @@ export default class SegmentString {
 	isClosed() {}
 	setData(data) {}
 	getData() {}
+	getClass() {
+		return SegmentString;
+	}
 }
 

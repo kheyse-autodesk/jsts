@@ -30,6 +30,9 @@ export default class BoundaryNodeRule {
 		return MonoValentEndPointBoundaryNodeRule;
 	}
 	isInBoundary(boundaryCount) {}
+	getClass() {
+		return BoundaryNodeRule;
+	}
 }
 class Mod2BoundaryNodeRule {
 	get interfaces_() {
@@ -37,6 +40,9 @@ class Mod2BoundaryNodeRule {
 	}
 	isInBoundary(boundaryCount) {
 		return boundaryCount % 2 === 1;
+	}
+	getClass() {
+		return Mod2BoundaryNodeRule;
 	}
 }
 class EndPointBoundaryNodeRule {
@@ -46,6 +52,9 @@ class EndPointBoundaryNodeRule {
 	isInBoundary(boundaryCount) {
 		return boundaryCount > 0;
 	}
+	getClass() {
+		return EndPointBoundaryNodeRule;
+	}
 }
 class MultiValentEndPointBoundaryNodeRule {
 	get interfaces_() {
@@ -54,6 +63,9 @@ class MultiValentEndPointBoundaryNodeRule {
 	isInBoundary(boundaryCount) {
 		return boundaryCount > 1;
 	}
+	getClass() {
+		return MultiValentEndPointBoundaryNodeRule;
+	}
 }
 class MonoValentEndPointBoundaryNodeRule {
 	get interfaces_() {
@@ -61,6 +73,9 @@ class MonoValentEndPointBoundaryNodeRule {
 	}
 	isInBoundary(boundaryCount) {
 		return boundaryCount === 1;
+	}
+	getClass() {
+		return MonoValentEndPointBoundaryNodeRule;
 	}
 }
 

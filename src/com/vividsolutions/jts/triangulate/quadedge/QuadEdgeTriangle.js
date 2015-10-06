@@ -88,7 +88,7 @@ export default class QuadEdgeTriangle {
 		return visitor.getTriangles();
 	}
 	getCoordinates() {
-		var pts = [];
+		var pts = new Array(4);
 		for (var i = 0; i < 3; i++) {
 			pts[i] = this.edge[i].orig().getCoordinate();
 		}
@@ -165,7 +165,7 @@ export default class QuadEdgeTriangle {
 		return adjTris;
 	}
 	getNeighbours() {
-		var neigh = [];
+		var neigh = new Array(3);
 		for (var i = 0; i < 3; i++) {
 			neigh[i] = this.getEdge(i).sym().getData();
 		}
@@ -184,7 +184,7 @@ export default class QuadEdgeTriangle {
 		return this.getAdjacentTriangleAcrossEdge(i).getEdgeIndex(this.getEdge(i).sym());
 	}
 	getVertices() {
-		var vert = [];
+		var vert = new Array(3);
 		for (var i = 0; i < 3; i++) {
 			vert[i] = this.getVertex(i);
 		}
@@ -214,6 +214,9 @@ export default class QuadEdgeTriangle {
 		var nexti = (i + 1) % 3;
 		seg.p1 = this.edge[nexti].orig().getCoordinate();
 	}
+	getClass() {
+		return QuadEdgeTriangle;
+	}
 }
 class QuadEdgeTriangleBuilderVisitor {
 	constructor(...args) {
@@ -238,6 +241,9 @@ class QuadEdgeTriangleBuilderVisitor {
 	}
 	getTriangles() {
 		return this.triangles;
+	}
+	getClass() {
+		return QuadEdgeTriangleBuilderVisitor;
 	}
 }
 

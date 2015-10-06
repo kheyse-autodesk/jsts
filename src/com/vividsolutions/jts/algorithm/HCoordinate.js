@@ -111,5 +111,8 @@ export default class HCoordinate {
 		p.y = this.getY();
 		return p;
 	}
+	getClass() {
+		return HCoordinate;
+	}
 }
 

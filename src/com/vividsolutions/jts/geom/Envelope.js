@@ -436,5 +436,8 @@ export default class Envelope {
 		result = 37 * result + Coordinate.hashCode(this.maxy);
 		return result;
 	}
+	getClass() {
+		return Envelope;
+	}
 }
 

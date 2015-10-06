@@ -24,5 +24,8 @@ export default class SegmentOverlapAction extends MonotoneChainOverlapAction {
 		var ss2 = mc2.getContext();
 		this.si.processIntersections(ss1, start1, ss2, start2);
 	}
+	getClass() {
+		return SegmentOverlapAction;
+	}
 }
 

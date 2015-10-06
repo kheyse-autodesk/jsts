@@ -76,5 +76,8 @@ export default class ConsistentPolygonRingChecker {
 		}
 		return false;
 	}
+	getClass() {
+		return ConsistentPolygonRingChecker;
+	}
 }
 

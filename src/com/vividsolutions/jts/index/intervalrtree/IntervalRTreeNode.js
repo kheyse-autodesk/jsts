@@ -28,6 +28,9 @@ export default class IntervalRTreeNode {
 	toString() {
 		return WKTWriter.toLineString(new Coordinate(this.min, 0), new Coordinate(this.max, 0));
 	}
+	getClass() {
+		return IntervalRTreeNode;
+	}
 }
 class NodeComparator {
 	get interfaces_() {
@@ -41,6 +44,9 @@ class NodeComparator {
 		if (mid1 < mid2) return -1;
 		if (mid1 > mid2) return 1;
 		return 0;
+	}
+	getClass() {
+		return NodeComparator;
 	}
 }
 

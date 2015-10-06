@@ -39,5 +39,8 @@ export default class RectangleIntersects {
 		if (riVisitor.intersects()) return true;
 		return false;
 	}
+	getClass() {
+		return RectangleIntersects;
+	}
 }
 

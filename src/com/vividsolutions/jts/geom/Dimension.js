@@ -73,5 +73,8 @@ export default class Dimension {
 		}
 		throw new IllegalArgumentException("Unknown dimension symbol: " + dimensionSymbol);
 	}
+	getClass() {
+		return Dimension;
+	}
 }
 

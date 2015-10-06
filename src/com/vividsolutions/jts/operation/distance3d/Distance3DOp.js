@@ -28,7 +28,7 @@ export default class Distance3DOp {
 				case 3:
 					return ((...args) => {
 						let [g0, g1, terminateDistance] = args;
-						this.geom = [];
+						this.geom = new Array(2);
 						this.geom[0] = g0;
 						this.geom[1] = g1;
 						this.terminateDistance = terminateDistance;
@@ -205,7 +205,7 @@ export default class Distance3DOp {
 					return ((...args) => {
 						let [] = args;
 						if (this.minDistanceLocation !== null) return null;
-						this.minDistanceLocation = [];
+						this.minDistanceLocation = new Array(2);
 						var geomIndex = this.mostPolygonalIndex();
 						var flip = geomIndex === 0;
 						this.computeMinDistanceMultiMulti(this.geom[geomIndex], this.geom[1 - geomIndex], flip);
@@ -323,6 +323,9 @@ export default class Distance3DOp {
 		this.minDistanceLocation[index] = loc0;
 		this.minDistanceLocation[1 - index] = loc1;
 		if (this.minDistance < this.terminateDistance) this.isDone = true;
+	}
+	getClass() {
+		return Distance3DOp;
 	}
 }
 

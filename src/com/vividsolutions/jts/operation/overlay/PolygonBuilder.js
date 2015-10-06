@@ -86,7 +86,6 @@ export default class PolygonBuilder {
 			var de = it.next();
 			if (de.isInResult() && de.getLabel().isArea()) {
 				if (de.getEdgeRing() === null) {
-				  
 					var er = new MaximalEdgeRing(de, this.geometryFactory);
 					maxEdgeRings.add(er);
 					er.setInResult();
@@ -156,13 +155,15 @@ export default class PolygonBuilder {
 						var maxEdgeRings = this.buildMaximalEdgeRings(dirEdges);
 						var freeHoleList = new ArrayList();
 						var edgeRings = this.buildMinimalEdgeRings(maxEdgeRings, this.shellList, freeHoleList);
-						
 						this.sortShellsAndHoles(edgeRings, this.shellList, freeHoleList);
 						this.placeFreeHoles(this.shellList, freeHoleList);
 					})(...args);
 			}
 		};
 		return overloads.apply(this, args);
+	}
+	getClass() {
+		return PolygonBuilder;
 	}
 }
 

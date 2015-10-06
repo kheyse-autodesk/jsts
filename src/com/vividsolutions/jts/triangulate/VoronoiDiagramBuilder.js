@@ -91,5 +91,8 @@ export default class VoronoiDiagramBuilder {
 		this.create();
 		return this.subdiv;
 	}
+	getClass() {
+		return VoronoiDiagramBuilder;
+	}
 }
 

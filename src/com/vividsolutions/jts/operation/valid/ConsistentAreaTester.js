@@ -57,5 +57,8 @@ export default class ConsistentAreaTester {
 		this.nodeGraph.build(this.geomGraph);
 		return this.isNodeEdgeAreaLabelsConsistent();
 	}
+	getClass() {
+		return ConsistentAreaTester;
+	}
 }
 

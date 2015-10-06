@@ -25,5 +25,8 @@ export default class DissolveHalfEdge extends MarkHalfEdge {
 	isStart() {
 		return this.isStart;
 	}
+	getClass() {
+		return DissolveHalfEdge;
+	}
 }
 

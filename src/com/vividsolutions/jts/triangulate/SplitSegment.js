@@ -66,5 +66,8 @@ export default class SplitSegment {
 	getSplitPoint() {
 		return this.splitPt;
 	}
+	getClass() {
+		return SplitSegment;
+	}
 }
 

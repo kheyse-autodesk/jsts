@@ -27,7 +27,7 @@ export default class GeometrySnapper {
 		return 1e-9;
 	}
 	static snap(g0, g1, snapTolerance) {
-		var snapGeom = [];
+		var snapGeom = new Array(2);
 		var snapper0 = new GeometrySnapper(g0);
 		snapGeom[0] = snapper0.snapTo(g1, snapTolerance);
 		var snapper1 = new GeometrySnapper(g1);
@@ -93,7 +93,7 @@ export default class GeometrySnapper {
 		for (var i = 0; i < pts.length; i++) {
 			ptSet.add(pts[i]);
 		}
-		return ptSet.toArray([]);
+		return ptSet.toArray(new Array(0));
 	}
 	computeMinimumSegmentLength(pts) {
 		var minSegLen = Double.MAX_VALUE;
@@ -102,6 +102,9 @@ export default class GeometrySnapper {
 			if (segLen < minSegLen) minSegLen = segLen;
 		}
 		return minSegLen;
+	}
+	getClass() {
+		return GeometrySnapper;
 	}
 }
 

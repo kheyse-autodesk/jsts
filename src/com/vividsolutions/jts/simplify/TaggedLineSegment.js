@@ -33,5 +33,8 @@ export default class TaggedLineSegment extends LineSegment {
 	getParent() {
 		return this.parent;
 	}
+	getClass() {
+		return TaggedLineSegment;
+	}
 }
 

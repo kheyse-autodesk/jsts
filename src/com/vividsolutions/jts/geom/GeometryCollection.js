@@ -52,7 +52,7 @@ export default class GeometryCollection extends Geometry {
 		return this.geometries[n];
 	}
 	getCoordinates() {
-		var coordinates = [];
+		var coordinates = new Array(this.getNumPoints());
 		var k = -1;
 		for (var i = 0; i < this.geometries.length; i++) {
 			var childCoordinates = this.geometries[i].getCoordinates();
@@ -165,7 +165,7 @@ export default class GeometryCollection extends Geometry {
 	}
 	clone() {
 		var gc = super.clone();
-		gc.geometries = [];
+		gc.geometries = new Array(this.geometries.length);
 		for (var i = 0; i < this.geometries.length; i++) {
 			gc.geometries[i] = this.geometries[i].clone();
 		}
@@ -181,6 +181,9 @@ export default class GeometryCollection extends Geometry {
 			}
 		}
 		return true;
+	}
+	getClass() {
+		return GeometryCollection;
 	}
 }
 

@@ -40,5 +40,8 @@ export default class SimpleGeometryPrecisionReducer {
 	setRemoveCollapsedComponents(removeCollapsed) {
 		this.removeCollapsed = removeCollapsed;
 	}
+	getClass() {
+		return SimpleGeometryPrecisionReducer;
+	}
 }
 

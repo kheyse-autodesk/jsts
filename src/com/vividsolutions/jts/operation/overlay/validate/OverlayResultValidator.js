@@ -9,7 +9,7 @@ export default class OverlayResultValidator {
 		(() => {
 			this.geom = null;
 			this.locFinder = null;
-			this.location = [];
+			this.location = new Array(3);
 			this.invalidLocation = null;
 			this.boundaryDistanceTolerance = OverlayResultValidator.TOLERANCE;
 			this.testCoords = new ArrayList();
@@ -96,6 +96,9 @@ export default class OverlayResultValidator {
 	}
 	getInvalidLocation() {
 		return this.invalidLocation;
+	}
+	getClass() {
+		return OverlayResultValidator;
 	}
 }
 

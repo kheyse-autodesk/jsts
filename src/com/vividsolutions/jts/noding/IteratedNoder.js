@@ -42,7 +42,7 @@ export default class IteratedNoder {
 		numInteriorIntersections[0] = si.numInteriorIntersections;
 	}
 	computeNodes(segStrings) {
-		var numInteriorIntersections = [];
+		var numInteriorIntersections = new Array(1);
 		this.nodedSegStrings = segStrings;
 		var nodingIterationCount = 0;
 		var lastNodesCreated = -1;
@@ -58,6 +58,9 @@ export default class IteratedNoder {
 	}
 	getNodedSubstrings() {
 		return this.nodedSegStrings;
+	}
+	getClass() {
+		return IteratedNoder;
 	}
 }
 

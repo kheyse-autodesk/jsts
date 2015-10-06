@@ -298,5 +298,8 @@ export default class OffsetSegmentGenerator {
 	hasNarrowConcaveAngle() {
 		return this.hasNarrowConcaveAngle;
 	}
+	getClass() {
+		return OffsetSegmentGenerator;
+	}
 }
 

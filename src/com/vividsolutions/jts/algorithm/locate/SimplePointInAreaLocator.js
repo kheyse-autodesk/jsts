@@ -57,5 +57,8 @@ export default class SimplePointInAreaLocator {
 	locate(p) {
 		return SimplePointInAreaLocator.locate(p, this.geom);
 	}
+	getClass() {
+		return SimplePointInAreaLocator;
+	}
 }
 

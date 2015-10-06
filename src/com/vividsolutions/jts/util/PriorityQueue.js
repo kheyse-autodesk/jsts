@@ -59,5 +59,8 @@ export default class PriorityQueue {
 		}
 		this.items.set(hole, x);
 	}
+	getClass() {
+		return PriorityQueue;
+	}
 }
 

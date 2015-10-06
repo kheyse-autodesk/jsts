@@ -293,5 +293,8 @@ export default class OctagonalEnvelope {
 	getMaxY() {
 		return this.maxY;
 	}
+	getClass() {
+		return OctagonalEnvelope;
+	}
 }
 

@@ -263,5 +263,8 @@ export default class PolygonizeGraph extends PlanarGraph {
 		}
 		return dangleLines;
 	}
+	getClass() {
+		return PolygonizeGraph;
+	}
 }
 

@@ -130,5 +130,8 @@ export default class UnaryUnionOp {
 		if (union === null) return this.geomFact.createGeometryCollection(null);
 		return union;
 	}
+	getClass() {
+		return UnaryUnionOp;
+	}
 }
 

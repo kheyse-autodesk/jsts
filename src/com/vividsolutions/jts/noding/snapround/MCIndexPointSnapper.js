@@ -42,5 +42,8 @@ export default class MCIndexPointSnapper {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return MCIndexPointSnapper;
+	}
 }
 

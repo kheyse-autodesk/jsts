@@ -47,5 +47,8 @@ export default class Memory {
 		var runtime = Runtime.getRuntime();
 		return runtime.freeMemory();
 	}
+	getClass() {
+		return Memory;
+	}
 }
 

@@ -19,8 +19,8 @@ export default class UnionInteracting {
 						this.g0 = g0;
 						this.g1 = g1;
 						this.geomFactory = g0.getFactory();
-						this.interacts0 = [];
-						this.interacts1 = [];
+						this.interacts0 = new Array(g0.getNumGeometries());
+						this.interacts1 = new Array(g1.getNumGeometries());
 					})(...args);
 			}
 		};
@@ -86,6 +86,9 @@ export default class UnionInteracting {
 		var gColl = factory.createGeometryCollection([g0, g1]);
 		var unionAll = BufferOp.bufferOp(gColl, 0.0);
 		return unionAll;
+	}
+	getClass() {
+		return UnionInteracting;
 	}
 }
 

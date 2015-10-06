@@ -64,5 +64,8 @@ export default class EdgeGraphBuilder {
 	getGraph() {
 		return this.graph;
 	}
+	getClass() {
+		return EdgeGraphBuilder;
+	}
 }
 

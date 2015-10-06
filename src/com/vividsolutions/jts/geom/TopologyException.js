@@ -33,5 +33,8 @@ export default class TopologyException extends RuntimeException {
 	getCoordinate() {
 		return this.pt;
 	}
+	getClass() {
+		return TopologyException;
+	}
 }
 

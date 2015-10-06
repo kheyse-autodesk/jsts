@@ -36,5 +36,8 @@ export default class ByteArrayInStream {
 		}
 		this.position += numToRead;
 	}
+	getClass() {
+		return ByteArrayInStream;
+	}
 }
 

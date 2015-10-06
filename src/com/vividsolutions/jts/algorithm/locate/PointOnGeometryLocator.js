@@ -3,5 +3,8 @@ export default class PointOnGeometryLocator {
 		return [];
 	}
 	locate(p) {}
+	getClass() {
+		return PointOnGeometryLocator;
+	}
 }
 

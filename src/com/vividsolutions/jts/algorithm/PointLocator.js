@@ -136,5 +136,8 @@ export default class PointLocator {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return PointLocator;
+	}
 }
 

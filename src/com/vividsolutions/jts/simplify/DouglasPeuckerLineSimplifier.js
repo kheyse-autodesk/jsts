@@ -56,7 +56,7 @@ export default class DouglasPeuckerLineSimplifier {
 		this.distanceTolerance = distanceTolerance;
 	}
 	simplify() {
-		this.usePt = [];
+		this.usePt = new Array(this.pts.length);
 		for (var i = 0; i < this.pts.length; i++) {
 			this.usePt[i] = true;
 		}
@@ -66,6 +66,9 @@ export default class DouglasPeuckerLineSimplifier {
 			if (this.usePt[i]) coordList.add(new Coordinate(this.pts[i]));
 		}
 		return coordList.toCoordinateArray();
+	}
+	getClass() {
+		return DouglasPeuckerLineSimplifier;
 	}
 }
 

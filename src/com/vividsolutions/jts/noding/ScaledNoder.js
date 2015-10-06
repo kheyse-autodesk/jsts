@@ -59,8 +59,8 @@ export default class ScaledNoder {
 								p1 = new Coordinate(pts[1]);
 							}
 							for (var i = 0; i < pts.length; i++) {
-								this.x = this.x / this.scaleFactor + this.offsetX;
-								this.y = this.y / this.scaleFactor + this.offsetY;
+								pts[i].x = pts[i].x / this.scaleFactor + this.offsetX;
+								pts[i].y = pts[i].y / this.scaleFactor + this.offsetY;
 							}
 							if (pts.length === 2 && pts[0].equals2D(pts[1])) {
 								System.out.println(pts);
@@ -88,9 +88,9 @@ export default class ScaledNoder {
 					} else if (args[0] instanceof Array) {
 						return ((...args) => {
 							let [pts] = args;
-							var roundPts = [];
+							var roundPts = new Array(pts.length);
 							for (var i = 0; i < pts.length; i++) {
-								roundPts[i] = new Coordinate(Math.round((this.x - this.offsetX) * this.scaleFactor), Math.round((this.y - this.offsetY) * this.scaleFactor), this.z);
+								roundPts[i] = new Coordinate(Math.round((pts[i].x - this.offsetX) * this.scaleFactor), Math.round((pts[i].y - this.offsetY) * this.scaleFactor), pts[i].z);
 							}
 							var roundPtsNoDup = CoordinateArrays.removeRepeatedPoints(roundPts);
 							return roundPtsNoDup;
@@ -112,6 +112,9 @@ export default class ScaledNoder {
 		var intSegStrings = inputSegStrings;
 		if (this.isScaled) intSegStrings = this.scale(inputSegStrings);
 		this.noder.computeNodes(intSegStrings);
+	}
+	getClass() {
+		return ScaledNoder;
 	}
 }
 

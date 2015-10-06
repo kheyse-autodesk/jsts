@@ -50,5 +50,8 @@ export default class PointExtracter {
 	filter(geom) {
 		if (geom instanceof Point) this.pts.add(geom);
 	}
+	getClass() {
+		return PointExtracter;
+	}
 }
 

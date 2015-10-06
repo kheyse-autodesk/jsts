@@ -3,5 +3,8 @@ export default class TraversalVisitor {
 		return [];
 	}
 	visit(currTri, edgeIndex, neighbTri) {}
+	getClass() {
+		return TraversalVisitor;
+	}
 }
 

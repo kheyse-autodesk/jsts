@@ -134,5 +134,8 @@ export default class PlanarPolygon3D {
 		var ptProj = PlanarPolygon3D.project(pt, this.facingPlane);
 		return RayCrossingCounter.locatePointInRing(ptProj, seqProj);
 	}
+	getClass() {
+		return PlanarPolygon3D;
+	}
 }
 

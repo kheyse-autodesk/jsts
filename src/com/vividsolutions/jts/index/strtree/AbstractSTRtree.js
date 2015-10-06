@@ -345,11 +345,17 @@ export default class AbstractSTRtree {
 		if (!this.built) return this.itemBoundables.isEmpty();
 		return this.root.isEmpty();
 	}
+	getClass() {
+		return AbstractSTRtree;
+	}
 }
 class IntersectsOp {
 	get interfaces_() {
 		return [];
 	}
 	intersects(aBounds, bBounds) {}
+	getClass() {
+		return IntersectsOp;
+	}
 }
 

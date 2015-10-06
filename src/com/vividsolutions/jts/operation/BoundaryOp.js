@@ -92,6 +92,9 @@ export default class BoundaryOp {
 		}
 		counter.count++;
 	}
+	getClass() {
+		return BoundaryOp;
+	}
 }
 class Counter {
 	constructor(...args) {
@@ -101,6 +104,9 @@ class Counter {
 	}
 	get interfaces_() {
 		return [];
+	}
+	getClass() {
+		return Counter;
 	}
 }
 

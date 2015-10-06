@@ -63,5 +63,8 @@ export default class IndexedNestedRingTester {
 		this.rings.add(ring);
 		this.totalEnv.expandToInclude(ring.getEnvelopeInternal());
 	}
+	getClass() {
+		return IndexedNestedRingTester;
+	}
 }
 

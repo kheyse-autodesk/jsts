@@ -103,5 +103,8 @@ export default class Node extends GraphComponent {
 		}
 		this.label.setLocation(argIndex, newLoc);
 	}
+	getClass() {
+		return Node;
+	}
 }
 

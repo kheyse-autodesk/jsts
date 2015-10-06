@@ -25,5 +25,8 @@ export default class IntervalRTreeLeafNode extends IntervalRTreeNode {
 		if (!this.intersects(queryMin, queryMax)) return null;
 		visitor.visitItem(this.item);
 	}
+	getClass() {
+		return IntervalRTreeLeafNode;
+	}
 }
 

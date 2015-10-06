@@ -3,5 +3,8 @@ export default class SegmentSetMutualIntersector {
 		return [];
 	}
 	process(segStrings, segInt) {}
+	getClass() {
+		return SegmentSetMutualIntersector;
+	}
 }
 

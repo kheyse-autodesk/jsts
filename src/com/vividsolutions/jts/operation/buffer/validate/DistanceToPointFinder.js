@@ -72,5 +72,8 @@ export default class DistanceToPointFinder {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return DistanceToPointFinder;
+	}
 }
 

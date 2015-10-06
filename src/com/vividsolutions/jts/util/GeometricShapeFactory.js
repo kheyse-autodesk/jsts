@@ -39,7 +39,7 @@ export default class GeometricShapeFactory {
 		var xyInt = Math.pow(r4 / 2, recipPow);
 		var nSegsInOct = this.nPts / 8;
 		var totPts = nSegsInOct * 8 + 1;
-		var pts = [];
+		var pts = new Array(totPts);
 		var xInc = xyInt / nSegsInOct;
 		for (var i = 0; i <= nSegsInOct; i++) {
 			var x = 0.0;
@@ -81,7 +81,7 @@ export default class GeometricShapeFactory {
 		var yRadius = env.getHeight() / 2.0;
 		var centreX = env.getMinX() + xRadius;
 		var centreY = env.getMinY() + yRadius;
-		var pts = [];
+		var pts = new Array(this.nPts + 1);
 		var iPt = 0;
 		for (var i = 0; i < this.nPts; i++) {
 			var ang = i * 2 * Math.PI / this.nPts;
@@ -115,7 +115,7 @@ export default class GeometricShapeFactory {
 		var angSize = angExtent;
 		if (angSize <= 0.0 || angSize > 2 * Math.PI) angSize = 2 * Math.PI;
 		var angInc = angSize / (this.nPts - 1);
-		var pts = [];
+		var pts = new Array(this.nPts);
 		var iPt = 0;
 		for (var i = 0; i < this.nPts; i++) {
 			var ang = startAng + i * angInc;
@@ -128,7 +128,7 @@ export default class GeometricShapeFactory {
 	}
 	rotate(geom) {
 		if (this.rotationAngle !== 0.0) {
-			var trans = AffineTransformation.rotationInstance(this.rotationAngle, this.x, this.y);
+			var trans = AffineTransformation.rotationInstance(this.rotationAngle, this.dim.getCentre().x, this.dim.getCentre().y);
 			geom.apply(trans);
 		}
 		return geom;
@@ -147,7 +147,7 @@ export default class GeometricShapeFactory {
 		var angSize = angExtent;
 		if (angSize <= 0.0 || angSize > 2 * Math.PI) angSize = 2 * Math.PI;
 		var angInc = angSize / (this.nPts - 1);
-		var pts = [];
+		var pts = new Array(this.nPts + 2);
 		var iPt = 0;
 		pts[iPt++] = this.coord(centreX, centreY);
 		for (var i = 0; i < this.nPts; i++) {
@@ -168,7 +168,7 @@ export default class GeometricShapeFactory {
 		if (nSide < 1) nSide = 1;
 		var XsegLen = this.dim.getEnvelope().getWidth() / nSide;
 		var YsegLen = this.dim.getEnvelope().getHeight() / nSide;
-		var pts = [];
+		var pts = new Array(4 * nSide + 1);
 		var env = this.dim.getEnvelope();
 		for (i = 0; i < nSide; i++) {
 			var x = env.getMinX() + i * XsegLen;
@@ -203,6 +203,9 @@ export default class GeometricShapeFactory {
 	}
 	setSize(size) {
 		this.dim.setSize(size);
+	}
+	getClass() {
+		return GeometricShapeFactory;
 	}
 }
 

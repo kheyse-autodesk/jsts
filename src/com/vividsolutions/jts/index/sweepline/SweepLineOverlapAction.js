@@ -3,5 +3,8 @@ export default class SweepLineOverlapAction {
 		return [];
 	}
 	overlap(s0, s1) {}
+	getClass() {
+		return SweepLineOverlapAction;
+	}
 }
 

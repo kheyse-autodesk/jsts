@@ -49,5 +49,8 @@ export default class LineStringExtracter {
 	filter(geom) {
 		if (geom instanceof LineString) this.comps.add(geom);
 	}
+	getClass() {
+		return LineStringExtracter;
+	}
 }
 

@@ -97,5 +97,8 @@ export default class LineBuilder {
 			de.setVisitedEdge(true);
 		}
 	}
+	getClass() {
+		return LineBuilder;
+	}
 }
 

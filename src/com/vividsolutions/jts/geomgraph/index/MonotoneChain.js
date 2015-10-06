@@ -22,5 +22,8 @@ export default class MonotoneChain {
 	computeIntersections(mc, si) {
 		this.mce.computeIntersectsForChain(this.chainIndex, mc.mce, mc.chainIndex, si);
 	}
+	getClass() {
+		return MonotoneChain;
+	}
 }
 

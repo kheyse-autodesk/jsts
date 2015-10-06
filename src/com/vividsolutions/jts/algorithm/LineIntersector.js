@@ -5,7 +5,7 @@ export default class LineIntersector {
 		(() => {
 			this.result = null;
 			this.inputLines = Array(2).fill().map(() => Array(2));
-			this.intPt = [];
+			this.intPt = new Array(2);
 			this.intLineIndex = null;
 			this.isProper = null;
 			this.pa = null;
@@ -187,6 +187,9 @@ export default class LineIntersector {
 	getIntersectionAlongSegment(segmentIndex, intIndex) {
 		this.computeIntLineIndex();
 		return this.intPt[this.intLineIndex[segmentIndex][intIndex]];
+	}
+	getClass() {
+		return LineIntersector;
 	}
 }
 

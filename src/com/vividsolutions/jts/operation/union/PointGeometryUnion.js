@@ -49,5 +49,8 @@ export default class PointGeometryUnion {
 		}
 		return GeometryCombiner.combine(ptComp, this.otherGeom);
 	}
+	getClass() {
+		return PointGeometryUnion;
+	}
 }
 

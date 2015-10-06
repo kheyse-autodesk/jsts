@@ -4,5 +4,8 @@ export default class NodableSegmentString {
 		return [SegmentString];
 	}
 	addIntersection(intPt, segmentIndex) {}
+	getClass() {
+		return NodableSegmentString;
+	}
 }
 

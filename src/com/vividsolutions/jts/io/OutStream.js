@@ -3,5 +3,8 @@ export default class OutStream {
 		return [];
 	}
 	write(buf, len) {}
+	getClass() {
+		return OutStream;
+	}
 }
 

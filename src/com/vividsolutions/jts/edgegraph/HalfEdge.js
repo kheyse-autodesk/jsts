@@ -91,7 +91,7 @@ export default class HalfEdge {
 		return this.sym;
 	}
 	prev() {
-		return this.sym;
+		return this.sym.next().sym;
 	}
 	compareAngularDirection(e) {
 		var dx = this.deltaX();
@@ -141,6 +141,9 @@ export default class HalfEdge {
 	}
 	deltaX() {
 		return this.sym.orig.x - this.orig.x;
+	}
+	getClass() {
+		return HalfEdge;
 	}
 }
 

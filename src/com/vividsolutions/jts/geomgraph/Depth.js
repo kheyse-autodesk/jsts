@@ -3,7 +3,7 @@ import Position from 'com/vividsolutions/jts/geomgraph/Position';
 export default class Depth {
 	constructor(...args) {
 		(() => {
-			this.depth = Array(2).fill().map(() => Array(2));
+			this.depth = Array(2).fill().map(() => Array(3));
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -113,6 +113,9 @@ export default class Depth {
 			}
 		};
 		return overloads.apply(this, args);
+	}
+	getClass() {
+		return Depth;
 	}
 }
 

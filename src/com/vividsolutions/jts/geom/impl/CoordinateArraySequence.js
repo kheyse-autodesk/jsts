@@ -24,7 +24,7 @@ export default class CoordinateArraySequence {
 					} else if (Number.isInteger(args[0])) {
 						return ((...args) => {
 							let [size] = args;
-							this.coordinates = [];
+							this.coordinates = new Array(size);
 							for (var i = 0; i < size; i++) {
 								this.coordinates[i] = new Coordinate();
 							}
@@ -33,7 +33,7 @@ export default class CoordinateArraySequence {
 						return ((...args) => {
 							let [coordSeq] = args;
 							this.dimension = coordSeq.getDimension();
-							this.coordinates = [];
+							this.coordinates = new Array(coordSeq.size());
 							for (var i = 0; i < this.coordinates.length; i++) {
 								this.coordinates[i] = coordSeq.getCoordinateCopy(i);
 							}
@@ -49,7 +49,7 @@ export default class CoordinateArraySequence {
 					} else if (Number.isInteger(args[0]) && Number.isInteger(args[1])) {
 						return ((...args) => {
 							let [size, dimension] = args;
-							this.coordinates = [];
+							this.coordinates = new Array(size);
 							this.dimension = dimension;
 							for (var i = 0; i < size; i++) {
 								this.coordinates[i] = new Coordinate();
@@ -69,13 +69,13 @@ export default class CoordinateArraySequence {
 	setOrdinate(index, ordinateIndex, value) {
 		switch (ordinateIndex) {
 			case CoordinateSequence.X:
-				this.x = value;
+				this.coordinates[index].x = value;
 				break;
 			case CoordinateSequence.Y:
-				this.y = value;
+				this.coordinates[index].y = value;
 				break;
 			case CoordinateSequence.Z:
-				this.z = value;
+				this.coordinates[index].z = value;
 				break;
 			default:
 				throw new IllegalArgumentException("invalid ordinateIndex");
@@ -87,11 +87,11 @@ export default class CoordinateArraySequence {
 	getOrdinate(index, ordinateIndex) {
 		switch (ordinateIndex) {
 			case CoordinateSequence.X:
-				return this.x;
+				return this.coordinates[index].x;
 			case CoordinateSequence.Y:
-				return this.y;
+				return this.coordinates[index].y;
 			case CoordinateSequence.Z:
-				return this.z;
+				return this.coordinates[index].z;
 		}
 		return Double.NaN;
 	}
@@ -106,9 +106,9 @@ export default class CoordinateArraySequence {
 				case 2:
 					return ((...args) => {
 						let [index, coord] = args;
-						coord.x = this.x;
-						coord.y = this.y;
-						coord.z = this.z;
+						coord.x = this.coordinates[index].x;
+						coord.y = this.coordinates[index].y;
+						coord.z = this.coordinates[index].z;
 					})(...args);
 			}
 		};
@@ -121,10 +121,10 @@ export default class CoordinateArraySequence {
 		return this.dimension;
 	}
 	getX(index) {
-		return this.x;
+		return this.coordinates[index].x;
 	}
 	clone() {
-		var cloneCoordinates = [];
+		var cloneCoordinates = new Array(this.size());
 		for (var i = 0; i < this.coordinates.length; i++) {
 			cloneCoordinates[i] = this.coordinates[i].clone();
 		}
@@ -152,10 +152,13 @@ export default class CoordinateArraySequence {
 		}
 	}
 	getY(index) {
-		return this.y;
+		return this.coordinates[index].y;
 	}
 	toCoordinateArray() {
 		return this.coordinates;
+	}
+	getClass() {
+		return CoordinateArraySequence;
 	}
 }
 

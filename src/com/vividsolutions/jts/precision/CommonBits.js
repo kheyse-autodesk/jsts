@@ -68,5 +68,8 @@ export default class CommonBits {
 		var str = bitStr.substring(0, 1) + "  " + bitStr.substring(1, 12) + "(exp) " + bitStr.substring(12) + " [ " + x + " ]";
 		return str;
 	}
+	getClass() {
+		return CommonBits;
+	}
 }
 

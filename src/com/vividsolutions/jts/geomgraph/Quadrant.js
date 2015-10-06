@@ -68,5 +68,8 @@ export default class Quadrant {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return Quadrant;
+	}
 }
 

@@ -105,5 +105,8 @@ export default class RayCrossingCounter {
 	isOnSegment() {
 		return this.isPointOnSegment;
 	}
+	getClass() {
+		return RayCrossingCounter;
+	}
 }
 

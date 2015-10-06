@@ -40,5 +40,8 @@ export default class SnapTransformer extends GeometryTransformer {
 		var newPts = this.snapLine(srcPts, this.snapPts);
 		return this.factory.getCoordinateSequenceFactory().create(newPts);
 	}
+	getClass() {
+		return SnapTransformer;
+	}
 }
 

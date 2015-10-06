@@ -45,5 +45,8 @@ export default class MaximalEdgeRing extends EdgeRing {
 	getNext(de) {
 		return de.getNext();
 	}
+	getClass() {
+		return MaximalEdgeRing;
+	}
 }
 

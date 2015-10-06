@@ -28,5 +28,8 @@ export default class CoordinatePrecisionReducerFilter {
 	isGeometryChanged() {
 		return true;
 	}
+	getClass() {
+		return CoordinatePrecisionReducerFilter;
+	}
 }
 

@@ -67,5 +67,8 @@ export default class Key {
 	getPoint() {
 		return this.pt;
 	}
+	getClass() {
+		return Key;
+	}
 }
 

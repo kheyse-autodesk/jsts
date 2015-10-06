@@ -118,5 +118,8 @@ export default class SimpleSweepLineIntersector extends EdgeSetIntersector {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return SimpleSweepLineIntersector;
+	}
 }
 

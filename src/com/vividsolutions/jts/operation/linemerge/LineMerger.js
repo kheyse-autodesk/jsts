@@ -127,5 +127,8 @@ export default class LineMerger {
 	buildEdgeStringsForIsolatedLoops() {
 		this.buildEdgeStringsForUnprocessedNodes();
 	}
+	getClass() {
+		return LineMerger;
+	}
 }
 

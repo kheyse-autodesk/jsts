@@ -29,7 +29,7 @@ export default class EdgeList {
 			var pts = e.getCoordinates();
 			for (var i = 0; i < pts.length; i++) {
 				if (i > 0) out.print(",");
-				out.print(this.x + " " + this.y);
+				out.print(pts[i].x + " " + pts[i].y);
 			}
 			out.println(")");
 		}
@@ -64,6 +64,9 @@ export default class EdgeList {
 		this.edges.add(e);
 		var oca = new OrientedCoordinateArray(e.getCoordinates());
 		this.ocaMap.put(oca, e);
+	}
+	getClass() {
+		return EdgeList;
 	}
 }
 

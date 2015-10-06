@@ -3,5 +3,8 @@ export default class ItemDistance {
 		return [];
 	}
 	distance(item1, item2) {}
+	getClass() {
+		return ItemDistance;
+	}
 }
 

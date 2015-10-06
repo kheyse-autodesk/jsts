@@ -117,5 +117,8 @@ export default class Angle {
 		if (angDel > Math.PI) return angDel - Angle.PI_TIMES_2;
 		return angDel;
 	}
+	getClass() {
+		return Angle;
+	}
 }
 

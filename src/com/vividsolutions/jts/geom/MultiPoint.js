@@ -43,5 +43,8 @@ export default class MultiPoint extends GeometryCollection {
 	getGeometryType() {
 		return "MultiPoint";
 	}
+	getClass() {
+		return MultiPoint;
+	}
 }
 

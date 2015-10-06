@@ -77,5 +77,8 @@ export default class TopologyValidationError {
 		if (this.pt !== null) locStr = " at or near point " + this.pt;
 		return this.getMessage() + locStr;
 	}
+	getClass() {
+		return TopologyValidationError;
+	}
 }
 

@@ -96,5 +96,8 @@ export default class Node extends NodeBase {
 		var node = new Node(subInt, this.level - 1);
 		return node;
 	}
+	getClass() {
+		return Node;
+	}
 }
 

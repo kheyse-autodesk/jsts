@@ -488,5 +488,8 @@ export default class AffineTransformation {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return AffineTransformation;
+	}
 }
 

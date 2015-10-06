@@ -186,6 +186,9 @@ export default class KdTree {
 		}
 		return node;
 	}
+	getClass() {
+		return KdTree;
+	}
 }
 class BestMatchVisitor {
 	constructor(...args) {
@@ -228,6 +231,9 @@ class BestMatchVisitor {
 	}
 	getNode() {
 		return this.matchNode;
+	}
+	getClass() {
+		return BestMatchVisitor;
 	}
 }
 

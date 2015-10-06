@@ -22,5 +22,8 @@ export default class PolygonizeEdge extends Edge {
 	getLine() {
 		return this.line;
 	}
+	getClass() {
+		return PolygonizeEdge;
+	}
 }
 

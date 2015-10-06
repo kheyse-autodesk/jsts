@@ -44,5 +44,8 @@ export default class EnvelopeIntersectsVisitor extends ShortCircuitedGeometryVis
 	intersects() {
 		return this.intersects;
 	}
+	getClass() {
+		return EnvelopeIntersectsVisitor;
+	}
 }
 

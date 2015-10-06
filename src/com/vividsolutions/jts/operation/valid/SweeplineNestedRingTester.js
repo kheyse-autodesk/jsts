@@ -60,5 +60,8 @@ export default class SweeplineNestedRingTester {
 		}
 		return false;
 	}
+	getClass() {
+		return SweeplineNestedRingTester;
+	}
 }
 

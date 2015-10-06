@@ -78,5 +78,8 @@ export default class KochSnowflakeBuilder extends GeometricShapeBuilder {
 			this.addSide(n2, twoThirdPt, p1);
 		}
 	}
+	getClass() {
+		return KochSnowflakeBuilder;
+	}
 }
 

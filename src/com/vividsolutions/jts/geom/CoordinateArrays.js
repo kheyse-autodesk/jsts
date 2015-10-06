@@ -8,7 +8,7 @@ export default class CoordinateArrays {
 		return [];
 	}
 	static get coordArrayType() {
-		return [];
+		return new Array(0);
 	}
 	static get ForwardComparator() {
 		return ForwardComparator;
@@ -31,7 +31,7 @@ export default class CoordinateArrays {
 	static scroll(coordinates, firstCoordinate) {
 		var i = CoordinateArrays.indexOf(firstCoordinate, coordinates);
 		if (i < 0) return null;
-		var newCoordinates = [];
+		var newCoordinates = new Array(coordinates.length);
 		System.arraycopy(coordinates, i, newCoordinates, 0, coordinates.length - i);
 		System.arraycopy(coordinates, 0, newCoordinates, coordinates.length - i, i);
 		System.arraycopy(newCoordinates, 0, coordinates, 0, coordinates.length);
@@ -99,7 +99,7 @@ export default class CoordinateArrays {
 		for (var i = 0; i < coord.length; i++) {
 			if (coord[i] !== null) nonNull++;
 		}
-		var newCoord = [];
+		var newCoord = new Array(nonNull);
 		if (nonNull === 0) return newCoord;
 		var j = 0;
 		for (var i = 0; i < coord.length; i++) {
@@ -113,7 +113,7 @@ export default class CoordinateArrays {
 				case 1:
 					return ((...args) => {
 						let [coordinates] = args;
-						var copy = [];
+						var copy = new Array(coordinates.length);
 						for (var i = 0; i < coordinates.length; i++) {
 							copy[i] = new Coordinate(coordinates[i]);
 						}
@@ -194,13 +194,16 @@ export default class CoordinateArrays {
 		if (end < 0) npts = 0;
 		if (start >= pts.length) npts = 0;
 		if (end < start) npts = 0;
-		var extractPts = [];
+		var extractPts = new Array(npts);
 		if (npts === 0) return extractPts;
 		var iPts = 0;
 		for (var i = start; i <= end; i++) {
 			extractPts[iPts++] = pts[i];
 		}
 		return extractPts;
+	}
+	getClass() {
+		return CoordinateArrays;
 	}
 }
 class ForwardComparator {
@@ -211,6 +214,9 @@ class ForwardComparator {
 		var pts1 = o1;
 		var pts2 = o2;
 		return CoordinateArrays.compare(pts1, pts2);
+	}
+	getClass() {
+		return ForwardComparator;
 	}
 }
 class BidirectionalComparator {
@@ -245,6 +251,9 @@ class BidirectionalComparator {
 			i2 += dir2;
 		}
 		return 0;
+	}
+	getClass() {
+		return BidirectionalComparator;
 	}
 }
 

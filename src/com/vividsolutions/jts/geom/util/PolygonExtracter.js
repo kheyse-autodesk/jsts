@@ -46,5 +46,8 @@ export default class PolygonExtracter {
 	filter(geom) {
 		if (geom instanceof Polygon) this.comps.add(geom);
 	}
+	getClass() {
+		return PolygonExtracter;
+	}
 }
 

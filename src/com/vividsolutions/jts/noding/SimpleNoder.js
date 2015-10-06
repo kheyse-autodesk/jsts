@@ -41,5 +41,8 @@ export default class SimpleNoder extends SinglePassNoder {
 	getNodedSubstrings() {
 		return NodedSegmentString.getNodedSubstrings(this.nodedSegStrings);
 	}
+	getClass() {
+		return SimpleNoder;
+	}
 }
 

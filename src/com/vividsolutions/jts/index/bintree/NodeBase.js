@@ -3,7 +3,7 @@ export default class NodeBase {
 	constructor(...args) {
 		(() => {
 			this.items = new ArrayList();
-			this.subnode = [];
+			this.subnode = new Array(2);
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -100,6 +100,9 @@ export default class NodeBase {
 	}
 	add(item) {
 		this.items.add(item);
+	}
+	getClass() {
+		return NodeBase;
 	}
 }
 

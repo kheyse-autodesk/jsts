@@ -54,6 +54,9 @@ export default class FuzzyPointLocator {
 		var lines = GeometryFactory.toLineStringArray(linework);
 		return g.getFactory().createMultiLineString(lines);
 	}
+	getClass() {
+		return FuzzyPointLocator;
+	}
 }
 class PolygonalLineworkExtracter {
 	constructor(...args) {
@@ -85,6 +88,9 @@ class PolygonalLineworkExtracter {
 				this.linework.add(poly.getInteriorRingN(i));
 			}
 		}
+	}
+	getClass() {
+		return PolygonalLineworkExtracter;
 	}
 }
 

@@ -101,5 +101,8 @@ export default class WKTFileReader {
 		if (geoms.size() < this.limit) return false;
 		return true;
 	}
+	getClass() {
+		return WKTFileReader;
+	}
 }
 

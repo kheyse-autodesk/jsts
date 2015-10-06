@@ -176,6 +176,9 @@ export default class Coordinate {
 		this.y = other.y;
 		this.z = other.z;
 	}
+	getClass() {
+		return Coordinate;
+	}
 }
 class DimensionalComparator {
 	constructor(...args) {
@@ -222,6 +225,9 @@ class DimensionalComparator {
 		if (this.dimensionsToTest <= 2) return 0;
 		var compZ = DimensionalComparator.compare(c1.z, c2.z);
 		return compZ;
+	}
+	getClass() {
+		return DimensionalComparator;
 	}
 }
 

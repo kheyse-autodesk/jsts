@@ -30,5 +30,8 @@ export default class MonotoneChainOverlapAction {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return MonotoneChainOverlapAction;
+	}
 }
 

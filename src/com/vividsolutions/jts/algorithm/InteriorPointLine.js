@@ -92,5 +92,8 @@ export default class InteriorPointLine {
 			this.minDistance = dist;
 		}
 	}
+	getClass() {
+		return InteriorPointLine;
+	}
 }
 

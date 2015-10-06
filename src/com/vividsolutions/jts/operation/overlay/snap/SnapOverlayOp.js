@@ -5,7 +5,7 @@ import OverlayOp from 'com/vividsolutions/jts/operation/overlay/OverlayOp';
 export default class SnapOverlayOp {
 	constructor(...args) {
 		(() => {
-			this.geom = [];
+			this.geom = new Array(2);
 			this.snapTolerance = null;
 			this.cbr = null;
 		})();
@@ -50,7 +50,7 @@ export default class SnapOverlayOp {
 		this.cbr = new CommonBitsRemover();
 		this.cbr.add(geom[0]);
 		this.cbr.add(geom[1]);
-		var remGeom = [];
+		var remGeom = new Array(2);
 		remGeom[0] = this.cbr.removeCommonBits(geom[0].clone());
 		remGeom[1] = this.cbr.removeCommonBits(geom[1].clone());
 		return remGeom;
@@ -76,6 +76,9 @@ export default class SnapOverlayOp {
 		var remGeom = this.removeCommonBits(geom);
 		var snapGeom = GeometrySnapper.snap(remGeom[0], remGeom[1], this.snapTolerance);
 		return snapGeom;
+	}
+	getClass() {
+		return SnapOverlayOp;
 	}
 }
 

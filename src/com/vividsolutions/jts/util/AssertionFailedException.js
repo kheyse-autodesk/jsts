@@ -22,5 +22,8 @@ export default class AssertionFailedException extends RuntimeException {
 	get interfaces_() {
 		return [];
 	}
+	getClass() {
+		return AssertionFailedException;
+	}
 }
 

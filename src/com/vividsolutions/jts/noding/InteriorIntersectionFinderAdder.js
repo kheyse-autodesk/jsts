@@ -44,5 +44,8 @@ export default class InteriorIntersectionFinderAdder {
 	getInteriorIntersections() {
 		return this.interiorIntersections;
 	}
+	getClass() {
+		return InteriorIntersectionFinderAdder;
+	}
 }
 

@@ -42,7 +42,7 @@ export default class DirectedEdge extends GraphComponent {
 	static toEdges(dirEdges) {
 		var edges = new ArrayList();
 		for (var i = dirEdges.iterator(); i.hasNext(); ) {
-			edges.add(this.parentEdge);
+			edges.add(i.next().parentEdge);
 		}
 		return edges;
 	}
@@ -100,6 +100,9 @@ export default class DirectedEdge extends GraphComponent {
 	}
 	getEdgeDirection() {
 		return this.edgeDirection;
+	}
+	getClass() {
+		return DirectedEdge;
 	}
 }
 

@@ -97,5 +97,8 @@ export default class DelaunayTriangulationBuilder {
 		this.create();
 		return this.subdiv.getTriangles(geomFact);
 	}
+	getClass() {
+		return DelaunayTriangulationBuilder;
+	}
 }
 

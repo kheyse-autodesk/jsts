@@ -30,7 +30,7 @@ export default class TaggedLineString {
 		return [];
 	}
 	static extractCoordinates(segs) {
-		var pts = [];
+		var pts = new Array(segs.size() + 1);
 		var seg = null;
 		for (var i = 0; i < segs.size(); i++) {
 			seg = segs.get(i);
@@ -69,7 +69,7 @@ export default class TaggedLineString {
 	}
 	init() {
 		var pts = this.parentLine.getCoordinates();
-		this.segs = [];
+		this.segs = new Array(pts.length - 1);
 		for (var i = 0; i < pts.length - 1; i++) {
 			var seg = new TaggedLineSegment(pts[i], pts[i + 1], this.parentLine, i);
 			this.segs[i] = seg;
@@ -77,6 +77,9 @@ export default class TaggedLineString {
 	}
 	getResultCoordinates() {
 		return TaggedLineString.extractCoordinates(this.resultSegs);
+	}
+	getClass() {
+		return TaggedLineString;
 	}
 }
 

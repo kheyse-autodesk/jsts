@@ -102,5 +102,8 @@ export default class MCIndexSnapRounder {
 			this.pointSnapper.snap(hotPixel);
 		}
 	}
+	getClass() {
+		return MCIndexSnapRounder;
+	}
 }
 

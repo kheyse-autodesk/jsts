@@ -124,5 +124,8 @@ export default class ConnectedInteriorTester {
 		this.visitShellInteriors(this.geomGraph.getGeometry(), graph);
 		return !this.hasUnvisitedShellEdge(edgeRings);
 	}
+	getClass() {
+		return ConnectedInteriorTester;
+	}
 }
 

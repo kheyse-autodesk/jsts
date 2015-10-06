@@ -158,5 +158,8 @@ export default class LineDissolver {
 		};
 		return overloads.apply(this, args);
 	}
+	getClass() {
+		return LineDissolver;
+	}
 }
 

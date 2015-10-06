@@ -21,5 +21,8 @@ export default class InputStreamInStream {
 	read(buf) {
 		this.is.read(buf);
 	}
+	getClass() {
+		return InputStreamInStream;
+	}
 }
 

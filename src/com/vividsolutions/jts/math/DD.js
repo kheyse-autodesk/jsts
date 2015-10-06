@@ -1,4 +1,5 @@
 import Double from 'java/lang/Double';
+import Integer from 'java/lang/Integer';
 import Character from 'java/lang/Character';
 import Comparable from 'java/lang/Comparable';
 import Cloneable from 'java/lang/Cloneable';
@@ -611,7 +612,7 @@ export default class DD {
 	toStandardNotation() {
 		var specialStr = this.getSpecialNumberString();
 		if (specialStr !== null) return specialStr;
-		var magnitude = [];
+		var magnitude = new Array(1);
 		var sigDigits = this.extractSignificantDigits(true, magnitude);
 		var decimalPointPos = magnitude[0] + 1;
 		var num = sigDigits;
@@ -649,7 +650,7 @@ export default class DD {
 		if (this.isZero()) return DD.SCI_NOT_ZERO;
 		var specialStr = this.getSpecialNumberString();
 		if (specialStr !== null) return specialStr;
-		var magnitude = [];
+		var magnitude = new Array(1);
 		var digits = this.extractSignificantDigits(false, magnitude);
 		var expStr = DD.SCI_NOT_EXPONENT_CHAR + magnitude[0];
 		if (digits.charAt(0) === '0') {
@@ -734,6 +735,9 @@ export default class DD {
 		if (this.lo > 0) return 1;
 		if (this.lo < 0) return -1;
 		return 0;
+	}
+	getClass() {
+		return DD;
 	}
 }
 

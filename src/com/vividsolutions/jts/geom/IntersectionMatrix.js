@@ -243,5 +243,8 @@ export default class IntersectionMatrix {
 		}
 		return false;
 	}
+	getClass() {
+		return IntersectionMatrix;
+	}
 }
 

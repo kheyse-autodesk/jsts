@@ -103,5 +103,8 @@ export default class WKBHexFileReader {
 		if (geoms.size() < this.limit) return false;
 		return true;
 	}
+	getClass() {
+		return WKBHexFileReader;
+	}
 }
 

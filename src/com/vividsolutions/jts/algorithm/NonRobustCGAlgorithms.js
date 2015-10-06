@@ -101,5 +101,8 @@ export default class NonRobustCGAlgorithms extends CGAlgorithms {
 	static computeOrientation(p1, p2, q) {
 		return NonRobustCGAlgorithms.orientationIndex(p1, p2, q);
 	}
+	getClass() {
+		return NonRobustCGAlgorithms;
+	}
 }
 

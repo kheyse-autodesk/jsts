@@ -21,5 +21,8 @@ export default class AreaSimilarityMeasure {
 		var areaUnion = OverlayOp.union(g1, g2).getArea();
 		return areaInt / areaUnion;
 	}
+	getClass() {
+		return AreaSimilarityMeasure;
+	}
 }
 

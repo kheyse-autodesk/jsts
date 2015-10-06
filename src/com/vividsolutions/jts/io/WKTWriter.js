@@ -381,5 +381,8 @@ export default class WKTWriter {
 			writer.write(")");
 		}
 	}
+	getClass() {
+		return WKTWriter;
+	}
 }
 

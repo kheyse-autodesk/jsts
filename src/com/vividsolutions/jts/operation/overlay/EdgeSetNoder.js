@@ -35,5 +35,8 @@ export default class EdgeSetNoder {
 		}
 		return splitEdges;
 	}
+	getClass() {
+		return EdgeSetNoder;
+	}
 }
 

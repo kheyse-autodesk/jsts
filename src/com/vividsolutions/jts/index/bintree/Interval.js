@@ -95,5 +95,8 @@ export default class Interval {
 	getMax() {
 		return this.max;
 	}
+	getClass() {
+		return Interval;
+	}
 }
 

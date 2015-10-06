@@ -46,5 +46,8 @@ export default class Subgraph {
 		this.nodeMap.add(e.getDirEdge(0).getFromNode());
 		this.nodeMap.add(e.getDirEdge(1).getFromNode());
 	}
+	getClass() {
+		return Subgraph;
+	}
 }
 

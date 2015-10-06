@@ -43,11 +43,14 @@ export default class MultiPolygon extends GeometryCollection {
 				allRings.add(rings.getGeometryN(j));
 			}
 		}
-		var allRingsArray = [];
+		var allRingsArray = new Array(allRings.size());
 		return this.getFactory().createMultiLineString(allRings.toArray(allRingsArray));
 	}
 	getGeometryType() {
 		return "MultiPolygon";
+	}
+	getClass() {
+		return MultiPolygon;
 	}
 }
 

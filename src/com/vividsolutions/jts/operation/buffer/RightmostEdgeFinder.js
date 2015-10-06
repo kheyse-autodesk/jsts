@@ -54,9 +54,9 @@ export default class RightmostEdgeFinder {
 		var e = de.getEdge();
 		var coord = e.getCoordinates();
 		if (i < 0 || i + 1 >= coord.length) return -1;
-		if (this.y === this.y) return -1;
+		if (coord[i].y === coord[i + 1].y) return -1;
 		var pos = Position.LEFT;
-		if (this.y < this.y) pos = Position.RIGHT;
+		if (coord[i].y < coord[i + 1].y) pos = Position.RIGHT;
 		return pos;
 	}
 	getEdge() {
@@ -65,7 +65,7 @@ export default class RightmostEdgeFinder {
 	checkForRightmostCoordinate(de) {
 		var coord = de.getEdge().getCoordinates();
 		for (var i = 0; i < coord.length - 1; i++) {
-			if (this.minCoord === null || this.x > this.minCoord.x) {
+			if (this.minCoord === null || coord[i].x > this.minCoord.x) {
 				this.minDe = de;
 				this.minIndex = i;
 				this.minCoord = coord[i];
@@ -78,7 +78,7 @@ export default class RightmostEdgeFinder {
 		this.minDe = star.getRightmostEdge();
 		if (!this.minDe.isForward()) {
 			this.minDe = this.minDe.getSym();
-			this.minIndex = this.length - 1;
+			this.minIndex = this.minDe.getEdge().getCoordinates().length - 1;
 		}
 	}
 	findEdge(dirEdgeList) {
@@ -98,6 +98,9 @@ export default class RightmostEdgeFinder {
 		if (rightmostSide === Position.LEFT) {
 			this.orientedDe = this.minDe.getSym();
 		}
+	}
+	getClass() {
+		return RightmostEdgeFinder;
 	}
 }
 

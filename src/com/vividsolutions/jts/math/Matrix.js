@@ -4,7 +4,7 @@ export default class Matrix {
 	}
 	static solve(a, b) {
 		var n = b.length;
-		if (a.length !== n || this.length !== n) throw new IllegalArgumentException("Matrix A is incorrectly sized");
+		if (a.length !== n || a[0].length !== n) throw new IllegalArgumentException("Matrix A is incorrectly sized");
 		for (var i = 0; i < n; i++) {
 			var maxElementRow = i;
 			for (var j = i + 1; j < n; j++) if (Math.abs(a[j][i]) > Math.abs(a[maxElementRow][i])) maxElementRow = j;
@@ -17,7 +17,7 @@ export default class Matrix {
 				b[j] -= b[i] * rowFactor;
 			}
 		}
-		var solution = [];
+		var solution = new Array(n);
 		for (var j = n - 1; j >= 0; j--) {
 			var t = 0.0;
 			for (var k = j + 1; k < n; k++) t += a[j][k] * solution[k];
@@ -33,7 +33,7 @@ export default class Matrix {
 						return ((...args) => {
 							let [m, i, j] = args;
 							if (i === j) return null;
-							for (var col = 0; col < this.length; col++) {
+							for (var col = 0; col < m[0].length; col++) {
 								var temp = m[i][col];
 								m[i][col] = m[j][col];
 								m[j][col] = temp;
@@ -51,6 +51,9 @@ export default class Matrix {
 			}
 		};
 		return overloads.apply(this, args);
+	}
+	getClass() {
+		return Matrix;
 	}
 }
 
