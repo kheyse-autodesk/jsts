@@ -1,43 +1,62 @@
-function SweepLineEvent(x, insertEvent, sweepInt) {
-	this.xValue = null;
-	this.eventType = null;
-	this.insertEvent = null;
-	this.deleteEventIndex = null;
-	this.sweepInt = null;
-	if (arguments.length === 0) return;
-	this.xValue = x;
-	this.insertEvent = insertEvent;
-	this.eventType = SweepLineEvent.INSERT;
-	if (insertEvent !== null) this.eventType = SweepLineEvent.DELETE;
-	this.sweepInt = sweepInt;
+import Comparable from 'java/lang/Comparable';
+export default class SweepLineEvent {
+	constructor(...args) {
+		(() => {
+			this.xValue = null;
+			this.eventType = null;
+			this.insertEvent = null;
+			this.deleteEventIndex = null;
+			this.sweepInt = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 3:
+					return ((...args) => {
+						let [x, insertEvent, sweepInt] = args;
+						this.xValue = x;
+						this.insertEvent = insertEvent;
+						this.eventType = SweepLineEvent.INSERT;
+						if (insertEvent !== null) this.eventType = SweepLineEvent.DELETE;
+						this.sweepInt = sweepInt;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [Comparable];
+	}
+	static get INSERT() {
+		return 1;
+	}
+	static get DELETE() {
+		return 2;
+	}
+	getInterval() {
+		return this.sweepInt;
+	}
+	isDelete() {
+		return this.insertEvent !== null;
+	}
+	setDeleteEventIndex(deleteEventIndex) {
+		this.deleteEventIndex = deleteEventIndex;
+	}
+	compareTo(o) {
+		var pe = o;
+		if (this.xValue < pe.xValue) return -1;
+		if (this.xValue > pe.xValue) return 1;
+		if (this.eventType < pe.eventType) return -1;
+		if (this.eventType > pe.eventType) return 1;
+		return 0;
+	}
+	getInsertEvent() {
+		return this.insertEvent;
+	}
+	isInsert() {
+		return this.insertEvent === null;
+	}
+	getDeleteEventIndex() {
+		return this.deleteEventIndex;
+	}
 }
-module.exports = SweepLineEvent
-SweepLineEvent.prototype.getInterval = function () {
-	return this.sweepInt;
-};
-SweepLineEvent.prototype.isDelete = function () {
-	return this.insertEvent !== null;
-};
-SweepLineEvent.prototype.setDeleteEventIndex = function (deleteEventIndex) {
-	this.deleteEventIndex = deleteEventIndex;
-};
-SweepLineEvent.prototype.compareTo = function (o) {
-	var pe = o;
-	if (this.xValue < pe.xValue) return -1;
-	if (this.xValue > pe.xValue) return 1;
-	if (this.eventType < pe.eventType) return -1;
-	if (this.eventType > pe.eventType) return 1;
-	return 0;
-};
-SweepLineEvent.prototype.getInsertEvent = function () {
-	return this.insertEvent;
-};
-SweepLineEvent.prototype.isInsert = function () {
-	return this.insertEvent === null;
-};
-SweepLineEvent.prototype.getDeleteEventIndex = function () {
-	return this.deleteEventIndex;
-};
-SweepLineEvent.INSERT = 1;
-SweepLineEvent.DELETE = 2;
 

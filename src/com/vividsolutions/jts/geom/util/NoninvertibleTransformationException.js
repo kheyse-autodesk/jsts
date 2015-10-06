@@ -1,19 +1,26 @@
-function NoninvertibleTransformationException(...args) {
-	switch (args.length) {
-		case 1:
-			return ((...args) => {
-				let [msg] = args;
-				NoninvertibleTransformationException.super_.call(this, msg);
-			})(...args);
-		case 0:
-			return ((...args) => {
-				let [] = args;
-				NoninvertibleTransformationException.super_.call(this);
-			})(...args);
+import Exception from 'java/lang/Exception';
+export default class NoninvertibleTransformationException extends Exception {
+	constructor(...args) {
+		super();
+		(() => {})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+						super();
+					})(...args);
+				case 1:
+					return ((...args) => {
+						let [msg] = args;
+						super(msg);
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [];
 	}
 }
-module.exports = NoninvertibleTransformationException
-var Exception = require('java/lang/Exception');
-var util = require('util');
-util.inherits(NoninvertibleTransformationException, Exception)
 

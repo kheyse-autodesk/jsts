@@ -1,3 +1,6 @@
-function Puntal() {}
-module.exports = Puntal
+export default class Puntal {
+	get interfaces_() {
+		return [];
+	}
+}
 

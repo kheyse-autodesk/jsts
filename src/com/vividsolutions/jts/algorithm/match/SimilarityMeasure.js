@@ -1,4 +1,7 @@
-function SimilarityMeasure() {}
-module.exports = SimilarityMeasure
-SimilarityMeasure.prototype.measure = function (g1, g2) {};
+export default class SimilarityMeasure {
+	get interfaces_() {
+		return [];
+	}
+	measure(g1, g2) {}
+}
 

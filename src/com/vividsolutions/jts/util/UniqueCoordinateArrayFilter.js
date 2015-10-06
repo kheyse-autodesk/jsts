@@ -1,26 +1,41 @@
-function UniqueCoordinateArrayFilter() {
-	this.treeSet = new TreeSet();
-	this.list = new ArrayList();
-	if (arguments.length === 0) return;
+import TreeSet from 'java/util/TreeSet';
+import CoordinateFilter from 'com/vividsolutions/jts/geom/CoordinateFilter';
+import ArrayList from 'java/util/ArrayList';
+export default class UniqueCoordinateArrayFilter {
+	constructor(...args) {
+		(() => {
+			this.treeSet = new TreeSet();
+			this.list = new ArrayList();
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [CoordinateFilter];
+	}
+	static filterCoordinates(coords) {
+		var filter = new UniqueCoordinateArrayFilter();
+		for (var i = 0; i < coords.length; i++) {
+			filter.filter(coords[i]);
+		}
+		return filter.getCoordinates();
+	}
+	filter(coord) {
+		if (!this.treeSet.contains(coord)) {
+			this.list.add(coord);
+			this.treeSet.add(coord);
+		}
+	}
+	getCoordinates() {
+		var coordinates = [];
+		return this.list.toArray(coordinates);
+	}
 }
-module.exports = UniqueCoordinateArrayFilter
-var TreeSet = require('java/util/TreeSet');
-var ArrayList = require('java/util/ArrayList');
-UniqueCoordinateArrayFilter.prototype.filter = function (coord) {
-	if (!this.treeSet.contains(coord)) {
-		this.list.add(coord);
-		this.treeSet.add(coord);
-	}
-};
-UniqueCoordinateArrayFilter.prototype.getCoordinates = function () {
-	var coordinates = [];
-	return this.list.toArray(coordinates);
-};
-UniqueCoordinateArrayFilter.filterCoordinates = function (coords) {
-	var filter = new UniqueCoordinateArrayFilter();
-	for (var i = 0; i < coords.length; i++) {
-		filter.filter(coords[i]);
-	}
-	return filter.getCoordinates();
-};
 

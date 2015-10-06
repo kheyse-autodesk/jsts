@@ -1,4 +1,7 @@
-function ItemVisitor() {}
-module.exports = ItemVisitor
-ItemVisitor.prototype.visitItem = function (item) {};
+export default class ItemVisitor {
+	get interfaces_() {
+		return [];
+	}
+	visitItem(item) {}
+}
 

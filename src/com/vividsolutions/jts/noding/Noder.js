@@ -1,5 +1,8 @@
-function Noder() {}
-module.exports = Noder
-Noder.prototype.computeNodes = function (segStrings) {};
-Noder.prototype.getNodedSubstrings = function () {};
+export default class Noder {
+	get interfaces_() {
+		return [];
+	}
+	computeNodes(segStrings) {}
+	getNodedSubstrings() {}
+}
 

@@ -1,22 +1,38 @@
-function HausdorffSimilarityMeasure() {
-	if (arguments.length === 0) return;
+import SimilarityMeasure from 'com/vividsolutions/jts/algorithm/match/SimilarityMeasure';
+import Envelope from 'com/vividsolutions/jts/geom/Envelope';
+import DiscreteHausdorffDistance from 'com/vividsolutions/jts/algorithm/distance/DiscreteHausdorffDistance';
+export default class HausdorffSimilarityMeasure {
+	constructor(...args) {
+		(() => {})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [SimilarityMeasure];
+	}
+	static get DENSIFY_FRACTION() {
+		return 0.25;
+	}
+	static diagonalSize(env) {
+		if (env.isNull()) return 0.0;
+		var width = env.getWidth();
+		var hgt = env.getHeight();
+		return Math.sqrt(width * width + hgt * hgt);
+	}
+	measure(g1, g2) {
+		var distance = DiscreteHausdorffDistance.distance(g1, g2, HausdorffSimilarityMeasure.DENSIFY_FRACTION);
+		var env = new Envelope(g1.getEnvelopeInternal());
+		env.expandToInclude(g2.getEnvelopeInternal());
+		var envSize = HausdorffSimilarityMeasure.diagonalSize(env);
+		var measure = 1 - distance / envSize;
+		return measure;
+	}
 }
-module.exports = HausdorffSimilarityMeasure
-var Envelope = require('com/vividsolutions/jts/geom/Envelope');
-var DiscreteHausdorffDistance = require('com/vividsolutions/jts/algorithm/distance/DiscreteHausdorffDistance');
-HausdorffSimilarityMeasure.prototype.measure = function (g1, g2) {
-	var distance = DiscreteHausdorffDistance.distance(g1, g2, HausdorffSimilarityMeasure.DENSIFY_FRACTION);
-	var env = new Envelope(g1.getEnvelopeInternal());
-	env.expandToInclude(g2.getEnvelopeInternal());
-	var envSize = HausdorffSimilarityMeasure.diagonalSize(env);
-	var measure = 1 - distance / envSize;
-	return measure;
-};
-HausdorffSimilarityMeasure.diagonalSize = function (env) {
-	if (env.isNull()) return 0.0;
-	var width = env.getWidth();
-	var hgt = env.getHeight();
-	return Math.sqrt(width * width + hgt * hgt);
-};
-HausdorffSimilarityMeasure.DENSIFY_FRACTION = 0.25;
 

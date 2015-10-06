@@ -1,4 +1,7 @@
-function TriangleVisitor() {}
-module.exports = TriangleVisitor
-TriangleVisitor.prototype.visit = function (triEdges) {};
+export default class TriangleVisitor {
+	get interfaces_() {
+		return [];
+	}
+	visit(triEdges) {}
+}
 

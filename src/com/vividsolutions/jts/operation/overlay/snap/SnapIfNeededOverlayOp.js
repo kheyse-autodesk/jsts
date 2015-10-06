@@ -1,51 +1,65 @@
-function SnapIfNeededOverlayOp(g1, g2) {
-	this.geom = [];
-	if (arguments.length === 0) return;
-	this.geom[0] = g1;
-	this.geom[1] = g2;
-}
-module.exports = SnapIfNeededOverlayOp
-var SnapOverlayOp = require('com/vividsolutions/jts/operation/overlay/snap/SnapOverlayOp');
-var RuntimeException = require('java/lang/RuntimeException');
-var OverlayOp = require('com/vividsolutions/jts/operation/overlay/OverlayOp');
-SnapIfNeededOverlayOp.prototype.getResultGeometry = function (opCode) {
-	var result = null;
-	var isSuccess = false;
-	var savedException = null;
-	try {
-		result = OverlayOp.overlayOp(this.geom[0], this.geom[1], opCode);
-		var isValid = true;
-		if (isValid) isSuccess = true;
-	} catch (e) {
-		if (e instanceof RuntimeException) {
-			savedException = ex;
-		}
-	} finally {}
-	if (!isSuccess) {
-		try {
-			result = SnapOverlayOp.overlayOp(this.geom[0], this.geom[1], opCode);
-		} catch (e) {
-			if (e instanceof RuntimeException) {
-				throw savedException;
+import SnapOverlayOp from 'com/vividsolutions/jts/operation/overlay/snap/SnapOverlayOp';
+import RuntimeException from 'java/lang/RuntimeException';
+import OverlayOp from 'com/vividsolutions/jts/operation/overlay/OverlayOp';
+export default class SnapIfNeededOverlayOp {
+	constructor(...args) {
+		(() => {
+			this.geom = [];
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 2:
+					return ((...args) => {
+						let [g1, g2] = args;
+						this.geom[0] = g1;
+						this.geom[1] = g2;
+					})(...args);
 			}
-		} finally {}
+		};
+		return overloads.apply(this, args);
 	}
-	return result;
-};
-SnapIfNeededOverlayOp.overlayOp = function (g0, g1, opCode) {
-	var op = new SnapIfNeededOverlayOp(g0, g1);
-	return op.getResultGeometry(opCode);
-};
-SnapIfNeededOverlayOp.union = function (g0, g1) {
-	return SnapIfNeededOverlayOp.overlayOp(g0, g1, OverlayOp.UNION);
-};
-SnapIfNeededOverlayOp.intersection = function (g0, g1) {
-	return SnapIfNeededOverlayOp.overlayOp(g0, g1, OverlayOp.INTERSECTION);
-};
-SnapIfNeededOverlayOp.symDifference = function (g0, g1) {
-	return SnapIfNeededOverlayOp.overlayOp(g0, g1, OverlayOp.SYMDIFFERENCE);
-};
-SnapIfNeededOverlayOp.difference = function (g0, g1) {
-	return SnapIfNeededOverlayOp.overlayOp(g0, g1, OverlayOp.DIFFERENCE);
-};
+	get interfaces_() {
+		return [];
+	}
+	static overlayOp(g0, g1, opCode) {
+		var op = new SnapIfNeededOverlayOp(g0, g1);
+		return op.getResultGeometry(opCode);
+	}
+	static union(g0, g1) {
+		return SnapIfNeededOverlayOp.overlayOp(g0, g1, OverlayOp.UNION);
+	}
+	static intersection(g0, g1) {
+		return SnapIfNeededOverlayOp.overlayOp(g0, g1, OverlayOp.INTERSECTION);
+	}
+	static symDifference(g0, g1) {
+		return SnapIfNeededOverlayOp.overlayOp(g0, g1, OverlayOp.SYMDIFFERENCE);
+	}
+	static difference(g0, g1) {
+		return SnapIfNeededOverlayOp.overlayOp(g0, g1, OverlayOp.DIFFERENCE);
+	}
+	getResultGeometry(opCode) {
+		var result = null;
+		var isSuccess = false;
+		var savedException = null;
+		try {
+			result = OverlayOp.overlayOp(this.geom[0], this.geom[1], opCode);
+			var isValid = true;
+			if (isValid) isSuccess = true;
+		} catch (ex) {
+			if (ex instanceof RuntimeException) {
+				savedException = ex;
+			} else throw ex;
+		} finally {}
+		if (!isSuccess) {
+			try {
+				result = SnapOverlayOp.overlayOp(this.geom[0], this.geom[1], opCode);
+			} catch (ex) {
+				if (ex instanceof RuntimeException) {
+					throw savedException;
+				} else throw ex;
+			} finally {}
+		}
+		return result;
+	}
+}
 

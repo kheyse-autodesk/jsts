@@ -1,32 +1,50 @@
-function PolygonExtracter(comps) {
-	this.comps = null;
-	if (arguments.length === 0) return;
-	this.comps = comps;
-}
-module.exports = PolygonExtracter
-var Polygon = require('com/vividsolutions/jts/geom/Polygon');
-var GeometryCollection = require('com/vividsolutions/jts/geom/GeometryCollection');
-var ArrayList = require('java/util/ArrayList');
-PolygonExtracter.prototype.filter = function (geom) {
-	if (geom instanceof Polygon) this.comps.add(geom);
-};
-PolygonExtracter.getPolygons = function (...args) {
-	switch (args.length) {
-		case 2:
-			return ((...args) => {
-				let [geom, list] = args;
-				if (geom instanceof Polygon) {
-					list.add(geom);
-				} else if (geom instanceof GeometryCollection) {
-					geom.apply(new PolygonExtracter(list));
-				}
-				return list;
-			})(...args);
-		case 1:
-			return ((...args) => {
-				let [geom] = args;
-				return PolygonExtracter.getPolygons(geom, new ArrayList());
-			})(...args);
+import Polygon from 'com/vividsolutions/jts/geom/Polygon';
+import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
+import ArrayList from 'java/util/ArrayList';
+import GeometryFilter from 'com/vividsolutions/jts/geom/GeometryFilter';
+export default class PolygonExtracter {
+	constructor(...args) {
+		(() => {
+			this.comps = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [comps] = args;
+						this.comps = comps;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
 	}
-};
+	get interfaces_() {
+		return [GeometryFilter];
+	}
+	static getPolygons(...args) {
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [geom] = args;
+						return PolygonExtracter.getPolygons(geom, new ArrayList());
+					})(...args);
+				case 2:
+					return ((...args) => {
+						let [geom, list] = args;
+						if (geom instanceof Polygon) {
+							list.add(geom);
+						} else if (geom instanceof GeometryCollection) {
+							geom.apply(new PolygonExtracter(list));
+						}
+						return list;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	filter(geom) {
+		if (geom instanceof Polygon) this.comps.add(geom);
+	}
+}
 

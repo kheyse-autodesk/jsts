@@ -1,22 +1,28 @@
-function CoordinateSequenceFactory() {}
-module.exports = CoordinateSequenceFactory
-var CoordinateSequence = require('com/vividsolutions/jts/geom/CoordinateSequence');
-CoordinateSequenceFactory.prototype.create = function (...args) {
-	switch (args.length) {
-		case 2:
-			return ((...args) => {
-				let [size, dimension] = args;
-			})(...args);
-		case 1:
-			if (args[0] instanceof Array) {
-				return ((...args) => {
-					let [coordinates] = args;
-				})(...args);
-			} else if (args[0] instanceof CoordinateSequence) {
-				return ((...args) => {
-					let [coordSeq] = args;
-				})(...args);
-			}
+import CoordinateSequence from 'com/vividsolutions/jts/geom/CoordinateSequence';
+export default class CoordinateSequenceFactory {
+	get interfaces_() {
+		return [];
 	}
-};
+	create(...args) {
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					if (args[0] instanceof Array) {
+						return ((...args) => {
+							let [coordinates] = args;
+						})(...args);
+					} else if (args[0].interfaces_ && args[0].interfaces_.indexOf(CoordinateSequence) > -1) {
+						return ((...args) => {
+							let [coordSeq] = args;
+						})(...args);
+					}
+				case 2:
+					return ((...args) => {
+						let [size, dimension] = args;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+}
 

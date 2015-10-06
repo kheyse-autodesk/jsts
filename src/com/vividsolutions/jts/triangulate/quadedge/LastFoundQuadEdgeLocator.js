@@ -1,24 +1,39 @@
-function LastFoundQuadEdgeLocator(subdiv) {
-	this.subdiv = null;
-	this.lastEdge = null;
-	if (arguments.length === 0) return;
-	this.subdiv = subdiv;
-	this.init();
-}
-module.exports = LastFoundQuadEdgeLocator
-LastFoundQuadEdgeLocator.prototype.init = function () {
-	this.lastEdge = this.findEdge();
-};
-LastFoundQuadEdgeLocator.prototype.locate = function (v) {
-	if (!this.lastEdge.isLive()) {
-		this.init();
+import QuadEdgeLocator from 'com/vividsolutions/jts/triangulate/quadedge/QuadEdgeLocator';
+export default class LastFoundQuadEdgeLocator {
+	constructor(...args) {
+		(() => {
+			this.subdiv = null;
+			this.lastEdge = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [subdiv] = args;
+						this.subdiv = subdiv;
+						this.init();
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
 	}
-	var e = this.subdiv.locateFromEdge(v, this.lastEdge);
-	this.lastEdge = e;
-	return e;
-};
-LastFoundQuadEdgeLocator.prototype.findEdge = function () {
-	var edges = this.subdiv.getEdges();
-	return edges.iterator().next();
-};
+	get interfaces_() {
+		return [QuadEdgeLocator];
+	}
+	init() {
+		this.lastEdge = this.findEdge();
+	}
+	locate(v) {
+		if (!this.lastEdge.isLive()) {
+			this.init();
+		}
+		var e = this.subdiv.locateFromEdge(v, this.lastEdge);
+		this.lastEdge = e;
+		return e;
+	}
+	findEdge() {
+		var edges = this.subdiv.getEdges();
+		return edges.iterator().next();
+	}
+}
 

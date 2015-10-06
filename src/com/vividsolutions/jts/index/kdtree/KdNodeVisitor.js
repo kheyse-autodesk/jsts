@@ -1,4 +1,7 @@
-function KdNodeVisitor() {}
-module.exports = KdNodeVisitor
-KdNodeVisitor.prototype.visit = function (node) {};
+export default class KdNodeVisitor {
+	get interfaces_() {
+		return [];
+	}
+	visit(node) {}
+}
 

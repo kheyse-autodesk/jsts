@@ -1,3 +1,6 @@
-function Lineal() {}
-module.exports = Lineal
+export default class Lineal {
+	get interfaces_() {
+		return [];
+	}
+}
 

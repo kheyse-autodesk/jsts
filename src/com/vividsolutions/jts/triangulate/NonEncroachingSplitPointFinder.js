@@ -1,26 +1,40 @@
-function NonEncroachingSplitPointFinder() {
-	if (arguments.length === 0) return;
-}
-module.exports = NonEncroachingSplitPointFinder
-var SplitSegment = require('com/vividsolutions/jts/triangulate/SplitSegment');
-NonEncroachingSplitPointFinder.prototype.findSplitPoint = function (seg, encroachPt) {
-	var lineSeg = seg.getLineSegment();
-	var segLen = lineSeg.getLength();
-	var midPtLen = segLen / 2;
-	var splitSeg = new SplitSegment(lineSeg);
-	var projPt = NonEncroachingSplitPointFinder.projectedSplitPoint(seg, encroachPt);
-	var nonEncroachDiam = projPt.distance(encroachPt) * 2 * 0.8;
-	var maxSplitLen = nonEncroachDiam;
-	if (maxSplitLen > midPtLen) {
-		maxSplitLen = midPtLen;
+import SplitSegment from 'com/vividsolutions/jts/triangulate/SplitSegment';
+import ConstraintSplitPointFinder from 'com/vividsolutions/jts/triangulate/ConstraintSplitPointFinder';
+export default class NonEncroachingSplitPointFinder {
+	constructor(...args) {
+		(() => {})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
 	}
-	splitSeg.setMinimumLength(maxSplitLen);
-	splitSeg.splitAt(projPt);
-	return splitSeg.getSplitPoint();
-};
-NonEncroachingSplitPointFinder.projectedSplitPoint = function (seg, encroachPt) {
-	var lineSeg = seg.getLineSegment();
-	var projPt = lineSeg.project(encroachPt);
-	return projPt;
-};
+	get interfaces_() {
+		return [ConstraintSplitPointFinder];
+	}
+	static projectedSplitPoint(seg, encroachPt) {
+		var lineSeg = seg.getLineSegment();
+		var projPt = lineSeg.project(encroachPt);
+		return projPt;
+	}
+	findSplitPoint(seg, encroachPt) {
+		var lineSeg = seg.getLineSegment();
+		var segLen = lineSeg.getLength();
+		var midPtLen = segLen / 2;
+		var splitSeg = new SplitSegment(lineSeg);
+		var projPt = NonEncroachingSplitPointFinder.projectedSplitPoint(seg, encroachPt);
+		var nonEncroachDiam = projPt.distance(encroachPt) * 2 * 0.8;
+		var maxSplitLen = nonEncroachDiam;
+		if (maxSplitLen > midPtLen) {
+			maxSplitLen = midPtLen;
+		}
+		splitSeg.setMinimumLength(maxSplitLen);
+		splitSeg.splitAt(projPt);
+		return splitSeg.getSplitPoint();
+	}
+}
 

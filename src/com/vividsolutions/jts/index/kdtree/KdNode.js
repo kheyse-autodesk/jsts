@@ -1,63 +1,72 @@
-function KdNode(...args) {
-	this.p = null;
-	this.data = null;
-	this.left = null;
-	this.right = null;
-	this.count = null;
-	switch (args.length) {
-		case 2:
-			return ((...args) => {
-				let [p, data] = args;
-				this.p = new Coordinate(p);
-				this.left = null;
-				this.right = null;
-				this.count = 1;
-				this.data = data;
-			})(...args);
-		case 3:
-			return ((...args) => {
-				let [_x, _y, data] = args;
-				this.p = new Coordinate(_x, _y);
-				this.left = null;
-				this.right = null;
-				this.count = 1;
-				this.data = data;
-			})(...args);
+import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+export default class KdNode {
+	constructor(...args) {
+		(() => {
+			this.p = null;
+			this.data = null;
+			this.left = null;
+			this.right = null;
+			this.count = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 2:
+					return ((...args) => {
+						let [p, data] = args;
+						this.p = new Coordinate(p);
+						this.left = null;
+						this.right = null;
+						this.count = 1;
+						this.data = data;
+					})(...args);
+				case 3:
+					return ((...args) => {
+						let [_x, _y, data] = args;
+						this.p = new Coordinate(_x, _y);
+						this.left = null;
+						this.right = null;
+						this.count = 1;
+						this.data = data;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [];
+	}
+	isRepeated() {
+		return this.count > 1;
+	}
+	getRight() {
+		return this.right;
+	}
+	getCoordinate() {
+		return this.p;
+	}
+	setLeft(_left) {
+		this.left = _left;
+	}
+	getX() {
+		return this.p.x;
+	}
+	getData() {
+		return this.data;
+	}
+	getCount() {
+		return this.count;
+	}
+	getLeft() {
+		return this.left;
+	}
+	getY() {
+		return this.p.y;
+	}
+	increment() {
+		this.count = this.count + 1;
+	}
+	setRight(_right) {
+		this.right = _right;
 	}
 }
-module.exports = KdNode
-var Coordinate = require('com/vividsolutions/jts/geom/Coordinate');
-KdNode.prototype.isRepeated = function () {
-	return this.count > 1;
-};
-KdNode.prototype.getRight = function () {
-	return this.right;
-};
-KdNode.prototype.getCoordinate = function () {
-	return this.p;
-};
-KdNode.prototype.setLeft = function (_left) {
-	this.left = _left;
-};
-KdNode.prototype.getX = function () {
-	return this.p.x;
-};
-KdNode.prototype.getData = function () {
-	return this.data;
-};
-KdNode.prototype.getCount = function () {
-	return this.count;
-};
-KdNode.prototype.getLeft = function () {
-	return this.left;
-};
-KdNode.prototype.getY = function () {
-	return this.p.y;
-};
-KdNode.prototype.increment = function () {
-	this.count = this.count + 1;
-};
-KdNode.prototype.setRight = function (_right) {
-	this.right = _right;
-};
 

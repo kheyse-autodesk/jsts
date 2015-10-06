@@ -1,4 +1,7 @@
-function SegmentSetMutualIntersector() {}
-module.exports = SegmentSetMutualIntersector
-SegmentSetMutualIntersector.prototype.process = function (segStrings, segInt) {};
+export default class SegmentSetMutualIntersector {
+	get interfaces_() {
+		return [];
+	}
+	process(segStrings, segInt) {}
+}
 

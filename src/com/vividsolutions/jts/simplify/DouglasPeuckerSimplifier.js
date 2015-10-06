@@ -1,25 +1,39 @@
-function DouglasPeuckerSimplifier(inputGeom) {
-	this.inputGeom = null;
-	this.distanceTolerance = null;
-	this.isEnsureValidTopology = true;
-	if (arguments.length === 0) return;
-	this.inputGeom = inputGeom;
+export default class DouglasPeuckerSimplifier {
+	constructor(...args) {
+		(() => {
+			this.inputGeom = null;
+			this.distanceTolerance = null;
+			this.isEnsureValidTopology = true;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [inputGeom] = args;
+						this.inputGeom = inputGeom;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [];
+	}
+	static simplify(geom, distanceTolerance) {
+		var tss = new DouglasPeuckerSimplifier(geom);
+		tss.setDistanceTolerance(distanceTolerance);
+		return tss.getResultGeometry();
+	}
+	setEnsureValid(isEnsureValidTopology) {
+		this.isEnsureValidTopology = isEnsureValidTopology;
+	}
+	getResultGeometry() {
+		if (this.inputGeom.isEmpty()) return this.inputGeom.clone();
+		return new DPTransformer(this.isEnsureValidTopology).transform(this.inputGeom);
+	}
+	setDistanceTolerance(distanceTolerance) {
+		if (distanceTolerance < 0.0) throw new IllegalArgumentException("Tolerance must be non-negative");
+		this.distanceTolerance = distanceTolerance;
+	}
 }
-module.exports = DouglasPeuckerSimplifier
-DouglasPeuckerSimplifier.prototype.setEnsureValid = function (isEnsureValidTopology) {
-	this.isEnsureValidTopology = isEnsureValidTopology;
-};
-DouglasPeuckerSimplifier.prototype.getResultGeometry = function () {
-	if (this.inputGeom.isEmpty()) return this.inputGeom.clone();
-	return new DPTransformer(this.isEnsureValidTopology).transform(this.inputGeom);
-};
-DouglasPeuckerSimplifier.prototype.setDistanceTolerance = function (distanceTolerance) {
-	if (distanceTolerance < 0.0) throw new IllegalArgumentException("Tolerance must be non-negative");
-	this.distanceTolerance = distanceTolerance;
-};
-DouglasPeuckerSimplifier.simplify = function (geom, distanceTolerance) {
-	var tss = new DouglasPeuckerSimplifier(geom);
-	tss.setDistanceTolerance(distanceTolerance);
-	return tss.getResultGeometry();
-};
 

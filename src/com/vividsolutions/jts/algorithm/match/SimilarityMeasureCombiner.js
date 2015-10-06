@@ -1,6 +1,9 @@
-function SimilarityMeasureCombiner() {}
-module.exports = SimilarityMeasureCombiner
-SimilarityMeasureCombiner.combine = function (measure1, measure2) {
-	return Math.min(measure1, measure2);
-};
+export default class SimilarityMeasureCombiner {
+	get interfaces_() {
+		return [];
+	}
+	static combine(measure1, measure2) {
+		return Math.min(measure1, measure2);
+	}
+}
 

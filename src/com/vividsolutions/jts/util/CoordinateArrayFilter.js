@@ -1,14 +1,29 @@
-function CoordinateArrayFilter(size) {
-	this.pts = null;
-	this.n = 0;
-	if (arguments.length === 0) return;
-	this.pts = [];
+import CoordinateFilter from 'com/vividsolutions/jts/geom/CoordinateFilter';
+export default class CoordinateArrayFilter {
+	constructor(...args) {
+		(() => {
+			this.pts = null;
+			this.n = 0;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [size] = args;
+						this.pts = [];
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [CoordinateFilter];
+	}
+	filter(coord) {
+		this.pts[this.n++] = coord;
+	}
+	getCoordinates() {
+		return this.pts;
+	}
 }
-module.exports = CoordinateArrayFilter
-CoordinateArrayFilter.prototype.filter = function (coord) {
-	this.pts[this.n++] = coord;
-};
-CoordinateArrayFilter.prototype.getCoordinates = function () {
-	return this.pts;
-};
 

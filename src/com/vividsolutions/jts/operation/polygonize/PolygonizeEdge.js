@@ -1,13 +1,26 @@
-function PolygonizeEdge(line) {
-	this.line = null;
-	if (arguments.length === 0) return;
-	this.line = line;
+import Edge from 'com/vividsolutions/jts/planargraph/Edge';
+export default class PolygonizeEdge extends Edge {
+	constructor(...args) {
+		super();
+		(() => {
+			this.line = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [line] = args;
+						this.line = line;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [];
+	}
+	getLine() {
+		return this.line;
+	}
 }
-module.exports = PolygonizeEdge
-var Edge = require('com/vividsolutions/jts/planargraph/Edge');
-var util = require('util');
-util.inherits(PolygonizeEdge, Edge)
-PolygonizeEdge.prototype.getLine = function () {
-	return this.line;
-};
 

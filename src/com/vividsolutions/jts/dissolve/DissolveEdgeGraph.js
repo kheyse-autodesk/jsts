@@ -1,10 +1,11 @@
-function DissolveEdgeGraph() {}
-module.exports = DissolveEdgeGraph
-var EdgeGraph = require('com/vividsolutions/jts/edgegraph/EdgeGraph');
-var util = require('util');
-util.inherits(DissolveEdgeGraph, EdgeGraph)
-var DissolveHalfEdge = require('com/vividsolutions/jts/dissolve/DissolveHalfEdge');
-DissolveEdgeGraph.prototype.createEdge = function (p0) {
-	return new DissolveHalfEdge(p0);
-};
+import EdgeGraph from 'com/vividsolutions/jts/edgegraph/EdgeGraph';
+import DissolveHalfEdge from 'com/vividsolutions/jts/dissolve/DissolveHalfEdge';
+export default class DissolveEdgeGraph extends EdgeGraph {
+	get interfaces_() {
+		return [];
+	}
+	createEdge(p0) {
+		return new DissolveHalfEdge(p0);
+	}
+}
 

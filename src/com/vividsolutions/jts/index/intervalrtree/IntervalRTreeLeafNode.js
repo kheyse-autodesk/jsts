@@ -1,16 +1,29 @@
-function IntervalRTreeLeafNode(min, max, item) {
-	this.item = null;
-	if (arguments.length === 0) return;
-	this.min = min;
-	this.max = max;
-	this.item = item;
+import IntervalRTreeNode from 'com/vividsolutions/jts/index/intervalrtree/IntervalRTreeNode';
+export default class IntervalRTreeLeafNode extends IntervalRTreeNode {
+	constructor(...args) {
+		super();
+		(() => {
+			this.item = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 3:
+					return ((...args) => {
+						let [min, max, item] = args;
+						this.min = min;
+						this.max = max;
+						this.item = item;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [];
+	}
+	query(queryMin, queryMax, visitor) {
+		if (!this.intersects(queryMin, queryMax)) return null;
+		visitor.visitItem(this.item);
+	}
 }
-module.exports = IntervalRTreeLeafNode
-var IntervalRTreeNode = require('com/vividsolutions/jts/index/intervalrtree/IntervalRTreeNode');
-var util = require('util');
-util.inherits(IntervalRTreeLeafNode, IntervalRTreeNode)
-IntervalRTreeLeafNode.prototype.query = function (queryMin, queryMax, visitor) {
-	if (!this.intersects(queryMin, queryMax)) return null;
-	visitor.visitItem(this.item);
-};
 

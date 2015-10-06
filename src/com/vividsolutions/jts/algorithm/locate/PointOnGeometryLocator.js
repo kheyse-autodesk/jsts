@@ -1,4 +1,7 @@
-function PointOnGeometryLocator() {}
-module.exports = PointOnGeometryLocator
-PointOnGeometryLocator.prototype.locate = function (p) {};
+export default class PointOnGeometryLocator {
+	get interfaces_() {
+		return [];
+	}
+	locate(p) {}
+}
 

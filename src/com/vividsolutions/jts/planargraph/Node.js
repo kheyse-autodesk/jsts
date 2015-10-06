@@ -1,64 +1,75 @@
-function Node(...args) {
-	this.pt = null;
-	this.deStar = null;
-	switch (args.length) {
-		case 2:
-			return ((...args) => {
-				let [pt, deStar] = args;
-				this.pt = pt;
-				this.deStar = deStar;
-			})(...args);
-		case 1:
-			return ((...args) => {
-				let [pt] = args;
-				Node.call(this, pt, new DirectedEdgeStar());
-			})(...args);
+import DirectedEdgeStar from 'com/vividsolutions/jts/planargraph/DirectedEdgeStar';
+import HashSet from 'java/util/HashSet';
+import DirectedEdge from 'com/vividsolutions/jts/planargraph/DirectedEdge';
+import GraphComponent from 'com/vividsolutions/jts/planargraph/GraphComponent';
+export default class Node extends GraphComponent {
+	constructor(...args) {
+		super();
+		(() => {
+			this.pt = null;
+			this.deStar = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [pt] = args;
+						overloads.call(this, pt, new DirectedEdgeStar());
+					})(...args);
+				case 2:
+					return ((...args) => {
+						let [pt, deStar] = args;
+						this.pt = pt;
+						this.deStar = deStar;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [];
+	}
+	static getEdgesBetween(node0, node1) {
+		var edges0 = DirectedEdge.toEdges(node0.getOutEdges().getEdges());
+		var commonEdges = new HashSet(edges0);
+		var edges1 = DirectedEdge.toEdges(node1.getOutEdges().getEdges());
+		commonEdges.retainAll(edges1);
+		return commonEdges;
+	}
+	isRemoved() {
+		return this.pt === null;
+	}
+	addOutEdge(de) {
+		this.deStar.add(de);
+	}
+	getCoordinate() {
+		return this.pt;
+	}
+	getOutEdges() {
+		return this.deStar;
+	}
+	remove(...args) {
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+						this.pt = null;
+					})(...args);
+				case 1:
+					return ((...args) => {
+						let [de] = args;
+						this.deStar.remove(de);
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	getIndex(edge) {
+		return this.deStar.getIndex(edge);
+	}
+	getDegree() {
+		return this.deStar.getDegree();
 	}
 }
-module.exports = Node
-var GraphComponent = require('com/vividsolutions/jts/planargraph/GraphComponent');
-var util = require('util');
-util.inherits(Node, GraphComponent)
-var DirectedEdgeStar = require('com/vividsolutions/jts/planargraph/DirectedEdgeStar');
-var HashSet = require('java/util/HashSet');
-var DirectedEdge = require('com/vividsolutions/jts/planargraph/DirectedEdge');
-Node.prototype.isRemoved = function () {
-	return this.pt === null;
-};
-Node.prototype.addOutEdge = function (de) {
-	this.deStar.add(de);
-};
-Node.prototype.getCoordinate = function () {
-	return this.pt;
-};
-Node.prototype.getOutEdges = function () {
-	return this.deStar;
-};
-Node.prototype.remove = function (...args) {
-	switch (args.length) {
-		case 1:
-			return ((...args) => {
-				let [de] = args;
-				this.deStar.remove(de);
-			})(...args);
-		case 0:
-			return ((...args) => {
-				let [] = args;
-				this.pt = null;
-			})(...args);
-	}
-};
-Node.prototype.getIndex = function (edge) {
-	return this.deStar.getIndex(edge);
-};
-Node.prototype.getDegree = function () {
-	return this.deStar.getDegree();
-};
-Node.getEdgesBetween = function (node0, node1) {
-	var edges0 = DirectedEdge.toEdges(node0.getOutEdges().getEdges());
-	var commonEdges = new HashSet(edges0);
-	var edges1 = DirectedEdge.toEdges(node1.getOutEdges().getEdges());
-	commonEdges.retainAll(edges1);
-	return commonEdges;
-};
 

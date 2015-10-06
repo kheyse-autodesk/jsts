@@ -1,7 +1,10 @@
-function NodeFactory() {}
-module.exports = NodeFactory
-var Node = require('com/vividsolutions/jts/geomgraph/Node');
-NodeFactory.prototype.createNode = function (coord) {
-	return new Node(coord, null);
-};
+import Node from 'com/vividsolutions/jts/geomgraph/Node';
+export default class NodeFactory {
+	get interfaces_() {
+		return [];
+	}
+	createNode(coord) {
+		return new Node(coord, null);
+	}
+}
 

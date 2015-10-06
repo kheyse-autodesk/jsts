@@ -1,4 +1,7 @@
-function CoordinateFilter() {}
-module.exports = CoordinateFilter
-CoordinateFilter.prototype.filter = function (coord) {};
+export default class CoordinateFilter {
+	get interfaces_() {
+		return [];
+	}
+	filter(coord) {}
+}
 

@@ -1,15 +1,31 @@
-function ItemBoundable(bounds, item) {
-	this.bounds = null;
-	this.item = null;
-	if (arguments.length === 0) return;
-	this.bounds = bounds;
-	this.item = item;
+import Boundable from 'com/vividsolutions/jts/index/strtree/Boundable';
+import Serializable from 'java/io/Serializable';
+export default class ItemBoundable {
+	constructor(...args) {
+		(() => {
+			this.bounds = null;
+			this.item = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 2:
+					return ((...args) => {
+						let [bounds, item] = args;
+						this.bounds = bounds;
+						this.item = item;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [Boundable, Serializable];
+	}
+	getItem() {
+		return this.item;
+	}
+	getBounds() {
+		return this.bounds;
+	}
 }
-module.exports = ItemBoundable
-ItemBoundable.prototype.getItem = function () {
-	return this.item;
-};
-ItemBoundable.prototype.getBounds = function () {
-	return this.bounds;
-};
 

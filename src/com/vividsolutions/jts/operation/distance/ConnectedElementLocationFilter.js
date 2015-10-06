@@ -1,20 +1,35 @@
-function ConnectedElementLocationFilter(locations) {
-	this.locations = null;
-	if (arguments.length === 0) return;
-	this.locations = locations;
+import LineString from 'com/vividsolutions/jts/geom/LineString';
+import Point from 'com/vividsolutions/jts/geom/Point';
+import Polygon from 'com/vividsolutions/jts/geom/Polygon';
+import GeometryLocation from 'com/vividsolutions/jts/operation/distance/GeometryLocation';
+import ArrayList from 'java/util/ArrayList';
+import GeometryFilter from 'com/vividsolutions/jts/geom/GeometryFilter';
+export default class ConnectedElementLocationFilter {
+	constructor(...args) {
+		(() => {
+			this.locations = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [locations] = args;
+						this.locations = locations;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [GeometryFilter];
+	}
+	static getLocations(geom) {
+		var locations = new ArrayList();
+		geom.apply(new ConnectedElementLocationFilter(locations));
+		return locations;
+	}
+	filter(geom) {
+		if (geom instanceof Point || geom instanceof LineString || geom instanceof Polygon) this.locations.add(new GeometryLocation(geom, 0, geom.getCoordinate()));
+	}
 }
-module.exports = ConnectedElementLocationFilter
-var LineString = require('com/vividsolutions/jts/geom/LineString');
-var Point = require('com/vividsolutions/jts/geom/Point');
-var Polygon = require('com/vividsolutions/jts/geom/Polygon');
-var GeometryLocation = require('com/vividsolutions/jts/operation/distance/GeometryLocation');
-var ArrayList = require('java/util/ArrayList');
-ConnectedElementLocationFilter.prototype.filter = function (geom) {
-	if (geom instanceof Point || geom instanceof LineString || geom instanceof Polygon) this.locations.add(new GeometryLocation(geom, 0, geom.getCoordinate()));
-};
-ConnectedElementLocationFilter.getLocations = function (geom) {
-	var locations = new ArrayList();
-	geom.apply(new ConnectedElementLocationFilter(locations));
-	return locations;
-};
 

@@ -1,4 +1,7 @@
-function SweepLineOverlapAction() {}
-module.exports = SweepLineOverlapAction
-SweepLineOverlapAction.prototype.overlap = function (s0, s1) {};
+export default class SweepLineOverlapAction {
+	get interfaces_() {
+		return [];
+	}
+	overlap(s0, s1) {}
+}
 

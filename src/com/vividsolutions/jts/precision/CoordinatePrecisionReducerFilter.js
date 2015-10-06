@@ -1,17 +1,32 @@
-function CoordinatePrecisionReducerFilter(precModel) {
-	this.precModel = null;
-	if (arguments.length === 0) return;
-	this.precModel = precModel;
+import CoordinateSequenceFilter from 'com/vividsolutions/jts/geom/CoordinateSequenceFilter';
+export default class CoordinatePrecisionReducerFilter {
+	constructor(...args) {
+		(() => {
+			this.precModel = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [precModel] = args;
+						this.precModel = precModel;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [CoordinateSequenceFilter];
+	}
+	filter(seq, i) {
+		seq.setOrdinate(i, 0, this.precModel.makePrecise(seq.getOrdinate(i, 0)));
+		seq.setOrdinate(i, 1, this.precModel.makePrecise(seq.getOrdinate(i, 1)));
+	}
+	isDone() {
+		return false;
+	}
+	isGeometryChanged() {
+		return true;
+	}
 }
-module.exports = CoordinatePrecisionReducerFilter
-CoordinatePrecisionReducerFilter.prototype.filter = function (seq, i) {
-	seq.setOrdinate(i, 0, this.precModel.makePrecise(seq.getOrdinate(i, 0)));
-	seq.setOrdinate(i, 1, this.precModel.makePrecise(seq.getOrdinate(i, 1)));
-};
-CoordinatePrecisionReducerFilter.prototype.isDone = function () {
-	return false;
-};
-CoordinatePrecisionReducerFilter.prototype.isGeometryChanged = function () {
-	return true;
-};
 

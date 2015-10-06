@@ -1,9 +1,21 @@
-function NotRepresentableException() {
-	if (arguments.length === 0) return;
-	NotRepresentableException.super_.call(this, "Projective point not representable on the Cartesian plane.");
+import Exception from 'java/lang/Exception';
+export default class NotRepresentableException extends Exception {
+	constructor(...args) {
+		super();
+		(() => {})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+						super("Projective point not representable on the Cartesian plane.");
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [];
+	}
 }
-module.exports = NotRepresentableException
-var Exception = require('java/lang/Exception');
-var util = require('util');
-util.inherits(NotRepresentableException, Exception)
 

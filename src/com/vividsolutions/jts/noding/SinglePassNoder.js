@@ -1,19 +1,29 @@
-function SinglePassNoder(...args) {
-	this.segInt = null;
-	switch (args.length) {
-		case 1:
-			return ((...args) => {
-				let [segInt] = args;
-				this.setSegmentIntersector(segInt);
-			})(...args);
-		case 0:
-			return ((...args) => {
-				let [] = args;
-			})(...args);
+import Noder from 'com/vividsolutions/jts/noding/Noder';
+export default class SinglePassNoder {
+	constructor(...args) {
+		(() => {
+			this.segInt = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+					})(...args);
+				case 1:
+					return ((...args) => {
+						let [segInt] = args;
+						this.setSegmentIntersector(segInt);
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [Noder];
+	}
+	setSegmentIntersector(segInt) {
+		this.segInt = segInt;
 	}
 }
-module.exports = SinglePassNoder
-SinglePassNoder.prototype.setSegmentIntersector = function (segInt) {
-	this.segInt = segInt;
-};
 

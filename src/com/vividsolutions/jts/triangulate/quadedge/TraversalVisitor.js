@@ -1,4 +1,7 @@
-function TraversalVisitor() {}
-module.exports = TraversalVisitor
-TraversalVisitor.prototype.visit = function (currTri, edgeIndex, neighbTri) {};
+export default class TraversalVisitor {
+	get interfaces_() {
+		return [];
+	}
+	visit(currTri, edgeIndex, neighbTri) {}
+}
 

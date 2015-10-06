@@ -1,46 +1,68 @@
-function EdgeGraphBuilder() {
-	this.graph = new EdgeGraph();
-	if (arguments.length === 0) return;
-}
-module.exports = EdgeGraphBuilder
-var LineString = require('com/vividsolutions/jts/geom/LineString');
-var Geometry = require('com/vividsolutions/jts/geom/Geometry');
-var Collection = require('java/util/Collection');
-var EdgeGraph = require('com/vividsolutions/jts/edgegraph/EdgeGraph');
-var GeometryComponentFilter = require('com/vividsolutions/jts/geom/GeometryComponentFilter');
-EdgeGraphBuilder.prototype.add = function (...args) {
-	switch (args.length) {
-		case 1:
-			if (args[0] instanceof Geometry) {
-				return ((...args) => {
-					let [geometry] = args;
-					geometry.apply(new GeometryComponentFilter());
-				})(...args);
-			} else if (args[0] instanceof Collection) {
-				return ((...args) => {
-					let [geometries] = args;
-					for (var i = geometries.iterator(); i.hasNext(); ) {
-						var geometry = i.next();
-						this.add(geometry);
-					}
-				})(...args);
-			} else if (args[0] instanceof LineString) {
-				return ((...args) => {
-					let [lineString] = args;
-					var seq = lineString.getCoordinateSequence();
-					for (var i = 1; i < seq.size(); i++) {
-						this.graph.addEdge(seq.getCoordinate(i - 1), seq.getCoordinate(i));
-					}
-				})(...args);
+import LineString from 'com/vividsolutions/jts/geom/LineString';
+import Geometry from 'com/vividsolutions/jts/geom/Geometry';
+import Collection from 'java/util/Collection';
+import EdgeGraph from 'com/vividsolutions/jts/edgegraph/EdgeGraph';
+export default class EdgeGraphBuilder {
+	constructor(...args) {
+		(() => {
+			this.graph = new EdgeGraph();
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+					})(...args);
 			}
+		};
+		return overloads.apply(this, args);
 	}
-};
-EdgeGraphBuilder.prototype.getGraph = function () {
-	return this.graph;
-};
-EdgeGraphBuilder.build = function (geoms) {
-	var builder = new EdgeGraphBuilder();
-	builder.add(geoms);
-	return builder.getGraph();
-};
+	get interfaces_() {
+		return [];
+	}
+	static build(geoms) {
+		var builder = new EdgeGraphBuilder();
+		builder.add(geoms);
+		return builder.getGraph();
+	}
+	add(...args) {
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					if (args[0] instanceof LineString) {
+						return ((...args) => {
+							let [lineString] = args;
+							var seq = lineString.getCoordinateSequence();
+							for (var i = 1; i < seq.size(); i++) {
+								this.graph.addEdge(seq.getCoordinate(i - 1), seq.getCoordinate(i));
+							}
+						})(...args);
+					} else if (args[0] instanceof Geometry) {
+						return ((...args) => {
+							let [geometry] = args;
+							geometry.apply(new (class {
+								filter(component) {
+									if (component instanceof LineString) {
+										this.add(component);
+									}
+								}
+							})());
+						})(...args);
+					} else if (args[0].interfaces_ && args[0].interfaces_.indexOf(Collection) > -1) {
+						return ((...args) => {
+							let [geometries] = args;
+							for (var i = geometries.iterator(); i.hasNext(); ) {
+								var geometry = i.next();
+								this.add(geometry);
+							}
+						})(...args);
+					}
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	getGraph() {
+		return this.graph;
+	}
+}
 

@@ -1,19 +1,26 @@
-function AssertionFailedException(...args) {
-	switch (args.length) {
-		case 1:
-			return ((...args) => {
-				let [message] = args;
-				AssertionFailedException.super_.call(this, message);
-			})(...args);
-		case 0:
-			return ((...args) => {
-				let [] = args;
-				AssertionFailedException.super_.call(this);
-			})(...args);
+import RuntimeException from 'java/lang/RuntimeException';
+export default class AssertionFailedException extends RuntimeException {
+	constructor(...args) {
+		super();
+		(() => {})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+						super();
+					})(...args);
+				case 1:
+					return ((...args) => {
+						let [message] = args;
+						super(message);
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [];
 	}
 }
-module.exports = AssertionFailedException
-var RuntimeException = require('java/lang/RuntimeException');
-var util = require('util');
-util.inherits(AssertionFailedException, RuntimeException)
 

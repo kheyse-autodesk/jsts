@@ -1,79 +1,88 @@
-function Segment(...args) {
-	this.ls = null;
-	this.data = null;
-	switch (args.length) {
-		case 2:
-			return ((...args) => {
-				let [p0, p1] = args;
-				this.ls = new LineSegment(p0, p1);
-			})(...args);
-		case 7:
-			return ((...args) => {
-				let [x1, y1, z1, x2, y2, z2, data] = args;
-				Segment.call(this, new Coordinate(x1, y1, z1), new Coordinate(x2, y2, z2), data);
-			})(...args);
-		case 3:
-			return ((...args) => {
-				let [p0, p1, data] = args;
-				this.ls = new LineSegment(p0, p1);
-				this.data = data;
-			})(...args);
-		case 6:
-			return ((...args) => {
-				let [x1, y1, z1, x2, y2, z2] = args;
-				Segment.call(this, new Coordinate(x1, y1, z1), new Coordinate(x2, y2, z2));
-			})(...args);
+import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
+export default class Segment {
+	constructor(...args) {
+		(() => {
+			this.ls = null;
+			this.data = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 2:
+					return ((...args) => {
+						let [p0, p1] = args;
+						this.ls = new LineSegment(p0, p1);
+					})(...args);
+				case 3:
+					return ((...args) => {
+						let [p0, p1, data] = args;
+						this.ls = new LineSegment(p0, p1);
+						this.data = data;
+					})(...args);
+				case 6:
+					return ((...args) => {
+						let [x1, y1, z1, x2, y2, z2] = args;
+						overloads.call(this, new Coordinate(x1, y1, z1), new Coordinate(x2, y2, z2));
+					})(...args);
+				case 7:
+					return ((...args) => {
+						let [x1, y1, z1, x2, y2, z2, data] = args;
+						overloads.call(this, new Coordinate(x1, y1, z1), new Coordinate(x2, y2, z2), data);
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [];
+	}
+	getLineSegment() {
+		return this.ls;
+	}
+	getEndZ() {
+		var p = this.ls.getCoordinate(1);
+		return p.z;
+	}
+	getStartZ() {
+		var p = this.ls.getCoordinate(0);
+		return p.z;
+	}
+	intersection(s) {
+		return this.ls.intersection(s.getLineSegment());
+	}
+	getStart() {
+		return this.ls.getCoordinate(0);
+	}
+	getEnd() {
+		return this.ls.getCoordinate(1);
+	}
+	getEndY() {
+		var p = this.ls.getCoordinate(1);
+		return p.y;
+	}
+	getStartX() {
+		var p = this.ls.getCoordinate(0);
+		return p.x;
+	}
+	equalsTopo(s) {
+		return this.ls.equalsTopo(s.getLineSegment());
+	}
+	getStartY() {
+		var p = this.ls.getCoordinate(0);
+		return p.y;
+	}
+	setData(data) {
+		this.data = data;
+	}
+	getData() {
+		return this.data;
+	}
+	getEndX() {
+		var p = this.ls.getCoordinate(1);
+		return p.x;
+	}
+	toString() {
+		return this.ls.toString();
 	}
 }
-module.exports = Segment
-var Coordinate = require('com/vividsolutions/jts/geom/Coordinate');
-var LineSegment = require('com/vividsolutions/jts/geom/LineSegment');
-Segment.prototype.getLineSegment = function () {
-	return this.ls;
-};
-Segment.prototype.getEndZ = function () {
-	var p = this.ls.getCoordinate(1);
-	return p.z;
-};
-Segment.prototype.getStartZ = function () {
-	var p = this.ls.getCoordinate(0);
-	return p.z;
-};
-Segment.prototype.intersection = function (s) {
-	return this.ls.intersection(s.getLineSegment());
-};
-Segment.prototype.getStart = function () {
-	return this.ls.getCoordinate(0);
-};
-Segment.prototype.getEnd = function () {
-	return this.ls.getCoordinate(1);
-};
-Segment.prototype.getEndY = function () {
-	var p = this.ls.getCoordinate(1);
-	return p.y;
-};
-Segment.prototype.getStartX = function () {
-	var p = this.ls.getCoordinate(0);
-	return p.x;
-};
-Segment.prototype.equalsTopo = function (s) {
-	return this.ls.equalsTopo(s.getLineSegment());
-};
-Segment.prototype.getStartY = function () {
-	var p = this.ls.getCoordinate(0);
-	return p.y;
-};
-Segment.prototype.setData = function (data) {
-	this.data = data;
-};
-Segment.prototype.getData = function () {
-	return this.data;
-};
-Segment.prototype.getEndX = function () {
-	var p = this.ls.getCoordinate(1);
-	return p.x;
-};
-Segment.prototype.toString = function () {
-	return this.ls.toString();
-};
 

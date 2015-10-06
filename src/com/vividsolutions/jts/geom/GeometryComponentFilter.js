@@ -1,4 +1,7 @@
-function GeometryComponentFilter() {}
-module.exports = GeometryComponentFilter
-GeometryComponentFilter.prototype.filter = function (geom) {};
+export default class GeometryComponentFilter {
+	get interfaces_() {
+		return [];
+	}
+	filter(geom) {}
+}
 

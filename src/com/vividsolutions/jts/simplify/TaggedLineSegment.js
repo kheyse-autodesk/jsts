@@ -1,29 +1,37 @@
-function TaggedLineSegment(...args) {
-	this.parent = null;
-	this.index = null;
-	switch (args.length) {
-		case 2:
-			return ((...args) => {
-				let [p0, p1] = args;
-				TaggedLineSegment.call(this, p0, p1, null, -1);
-			})(...args);
-		case 4:
-			return ((...args) => {
-				let [p0, p1, parent, index] = args;
-				TaggedLineSegment.super_.call(this, p0, p1);
-				this.parent = parent;
-				this.index = index;
-			})(...args);
+import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
+export default class TaggedLineSegment extends LineSegment {
+	constructor(...args) {
+		super();
+		(() => {
+			this.parent = null;
+			this.index = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 2:
+					return ((...args) => {
+						let [p0, p1] = args;
+						overloads.call(this, p0, p1, null, -1);
+					})(...args);
+				case 4:
+					return ((...args) => {
+						let [p0, p1, parent, index] = args;
+						super(p0, p1);
+						this.parent = parent;
+						this.index = index;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [];
+	}
+	getIndex() {
+		return this.index;
+	}
+	getParent() {
+		return this.parent;
 	}
 }
-module.exports = TaggedLineSegment
-var LineSegment = require('com/vividsolutions/jts/geom/LineSegment');
-var util = require('util');
-util.inherits(TaggedLineSegment, LineSegment)
-TaggedLineSegment.prototype.getIndex = function () {
-	return this.index;
-};
-TaggedLineSegment.prototype.getParent = function () {
-	return this.parent;
-};
 

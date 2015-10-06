@@ -1,13 +1,28 @@
-function ArrayListVisitor() {
-	this.items = new ArrayList();
-	if (arguments.length === 0) return;
+import ItemVisitor from 'com/vividsolutions/jts/index/ItemVisitor';
+import ArrayList from 'java/util/ArrayList';
+export default class ArrayListVisitor {
+	constructor(...args) {
+		(() => {
+			this.items = new ArrayList();
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [ItemVisitor];
+	}
+	visitItem(item) {
+		this.items.add(item);
+	}
+	getItems() {
+		return this.items;
+	}
 }
-module.exports = ArrayListVisitor
-var ArrayList = require('java/util/ArrayList');
-ArrayListVisitor.prototype.visitItem = function (item) {
-	this.items.add(item);
-};
-ArrayListVisitor.prototype.getItems = function () {
-	return this.items;
-};
 

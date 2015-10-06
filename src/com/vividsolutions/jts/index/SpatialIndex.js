@@ -1,17 +1,23 @@
-function SpatialIndex() {}
-module.exports = SpatialIndex
-SpatialIndex.prototype.insert = function (itemEnv, item) {};
-SpatialIndex.prototype.remove = function (itemEnv, item) {};
-SpatialIndex.prototype.query = function (...args) {
-	switch (args.length) {
-		case 2:
-			return ((...args) => {
-				let [searchEnv, visitor] = args;
-			})(...args);
-		case 1:
-			return ((...args) => {
-				let [searchEnv] = args;
-			})(...args);
+export default class SpatialIndex {
+	get interfaces_() {
+		return [];
 	}
-};
+	insert(itemEnv, item) {}
+	remove(itemEnv, item) {}
+	query(...args) {
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [searchEnv] = args;
+					})(...args);
+				case 2:
+					return ((...args) => {
+						let [searchEnv, visitor] = args;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+}
 

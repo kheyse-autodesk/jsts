@@ -1,15 +1,27 @@
-function MinimalEdgeRing(start, geometryFactory) {
-	if (arguments.length === 0) return;
-	MinimalEdgeRing.super_.call(this, start, geometryFactory);
+import EdgeRing from 'com/vividsolutions/jts/geomgraph/EdgeRing';
+export default class MinimalEdgeRing extends EdgeRing {
+	constructor(...args) {
+		super();
+		(() => {})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 2:
+					return ((...args) => {
+						let [start, geometryFactory] = args;
+						super(start, geometryFactory);
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [];
+	}
+	setEdgeRing(de, er) {
+		de.setMinEdgeRing(er);
+	}
+	getNext(de) {
+		return de.getNextMin();
+	}
 }
-module.exports = MinimalEdgeRing
-var EdgeRing = require('com/vividsolutions/jts/geomgraph/EdgeRing');
-var util = require('util');
-util.inherits(MinimalEdgeRing, EdgeRing)
-MinimalEdgeRing.prototype.setEdgeRing = function (de, er) {
-	de.setMinEdgeRing(er);
-};
-MinimalEdgeRing.prototype.getNext = function (de) {
-	return de.getNextMin();
-};
 

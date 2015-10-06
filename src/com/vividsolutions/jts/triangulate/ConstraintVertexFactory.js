@@ -1,4 +1,7 @@
-function ConstraintVertexFactory() {}
-module.exports = ConstraintVertexFactory
-ConstraintVertexFactory.prototype.createVertex = function (p, constraintSeg) {};
+export default class ConstraintVertexFactory {
+	get interfaces_() {
+		return [];
+	}
+	createVertex(p, constraintSeg) {}
+}
 

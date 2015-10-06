@@ -1,51 +1,65 @@
-function GraphComponent() {
-	this.isMarked = false;
-	this.isVisited = false;
-	this.data = null;
-	if (arguments.length === 0) return;
+export default class GraphComponent {
+	constructor(...args) {
+		(() => {
+			this.isMarked = false;
+			this.isVisited = false;
+			this.data = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [];
+	}
+	static getComponentWithVisitedState(i, visitedState) {
+		while (i.hasNext()) {
+			var comp = i.next();
+			if (comp.isVisited() === visitedState) return comp;
+		}
+		return null;
+	}
+	static setVisited(i, visited) {
+		while (i.hasNext()) {
+			var comp = i.next();
+			comp.setVisited(visited);
+		}
+	}
+	static setMarked(i, marked) {
+		while (i.hasNext()) {
+			var comp = i.next();
+			comp.setMarked(marked);
+		}
+	}
+	setVisited(isVisited) {
+		this.isVisited = isVisited;
+	}
+	isMarked() {
+		return this.isMarked;
+	}
+	setData(data) {
+		this.data = data;
+	}
+	getData() {
+		return this.data;
+	}
+	setMarked(isMarked) {
+		this.isMarked = isMarked;
+	}
+	getContext() {
+		return this.data;
+	}
+	isVisited() {
+		return this.isVisited;
+	}
+	setContext(data) {
+		this.data = data;
+	}
 }
-module.exports = GraphComponent
-GraphComponent.prototype.setVisited = function (isVisited) {
-	this.isVisited = isVisited;
-};
-GraphComponent.prototype.isMarked = function () {
-	return this.isMarked;
-};
-GraphComponent.prototype.setData = function (data) {
-	this.data = data;
-};
-GraphComponent.prototype.getData = function () {
-	return this.data;
-};
-GraphComponent.prototype.setMarked = function (isMarked) {
-	this.isMarked = isMarked;
-};
-GraphComponent.prototype.getContext = function () {
-	return this.data;
-};
-GraphComponent.prototype.isVisited = function () {
-	return this.isVisited;
-};
-GraphComponent.prototype.setContext = function (data) {
-	this.data = data;
-};
-GraphComponent.getComponentWithVisitedState = function (i, visitedState) {
-	while (i.hasNext()) {
-		var comp = i.next();
-		if (comp.isVisited() === visitedState) return comp;
-	}
-	return null;
-};
-GraphComponent.setVisited = function (i, visited) {
-	while (i.hasNext()) {
-		var comp = i.next();
-		comp.setVisited(visited);
-	}
-};
-GraphComponent.setMarked = function (i, marked) {
-	while (i.hasNext()) {
-		var comp = i.next();
-		comp.setMarked(marked);
-	}
-};
 

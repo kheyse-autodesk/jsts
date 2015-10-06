@@ -1,4 +1,7 @@
-function ItemDistance() {}
-module.exports = ItemDistance
-ItemDistance.prototype.distance = function (item1, item2) {};
+export default class ItemDistance {
+	get interfaces_() {
+		return [];
+	}
+	distance(item1, item2) {}
+}
 

@@ -1,36 +1,54 @@
-function PointExtracter(pts) {
-	this.pts = null;
-	if (arguments.length === 0) return;
-	this.pts = pts;
-}
-module.exports = PointExtracter
-var Point = require('com/vividsolutions/jts/geom/Point');
-var Collections = require('java/util/Collections');
-var GeometryCollection = require('com/vividsolutions/jts/geom/GeometryCollection');
-var ArrayList = require('java/util/ArrayList');
-PointExtracter.prototype.filter = function (geom) {
-	if (geom instanceof Point) this.pts.add(geom);
-};
-PointExtracter.getPoints = function (...args) {
-	switch (args.length) {
-		case 2:
-			return ((...args) => {
-				let [geom, list] = args;
-				if (geom instanceof Point) {
-					list.add(geom);
-				} else if (geom instanceof GeometryCollection) {
-					geom.apply(new PointExtracter(list));
-				}
-				return list;
-			})(...args);
-		case 1:
-			return ((...args) => {
-				let [geom] = args;
-				if (geom instanceof Point) {
-					return Collections.singletonList(geom);
-				}
-				return PointExtracter.getPoints(geom, new ArrayList());
-			})(...args);
+import Point from 'com/vividsolutions/jts/geom/Point';
+import Collections from 'java/util/Collections';
+import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
+import ArrayList from 'java/util/ArrayList';
+import GeometryFilter from 'com/vividsolutions/jts/geom/GeometryFilter';
+export default class PointExtracter {
+	constructor(...args) {
+		(() => {
+			this.pts = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [pts] = args;
+						this.pts = pts;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
 	}
-};
+	get interfaces_() {
+		return [GeometryFilter];
+	}
+	static getPoints(...args) {
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [geom] = args;
+						if (geom instanceof Point) {
+							return Collections.singletonList(geom);
+						}
+						return PointExtracter.getPoints(geom, new ArrayList());
+					})(...args);
+				case 2:
+					return ((...args) => {
+						let [geom, list] = args;
+						if (geom instanceof Point) {
+							list.add(geom);
+						} else if (geom instanceof GeometryCollection) {
+							geom.apply(new PointExtracter(list));
+						}
+						return list;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	filter(geom) {
+		if (geom instanceof Point) this.pts.add(geom);
+	}
+}
 

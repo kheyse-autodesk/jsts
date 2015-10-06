@@ -1,60 +1,75 @@
-function GeometryCollectionIterator(parent) {
-	this.parent = null;
-	this.atStart = null;
-	this.max = null;
-	this.index = null;
-	this.subcollectionIterator = null;
-	if (arguments.length === 0) return;
-	this.parent = parent;
-	this.atStart = true;
-	this.index = 0;
-	this.max = parent.getNumGeometries();
-}
-module.exports = GeometryCollectionIterator
-var NoSuchElementException = require('java/util/NoSuchElementException');
-var GeometryCollection = require('com/vividsolutions/jts/geom/GeometryCollection');
-GeometryCollectionIterator.prototype.next = function () {
-	if (this.atStart) {
-		this.atStart = false;
-		if (GeometryCollectionIterator.isAtomic(this.parent)) this.index++;
-		return this.parent;
-	}
-	if (this.subcollectionIterator !== null) {
-		if (this.subcollectionIterator.hasNext()) {
-			return this.subcollectionIterator.next();
-		} else {
+import Iterator from 'java/util/Iterator';
+import NoSuchElementException from 'java/util/NoSuchElementException';
+import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
+export default class GeometryCollectionIterator {
+	constructor(...args) {
+		(() => {
+			this.parent = null;
+			this.atStart = null;
+			this.max = null;
+			this.index = null;
 			this.subcollectionIterator = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [parent] = args;
+						this.parent = parent;
+						this.atStart = true;
+						this.index = 0;
+						this.max = parent.getNumGeometries();
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [Iterator];
+	}
+	static isAtomic(geom) {
+		return !(geom instanceof GeometryCollection);
+	}
+	next() {
+		if (this.atStart) {
+			this.atStart = false;
+			if (GeometryCollectionIterator.isAtomic(this.parent)) this.index++;
+			return this.parent;
 		}
+		if (this.subcollectionIterator !== null) {
+			if (this.subcollectionIterator.hasNext()) {
+				return this.subcollectionIterator.next();
+			} else {
+				this.subcollectionIterator = null;
+			}
+		}
+		if (this.index >= this.max) {
+			throw new NoSuchElementException();
+		}
+		var obj = this.parent.getGeometryN(this.index++);
+		if (obj instanceof GeometryCollection) {
+			this.subcollectionIterator = new GeometryCollectionIterator(obj);
+			return this.subcollectionIterator.next();
+		}
+		return obj;
 	}
-	if (this.index >= this.max) {
-		throw new NoSuchElementException();
+	remove() {
+		throw new UnsupportedOperationException(this.getClass().getName());
 	}
-	var obj = this.parent.getGeometryN(this.index++);
-	if (obj instanceof GeometryCollection) {
-		this.subcollectionIterator = new GeometryCollectionIterator(obj);
-		return this.subcollectionIterator.next();
-	}
-	return obj;
-};
-GeometryCollectionIterator.prototype.remove = function () {
-	throw new UnsupportedOperationException(this.getClass().getName());
-};
-GeometryCollectionIterator.prototype.hasNext = function () {
-	if (this.atStart) {
-		return true;
-	}
-	if (this.subcollectionIterator !== null) {
-		if (this.subcollectionIterator.hasNext()) {
+	hasNext() {
+		if (this.atStart) {
 			return true;
 		}
-		this.subcollectionIterator = null;
+		if (this.subcollectionIterator !== null) {
+			if (this.subcollectionIterator.hasNext()) {
+				return true;
+			}
+			this.subcollectionIterator = null;
+		}
+		if (this.index >= this.max) {
+			return false;
+		}
+		return true;
 	}
-	if (this.index >= this.max) {
-		return false;
-	}
-	return true;
-};
-GeometryCollectionIterator.isAtomic = function (geom) {
-	return !(geom instanceof GeometryCollection);
-};
+}
 

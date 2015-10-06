@@ -1,4 +1,8 @@
-function NodableSegmentString() {}
-module.exports = NodableSegmentString
-NodableSegmentString.prototype.addIntersection = function (intPt, segmentIndex) {};
+import SegmentString from 'com/vividsolutions/jts/noding/SegmentString';
+export default class NodableSegmentString {
+	get interfaces_() {
+		return [SegmentString];
+	}
+	addIntersection(intPt, segmentIndex) {}
+}
 

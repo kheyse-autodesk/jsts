@@ -1,3 +1,6 @@
-function Polygonal() {}
-module.exports = Polygonal
+export default class Polygonal {
+	get interfaces_() {
+		return [];
+	}
+}
 

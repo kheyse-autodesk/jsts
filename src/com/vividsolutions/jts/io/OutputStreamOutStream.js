@@ -1,10 +1,25 @@
-function OutputStreamOutStream(os) {
-	this.os = null;
-	if (arguments.length === 0) return;
-	this.os = os;
+import OutStream from 'com/vividsolutions/jts/io/OutStream';
+export default class OutputStreamOutStream {
+	constructor(...args) {
+		(() => {
+			this.os = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [os] = args;
+						this.os = os;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [OutStream];
+	}
+	write(buf, len) {
+		this.os.write(buf, 0, len);
+	}
 }
-module.exports = OutputStreamOutStream
-OutputStreamOutStream.prototype.write = function (buf, len) {
-	this.os.write(buf, 0, len);
-};
 

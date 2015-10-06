@@ -1,4 +1,7 @@
-function GeometryFilter() {}
-module.exports = GeometryFilter
-GeometryFilter.prototype.filter = function (geom) {};
+export default class GeometryFilter {
+	get interfaces_() {
+		return [];
+	}
+	filter(geom) {}
+}
 

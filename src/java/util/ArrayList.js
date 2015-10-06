@@ -171,7 +171,7 @@ Iterator_.prototype.hasNext = function() {
  * @override
  */
 Iterator_.prototype.set = function(element) {
-  return this.arrayList_.set(this.position_, element);
+  return this.arrayList_.set(this.position_ - 1, element);
 };
 
 

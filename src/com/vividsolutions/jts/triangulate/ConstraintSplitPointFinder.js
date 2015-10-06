@@ -1,4 +1,7 @@
-function ConstraintSplitPointFinder() {}
-module.exports = ConstraintSplitPointFinder
-ConstraintSplitPointFinder.prototype.findSplitPoint = function (seg, encroachPt) {};
+export default class ConstraintSplitPointFinder {
+	get interfaces_() {
+		return [];
+	}
+	findSplitPoint(seg, encroachPt) {}
+}
 

@@ -1,25 +1,39 @@
-function EdgeNodingValidator(edges) {
-	this.nv = null;
-	if (arguments.length === 0) return;
-	this.nv = new FastNodingValidator(EdgeNodingValidator.toSegmentStrings(edges));
-}
-module.exports = EdgeNodingValidator
-var BasicSegmentString = require('com/vividsolutions/jts/noding/BasicSegmentString');
-var FastNodingValidator = require('com/vividsolutions/jts/noding/FastNodingValidator');
-var ArrayList = require('java/util/ArrayList');
-EdgeNodingValidator.prototype.checkValid = function () {
-	this.nv.checkValid();
-};
-EdgeNodingValidator.toSegmentStrings = function (edges) {
-	var segStrings = new ArrayList();
-	for (var i = edges.iterator(); i.hasNext(); ) {
-		var e = i.next();
-		segStrings.add(new BasicSegmentString(e.getCoordinates(), e));
+import BasicSegmentString from 'com/vividsolutions/jts/noding/BasicSegmentString';
+import FastNodingValidator from 'com/vividsolutions/jts/noding/FastNodingValidator';
+import ArrayList from 'java/util/ArrayList';
+export default class EdgeNodingValidator {
+	constructor(...args) {
+		(() => {
+			this.nv = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [edges] = args;
+						this.nv = new FastNodingValidator(EdgeNodingValidator.toSegmentStrings(edges));
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
 	}
-	return segStrings;
-};
-EdgeNodingValidator.checkValid = function (edges) {
-	var validator = new EdgeNodingValidator(edges);
-	validator.checkValid();
-};
+	get interfaces_() {
+		return [];
+	}
+	static toSegmentStrings(edges) {
+		var segStrings = new ArrayList();
+		for (var i = edges.iterator(); i.hasNext(); ) {
+			var e = i.next();
+			segStrings.add(new BasicSegmentString(e.getCoordinates(), e));
+		}
+		return segStrings;
+	}
+	static checkValid(edges) {
+		var validator = new EdgeNodingValidator(edges);
+		validator.checkValid();
+	}
+	checkValid() {
+		this.nv.checkValid();
+	}
+}
 

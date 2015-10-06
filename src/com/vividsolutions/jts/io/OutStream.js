@@ -1,4 +1,7 @@
-function OutStream() {}
-module.exports = OutStream
-OutStream.prototype.write = function (buf, len) {};
+export default class OutStream {
+	get interfaces_() {
+		return [];
+	}
+	write(buf, len) {}
+}
 

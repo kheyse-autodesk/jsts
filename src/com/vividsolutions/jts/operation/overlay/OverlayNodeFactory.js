@@ -1,11 +1,12 @@
-function OverlayNodeFactory() {}
-module.exports = OverlayNodeFactory
-var NodeFactory = require('com/vividsolutions/jts/geomgraph/NodeFactory');
-var util = require('util');
-util.inherits(OverlayNodeFactory, NodeFactory)
-var DirectedEdgeStar = require('com/vividsolutions/jts/geomgraph/DirectedEdgeStar');
-var Node = require('com/vividsolutions/jts/geomgraph/Node');
-OverlayNodeFactory.prototype.createNode = function (coord) {
-	return new Node(coord, new DirectedEdgeStar());
-};
+import DirectedEdgeStar from 'com/vividsolutions/jts/geomgraph/DirectedEdgeStar';
+import Node from 'com/vividsolutions/jts/geomgraph/Node';
+import NodeFactory from 'com/vividsolutions/jts/geomgraph/NodeFactory';
+export default class OverlayNodeFactory extends NodeFactory {
+	get interfaces_() {
+		return [];
+	}
+	createNode(coord) {
+		return new Node(coord, new DirectedEdgeStar());
+	}
+}
 

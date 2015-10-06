@@ -1,30 +1,43 @@
-function ConstraintVertex(p) {
-	this.isOnConstraint = null;
-	this.constraint = null;
-	if (arguments.length === 0) return;
-	ConstraintVertex.super_.call(this, p);
-}
-module.exports = ConstraintVertex
-var Vertex = require('com/vividsolutions/jts/triangulate/quadedge/Vertex');
-var util = require('util');
-util.inherits(ConstraintVertex, Vertex)
-ConstraintVertex.prototype.getConstraint = function () {
-	return this.constraint;
-};
-ConstraintVertex.prototype.setOnConstraint = function (isOnConstraint) {
-	this.isOnConstraint = isOnConstraint;
-};
-ConstraintVertex.prototype.merge = function (other) {
-	if (other.isOnConstraint) {
-		this.isOnConstraint = true;
-		this.constraint = other.constraint;
+import Vertex from 'com/vividsolutions/jts/triangulate/quadedge/Vertex';
+export default class ConstraintVertex extends Vertex {
+	constructor(...args) {
+		super();
+		(() => {
+			this.isOnConstraint = null;
+			this.constraint = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [p] = args;
+						super(p);
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
 	}
-};
-ConstraintVertex.prototype.isOnConstraint = function () {
-	return this.isOnConstraint;
-};
-ConstraintVertex.prototype.setConstraint = function (constraint) {
-	this.isOnConstraint = true;
-	this.constraint = constraint;
-};
+	get interfaces_() {
+		return [];
+	}
+	getConstraint() {
+		return this.constraint;
+	}
+	setOnConstraint(isOnConstraint) {
+		this.isOnConstraint = isOnConstraint;
+	}
+	merge(other) {
+		if (other.isOnConstraint) {
+			this.isOnConstraint = true;
+			this.constraint = other.constraint;
+		}
+	}
+	isOnConstraint() {
+		return this.isOnConstraint;
+	}
+	setConstraint(constraint) {
+		this.isOnConstraint = true;
+		this.constraint = constraint;
+	}
+}
 

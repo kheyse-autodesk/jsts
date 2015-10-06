@@ -1,55 +1,69 @@
-function EdgeList() {
-	this.edges = new ArrayList();
-	this.ocaMap = new TreeMap();
-	if (arguments.length === 0) return;
-}
-module.exports = EdgeList
-var OrientedCoordinateArray = require('com/vividsolutions/jts/noding/OrientedCoordinateArray');
-var ArrayList = require('java/util/ArrayList');
-var TreeMap = require('java/util/TreeMap');
-EdgeList.prototype.print = function (out) {
-	out.print("MULTILINESTRING ( ");
-	for (var j = 0; j < this.edges.size(); j++) {
-		var e = this.edges.get(j);
-		if (j > 0) out.print(",");
-		out.print("(");
-		var pts = e.getCoordinates();
-		for (var i = 0; i < pts.length; i++) {
-			if (i > 0) out.print(",");
-			out.print(this.x + " " + this.y);
+import OrientedCoordinateArray from 'com/vividsolutions/jts/noding/OrientedCoordinateArray';
+import ArrayList from 'java/util/ArrayList';
+import TreeMap from 'java/util/TreeMap';
+export default class EdgeList {
+	constructor(...args) {
+		(() => {
+			this.edges = new ArrayList();
+			this.ocaMap = new TreeMap();
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [];
+	}
+	print(out) {
+		out.print("MULTILINESTRING ( ");
+		for (var j = 0; j < this.edges.size(); j++) {
+			var e = this.edges.get(j);
+			if (j > 0) out.print(",");
+			out.print("(");
+			var pts = e.getCoordinates();
+			for (var i = 0; i < pts.length; i++) {
+				if (i > 0) out.print(",");
+				out.print(this.x + " " + this.y);
+			}
+			out.println(")");
 		}
-		out.println(")");
+		out.print(")  ");
 	}
-	out.print(")  ");
-};
-EdgeList.prototype.addAll = function (edgeColl) {
-	for (var i = edgeColl.iterator(); i.hasNext(); ) {
-		this.add(i.next());
+	addAll(edgeColl) {
+		for (var i = edgeColl.iterator(); i.hasNext(); ) {
+			this.add(i.next());
+		}
 	}
-};
-EdgeList.prototype.findEdgeIndex = function (e) {
-	for (var i = 0; i < this.edges.size(); i++) {
-		if (this.edges.get(i).equals(e)) return i;
+	findEdgeIndex(e) {
+		for (var i = 0; i < this.edges.size(); i++) {
+			if (this.edges.get(i).equals(e)) return i;
+		}
+		return -1;
 	}
-	return -1;
-};
-EdgeList.prototype.iterator = function () {
-	return this.edges.iterator();
-};
-EdgeList.prototype.getEdges = function () {
-	return this.edges;
-};
-EdgeList.prototype.get = function (i) {
-	return this.edges.get(i);
-};
-EdgeList.prototype.findEqualEdge = function (e) {
-	var oca = new OrientedCoordinateArray(e.getCoordinates());
-	var matchEdge = this.ocaMap.get(oca);
-	return matchEdge;
-};
-EdgeList.prototype.add = function (e) {
-	this.edges.add(e);
-	var oca = new OrientedCoordinateArray(e.getCoordinates());
-	this.ocaMap.put(oca, e);
-};
+	iterator() {
+		return this.edges.iterator();
+	}
+	getEdges() {
+		return this.edges;
+	}
+	get(i) {
+		return this.edges.get(i);
+	}
+	findEqualEdge(e) {
+		var oca = new OrientedCoordinateArray(e.getCoordinates());
+		var matchEdge = this.ocaMap.get(oca);
+		return matchEdge;
+	}
+	add(e) {
+		this.edges.add(e);
+		var oca = new OrientedCoordinateArray(e.getCoordinates());
+		this.ocaMap.put(oca, e);
+	}
+}
 

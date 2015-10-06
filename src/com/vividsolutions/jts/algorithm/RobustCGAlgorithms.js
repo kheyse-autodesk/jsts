@@ -1,6 +1,7 @@
-function RobustCGAlgorithms() {}
-module.exports = RobustCGAlgorithms
-var CGAlgorithms = require('com/vividsolutions/jts/algorithm/CGAlgorithms');
-var util = require('util');
-util.inherits(RobustCGAlgorithms, CGAlgorithms)
+import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
+export default class RobustCGAlgorithms extends CGAlgorithms {
+	get interfaces_() {
+		return [];
+	}
+}
 

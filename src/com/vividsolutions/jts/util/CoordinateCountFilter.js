@@ -1,12 +1,27 @@
-function CoordinateCountFilter() {
-	this.n = 0;
-	if (arguments.length === 0) return;
+import CoordinateFilter from 'com/vividsolutions/jts/geom/CoordinateFilter';
+export default class CoordinateCountFilter {
+	constructor(...args) {
+		(() => {
+			this.n = 0;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [CoordinateFilter];
+	}
+	filter(coord) {
+		this.n++;
+	}
+	getCount() {
+		return this.n;
+	}
 }
-module.exports = CoordinateCountFilter
-CoordinateCountFilter.prototype.filter = function (coord) {
-	this.n++;
-};
-CoordinateCountFilter.prototype.getCount = function () {
-	return this.n;
-};
 

@@ -1,4 +1,7 @@
-function Boundable() {}
-module.exports = Boundable
-Boundable.prototype.getBounds = function () {};
+export default class Boundable {
+	get interfaces_() {
+		return [];
+	}
+	getBounds() {}
+}
 

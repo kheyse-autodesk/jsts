@@ -1,57 +1,71 @@
-function FastNodingValidator(segStrings) {
-	this.li = new RobustLineIntersector();
-	this.segStrings = null;
-	this.findAllIntersections = false;
-	this.segInt = null;
-	this.isValid = true;
-	if (arguments.length === 0) return;
-	this.segStrings = segStrings;
-}
-module.exports = FastNodingValidator
-var WKTWriter = require('com/vividsolutions/jts/io/WKTWriter');
-var MCIndexNoder = require('com/vividsolutions/jts/noding/MCIndexNoder');
-var TopologyException = require('com/vividsolutions/jts/geom/TopologyException');
-var RobustLineIntersector = require('com/vividsolutions/jts/algorithm/RobustLineIntersector');
-var InteriorIntersectionFinder = require('com/vividsolutions/jts/noding/InteriorIntersectionFinder');
-FastNodingValidator.prototype.execute = function () {
-	if (this.segInt !== null) return null;
-	this.checkInteriorIntersections();
-};
-FastNodingValidator.prototype.getIntersections = function () {
-	return this.segInt.getIntersections();
-};
-FastNodingValidator.prototype.isValid = function () {
-	this.execute();
-	return this.isValid;
-};
-FastNodingValidator.prototype.setFindAllIntersections = function (findAllIntersections) {
-	this.findAllIntersections = findAllIntersections;
-};
-FastNodingValidator.prototype.checkInteriorIntersections = function () {
-	this.isValid = true;
-	this.segInt = new InteriorIntersectionFinder(this.li);
-	this.segInt.setFindAllIntersections(this.findAllIntersections);
-	var noder = new MCIndexNoder();
-	noder.setSegmentIntersector(this.segInt);
-	noder.computeNodes(this.segStrings);
-	if (this.segInt.hasIntersection()) {
-		this.isValid = false;
-		return null;
+import WKTWriter from 'com/vividsolutions/jts/io/WKTWriter';
+import MCIndexNoder from 'com/vividsolutions/jts/noding/MCIndexNoder';
+import TopologyException from 'com/vividsolutions/jts/geom/TopologyException';
+import RobustLineIntersector from 'com/vividsolutions/jts/algorithm/RobustLineIntersector';
+import InteriorIntersectionFinder from 'com/vividsolutions/jts/noding/InteriorIntersectionFinder';
+export default class FastNodingValidator {
+	constructor(...args) {
+		(() => {
+			this.li = new RobustLineIntersector();
+			this.segStrings = null;
+			this.findAllIntersections = false;
+			this.segInt = null;
+			this.isValid = true;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [segStrings] = args;
+						this.segStrings = segStrings;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
 	}
-};
-FastNodingValidator.prototype.checkValid = function () {
-	this.execute();
-	if (!this.isValid) throw new TopologyException(this.getErrorMessage(), this.segInt.getInteriorIntersection());
-};
-FastNodingValidator.prototype.getErrorMessage = function () {
-	if (this.isValid) return "no intersections found";
-	var intSegs = this.segInt.getIntersectionSegments();
-	return "found non-noded intersection between " + WKTWriter.toLineString(intSegs[0], intSegs[1]) + " and " + WKTWriter.toLineString(intSegs[2], intSegs[3]);
-};
-FastNodingValidator.computeIntersections = function (segStrings) {
-	var nv = new FastNodingValidator(segStrings);
-	nv.setFindAllIntersections(true);
-	nv.isValid();
-	return nv.getIntersections();
-};
+	get interfaces_() {
+		return [];
+	}
+	static computeIntersections(segStrings) {
+		var nv = new FastNodingValidator(segStrings);
+		nv.setFindAllIntersections(true);
+		nv.isValid();
+		return nv.getIntersections();
+	}
+	execute() {
+		if (this.segInt !== null) return null;
+		this.checkInteriorIntersections();
+	}
+	getIntersections() {
+		return this.segInt.getIntersections();
+	}
+	isValid() {
+		this.execute();
+		return this.isValid;
+	}
+	setFindAllIntersections(findAllIntersections) {
+		this.findAllIntersections = findAllIntersections;
+	}
+	checkInteriorIntersections() {
+		this.isValid = true;
+		this.segInt = new InteriorIntersectionFinder(this.li);
+		this.segInt.setFindAllIntersections(this.findAllIntersections);
+		var noder = new MCIndexNoder();
+		noder.setSegmentIntersector(this.segInt);
+		noder.computeNodes(this.segStrings);
+		if (this.segInt.hasIntersection()) {
+			this.isValid = false;
+			return null;
+		}
+	}
+	checkValid() {
+		this.execute();
+		if (!this.isValid) throw new TopologyException(this.getErrorMessage(), this.segInt.getInteriorIntersection());
+	}
+	getErrorMessage() {
+		if (this.isValid) return "no intersections found";
+		var intSegs = this.segInt.getIntersectionSegments();
+		return "found non-noded intersection between " + WKTWriter.toLineString(intSegs[0], intSegs[1]) + " and " + WKTWriter.toLineString(intSegs[2], intSegs[3]);
+	}
+}
 
