@@ -11,18 +11,21 @@ var OperationNotSupported = require('./OperationNotSupported');
  * @extends List
  * @constructor
  */
-var ArrayList = function() {
-  /**
-   * @type {Array}
-   * @private
-  */
-  this.array_ = [];
+class ArrayList extends List { 
+  constructor() {
+    super();
+    
+    /**
+     * @type {Array}
+     * @private
+    */
+    this.array_ = [];
 
-  if (arguments[0] instanceof Collection) {
-    this.addAll(arguments[0]);
+    if (arguments[0] instanceof Collection) {
+      this.addAll(arguments[0]);
+    }
   }
 };
-ArrayList.prototype = new List()
 
 
 /**

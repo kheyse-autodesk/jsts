@@ -22,7 +22,7 @@ var factory = new GeometryFactory()
 var p1 = factory.createPoint(c1)
 
 var BufferOp = require('com/vividsolutions/jts/operation/buffer/BufferOp')
-var buffer = BufferOp.bufferOp(l1, 10)
+var buffer = BufferOp.bufferOp(p1, 10)
 console.log(buffer)
 
 
