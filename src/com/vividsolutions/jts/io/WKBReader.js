@@ -1,17 +1,17 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import WKBConstants from 'com/vividsolutions/jts/io/WKBConstants';
-import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
-import Point from 'com/vividsolutions/jts/geom/Point';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
-import ByteArrayInStream from 'com/vividsolutions/jts/io/ByteArrayInStream';
+import LineString from '../geom/LineString';
+import WKBConstants from './WKBConstants';
+import GeometryFactory from '../geom/GeometryFactory';
+import Point from '../geom/Point';
+import Polygon from '../geom/Polygon';
+import ByteArrayInStream from './ByteArrayInStream';
 import Character from 'java/lang/Character';
-import InStream from 'com/vividsolutions/jts/io/InStream';
-import CoordinateSequences from 'com/vividsolutions/jts/geom/CoordinateSequences';
-import ParseException from 'com/vividsolutions/jts/io/ParseException';
-import ByteOrderValues from 'com/vividsolutions/jts/io/ByteOrderValues';
+import InStream from './InStream';
+import CoordinateSequences from '../geom/CoordinateSequences';
+import ParseException from './ParseException';
+import ByteOrderValues from './ByteOrderValues';
 import RuntimeException from 'java/lang/RuntimeException';
 import IOException from 'java/io/IOException';
-import ByteOrderDataInStream from 'com/vividsolutions/jts/io/ByteOrderDataInStream';
+import ByteOrderDataInStream from './ByteOrderDataInStream';
 export default class WKBReader {
 	constructor(...args) {
 		(() => {

@@ -1,13 +1,13 @@
-import PolygonizeDirectedEdge from 'com/vividsolutions/jts/operation/polygonize/PolygonizeDirectedEdge';
+import PolygonizeDirectedEdge from './PolygonizeDirectedEdge';
 import HashSet from 'java/util/HashSet';
 import Stack from 'java/util/Stack';
-import Node from 'com/vividsolutions/jts/planargraph/Node';
-import PolygonizeEdge from 'com/vividsolutions/jts/operation/polygonize/PolygonizeEdge';
-import EdgeRing from 'com/vividsolutions/jts/operation/polygonize/EdgeRing';
-import CoordinateArrays from 'com/vividsolutions/jts/geom/CoordinateArrays';
+import Node from '../../planargraph/Node';
+import PolygonizeEdge from './PolygonizeEdge';
+import EdgeRing from './EdgeRing';
+import CoordinateArrays from '../../geom/CoordinateArrays';
 import ArrayList from 'java/util/ArrayList';
-import Assert from 'com/vividsolutions/jts/util/Assert';
-import PlanarGraph from 'com/vividsolutions/jts/planargraph/PlanarGraph';
+import Assert from '../../util/Assert';
+import PlanarGraph from '../../planargraph/PlanarGraph';
 export default class PolygonizeGraph extends PlanarGraph {
 	constructor(...args) {
 		super();

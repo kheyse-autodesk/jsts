@@ -1,5 +1,5 @@
 import HashMap from 'java/util/HashMap';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import Coordinate from './Coordinate';
 import Double from 'java/lang/Double';
 import Comparable from 'java/lang/Comparable';
 import Serializable from 'java/io/Serializable';

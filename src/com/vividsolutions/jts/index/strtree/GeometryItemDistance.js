@@ -1,5 +1,5 @@
-import DistanceOp from 'com/vividsolutions/jts/operation/distance/DistanceOp';
-import ItemDistance from 'com/vividsolutions/jts/index/strtree/ItemDistance';
+import DistanceOp from '../../operation/distance/DistanceOp';
+import ItemDistance from './ItemDistance';
 export default class GeometryItemDistance {
 	get interfaces_() {
 		return [ItemDistance];

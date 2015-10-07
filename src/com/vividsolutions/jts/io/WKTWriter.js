@@ -1,17 +1,17 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import Point from 'com/vividsolutions/jts/geom/Point';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
+import LineString from '../geom/LineString';
+import Point from '../geom/Point';
+import Polygon from '../geom/Polygon';
 import DecimalFormat from 'java/text/DecimalFormat';
-import MultiPoint from 'com/vividsolutions/jts/geom/MultiPoint';
-import LinearRing from 'com/vividsolutions/jts/geom/LinearRing';
+import MultiPoint from '../geom/MultiPoint';
+import LinearRing from '../geom/LinearRing';
 import Double from 'java/lang/Double';
 import StringWriter from 'java/io/StringWriter';
 import DecimalFormatSymbols from 'java/text/DecimalFormatSymbols';
-import MultiPolygon from 'com/vividsolutions/jts/geom/MultiPolygon';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import MultiPolygon from '../geom/MultiPolygon';
+import GeometryCollection from '../geom/GeometryCollection';
+import Assert from '../util/Assert';
 import IOException from 'java/io/IOException';
-import MultiLineString from 'com/vividsolutions/jts/geom/MultiLineString';
+import MultiLineString from '../geom/MultiLineString';
 export default class WKTWriter {
 	constructor(...args) {
 		(() => {

@@ -1,5 +1,5 @@
-import SimpleMCSweepLineIntersector from 'com/vividsolutions/jts/geomgraph/index/SimpleMCSweepLineIntersector';
-import SegmentIntersector from 'com/vividsolutions/jts/geomgraph/index/SegmentIntersector';
+import SimpleMCSweepLineIntersector from '../../geomgraph/index/SimpleMCSweepLineIntersector';
+import SegmentIntersector from '../../geomgraph/index/SegmentIntersector';
 import ArrayList from 'java/util/ArrayList';
 export default class EdgeSetNoder {
 	constructor(...args) {

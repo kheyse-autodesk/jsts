@@ -1,5 +1,5 @@
-import NodedSegmentString from 'com/vividsolutions/jts/noding/NodedSegmentString';
-import SinglePassNoder from 'com/vividsolutions/jts/noding/SinglePassNoder';
+import NodedSegmentString from './NodedSegmentString';
+import SinglePassNoder from './SinglePassNoder';
 export default class SimpleNoder extends SinglePassNoder {
 	constructor(...args) {
 		super();

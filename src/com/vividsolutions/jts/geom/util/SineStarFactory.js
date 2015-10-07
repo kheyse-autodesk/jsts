@@ -1,5 +1,5 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import GeometricShapeFactory from 'com/vividsolutions/jts/util/GeometricShapeFactory';
+import Coordinate from '../Coordinate';
+import GeometricShapeFactory from '../../util/GeometricShapeFactory';
 export default class SineStarFactory extends GeometricShapeFactory {
 	constructor(...args) {
 		super();

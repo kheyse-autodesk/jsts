@@ -1,5 +1,5 @@
 import HashMap from 'java/util/HashMap';
-import HalfEdge from 'com/vividsolutions/jts/edgegraph/HalfEdge';
+import HalfEdge from './HalfEdge';
 export default class EdgeGraph {
 	constructor(...args) {
 		(() => {

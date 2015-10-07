@@ -1,5 +1,5 @@
-import SegmentIntersector from 'com/vividsolutions/jts/noding/SegmentIntersector';
-import RobustLineIntersector from 'com/vividsolutions/jts/algorithm/RobustLineIntersector';
+import SegmentIntersector from './SegmentIntersector';
+import RobustLineIntersector from '../algorithm/RobustLineIntersector';
 export default class SegmentIntersectionDetector {
 	constructor(...args) {
 		(() => {

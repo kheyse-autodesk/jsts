@@ -1,4 +1,4 @@
-import CoordinateSequenceFilter from 'com/vividsolutions/jts/geom/CoordinateSequenceFilter';
+import CoordinateSequenceFilter from '../geom/CoordinateSequenceFilter';
 export default class CoordinatePrecisionReducerFilter {
 	constructor(...args) {
 		(() => {

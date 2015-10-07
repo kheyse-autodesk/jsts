@@ -1,5 +1,5 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import DD from 'com/vividsolutions/jts/math/DD';
+import Coordinate from '../geom/Coordinate';
+import DD from '../math/DD';
 export default class CGAlgorithmsDD {
 	get interfaces_() {
 		return [];

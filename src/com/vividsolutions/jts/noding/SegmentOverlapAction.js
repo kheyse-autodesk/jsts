@@ -1,4 +1,4 @@
-import MonotoneChainOverlapAction from 'com/vividsolutions/jts/index/chain/MonotoneChainOverlapAction';
+import MonotoneChainOverlapAction from '../index/chain/MonotoneChainOverlapAction';
 export default class SegmentOverlapAction extends MonotoneChainOverlapAction {
 	constructor(...args) {
 		super();

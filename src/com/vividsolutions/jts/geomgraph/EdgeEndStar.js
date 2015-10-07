@@ -1,9 +1,9 @@
-import Location from 'com/vividsolutions/jts/geom/Location';
-import Position from 'com/vividsolutions/jts/geomgraph/Position';
-import TopologyException from 'com/vividsolutions/jts/geom/TopologyException';
-import SimplePointInAreaLocator from 'com/vividsolutions/jts/algorithm/locate/SimplePointInAreaLocator';
+import Location from '../geom/Location';
+import Position from './Position';
+import TopologyException from '../geom/TopologyException';
+import SimplePointInAreaLocator from '../algorithm/locate/SimplePointInAreaLocator';
 import ArrayList from 'java/util/ArrayList';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import Assert from '../util/Assert';
 import TreeMap from 'java/util/TreeMap';
 export default class EdgeEndStar {
 	constructor(...args) {

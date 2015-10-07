@@ -1,7 +1,7 @@
-import NodeBase from 'com/vividsolutions/jts/index/quadtree/NodeBase';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
-import Assert from 'com/vividsolutions/jts/util/Assert';
-import Key from 'com/vividsolutions/jts/index/quadtree/Key';
+import NodeBase from './NodeBase';
+import Envelope from '../../geom/Envelope';
+import Assert from '../../util/Assert';
+import Key from './Key';
 export default class Node extends NodeBase {
 	constructor(...args) {
 		super();

@@ -1,7 +1,8 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import Coordinate from './Coordinate';
 import ArrayList from 'java/util/ArrayList';
 export default class CoordinateList extends ArrayList {
 	constructor(...args) {
+		super();
 		(() => {})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -51,12 +52,16 @@ export default class CoordinateList extends ArrayList {
 		return clone;
 	}
 	toCoordinateArray() {
-	  console.log(CoordinateList.coordArrayType);
 		return this.toArray(CoordinateList.coordArrayType);
 	}
 	add(...args) {
 		const overloads = (...args) => {
 			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [coord] = args;
+						super.add(coord);
+					})(...args);
 				case 2:
 					if (args[0] instanceof Coordinate && typeof args[1] === "boolean") {
 						return ((...args) => {

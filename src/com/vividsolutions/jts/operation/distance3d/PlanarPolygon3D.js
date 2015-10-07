@@ -1,10 +1,10 @@
-import Location from 'com/vividsolutions/jts/geom/Location';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import AxisPlaneCoordinateSequence from 'com/vividsolutions/jts/operation/distance3d/AxisPlaneCoordinateSequence';
-import Vector3D from 'com/vividsolutions/jts/math/Vector3D';
-import CoordinateSequence from 'com/vividsolutions/jts/geom/CoordinateSequence';
-import Plane3D from 'com/vividsolutions/jts/math/Plane3D';
-import RayCrossingCounter from 'com/vividsolutions/jts/algorithm/RayCrossingCounter';
+import Location from '../../geom/Location';
+import Coordinate from '../../geom/Coordinate';
+import AxisPlaneCoordinateSequence from './AxisPlaneCoordinateSequence';
+import Vector3D from '../../math/Vector3D';
+import CoordinateSequence from '../../geom/CoordinateSequence';
+import Plane3D from '../../math/Plane3D';
+import RayCrossingCounter from '../../algorithm/RayCrossingCounter';
 export default class PlanarPolygon3D {
 	constructor(...args) {
 		(() => {

@@ -1,5 +1,5 @@
-import Root from 'com/vividsolutions/jts/index/bintree/Root';
-import Interval from 'com/vividsolutions/jts/index/bintree/Interval';
+import Root from './Root';
+import Interval from './Interval';
 import ArrayList from 'java/util/ArrayList';
 export default class Bintree {
 	constructor(...args) {

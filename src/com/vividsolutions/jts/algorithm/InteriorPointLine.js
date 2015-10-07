@@ -1,9 +1,9 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import LineString from '../geom/LineString';
+import Geometry from '../geom/Geometry';
+import Coordinate from '../geom/Coordinate';
 import Double from 'java/lang/Double';
-import Centroid from 'com/vividsolutions/jts/algorithm/Centroid';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
+import Centroid from './Centroid';
+import GeometryCollection from '../geom/GeometryCollection';
 export default class InteriorPointLine {
 	constructor(...args) {
 		(() => {

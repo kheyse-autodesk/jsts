@@ -1,7 +1,7 @@
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import IsValidOp from 'com/vividsolutions/jts/operation/valid/IsValidOp';
+import CGAlgorithms from '../../algorithm/CGAlgorithms';
+import IsValidOp from './IsValidOp';
 import ArrayList from 'java/util/ArrayList';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import Assert from '../../util/Assert';
 export default class SimpleNestedRingTester {
 	constructor(...args) {
 		(() => {

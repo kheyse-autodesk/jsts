@@ -1,7 +1,7 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import AffineTransformation from 'com/vividsolutions/jts/geom/util/AffineTransformation';
-import AffineTransformationBuilder from 'com/vividsolutions/jts/geom/util/AffineTransformationBuilder';
-import Angle from 'com/vividsolutions/jts/algorithm/Angle';
+import Coordinate from '../Coordinate';
+import AffineTransformation from './AffineTransformation';
+import AffineTransformationBuilder from './AffineTransformationBuilder';
+import Angle from '../../algorithm/Angle';
 export default class AffineTransformationFactory {
 	get interfaces_() {
 		return [];

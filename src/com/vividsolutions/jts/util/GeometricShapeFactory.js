@@ -1,6 +1,6 @@
-import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import AffineTransformation from 'com/vividsolutions/jts/geom/util/AffineTransformation';
+import GeometryFactory from '../geom/GeometryFactory';
+import Coordinate from '../geom/Coordinate';
+import AffineTransformation from '../geom/util/AffineTransformation';
 export default class GeometricShapeFactory {
 	constructor(...args) {
 		(() => {

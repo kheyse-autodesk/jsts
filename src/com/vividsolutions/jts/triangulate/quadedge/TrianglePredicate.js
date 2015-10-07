@@ -1,7 +1,7 @@
-import WKTWriter from 'com/vividsolutions/jts/io/WKTWriter';
-import CoordinateArraySequence from 'com/vividsolutions/jts/geom/impl/CoordinateArraySequence';
-import DD from 'com/vividsolutions/jts/math/DD';
-import Triangle from 'com/vividsolutions/jts/geom/Triangle';
+import WKTWriter from '../../io/WKTWriter';
+import CoordinateArraySequence from '../../geom/impl/CoordinateArraySequence';
+import DD from '../../math/DD';
+import Triangle from '../../geom/Triangle';
 export default class TrianglePredicate {
 	get interfaces_() {
 		return [];

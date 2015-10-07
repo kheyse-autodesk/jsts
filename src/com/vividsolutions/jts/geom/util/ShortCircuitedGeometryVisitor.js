@@ -1,4 +1,4 @@
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
+import GeometryCollection from '../GeometryCollection';
 export default class ShortCircuitedGeometryVisitor {
 	constructor(...args) {
 		(() => {

@@ -1,10 +1,10 @@
-import QuadEdge from 'com/vividsolutions/jts/triangulate/quadedge/QuadEdge';
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Vertex from 'com/vividsolutions/jts/triangulate/quadedge/Vertex';
+import QuadEdge from './QuadEdge';
+import CGAlgorithms from '../../algorithm/CGAlgorithms';
+import GeometryFactory from '../../geom/GeometryFactory';
+import Coordinate from '../../geom/Coordinate';
+import Vertex from './Vertex';
 import ArrayList from 'java/util/ArrayList';
-import TriangleVisitor from 'com/vividsolutions/jts/triangulate/quadedge/TriangleVisitor';
+import TriangleVisitor from './TriangleVisitor';
 export default class QuadEdgeTriangle {
 	constructor(...args) {
 		(() => {

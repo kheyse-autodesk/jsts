@@ -1,7 +1,7 @@
-import NodeBase from 'com/vividsolutions/jts/index/bintree/NodeBase';
-import Interval from 'com/vividsolutions/jts/index/bintree/Interval';
-import Assert from 'com/vividsolutions/jts/util/Assert';
-import Key from 'com/vividsolutions/jts/index/bintree/Key';
+import NodeBase from './NodeBase';
+import Interval from './Interval';
+import Assert from '../../util/Assert';
+import Key from './Key';
 export default class Node extends NodeBase {
 	constructor(...args) {
 		super();

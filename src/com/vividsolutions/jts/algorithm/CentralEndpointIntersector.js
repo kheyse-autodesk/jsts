@@ -1,5 +1,5 @@
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import CGAlgorithms from './CGAlgorithms';
+import Coordinate from '../geom/Coordinate';
 import Double from 'java/lang/Double';
 export default class CentralEndpointIntersector {
 	constructor(...args) {

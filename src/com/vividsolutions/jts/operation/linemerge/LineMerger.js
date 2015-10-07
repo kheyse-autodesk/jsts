@@ -1,11 +1,11 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
+import LineString from '../../geom/LineString';
+import Geometry from '../../geom/Geometry';
 import Collection from 'java/util/Collection';
-import EdgeString from 'com/vividsolutions/jts/operation/linemerge/EdgeString';
-import LineMergeGraph from 'com/vividsolutions/jts/operation/linemerge/LineMergeGraph';
+import EdgeString from './EdgeString';
+import LineMergeGraph from './LineMergeGraph';
 import ArrayList from 'java/util/ArrayList';
-import Assert from 'com/vividsolutions/jts/util/Assert';
-import GraphComponent from 'com/vividsolutions/jts/planargraph/GraphComponent';
+import Assert from '../../util/Assert';
+import GraphComponent from '../../planargraph/GraphComponent';
 export default class LineMerger {
 	constructor(...args) {
 		(() => {

@@ -1,11 +1,11 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import Coordinate from '../geom/Coordinate';
 import Double from 'java/lang/Double';
-import BufferOp from 'com/vividsolutions/jts/operation/buffer/BufferOp';
-import ConvexHull from 'com/vividsolutions/jts/algorithm/ConvexHull';
-import CoordinateArrays from 'com/vividsolutions/jts/geom/CoordinateArrays';
-import Angle from 'com/vividsolutions/jts/algorithm/Angle';
-import Assert from 'com/vividsolutions/jts/util/Assert';
-import Triangle from 'com/vividsolutions/jts/geom/Triangle';
+import BufferOp from '../operation/buffer/BufferOp';
+import ConvexHull from './ConvexHull';
+import CoordinateArrays from '../geom/CoordinateArrays';
+import Angle from './Angle';
+import Assert from '../util/Assert';
+import Triangle from '../geom/Triangle';
 export default class MinimumBoundingCircle {
 	constructor(...args) {
 		(() => {

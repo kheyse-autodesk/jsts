@@ -1,8 +1,8 @@
-import CoordinateList from 'com/vividsolutions/jts/geom/CoordinateList';
-import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import CoordinateList from '../../geom/CoordinateList';
+import GeometryFactory from '../../geom/GeometryFactory';
+import Coordinate from '../../geom/Coordinate';
 import ArrayList from 'java/util/ArrayList';
-import GeometricShapeBuilder from 'com/vividsolutions/jts/shape/GeometricShapeBuilder';
+import GeometricShapeBuilder from '../GeometricShapeBuilder';
 export default class SierpinskiCarpetBuilder extends GeometricShapeBuilder {
 	constructor(...args) {
 		super();

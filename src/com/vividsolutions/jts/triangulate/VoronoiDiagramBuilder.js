@@ -1,12 +1,12 @@
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
-import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
+import Geometry from '../geom/Geometry';
+import GeometryFactory from '../geom/GeometryFactory';
 import Collection from 'java/util/Collection';
-import IncrementalDelaunayTriangulator from 'com/vividsolutions/jts/triangulate/IncrementalDelaunayTriangulator';
-import QuadEdgeSubdivision from 'com/vividsolutions/jts/triangulate/quadedge/QuadEdgeSubdivision';
-import DelaunayTriangulationBuilder from 'com/vividsolutions/jts/triangulate/DelaunayTriangulationBuilder';
-import CoordinateArrays from 'com/vividsolutions/jts/geom/CoordinateArrays';
+import IncrementalDelaunayTriangulator from './IncrementalDelaunayTriangulator';
+import QuadEdgeSubdivision from './quadedge/QuadEdgeSubdivision';
+import DelaunayTriangulationBuilder from './DelaunayTriangulationBuilder';
+import CoordinateArrays from '../geom/CoordinateArrays';
 import ArrayList from 'java/util/ArrayList';
-import OverlayOp from 'com/vividsolutions/jts/operation/overlay/OverlayOp';
+import OverlayOp from '../operation/overlay/OverlayOp';
 export default class VoronoiDiagramBuilder {
 	constructor(...args) {
 		(() => {

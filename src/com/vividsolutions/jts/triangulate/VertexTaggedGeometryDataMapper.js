@@ -1,4 +1,4 @@
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
+import Geometry from '../geom/Geometry';
 import Collection from 'java/util/Collection';
 import ArrayList from 'java/util/ArrayList';
 import TreeMap from 'java/util/TreeMap';

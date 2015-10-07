@@ -1,6 +1,6 @@
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
-import Dimension from 'com/vividsolutions/jts/geom/Dimension';
-import Puntal from 'com/vividsolutions/jts/geom/Puntal';
+import GeometryCollection from './GeometryCollection';
+import Dimension from './Dimension';
+import Puntal from './Puntal';
 export default class MultiPoint extends GeometryCollection {
 	constructor(...args) {
 		super();

@@ -1,4 +1,4 @@
-import SegmentString from 'com/vividsolutions/jts/noding/SegmentString';
+import SegmentString from './SegmentString';
 export default class NodableSegmentString {
 	get interfaces_() {
 		return [SegmentString];

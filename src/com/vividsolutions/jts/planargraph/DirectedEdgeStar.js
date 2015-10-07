@@ -1,7 +1,7 @@
 import Collections from 'java/util/Collections';
-import DirectedEdge from 'com/vividsolutions/jts/planargraph/DirectedEdge';
+import DirectedEdge from './DirectedEdge';
 import ArrayList from 'java/util/ArrayList';
-import Edge from 'com/vividsolutions/jts/planargraph/Edge';
+import Edge from './Edge';
 export default class DirectedEdgeStar {
 	constructor(...args) {
 		(() => {

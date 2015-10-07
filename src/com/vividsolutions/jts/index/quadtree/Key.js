@@ -1,6 +1,6 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import DoubleBits from 'com/vividsolutions/jts/index/quadtree/DoubleBits';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
+import Coordinate from '../../geom/Coordinate';
+import DoubleBits from './DoubleBits';
+import Envelope from '../../geom/Envelope';
 export default class Key {
 	constructor(...args) {
 		(() => {

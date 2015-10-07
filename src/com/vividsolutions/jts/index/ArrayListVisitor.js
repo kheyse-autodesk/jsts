@@ -1,4 +1,4 @@
-import ItemVisitor from 'com/vividsolutions/jts/index/ItemVisitor';
+import ItemVisitor from './ItemVisitor';
 import ArrayList from 'java/util/ArrayList';
 export default class ArrayListVisitor {
 	constructor(...args) {

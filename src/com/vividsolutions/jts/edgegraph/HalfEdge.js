@@ -1,6 +1,6 @@
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import Quadrant from 'com/vividsolutions/jts/geomgraph/Quadrant';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import CGAlgorithms from '../algorithm/CGAlgorithms';
+import Quadrant from '../geomgraph/Quadrant';
+import Assert from '../util/Assert';
 export default class HalfEdge {
 	constructor(...args) {
 		(() => {

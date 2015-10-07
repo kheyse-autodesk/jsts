@@ -1,10 +1,10 @@
-import SegmentNodeList from 'com/vividsolutions/jts/noding/SegmentNodeList';
-import WKTWriter from 'com/vividsolutions/jts/io/WKTWriter';
-import CoordinateArraySequence from 'com/vividsolutions/jts/geom/impl/CoordinateArraySequence';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Octant from 'com/vividsolutions/jts/noding/Octant';
+import SegmentNodeList from './SegmentNodeList';
+import WKTWriter from '../io/WKTWriter';
+import CoordinateArraySequence from '../geom/impl/CoordinateArraySequence';
+import Coordinate from '../geom/Coordinate';
+import Octant from './Octant';
 import ArrayList from 'java/util/ArrayList';
-import NodableSegmentString from 'com/vividsolutions/jts/noding/NodableSegmentString';
+import NodableSegmentString from './NodableSegmentString';
 export default class NodedSegmentString {
 	constructor(...args) {
 		(() => {

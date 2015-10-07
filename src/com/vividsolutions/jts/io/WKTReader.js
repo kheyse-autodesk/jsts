@@ -1,11 +1,11 @@
 import StringReader from 'java/io/StringReader';
-import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import GeometryFactory from '../geom/GeometryFactory';
+import Coordinate from '../geom/Coordinate';
 import Double from 'java/lang/Double';
-import ParseException from 'com/vividsolutions/jts/io/ParseException';
+import ParseException from './ParseException';
 import StreamTokenizer from 'java/io/StreamTokenizer';
 import ArrayList from 'java/util/ArrayList';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import Assert from '../util/Assert';
 import IOException from 'java/io/IOException';
 import Reader from 'java/io/Reader';
 export default class WKTReader {

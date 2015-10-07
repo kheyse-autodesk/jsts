@@ -1,6 +1,6 @@
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
+import GeometryCollection from '../GeometryCollection';
 import ArrayList from 'java/util/ArrayList';
-import GeometryFilter from 'com/vividsolutions/jts/geom/GeometryFilter';
+import GeometryFilter from '../GeometryFilter';
 export default class GeometryExtracter {
 	constructor(...args) {
 		(() => {

@@ -1,4 +1,4 @@
-import OutStream from 'com/vividsolutions/jts/io/OutStream';
+import OutStream from './OutStream';
 export default class OutputStreamOutStream {
 	constructor(...args) {
 		(() => {

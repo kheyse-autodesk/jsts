@@ -1,7 +1,7 @@
-import CoordinateList from 'com/vividsolutions/jts/geom/CoordinateList';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import CoordinateList from '../geom/CoordinateList';
+import Coordinate from '../geom/Coordinate';
 import Double from 'java/lang/Double';
-import Triangle from 'com/vividsolutions/jts/geom/Triangle';
+import Triangle from '../geom/Triangle';
 export default class VWLineSimplifier {
 	constructor(...args) {
 		(() => {

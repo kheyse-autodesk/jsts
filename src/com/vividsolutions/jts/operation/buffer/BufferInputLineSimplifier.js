@@ -1,5 +1,5 @@
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import CoordinateList from 'com/vividsolutions/jts/geom/CoordinateList';
+import CGAlgorithms from '../../algorithm/CGAlgorithms';
+import CoordinateList from '../../geom/CoordinateList';
 export default class BufferInputLineSimplifier {
 	constructor(...args) {
 		(() => {

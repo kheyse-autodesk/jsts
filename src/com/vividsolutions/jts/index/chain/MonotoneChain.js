@@ -1,4 +1,4 @@
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
+import Envelope from '../../geom/Envelope';
 export default class MonotoneChain {
 	constructor(...args) {
 		(() => {

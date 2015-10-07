@@ -1,6 +1,6 @@
-import BoundaryNodeRule from 'com/vividsolutions/jts/algorithm/BoundaryNodeRule';
-import GeometryGraph from 'com/vividsolutions/jts/geomgraph/GeometryGraph';
-import RobustLineIntersector from 'com/vividsolutions/jts/algorithm/RobustLineIntersector';
+import BoundaryNodeRule from '../algorithm/BoundaryNodeRule';
+import GeometryGraph from '../geomgraph/GeometryGraph';
+import RobustLineIntersector from '../algorithm/RobustLineIntersector';
 export default class GeometryGraphOperation {
 	constructor(...args) {
 		(() => {

@@ -1,8 +1,8 @@
-import Point from 'com/vividsolutions/jts/geom/Point';
+import Point from '../Point';
 import Collections from 'java/util/Collections';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
+import GeometryCollection from '../GeometryCollection';
 import ArrayList from 'java/util/ArrayList';
-import GeometryFilter from 'com/vividsolutions/jts/geom/GeometryFilter';
+import GeometryFilter from '../GeometryFilter';
 export default class PointExtracter {
 	constructor(...args) {
 		(() => {

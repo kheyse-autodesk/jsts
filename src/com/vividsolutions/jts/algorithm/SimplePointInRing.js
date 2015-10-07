@@ -1,5 +1,5 @@
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import PointInRing from 'com/vividsolutions/jts/algorithm/PointInRing';
+import CGAlgorithms from './CGAlgorithms';
+import PointInRing from './PointInRing';
 export default class SimplePointInRing {
 	constructor(...args) {
 		(() => {

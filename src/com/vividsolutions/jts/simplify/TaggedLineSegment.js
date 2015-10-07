@@ -1,4 +1,4 @@
-import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
+import LineSegment from '../geom/LineSegment';
 export default class TaggedLineSegment extends LineSegment {
 	constructor(...args) {
 		super();

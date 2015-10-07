@@ -1,13 +1,13 @@
 import TreeSet from 'java/util/TreeSet';
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import CoordinateList from 'com/vividsolutions/jts/geom/CoordinateList';
+import CGAlgorithms from './CGAlgorithms';
+import CoordinateList from '../geom/CoordinateList';
 import Arrays from 'java/util/Arrays';
 import Stack from 'java/util/Stack';
-import CoordinateArrays from 'com/vividsolutions/jts/geom/CoordinateArrays';
+import CoordinateArrays from '../geom/CoordinateArrays';
 import ArrayList from 'java/util/ArrayList';
 import Comparator from 'java/util/Comparator';
-import UniqueCoordinateArrayFilter from 'com/vividsolutions/jts/util/UniqueCoordinateArrayFilter';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import UniqueCoordinateArrayFilter from '../util/UniqueCoordinateArrayFilter';
+import Assert from '../util/Assert';
 export default class ConvexHull {
 	constructor(...args) {
 		(() => {

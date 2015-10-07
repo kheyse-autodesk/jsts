@@ -1,6 +1,6 @@
 import Integer from 'java/lang/Integer';
 import ArrayList from 'java/util/ArrayList';
-import Quadrant from 'com/vividsolutions/jts/geomgraph/Quadrant';
+import Quadrant from '../Quadrant';
 export default class MonotoneChainIndexer {
 	constructor(...args) {
 		(() => {})();

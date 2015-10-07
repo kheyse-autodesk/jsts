@@ -1,4 +1,4 @@
-import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
+import LineSegment from '../../geom/LineSegment';
 import RuntimeException from 'java/lang/RuntimeException';
 export default class LocateFailureException extends RuntimeException {
 	constructor(...args) {

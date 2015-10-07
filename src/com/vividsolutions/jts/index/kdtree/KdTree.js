@@ -1,9 +1,9 @@
-import CoordinateList from 'com/vividsolutions/jts/geom/CoordinateList';
+import CoordinateList from '../../geom/CoordinateList';
 import ArrayList from 'java/util/ArrayList';
-import KdNodeVisitor from 'com/vividsolutions/jts/index/kdtree/KdNodeVisitor';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
+import KdNodeVisitor from './KdNodeVisitor';
+import Envelope from '../../geom/Envelope';
 import List from 'java/util/List';
-import KdNode from 'com/vividsolutions/jts/index/kdtree/KdNode';
+import KdNode from './KdNode';
 export default class KdTree {
 	constructor(...args) {
 		(() => {

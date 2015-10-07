@@ -1,7 +1,7 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import CoordinateList from 'com/vividsolutions/jts/geom/CoordinateList';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import LinearRing from 'com/vividsolutions/jts/geom/LinearRing';
+import LineString from '../geom/LineString';
+import CoordinateList from '../geom/CoordinateList';
+import Coordinate from '../geom/Coordinate';
+import LinearRing from '../geom/LinearRing';
 export default class PrecisionReducerCoordinateOperation extends CoordinateOperation {
 	constructor(...args) {
 		super();

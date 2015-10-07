@@ -1,8 +1,8 @@
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
+import CGAlgorithms from '../algorithm/CGAlgorithms';
 import Comparable from 'java/lang/Comparable';
 import ArrayList from 'java/util/ArrayList';
-import Quadrant from 'com/vividsolutions/jts/geomgraph/Quadrant';
-import GraphComponent from 'com/vividsolutions/jts/planargraph/GraphComponent';
+import Quadrant from '../geomgraph/Quadrant';
+import GraphComponent from './GraphComponent';
 export default class DirectedEdge extends GraphComponent {
 	constructor(...args) {
 		super();

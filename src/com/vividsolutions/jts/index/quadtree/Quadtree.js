@@ -1,9 +1,9 @@
-import Root from 'com/vividsolutions/jts/index/quadtree/Root';
-import SpatialIndex from 'com/vividsolutions/jts/index/SpatialIndex';
+import Root from './Root';
+import SpatialIndex from '../SpatialIndex';
 import ArrayList from 'java/util/ArrayList';
-import ArrayListVisitor from 'com/vividsolutions/jts/index/ArrayListVisitor';
+import ArrayListVisitor from '../ArrayListVisitor';
 import Serializable from 'java/io/Serializable';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
+import Envelope from '../../geom/Envelope';
 export default class Quadtree {
 	constructor(...args) {
 		(() => {

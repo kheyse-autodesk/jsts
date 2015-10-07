@@ -1,7 +1,7 @@
-import DirectedEdgeStar from 'com/vividsolutions/jts/planargraph/DirectedEdgeStar';
+import DirectedEdgeStar from './DirectedEdgeStar';
 import HashSet from 'java/util/HashSet';
-import DirectedEdge from 'com/vividsolutions/jts/planargraph/DirectedEdge';
-import GraphComponent from 'com/vividsolutions/jts/planargraph/GraphComponent';
+import DirectedEdge from './DirectedEdge';
+import GraphComponent from './GraphComponent';
 export default class Node extends GraphComponent {
 	constructor(...args) {
 		super();

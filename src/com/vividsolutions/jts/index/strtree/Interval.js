@@ -1,4 +1,4 @@
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import Assert from '../../util/Assert';
 export default class Interval {
 	constructor(...args) {
 		(() => {

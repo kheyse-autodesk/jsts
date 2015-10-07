@@ -1,10 +1,10 @@
-import Location from 'com/vividsolutions/jts/geom/Location';
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import Position from 'com/vividsolutions/jts/geomgraph/Position';
-import TopologyException from 'com/vividsolutions/jts/geom/TopologyException';
-import Label from 'com/vividsolutions/jts/geomgraph/Label';
+import Location from '../geom/Location';
+import CGAlgorithms from '../algorithm/CGAlgorithms';
+import Position from './Position';
+import TopologyException from '../geom/TopologyException';
+import Label from './Label';
 import ArrayList from 'java/util/ArrayList';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import Assert from '../util/Assert';
 export default class EdgeRing {
 	constructor(...args) {
 		(() => {

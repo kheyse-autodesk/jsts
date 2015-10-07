@@ -1,4 +1,4 @@
-import IntervalRTreeNode from 'com/vividsolutions/jts/index/intervalrtree/IntervalRTreeNode';
+import IntervalRTreeNode from './IntervalRTreeNode';
 export default class IntervalRTreeBranchNode extends IntervalRTreeNode {
 	constructor(...args) {
 		super();

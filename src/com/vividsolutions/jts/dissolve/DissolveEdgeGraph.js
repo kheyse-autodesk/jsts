@@ -1,5 +1,5 @@
-import EdgeGraph from 'com/vividsolutions/jts/edgegraph/EdgeGraph';
-import DissolveHalfEdge from 'com/vividsolutions/jts/dissolve/DissolveHalfEdge';
+import EdgeGraph from '../edgegraph/EdgeGraph';
+import DissolveHalfEdge from './DissolveHalfEdge';
 export default class DissolveEdgeGraph extends EdgeGraph {
 	get interfaces_() {
 		return [];

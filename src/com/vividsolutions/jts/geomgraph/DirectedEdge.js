@@ -1,8 +1,8 @@
-import Location from 'com/vividsolutions/jts/geom/Location';
-import EdgeEnd from 'com/vividsolutions/jts/geomgraph/EdgeEnd';
-import Position from 'com/vividsolutions/jts/geomgraph/Position';
-import TopologyException from 'com/vividsolutions/jts/geom/TopologyException';
-import Label from 'com/vividsolutions/jts/geomgraph/Label';
+import Location from '../geom/Location';
+import EdgeEnd from './EdgeEnd';
+import Position from './Position';
+import TopologyException from '../geom/TopologyException';
+import Label from './Label';
 export default class DirectedEdge extends EdgeEnd {
 	constructor(...args) {
 		super();

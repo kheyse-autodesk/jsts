@@ -1,7 +1,7 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Angle from 'com/vividsolutions/jts/algorithm/Angle';
-import RobustDeterminant from 'com/vividsolutions/jts/algorithm/RobustDeterminant';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import Coordinate from '../geom/Coordinate';
+import Angle from '../algorithm/Angle';
+import RobustDeterminant from '../algorithm/RobustDeterminant';
+import Assert from '../util/Assert';
 export default class Vector2D {
 	constructor(...args) {
 		(() => {

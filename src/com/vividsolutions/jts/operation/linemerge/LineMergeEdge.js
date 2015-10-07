@@ -1,4 +1,4 @@
-import Edge from 'com/vividsolutions/jts/planargraph/Edge';
+import Edge from '../../planargraph/Edge';
 export default class LineMergeEdge extends Edge {
 	constructor(...args) {
 		super();

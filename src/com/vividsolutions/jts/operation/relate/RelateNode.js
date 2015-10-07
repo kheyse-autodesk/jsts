@@ -1,4 +1,4 @@
-import Node from 'com/vividsolutions/jts/geomgraph/Node';
+import Node from '../../geomgraph/Node';
 export default class RelateNode extends Node {
 	constructor(...args) {
 		super();

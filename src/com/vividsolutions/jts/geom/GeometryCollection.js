@@ -1,11 +1,11 @@
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
-import CoordinateFilter from 'com/vividsolutions/jts/geom/CoordinateFilter';
-import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
-import GeometryComponentFilter from 'com/vividsolutions/jts/geom/GeometryComponentFilter';
-import Dimension from 'com/vividsolutions/jts/geom/Dimension';
-import GeometryFilter from 'com/vividsolutions/jts/geom/GeometryFilter';
-import CoordinateSequenceFilter from 'com/vividsolutions/jts/geom/CoordinateSequenceFilter';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
+import Geometry from './Geometry';
+import CoordinateFilter from './CoordinateFilter';
+import GeometryFactory from './GeometryFactory';
+import GeometryComponentFilter from './GeometryComponentFilter';
+import Dimension from './Dimension';
+import GeometryFilter from './GeometryFilter';
+import CoordinateSequenceFilter from './CoordinateSequenceFilter';
+import Envelope from './Envelope';
 export default class GeometryCollection extends Geometry {
 	constructor(...args) {
 		super();

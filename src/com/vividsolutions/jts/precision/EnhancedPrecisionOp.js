@@ -1,8 +1,8 @@
-import IsValidOp from 'com/vividsolutions/jts/operation/valid/IsValidOp';
-import BufferOp from 'com/vividsolutions/jts/operation/buffer/BufferOp';
-import CommonBitsOp from 'com/vividsolutions/jts/precision/CommonBitsOp';
+import IsValidOp from '../operation/valid/IsValidOp';
+import BufferOp from '../operation/buffer/BufferOp';
+import CommonBitsOp from './CommonBitsOp';
 import RuntimeException from 'java/lang/RuntimeException';
-import OverlayOp from 'com/vividsolutions/jts/operation/overlay/OverlayOp';
+import OverlayOp from '../operation/overlay/OverlayOp';
 export default class EnhancedPrecisionOp {
 	get interfaces_() {
 		return [];

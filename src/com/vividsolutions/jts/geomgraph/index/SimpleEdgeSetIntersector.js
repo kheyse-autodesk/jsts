@@ -1,5 +1,5 @@
-import EdgeSetIntersector from 'com/vividsolutions/jts/geomgraph/index/EdgeSetIntersector';
-import SegmentIntersector from 'com/vividsolutions/jts/geomgraph/index/SegmentIntersector';
+import EdgeSetIntersector from './EdgeSetIntersector';
+import SegmentIntersector from './SegmentIntersector';
 import List from 'java/util/List';
 export default class SimpleEdgeSetIntersector extends EdgeSetIntersector {
 	constructor(...args) {

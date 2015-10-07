@@ -1,9 +1,9 @@
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
-import RelateComputer from 'com/vividsolutions/jts/operation/relate/RelateComputer';
-import BoundaryNodeRule from 'com/vividsolutions/jts/algorithm/BoundaryNodeRule';
-import GeometryGraphOperation from 'com/vividsolutions/jts/operation/GeometryGraphOperation';
-import RectangleContains from 'com/vividsolutions/jts/operation/predicate/RectangleContains';
-import RectangleIntersects from 'com/vividsolutions/jts/operation/predicate/RectangleIntersects';
+import Geometry from '../../geom/Geometry';
+import RelateComputer from './RelateComputer';
+import BoundaryNodeRule from '../../algorithm/BoundaryNodeRule';
+import GeometryGraphOperation from '../GeometryGraphOperation';
+import RectangleContains from '../predicate/RectangleContains';
+import RectangleIntersects from '../predicate/RectangleIntersects';
 export default class RelateOp extends GeometryGraphOperation {
 	constructor(...args) {
 		super();

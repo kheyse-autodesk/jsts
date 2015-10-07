@@ -1,5 +1,5 @@
 import ArrayList from 'java/util/ArrayList';
-import OverlayOp from 'com/vividsolutions/jts/operation/overlay/OverlayOp';
+import OverlayOp from './OverlayOp';
 export default class PointBuilder {
 	constructor(...args) {
 		(() => {

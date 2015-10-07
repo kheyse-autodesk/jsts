@@ -1,7 +1,7 @@
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Point from 'com/vividsolutions/jts/geom/Point';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
+import Geometry from '../geom/Geometry';
+import Coordinate from '../geom/Coordinate';
+import Point from '../geom/Point';
+import GeometryCollection from '../geom/GeometryCollection';
 export default class CentroidPoint {
 	constructor(...args) {
 		(() => {

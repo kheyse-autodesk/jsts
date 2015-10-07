@@ -1,12 +1,12 @@
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
+import CGAlgorithms from '../algorithm/CGAlgorithms';
+import Geometry from './Geometry';
 import Arrays from 'java/util/Arrays';
-import CoordinateFilter from 'com/vividsolutions/jts/geom/CoordinateFilter';
-import GeometryComponentFilter from 'com/vividsolutions/jts/geom/GeometryComponentFilter';
-import CoordinateArrays from 'com/vividsolutions/jts/geom/CoordinateArrays';
-import Polygonal from 'com/vividsolutions/jts/geom/Polygonal';
-import GeometryFilter from 'com/vividsolutions/jts/geom/GeometryFilter';
-import CoordinateSequenceFilter from 'com/vividsolutions/jts/geom/CoordinateSequenceFilter';
+import CoordinateFilter from './CoordinateFilter';
+import GeometryComponentFilter from './GeometryComponentFilter';
+import CoordinateArrays from './CoordinateArrays';
+import Polygonal from './Polygonal';
+import GeometryFilter from './GeometryFilter';
+import CoordinateSequenceFilter from './CoordinateSequenceFilter';
 export default class Polygon extends Geometry {
 	constructor(...args) {
 		super();

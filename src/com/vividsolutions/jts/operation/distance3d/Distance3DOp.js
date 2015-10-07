@@ -1,14 +1,14 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Point from 'com/vividsolutions/jts/geom/Point';
-import PlanarPolygon3D from 'com/vividsolutions/jts/operation/distance3d/PlanarPolygon3D';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
-import GeometryLocation from 'com/vividsolutions/jts/operation/distance/GeometryLocation';
+import LineString from '../../geom/LineString';
+import Geometry from '../../geom/Geometry';
+import Coordinate from '../../geom/Coordinate';
+import Point from '../../geom/Point';
+import PlanarPolygon3D from './PlanarPolygon3D';
+import Polygon from '../../geom/Polygon';
+import GeometryLocation from '../distance/GeometryLocation';
 import Double from 'java/lang/Double';
-import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
-import CGAlgorithms3D from 'com/vividsolutions/jts/algorithm/CGAlgorithms3D';
+import LineSegment from '../../geom/LineSegment';
+import GeometryCollection from '../../geom/GeometryCollection';
+import CGAlgorithms3D from '../../algorithm/CGAlgorithms3D';
 export default class Distance3DOp {
 	constructor(...args) {
 		(() => {

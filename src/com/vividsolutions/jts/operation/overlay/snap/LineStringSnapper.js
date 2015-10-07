@@ -1,8 +1,8 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import CoordinateList from 'com/vividsolutions/jts/geom/CoordinateList';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import LineString from '../../../geom/LineString';
+import CoordinateList from '../../../geom/CoordinateList';
+import Coordinate from '../../../geom/Coordinate';
 import Double from 'java/lang/Double';
-import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
+import LineSegment from '../../../geom/LineSegment';
 export default class LineStringSnapper {
 	constructor(...args) {
 		(() => {

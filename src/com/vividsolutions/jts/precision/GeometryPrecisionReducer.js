@@ -1,9 +1,9 @@
-import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
-import IsValidOp from 'com/vividsolutions/jts/operation/valid/IsValidOp';
-import GeometryEditor from 'com/vividsolutions/jts/geom/util/GeometryEditor';
-import BufferOp from 'com/vividsolutions/jts/operation/buffer/BufferOp';
-import Polygonal from 'com/vividsolutions/jts/geom/Polygonal';
-import PrecisionReducerCoordinateOperation from 'com/vividsolutions/jts/precision/PrecisionReducerCoordinateOperation';
+import GeometryFactory from '../geom/GeometryFactory';
+import IsValidOp from '../operation/valid/IsValidOp';
+import GeometryEditor from '../geom/util/GeometryEditor';
+import BufferOp from '../operation/buffer/BufferOp';
+import Polygonal from '../geom/Polygonal';
+import PrecisionReducerCoordinateOperation from './PrecisionReducerCoordinateOperation';
 export default class GeometryPrecisionReducer {
 	constructor(...args) {
 		(() => {

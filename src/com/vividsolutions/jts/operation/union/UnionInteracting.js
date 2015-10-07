@@ -1,7 +1,7 @@
-import BufferOp from 'com/vividsolutions/jts/operation/buffer/BufferOp';
-import GeometryCombiner from 'com/vividsolutions/jts/geom/util/GeometryCombiner';
+import BufferOp from '../buffer/BufferOp';
+import GeometryCombiner from '../../geom/util/GeometryCombiner';
 import ArrayList from 'java/util/ArrayList';
-import OverlayOp from 'com/vividsolutions/jts/operation/overlay/OverlayOp';
+import OverlayOp from '../overlay/OverlayOp';
 export default class UnionInteracting {
 	constructor(...args) {
 		(() => {

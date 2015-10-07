@@ -1,7 +1,7 @@
-import NotRepresentableException from 'com/vividsolutions/jts/algorithm/NotRepresentableException';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import TrianglePredicate from 'com/vividsolutions/jts/triangulate/quadedge/TrianglePredicate';
-import HCoordinate from 'com/vividsolutions/jts/algorithm/HCoordinate';
+import NotRepresentableException from '../../algorithm/NotRepresentableException';
+import Coordinate from '../../geom/Coordinate';
+import TrianglePredicate from './TrianglePredicate';
+import HCoordinate from '../../algorithm/HCoordinate';
 export default class Vertex {
 	constructor(...args) {
 		(() => {

@@ -1,6 +1,6 @@
-import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
-import GeometryEditor from 'com/vividsolutions/jts/geom/util/GeometryEditor';
-import PrecisionReducerCoordinateOperation from 'com/vividsolutions/jts/precision/PrecisionReducerCoordinateOperation';
+import GeometryFactory from '../geom/GeometryFactory';
+import GeometryEditor from '../geom/util/GeometryEditor';
+import PrecisionReducerCoordinateOperation from './PrecisionReducerCoordinateOperation';
 export default class SimpleGeometryPrecisionReducer {
 	constructor(...args) {
 		(() => {

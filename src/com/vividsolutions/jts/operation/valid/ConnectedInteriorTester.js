@@ -1,13 +1,13 @@
-import Location from 'com/vividsolutions/jts/geom/Location';
-import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
-import Position from 'com/vividsolutions/jts/geomgraph/Position';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
-import MultiPolygon from 'com/vividsolutions/jts/geom/MultiPolygon';
-import MaximalEdgeRing from 'com/vividsolutions/jts/operation/overlay/MaximalEdgeRing';
-import OverlayNodeFactory from 'com/vividsolutions/jts/operation/overlay/OverlayNodeFactory';
+import Location from '../../geom/Location';
+import GeometryFactory from '../../geom/GeometryFactory';
+import Position from '../../geomgraph/Position';
+import Polygon from '../../geom/Polygon';
+import MultiPolygon from '../../geom/MultiPolygon';
+import MaximalEdgeRing from '../overlay/MaximalEdgeRing';
+import OverlayNodeFactory from '../overlay/OverlayNodeFactory';
 import ArrayList from 'java/util/ArrayList';
-import Assert from 'com/vividsolutions/jts/util/Assert';
-import PlanarGraph from 'com/vividsolutions/jts/geomgraph/PlanarGraph';
+import Assert from '../../util/Assert';
+import PlanarGraph from '../../geomgraph/PlanarGraph';
 export default class ConnectedInteriorTester {
 	constructor(...args) {
 		(() => {

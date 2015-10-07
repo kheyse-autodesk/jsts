@@ -1,10 +1,10 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import CoordinateList from 'com/vividsolutions/jts/geom/CoordinateList';
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
+import LineString from '../geom/LineString';
+import CoordinateList from '../geom/CoordinateList';
+import Geometry from '../geom/Geometry';
 import Collection from 'java/util/Collection';
 import Stack from 'java/util/Stack';
-import MarkHalfEdge from 'com/vividsolutions/jts/edgegraph/MarkHalfEdge';
-import DissolveEdgeGraph from 'com/vividsolutions/jts/dissolve/DissolveEdgeGraph';
+import MarkHalfEdge from '../edgegraph/MarkHalfEdge';
+import DissolveEdgeGraph from './DissolveEdgeGraph';
 import ArrayList from 'java/util/ArrayList';
 export default class LineDissolver {
 	constructor(...args) {

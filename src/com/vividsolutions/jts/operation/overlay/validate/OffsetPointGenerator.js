@@ -1,6 +1,6 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import Coordinate from '../../../geom/Coordinate';
 import ArrayList from 'java/util/ArrayList';
-import LinearComponentExtracter from 'com/vividsolutions/jts/geom/util/LinearComponentExtracter';
+import LinearComponentExtracter from '../../../geom/util/LinearComponentExtracter';
 export default class OffsetPointGenerator {
 	constructor(...args) {
 		(() => {

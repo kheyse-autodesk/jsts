@@ -1,7 +1,7 @@
-import BufferDistanceValidator from 'com/vividsolutions/jts/operation/buffer/validate/BufferDistanceValidator';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
-import MultiPolygon from 'com/vividsolutions/jts/geom/MultiPolygon';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
+import BufferDistanceValidator from './BufferDistanceValidator';
+import Polygon from '../../../geom/Polygon';
+import MultiPolygon from '../../../geom/MultiPolygon';
+import Envelope from '../../../geom/Envelope';
 export default class BufferResultValidator {
 	constructor(...args) {
 		(() => {

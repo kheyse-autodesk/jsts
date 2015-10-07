@@ -1,4 +1,4 @@
-import Node from 'com/vividsolutions/jts/geomgraph/Node';
+import Node from './Node';
 export default class NodeFactory {
 	get interfaces_() {
 		return [];

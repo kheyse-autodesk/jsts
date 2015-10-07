@@ -1,4 +1,4 @@
-import LineIntersector from 'com/vividsolutions/jts/algorithm/LineIntersector';
+import LineIntersector from './LineIntersector';
 export default class NonRobustLineIntersector extends LineIntersector {
 	constructor(...args) {
 		super();

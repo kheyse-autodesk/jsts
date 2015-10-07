@@ -1,11 +1,11 @@
-import ItemVisitor from 'com/vividsolutions/jts/index/ItemVisitor';
-import PointOnGeometryLocator from 'com/vividsolutions/jts/algorithm/locate/PointOnGeometryLocator';
-import SortedPackedIntervalRTree from 'com/vividsolutions/jts/index/intervalrtree/SortedPackedIntervalRTree';
-import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
-import Polygonal from 'com/vividsolutions/jts/geom/Polygonal';
-import LinearComponentExtracter from 'com/vividsolutions/jts/geom/util/LinearComponentExtracter';
-import ArrayListVisitor from 'com/vividsolutions/jts/index/ArrayListVisitor';
-import RayCrossingCounter from 'com/vividsolutions/jts/algorithm/RayCrossingCounter';
+import ItemVisitor from '../../index/ItemVisitor';
+import PointOnGeometryLocator from './PointOnGeometryLocator';
+import SortedPackedIntervalRTree from '../../index/intervalrtree/SortedPackedIntervalRTree';
+import LineSegment from '../../geom/LineSegment';
+import Polygonal from '../../geom/Polygonal';
+import LinearComponentExtracter from '../../geom/util/LinearComponentExtracter';
+import ArrayListVisitor from '../../index/ArrayListVisitor';
+import RayCrossingCounter from '../RayCrossingCounter';
 export default class IndexedPointInAreaLocator {
 	constructor(...args) {
 		(() => {

@@ -1,9 +1,9 @@
-import Location from 'com/vividsolutions/jts/geom/Location';
-import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Polygonal from 'com/vividsolutions/jts/geom/Polygonal';
-import IndexedPointInAreaLocator from 'com/vividsolutions/jts/algorithm/locate/IndexedPointInAreaLocator';
-import GeometricShapeBuilder from 'com/vividsolutions/jts/shape/GeometricShapeBuilder';
+import Location from '../../geom/Location';
+import GeometryFactory from '../../geom/GeometryFactory';
+import Coordinate from '../../geom/Coordinate';
+import Polygonal from '../../geom/Polygonal';
+import IndexedPointInAreaLocator from '../../algorithm/locate/IndexedPointInAreaLocator';
+import GeometricShapeBuilder from '../GeometricShapeBuilder';
 export default class RandomPointsBuilder extends GeometricShapeBuilder {
 	constructor(...args) {
 		super();

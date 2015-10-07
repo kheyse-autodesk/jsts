@@ -1,19 +1,19 @@
-import Location from 'com/vividsolutions/jts/geom/Location';
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import Position from 'com/vividsolutions/jts/geomgraph/Position';
-import Point from 'com/vividsolutions/jts/geom/Point';
-import NodedSegmentString from 'com/vividsolutions/jts/noding/NodedSegmentString';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
-import MultiPoint from 'com/vividsolutions/jts/geom/MultiPoint';
-import LinearRing from 'com/vividsolutions/jts/geom/LinearRing';
-import MultiPolygon from 'com/vividsolutions/jts/geom/MultiPolygon';
-import Label from 'com/vividsolutions/jts/geomgraph/Label';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
-import CoordinateArrays from 'com/vividsolutions/jts/geom/CoordinateArrays';
+import Location from '../../geom/Location';
+import LineString from '../../geom/LineString';
+import CGAlgorithms from '../../algorithm/CGAlgorithms';
+import Position from '../../geomgraph/Position';
+import Point from '../../geom/Point';
+import NodedSegmentString from '../../noding/NodedSegmentString';
+import Polygon from '../../geom/Polygon';
+import MultiPoint from '../../geom/MultiPoint';
+import LinearRing from '../../geom/LinearRing';
+import MultiPolygon from '../../geom/MultiPolygon';
+import Label from '../../geomgraph/Label';
+import GeometryCollection from '../../geom/GeometryCollection';
+import CoordinateArrays from '../../geom/CoordinateArrays';
 import ArrayList from 'java/util/ArrayList';
-import MultiLineString from 'com/vividsolutions/jts/geom/MultiLineString';
-import Triangle from 'com/vividsolutions/jts/geom/Triangle';
+import MultiLineString from '../../geom/MultiLineString';
+import Triangle from '../../geom/Triangle';
 export default class OffsetCurveSetBuilder {
 	constructor(...args) {
 		(() => {

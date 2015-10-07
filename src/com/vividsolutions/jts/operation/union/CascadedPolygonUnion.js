@@ -1,13 +1,13 @@
-import PolygonExtracter from 'com/vividsolutions/jts/geom/util/PolygonExtracter';
-import STRtree from 'com/vividsolutions/jts/index/strtree/STRtree';
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
-import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
-import BufferOp from 'com/vividsolutions/jts/operation/buffer/BufferOp';
-import GeometryCombiner from 'com/vividsolutions/jts/geom/util/GeometryCombiner';
-import Polygonal from 'com/vividsolutions/jts/geom/Polygonal';
+import PolygonExtracter from '../../geom/util/PolygonExtracter';
+import STRtree from '../../index/strtree/STRtree';
+import Geometry from '../../geom/Geometry';
+import GeometryFactory from '../../geom/GeometryFactory';
+import BufferOp from '../buffer/BufferOp';
+import GeometryCombiner from '../../geom/util/GeometryCombiner';
+import Polygonal from '../../geom/Polygonal';
 import ArrayList from 'java/util/ArrayList';
 import List from 'java/util/List';
-import OverlayOp from 'com/vividsolutions/jts/operation/overlay/OverlayOp';
+import OverlayOp from '../overlay/OverlayOp';
 export default class CascadedPolygonUnion {
 	constructor(...args) {
 		(() => {

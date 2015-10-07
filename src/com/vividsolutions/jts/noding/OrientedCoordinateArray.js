@@ -1,5 +1,5 @@
 import Comparable from 'java/lang/Comparable';
-import CoordinateArrays from 'com/vividsolutions/jts/geom/CoordinateArrays';
+import CoordinateArrays from '../geom/CoordinateArrays';
 export default class OrientedCoordinateArray {
 	constructor(...args) {
 		(() => {

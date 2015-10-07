@@ -1,5 +1,5 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import SegmentPointComparator from 'com/vividsolutions/jts/noding/SegmentPointComparator';
+import Coordinate from '../geom/Coordinate';
+import SegmentPointComparator from './SegmentPointComparator';
 import Comparable from 'java/lang/Comparable';
 export default class SegmentNode {
 	constructor(...args) {

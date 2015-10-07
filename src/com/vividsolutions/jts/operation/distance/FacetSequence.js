@@ -1,7 +1,7 @@
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import CGAlgorithms from '../../algorithm/CGAlgorithms';
+import Coordinate from '../../geom/Coordinate';
 import Double from 'java/lang/Double';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
+import Envelope from '../../geom/Envelope';
 export default class FacetSequence {
 	constructor(...args) {
 		(() => {

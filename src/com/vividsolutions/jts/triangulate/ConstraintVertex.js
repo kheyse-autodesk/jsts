@@ -1,4 +1,4 @@
-import Vertex from 'com/vividsolutions/jts/triangulate/quadedge/Vertex';
+import Vertex from './quadedge/Vertex';
 export default class ConstraintVertex extends Vertex {
 	constructor(...args) {
 		super();

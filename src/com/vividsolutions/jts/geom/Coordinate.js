@@ -1,10 +1,10 @@
-import NumberUtil from 'com/vividsolutions/jts/util/NumberUtil';
+import NumberUtil from '../util/NumberUtil';
 import Double from 'java/lang/Double';
 import Comparable from 'java/lang/Comparable';
 import Cloneable from 'java/lang/Cloneable';
 import Comparator from 'java/util/Comparator';
 import Serializable from 'java/io/Serializable';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import Assert from '../util/Assert';
 export default class Coordinate {
 	constructor(...args) {
 		(() => {

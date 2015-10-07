@@ -1,4 +1,4 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import Coordinate from './Coordinate';
 import RuntimeException from 'java/lang/RuntimeException';
 export default class TopologyException extends RuntimeException {
 	constructor(...args) {

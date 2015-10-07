@@ -1,10 +1,10 @@
-import ItemBoundable from 'com/vividsolutions/jts/index/strtree/ItemBoundable';
-import ItemVisitor from 'com/vividsolutions/jts/index/ItemVisitor';
-import AbstractNode from 'com/vividsolutions/jts/index/strtree/AbstractNode';
+import ItemBoundable from './ItemBoundable';
+import ItemVisitor from '../ItemVisitor';
+import AbstractNode from './AbstractNode';
 import Collections from 'java/util/Collections';
 import ArrayList from 'java/util/ArrayList';
 import Serializable from 'java/io/Serializable';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import Assert from '../../util/Assert';
 import List from 'java/util/List';
 export default class AbstractSTRtree {
 	constructor(...args) {

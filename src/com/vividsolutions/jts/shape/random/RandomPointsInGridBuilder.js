@@ -1,7 +1,7 @@
-import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import MathUtil from 'com/vividsolutions/jts/math/MathUtil';
-import GeometricShapeBuilder from 'com/vividsolutions/jts/shape/GeometricShapeBuilder';
+import GeometryFactory from '../../geom/GeometryFactory';
+import Coordinate from '../../geom/Coordinate';
+import MathUtil from '../../math/MathUtil';
+import GeometricShapeBuilder from '../GeometricShapeBuilder';
 export default class RandomPointsInGridBuilder extends GeometricShapeBuilder {
 	constructor(...args) {
 		super();

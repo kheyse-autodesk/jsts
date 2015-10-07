@@ -1,6 +1,6 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import Coordinate from '../geom/Coordinate';
 import Double from 'java/lang/Double';
-import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
+import LineSegment from '../geom/LineSegment';
 export default class SimpleMinimumClearance {
 	constructor(...args) {
 		(() => {

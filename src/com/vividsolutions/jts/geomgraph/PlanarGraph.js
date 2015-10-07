@@ -1,12 +1,12 @@
-import Location from 'com/vividsolutions/jts/geom/Location';
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Node from 'com/vividsolutions/jts/geomgraph/Node';
-import NodeMap from 'com/vividsolutions/jts/geomgraph/NodeMap';
-import DirectedEdge from 'com/vividsolutions/jts/geomgraph/DirectedEdge';
+import Location from '../geom/Location';
+import CGAlgorithms from '../algorithm/CGAlgorithms';
+import Coordinate from '../geom/Coordinate';
+import Node from './Node';
+import NodeMap from './NodeMap';
+import DirectedEdge from './DirectedEdge';
 import ArrayList from 'java/util/ArrayList';
-import Quadrant from 'com/vividsolutions/jts/geomgraph/Quadrant';
-import NodeFactory from 'com/vividsolutions/jts/geomgraph/NodeFactory';
+import Quadrant from './Quadrant';
+import NodeFactory from './NodeFactory';
 export default class PlanarGraph {
 	constructor(...args) {
 		(() => {

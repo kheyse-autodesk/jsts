@@ -1,9 +1,9 @@
-import Quadtree from 'com/vividsolutions/jts/index/quadtree/Quadtree';
-import ItemVisitor from 'com/vividsolutions/jts/index/ItemVisitor';
-import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
+import Quadtree from '../index/quadtree/Quadtree';
+import ItemVisitor from '../index/ItemVisitor';
+import LineSegment from '../geom/LineSegment';
 import ArrayList from 'java/util/ArrayList';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
-import TaggedLineString from 'com/vividsolutions/jts/simplify/TaggedLineString';
+import Envelope from '../geom/Envelope';
+import TaggedLineString from './TaggedLineString';
 export default class LineSegmentIndex {
 	constructor(...args) {
 		(() => {

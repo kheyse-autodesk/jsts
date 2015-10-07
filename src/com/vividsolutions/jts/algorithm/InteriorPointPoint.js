@@ -1,9 +1,9 @@
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Point from 'com/vividsolutions/jts/geom/Point';
+import Geometry from '../geom/Geometry';
+import Coordinate from '../geom/Coordinate';
+import Point from '../geom/Point';
 import Double from 'java/lang/Double';
-import Centroid from 'com/vividsolutions/jts/algorithm/Centroid';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
+import Centroid from './Centroid';
+import GeometryCollection from '../geom/GeometryCollection';
 export default class InteriorPointPoint {
 	constructor(...args) {
 		(() => {

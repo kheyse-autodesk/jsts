@@ -1,4 +1,4 @@
-import ShortCircuitedGeometryVisitor from 'com/vividsolutions/jts/geom/util/ShortCircuitedGeometryVisitor';
+import ShortCircuitedGeometryVisitor from '../../geom/util/ShortCircuitedGeometryVisitor';
 export default class EnvelopeIntersectsVisitor extends ShortCircuitedGeometryVisitor {
 	constructor(...args) {
 		super();

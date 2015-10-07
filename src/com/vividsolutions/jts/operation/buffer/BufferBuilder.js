@@ -1,21 +1,21 @@
-import Location from 'com/vividsolutions/jts/geom/Location';
-import BufferSubgraph from 'com/vividsolutions/jts/operation/buffer/BufferSubgraph';
-import PolygonBuilder from 'com/vividsolutions/jts/operation/overlay/PolygonBuilder';
-import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
-import Position from 'com/vividsolutions/jts/geomgraph/Position';
-import MCIndexNoder from 'com/vividsolutions/jts/noding/MCIndexNoder';
-import OffsetCurveBuilder from 'com/vividsolutions/jts/operation/buffer/OffsetCurveBuilder';
+import Location from '../../geom/Location';
+import BufferSubgraph from './BufferSubgraph';
+import PolygonBuilder from '../overlay/PolygonBuilder';
+import GeometryFactory from '../../geom/GeometryFactory';
+import Position from '../../geomgraph/Position';
+import MCIndexNoder from '../../noding/MCIndexNoder';
+import OffsetCurveBuilder from './OffsetCurveBuilder';
 import Collections from 'java/util/Collections';
-import SubgraphDepthLocater from 'com/vividsolutions/jts/operation/buffer/SubgraphDepthLocater';
-import OffsetCurveSetBuilder from 'com/vividsolutions/jts/operation/buffer/OffsetCurveSetBuilder';
-import Label from 'com/vividsolutions/jts/geomgraph/Label';
-import OverlayNodeFactory from 'com/vividsolutions/jts/operation/overlay/OverlayNodeFactory';
-import EdgeList from 'com/vividsolutions/jts/geomgraph/EdgeList';
+import SubgraphDepthLocater from './SubgraphDepthLocater';
+import OffsetCurveSetBuilder from './OffsetCurveSetBuilder';
+import Label from '../../geomgraph/Label';
+import OverlayNodeFactory from '../overlay/OverlayNodeFactory';
+import EdgeList from '../../geomgraph/EdgeList';
 import ArrayList from 'java/util/ArrayList';
-import RobustLineIntersector from 'com/vividsolutions/jts/algorithm/RobustLineIntersector';
-import IntersectionAdder from 'com/vividsolutions/jts/noding/IntersectionAdder';
-import Edge from 'com/vividsolutions/jts/geomgraph/Edge';
-import PlanarGraph from 'com/vividsolutions/jts/geomgraph/PlanarGraph';
+import RobustLineIntersector from '../../algorithm/RobustLineIntersector';
+import IntersectionAdder from '../../noding/IntersectionAdder';
+import Edge from '../../geomgraph/Edge';
+import PlanarGraph from '../../geomgraph/PlanarGraph';
 export default class BufferBuilder {
 	constructor(...args) {
 		(() => {

@@ -1,4 +1,4 @@
-import SegmentIntersector from 'com/vividsolutions/jts/noding/SegmentIntersector';
+import SegmentIntersector from './SegmentIntersector';
 export default class IntersectionAdder {
 	constructor(...args) {
 		(() => {

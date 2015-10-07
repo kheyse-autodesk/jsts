@@ -1,6 +1,6 @@
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import Position from 'com/vividsolutions/jts/geomgraph/Position';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import CGAlgorithms from '../../algorithm/CGAlgorithms';
+import Position from '../../geomgraph/Position';
+import Assert from '../../util/Assert';
 export default class RightmostEdgeFinder {
 	constructor(...args) {
 		(() => {

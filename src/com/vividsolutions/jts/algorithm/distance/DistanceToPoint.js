@@ -1,10 +1,10 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
-import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
-import PointPairDistance from 'com/vividsolutions/jts/algorithm/distance/PointPairDistance';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
+import LineString from '../../geom/LineString';
+import Geometry from '../../geom/Geometry';
+import Coordinate from '../../geom/Coordinate';
+import Polygon from '../../geom/Polygon';
+import LineSegment from '../../geom/LineSegment';
+import PointPairDistance from './PointPairDistance';
+import GeometryCollection from '../../geom/GeometryCollection';
 export default class DistanceToPoint {
 	constructor(...args) {
 		(() => {})();

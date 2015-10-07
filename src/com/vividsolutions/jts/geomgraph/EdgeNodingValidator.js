@@ -1,5 +1,5 @@
-import BasicSegmentString from 'com/vividsolutions/jts/noding/BasicSegmentString';
-import FastNodingValidator from 'com/vividsolutions/jts/noding/FastNodingValidator';
+import BasicSegmentString from '../noding/BasicSegmentString';
+import FastNodingValidator from '../noding/FastNodingValidator';
 import ArrayList from 'java/util/ArrayList';
 export default class EdgeNodingValidator {
 	constructor(...args) {

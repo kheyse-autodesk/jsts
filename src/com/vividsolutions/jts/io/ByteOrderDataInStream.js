@@ -1,4 +1,4 @@
-import ByteOrderValues from 'com/vividsolutions/jts/io/ByteOrderValues';
+import ByteOrderValues from './ByteOrderValues';
 export default class ByteOrderDataInStream {
 	constructor(...args) {
 		(() => {

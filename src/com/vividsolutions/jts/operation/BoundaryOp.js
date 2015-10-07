@@ -1,9 +1,9 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import BoundaryNodeRule from 'com/vividsolutions/jts/algorithm/BoundaryNodeRule';
-import CoordinateArrays from 'com/vividsolutions/jts/geom/CoordinateArrays';
+import LineString from '../geom/LineString';
+import BoundaryNodeRule from '../algorithm/BoundaryNodeRule';
+import CoordinateArrays from '../geom/CoordinateArrays';
 import ArrayList from 'java/util/ArrayList';
 import TreeMap from 'java/util/TreeMap';
-import MultiLineString from 'com/vividsolutions/jts/geom/MultiLineString';
+import MultiLineString from '../geom/MultiLineString';
 export default class BoundaryOp {
 	constructor(...args) {
 		(() => {

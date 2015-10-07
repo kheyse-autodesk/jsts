@@ -1,5 +1,5 @@
-import GeometryTransformer from 'com/vividsolutions/jts/geom/util/GeometryTransformer';
-import LineStringSnapper from 'com/vividsolutions/jts/operation/overlay/snap/LineStringSnapper';
+import GeometryTransformer from '../../../geom/util/GeometryTransformer';
+import LineStringSnapper from './LineStringSnapper';
 export default class SnapTransformer extends GeometryTransformer {
 	constructor(...args) {
 		super();

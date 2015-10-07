@@ -1,4 +1,4 @@
-import QuadEdgeLocator from 'com/vividsolutions/jts/triangulate/quadedge/QuadEdgeLocator';
+import QuadEdgeLocator from './QuadEdgeLocator';
 export default class LastFoundQuadEdgeLocator {
 	constructor(...args) {
 		(() => {

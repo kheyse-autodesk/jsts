@@ -1,4 +1,4 @@
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
+import CGAlgorithms from './CGAlgorithms';
 export default class NonRobustCGAlgorithms extends CGAlgorithms {
 	constructor(...args) {
 		super();

@@ -1,5 +1,5 @@
-import FacetSequenceTreeBuilder from 'com/vividsolutions/jts/operation/distance/FacetSequenceTreeBuilder';
-import ItemDistance from 'com/vividsolutions/jts/index/strtree/ItemDistance';
+import FacetSequenceTreeBuilder from './FacetSequenceTreeBuilder';
+import ItemDistance from '../../index/strtree/ItemDistance';
 export default class IndexedFacetDistance {
 	constructor(...args) {
 		(() => {

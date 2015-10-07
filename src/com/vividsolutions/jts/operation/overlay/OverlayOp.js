@@ -1,18 +1,18 @@
-import PointLocator from 'com/vividsolutions/jts/algorithm/PointLocator';
-import Location from 'com/vividsolutions/jts/geom/Location';
-import EdgeNodingValidator from 'com/vividsolutions/jts/geomgraph/EdgeNodingValidator';
-import PolygonBuilder from 'com/vividsolutions/jts/operation/overlay/PolygonBuilder';
-import Position from 'com/vividsolutions/jts/geomgraph/Position';
-import LineBuilder from 'com/vividsolutions/jts/operation/overlay/LineBuilder';
-import PointBuilder from 'com/vividsolutions/jts/operation/overlay/PointBuilder';
-import SnapIfNeededOverlayOp from 'com/vividsolutions/jts/operation/overlay/snap/SnapIfNeededOverlayOp';
-import Label from 'com/vividsolutions/jts/geomgraph/Label';
-import OverlayNodeFactory from 'com/vividsolutions/jts/operation/overlay/OverlayNodeFactory';
-import GeometryGraphOperation from 'com/vividsolutions/jts/operation/GeometryGraphOperation';
-import EdgeList from 'com/vividsolutions/jts/geomgraph/EdgeList';
+import PointLocator from '../../algorithm/PointLocator';
+import Location from '../../geom/Location';
+import EdgeNodingValidator from '../../geomgraph/EdgeNodingValidator';
+import PolygonBuilder from './PolygonBuilder';
+import Position from '../../geomgraph/Position';
+import LineBuilder from './LineBuilder';
+import PointBuilder from './PointBuilder';
+import SnapIfNeededOverlayOp from './snap/SnapIfNeededOverlayOp';
+import Label from '../../geomgraph/Label';
+import OverlayNodeFactory from './OverlayNodeFactory';
+import GeometryGraphOperation from '../GeometryGraphOperation';
+import EdgeList from '../../geomgraph/EdgeList';
 import ArrayList from 'java/util/ArrayList';
-import Assert from 'com/vividsolutions/jts/util/Assert';
-import PlanarGraph from 'com/vividsolutions/jts/geomgraph/PlanarGraph';
+import Assert from '../../util/Assert';
+import PlanarGraph from '../../geomgraph/PlanarGraph';
 export default class OverlayOp extends GeometryGraphOperation {
 	constructor(...args) {
 		super();

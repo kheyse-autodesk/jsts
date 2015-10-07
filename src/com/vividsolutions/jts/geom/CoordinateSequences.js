@@ -1,5 +1,5 @@
 import Double from 'java/lang/Double';
-import CoordinateSequence from 'com/vividsolutions/jts/geom/CoordinateSequence';
+import CoordinateSequence from './CoordinateSequence';
 export default class CoordinateSequences {
 	get interfaces_() {
 		return [];

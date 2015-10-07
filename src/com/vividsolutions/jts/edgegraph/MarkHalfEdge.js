@@ -1,4 +1,4 @@
-import HalfEdge from 'com/vividsolutions/jts/edgegraph/HalfEdge';
+import HalfEdge from './HalfEdge';
 export default class MarkHalfEdge extends HalfEdge {
 	constructor(...args) {
 		super();

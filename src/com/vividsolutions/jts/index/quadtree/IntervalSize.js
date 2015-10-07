@@ -1,4 +1,4 @@
-import DoubleBits from 'com/vividsolutions/jts/index/quadtree/DoubleBits';
+import DoubleBits from './DoubleBits';
 export default class IntervalSize {
 	get interfaces_() {
 		return [];

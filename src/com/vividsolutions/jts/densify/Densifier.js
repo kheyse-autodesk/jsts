@@ -1,5 +1,5 @@
-import CoordinateList from 'com/vividsolutions/jts/geom/CoordinateList';
-import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
+import CoordinateList from '../geom/CoordinateList';
+import LineSegment from '../geom/LineSegment';
 export default class Densifier {
 	constructor(...args) {
 		(() => {

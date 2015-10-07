@@ -1,13 +1,13 @@
-import CoordinateList from 'com/vividsolutions/jts/geom/CoordinateList';
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
+import CoordinateList from '../geom/CoordinateList';
+import Geometry from '../geom/Geometry';
 import Arrays from 'java/util/Arrays';
 import Collection from 'java/util/Collection';
-import IncrementalDelaunayTriangulator from 'com/vividsolutions/jts/triangulate/IncrementalDelaunayTriangulator';
-import QuadEdgeSubdivision from 'com/vividsolutions/jts/triangulate/quadedge/QuadEdgeSubdivision';
-import Vertex from 'com/vividsolutions/jts/triangulate/quadedge/Vertex';
-import CoordinateArrays from 'com/vividsolutions/jts/geom/CoordinateArrays';
+import IncrementalDelaunayTriangulator from './IncrementalDelaunayTriangulator';
+import QuadEdgeSubdivision from './quadedge/QuadEdgeSubdivision';
+import Vertex from './quadedge/Vertex';
+import CoordinateArrays from '../geom/CoordinateArrays';
 import ArrayList from 'java/util/ArrayList';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
+import Envelope from '../geom/Envelope';
 export default class DelaunayTriangulationBuilder {
 	constructor(...args) {
 		(() => {

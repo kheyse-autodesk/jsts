@@ -1,5 +1,5 @@
-import SegmentIntersectionDetector from 'com/vividsolutions/jts/noding/SegmentIntersectionDetector';
-import MCIndexSegmentSetMutualIntersector from 'com/vividsolutions/jts/noding/MCIndexSegmentSetMutualIntersector';
+import SegmentIntersectionDetector from './SegmentIntersectionDetector';
+import MCIndexSegmentSetMutualIntersector from './MCIndexSegmentSetMutualIntersector';
 export default class FastSegmentSetIntersectionFinder {
 	constructor(...args) {
 		(() => {

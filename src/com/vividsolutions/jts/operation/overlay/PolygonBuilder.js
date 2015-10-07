@@ -1,9 +1,9 @@
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import TopologyException from 'com/vividsolutions/jts/geom/TopologyException';
-import MaximalEdgeRing from 'com/vividsolutions/jts/operation/overlay/MaximalEdgeRing';
+import CGAlgorithms from '../../algorithm/CGAlgorithms';
+import TopologyException from '../../geom/TopologyException';
+import MaximalEdgeRing from './MaximalEdgeRing';
 import ArrayList from 'java/util/ArrayList';
-import Assert from 'com/vividsolutions/jts/util/Assert';
-import PlanarGraph from 'com/vividsolutions/jts/geomgraph/PlanarGraph';
+import Assert from '../../util/Assert';
+import PlanarGraph from '../../geomgraph/PlanarGraph';
 export default class PolygonBuilder {
 	constructor(...args) {
 		(() => {

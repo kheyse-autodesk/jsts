@@ -1,5 +1,5 @@
-import MinimalEdgeRing from 'com/vividsolutions/jts/operation/overlay/MinimalEdgeRing';
-import EdgeRing from 'com/vividsolutions/jts/geomgraph/EdgeRing';
+import MinimalEdgeRing from './MinimalEdgeRing';
+import EdgeRing from '../../geomgraph/EdgeRing';
 import ArrayList from 'java/util/ArrayList';
 export default class MaximalEdgeRing extends EdgeRing {
 	constructor(...args) {

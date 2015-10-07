@@ -1,6 +1,6 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import Coordinate from '../../geom/Coordinate';
+import Envelope from '../../geom/Envelope';
+import Assert from '../../util/Assert';
 export default class HotPixel {
 	constructor(...args) {
 		(() => {

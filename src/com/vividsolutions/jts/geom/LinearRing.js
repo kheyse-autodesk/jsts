@@ -1,6 +1,6 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import CoordinateSequences from 'com/vividsolutions/jts/geom/CoordinateSequences';
-import Dimension from 'com/vividsolutions/jts/geom/Dimension';
+import LineString from './LineString';
+import CoordinateSequences from './CoordinateSequences';
+import Dimension from './Dimension';
 export default class LinearRing extends LineString {
 	constructor(...args) {
 		super();

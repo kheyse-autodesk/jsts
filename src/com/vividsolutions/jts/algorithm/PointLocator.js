@@ -1,15 +1,15 @@
-import Location from 'com/vividsolutions/jts/geom/Location';
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Point from 'com/vividsolutions/jts/geom/Point';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
-import BoundaryNodeRule from 'com/vividsolutions/jts/algorithm/BoundaryNodeRule';
-import MultiPolygon from 'com/vividsolutions/jts/geom/MultiPolygon';
-import GeometryCollectionIterator from 'com/vividsolutions/jts/geom/GeometryCollectionIterator';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
-import MultiLineString from 'com/vividsolutions/jts/geom/MultiLineString';
+import Location from '../geom/Location';
+import LineString from '../geom/LineString';
+import CGAlgorithms from './CGAlgorithms';
+import Geometry from '../geom/Geometry';
+import Coordinate from '../geom/Coordinate';
+import Point from '../geom/Point';
+import Polygon from '../geom/Polygon';
+import BoundaryNodeRule from './BoundaryNodeRule';
+import MultiPolygon from '../geom/MultiPolygon';
+import GeometryCollectionIterator from '../geom/GeometryCollectionIterator';
+import GeometryCollection from '../geom/GeometryCollection';
+import MultiLineString from '../geom/MultiLineString';
 export default class PointLocator {
 	constructor(...args) {
 		(() => {

@@ -1,12 +1,12 @@
-import PointLocator from 'com/vividsolutions/jts/algorithm/PointLocator';
-import Location from 'com/vividsolutions/jts/geom/Location';
-import IntersectionMatrix from 'com/vividsolutions/jts/geom/IntersectionMatrix';
-import EdgeEndBuilder from 'com/vividsolutions/jts/operation/relate/EdgeEndBuilder';
-import NodeMap from 'com/vividsolutions/jts/geomgraph/NodeMap';
-import RelateNodeFactory from 'com/vividsolutions/jts/operation/relate/RelateNodeFactory';
+import PointLocator from '../../algorithm/PointLocator';
+import Location from '../../geom/Location';
+import IntersectionMatrix from '../../geom/IntersectionMatrix';
+import EdgeEndBuilder from './EdgeEndBuilder';
+import NodeMap from '../../geomgraph/NodeMap';
+import RelateNodeFactory from './RelateNodeFactory';
 import ArrayList from 'java/util/ArrayList';
-import RobustLineIntersector from 'com/vividsolutions/jts/algorithm/RobustLineIntersector';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import RobustLineIntersector from '../../algorithm/RobustLineIntersector';
+import Assert from '../../util/Assert';
 export default class RelateComputer {
 	constructor(...args) {
 		(() => {

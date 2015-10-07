@@ -1,12 +1,12 @@
-import BufferParameters from 'com/vividsolutions/jts/operation/buffer/BufferParameters';
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
-import BufferBuilder from 'com/vividsolutions/jts/operation/buffer/BufferBuilder';
-import ScaledNoder from 'com/vividsolutions/jts/noding/ScaledNoder';
-import TopologyException from 'com/vividsolutions/jts/geom/TopologyException';
-import MathUtil from 'com/vividsolutions/jts/math/MathUtil';
-import PrecisionModel from 'com/vividsolutions/jts/geom/PrecisionModel';
+import BufferParameters from './BufferParameters';
+import Geometry from '../../geom/Geometry';
+import BufferBuilder from './BufferBuilder';
+import ScaledNoder from '../../noding/ScaledNoder';
+import TopologyException from '../../geom/TopologyException';
+import MathUtil from '../../math/MathUtil';
+import PrecisionModel from '../../geom/PrecisionModel';
 import RuntimeException from 'java/lang/RuntimeException';
-import MCIndexSnapRounder from 'com/vividsolutions/jts/noding/snapround/MCIndexSnapRounder';
+import MCIndexSnapRounder from '../../noding/snapround/MCIndexSnapRounder';
 export default class BufferOp {
 	constructor(...args) {
 		(() => {

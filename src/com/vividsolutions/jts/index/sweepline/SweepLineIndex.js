@@ -1,4 +1,4 @@
-import SweepLineEvent from 'com/vividsolutions/jts/index/sweepline/SweepLineEvent';
+import SweepLineEvent from './SweepLineEvent';
 import Collections from 'java/util/Collections';
 import ArrayList from 'java/util/ArrayList';
 export default class SweepLineIndex {

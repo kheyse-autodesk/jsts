@@ -1,5 +1,5 @@
-import RelateNodeGraph from 'com/vividsolutions/jts/operation/relate/RelateNodeGraph';
-import RobustLineIntersector from 'com/vividsolutions/jts/algorithm/RobustLineIntersector';
+import RelateNodeGraph from '../relate/RelateNodeGraph';
+import RobustLineIntersector from '../../algorithm/RobustLineIntersector';
 export default class ConsistentAreaTester {
 	constructor(...args) {
 		(() => {

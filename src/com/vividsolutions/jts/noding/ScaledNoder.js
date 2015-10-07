@@ -1,9 +1,9 @@
 import Collection from 'java/util/Collection';
-import Noder from 'com/vividsolutions/jts/noding/Noder';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import NodedSegmentString from 'com/vividsolutions/jts/noding/NodedSegmentString';
-import CoordinateArrays from 'com/vividsolutions/jts/geom/CoordinateArrays';
-import CollectionUtil from 'com/vividsolutions/jts/util/CollectionUtil';
+import Noder from './Noder';
+import Coordinate from '../geom/Coordinate';
+import NodedSegmentString from './NodedSegmentString';
+import CoordinateArrays from '../geom/CoordinateArrays';
+import CollectionUtil from '../util/CollectionUtil';
 export default class ScaledNoder {
 	constructor(...args) {
 		(() => {

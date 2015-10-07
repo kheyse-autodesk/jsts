@@ -1,7 +1,7 @@
-import GeometrySnapper from 'com/vividsolutions/jts/operation/overlay/snap/GeometrySnapper';
-import IsValidOp from 'com/vividsolutions/jts/operation/valid/IsValidOp';
-import CommonBitsRemover from 'com/vividsolutions/jts/precision/CommonBitsRemover';
-import OverlayOp from 'com/vividsolutions/jts/operation/overlay/OverlayOp';
+import GeometrySnapper from './GeometrySnapper';
+import IsValidOp from '../../valid/IsValidOp';
+import CommonBitsRemover from '../../../precision/CommonBitsRemover';
+import OverlayOp from '../OverlayOp';
 export default class SnapOverlayOp {
 	constructor(...args) {
 		(() => {

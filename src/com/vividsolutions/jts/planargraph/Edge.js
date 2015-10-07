@@ -1,5 +1,5 @@
-import Node from 'com/vividsolutions/jts/planargraph/Node';
-import GraphComponent from 'com/vividsolutions/jts/planargraph/GraphComponent';
+import Node from './Node';
+import GraphComponent from './GraphComponent';
 export default class Edge extends GraphComponent {
 	constructor(...args) {
 		super();

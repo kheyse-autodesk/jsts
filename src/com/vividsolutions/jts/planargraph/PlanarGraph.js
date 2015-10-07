@@ -1,9 +1,9 @@
 import HashSet from 'java/util/HashSet';
-import Node from 'com/vividsolutions/jts/planargraph/Node';
-import NodeMap from 'com/vividsolutions/jts/planargraph/NodeMap';
-import DirectedEdge from 'com/vividsolutions/jts/planargraph/DirectedEdge';
+import Node from './Node';
+import NodeMap from './NodeMap';
+import DirectedEdge from './DirectedEdge';
 import ArrayList from 'java/util/ArrayList';
-import Edge from 'com/vividsolutions/jts/planargraph/Edge';
+import Edge from './Edge';
 export default class PlanarGraph {
 	constructor(...args) {
 		(() => {

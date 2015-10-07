@@ -1,5 +1,5 @@
-import SplitSegment from 'com/vividsolutions/jts/triangulate/SplitSegment';
-import ConstraintSplitPointFinder from 'com/vividsolutions/jts/triangulate/ConstraintSplitPointFinder';
+import SplitSegment from './SplitSegment';
+import ConstraintSplitPointFinder from './ConstraintSplitPointFinder';
 export default class NonEncroachingSplitPointFinder {
 	constructor(...args) {
 		(() => {})();

@@ -1,5 +1,5 @@
-import Location from 'com/vividsolutions/jts/geom/Location';
-import Position from 'com/vividsolutions/jts/geomgraph/Position';
+import Location from '../geom/Location';
+import Position from './Position';
 export default class Depth {
 	constructor(...args) {
 		(() => {

@@ -1,11 +1,11 @@
-import SegmentNode from 'com/vividsolutions/jts/noding/SegmentNode';
+import SegmentNode from './SegmentNode';
 import Iterator from 'java/util/Iterator';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import NodedSegmentString from 'com/vividsolutions/jts/noding/NodedSegmentString';
+import Coordinate from '../geom/Coordinate';
+import NodedSegmentString from './NodedSegmentString';
 import Integer from 'java/lang/Integer';
 import ArrayList from 'java/util/ArrayList';
 import RuntimeException from 'java/lang/RuntimeException';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import Assert from '../util/Assert';
 import TreeMap from 'java/util/TreeMap';
 export default class SegmentNodeList {
 	constructor(...args) {

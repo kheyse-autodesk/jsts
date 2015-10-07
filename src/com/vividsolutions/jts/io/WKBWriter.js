@@ -1,18 +1,18 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import WKBConstants from 'com/vividsolutions/jts/io/WKBConstants';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Point from 'com/vividsolutions/jts/geom/Point';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
-import MultiPoint from 'com/vividsolutions/jts/geom/MultiPoint';
-import OutputStreamOutStream from 'com/vividsolutions/jts/io/OutputStreamOutStream';
-import MultiPolygon from 'com/vividsolutions/jts/geom/MultiPolygon';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
-import ByteOrderValues from 'com/vividsolutions/jts/io/ByteOrderValues';
+import LineString from '../geom/LineString';
+import WKBConstants from './WKBConstants';
+import Coordinate from '../geom/Coordinate';
+import Point from '../geom/Point';
+import Polygon from '../geom/Polygon';
+import MultiPoint from '../geom/MultiPoint';
+import OutputStreamOutStream from './OutputStreamOutStream';
+import MultiPolygon from '../geom/MultiPolygon';
+import GeometryCollection from '../geom/GeometryCollection';
+import ByteOrderValues from './ByteOrderValues';
 import ByteArrayOutputStream from 'java/io/ByteArrayOutputStream';
 import RuntimeException from 'java/lang/RuntimeException';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import Assert from '../util/Assert';
 import IOException from 'java/io/IOException';
-import MultiLineString from 'com/vividsolutions/jts/geom/MultiLineString';
+import MultiLineString from '../geom/MultiLineString';
 export default class WKBWriter {
 	constructor(...args) {
 		(() => {

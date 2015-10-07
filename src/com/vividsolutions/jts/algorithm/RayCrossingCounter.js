@@ -1,7 +1,7 @@
-import Location from 'com/vividsolutions/jts/geom/Location';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import CoordinateSequence from 'com/vividsolutions/jts/geom/CoordinateSequence';
-import RobustDeterminant from 'com/vividsolutions/jts/algorithm/RobustDeterminant';
+import Location from '../geom/Location';
+import Coordinate from '../geom/Coordinate';
+import CoordinateSequence from '../geom/CoordinateSequence';
+import RobustDeterminant from './RobustDeterminant';
 export default class RayCrossingCounter {
 	constructor(...args) {
 		(() => {

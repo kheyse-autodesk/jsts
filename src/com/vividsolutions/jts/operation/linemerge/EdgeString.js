@@ -1,5 +1,5 @@
-import CoordinateList from 'com/vividsolutions/jts/geom/CoordinateList';
-import CoordinateArrays from 'com/vividsolutions/jts/geom/CoordinateArrays';
+import CoordinateList from '../../geom/CoordinateList';
+import CoordinateArrays from '../../geom/CoordinateArrays';
 import ArrayList from 'java/util/ArrayList';
 export default class EdgeString {
 	constructor(...args) {

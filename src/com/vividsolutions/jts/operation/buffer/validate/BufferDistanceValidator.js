@@ -1,12 +1,12 @@
-import PolygonExtracter from 'com/vividsolutions/jts/geom/util/PolygonExtracter';
-import WKTWriter from 'com/vividsolutions/jts/io/WKTWriter';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
-import MultiPolygon from 'com/vividsolutions/jts/geom/MultiPolygon';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
+import PolygonExtracter from '../../../geom/util/PolygonExtracter';
+import WKTWriter from '../../../io/WKTWriter';
+import Polygon from '../../../geom/Polygon';
+import MultiPolygon from '../../../geom/MultiPolygon';
+import GeometryCollection from '../../../geom/GeometryCollection';
 import ArrayList from 'java/util/ArrayList';
-import LinearComponentExtracter from 'com/vividsolutions/jts/geom/util/LinearComponentExtracter';
-import DistanceOp from 'com/vividsolutions/jts/operation/distance/DistanceOp';
-import DiscreteHausdorffDistance from 'com/vividsolutions/jts/algorithm/distance/DiscreteHausdorffDistance';
+import LinearComponentExtracter from '../../../geom/util/LinearComponentExtracter';
+import DistanceOp from '../../distance/DistanceOp';
+import DiscreteHausdorffDistance from '../../../algorithm/distance/DiscreteHausdorffDistance';
 export default class BufferDistanceValidator {
 	constructor(...args) {
 		(() => {

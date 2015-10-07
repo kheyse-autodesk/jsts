@@ -1,8 +1,8 @@
-import CoordinateList from 'com/vividsolutions/jts/geom/CoordinateList';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import MathUtil from 'com/vividsolutions/jts/math/MathUtil';
+import CoordinateList from './CoordinateList';
+import Coordinate from './Coordinate';
+import MathUtil from '../math/MathUtil';
 import Comparator from 'java/util/Comparator';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
+import Envelope from './Envelope';
 export default class CoordinateArrays {
 	get interfaces_() {
 		return [];

@@ -1,10 +1,10 @@
-import Location from 'com/vividsolutions/jts/geom/Location';
-import EdgeEnd from 'com/vividsolutions/jts/geomgraph/EdgeEnd';
-import Position from 'com/vividsolutions/jts/geomgraph/Position';
-import GeometryGraph from 'com/vividsolutions/jts/geomgraph/GeometryGraph';
-import Label from 'com/vividsolutions/jts/geomgraph/Label';
+import Location from '../../geom/Location';
+import EdgeEnd from '../../geomgraph/EdgeEnd';
+import Position from '../../geomgraph/Position';
+import GeometryGraph from '../../geomgraph/GeometryGraph';
+import Label from '../../geomgraph/Label';
 import ArrayList from 'java/util/ArrayList';
-import Edge from 'com/vividsolutions/jts/geomgraph/Edge';
+import Edge from '../../geomgraph/Edge';
 export default class EdgeEndBundle extends EdgeEnd {
 	constructor(...args) {
 		super();

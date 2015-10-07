@@ -1,18 +1,18 @@
-import QuadEdge from 'com/vividsolutions/jts/triangulate/quadedge/QuadEdge';
-import CoordinateList from 'com/vividsolutions/jts/geom/CoordinateList';
+import QuadEdge from './QuadEdge';
+import CoordinateList from '../../geom/CoordinateList';
 import HashSet from 'java/util/HashSet';
-import WKTWriter from 'com/vividsolutions/jts/io/WKTWriter';
-import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import WKTWriter from '../../io/WKTWriter';
+import GeometryFactory from '../../geom/GeometryFactory';
+import Coordinate from '../../geom/Coordinate';
 import Stack from 'java/util/Stack';
-import LastFoundQuadEdgeLocator from 'com/vividsolutions/jts/triangulate/quadedge/LastFoundQuadEdgeLocator';
-import LocateFailureException from 'com/vividsolutions/jts/triangulate/quadedge/LocateFailureException';
-import Vertex from 'com/vividsolutions/jts/triangulate/quadedge/Vertex';
-import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
+import LastFoundQuadEdgeLocator from './LastFoundQuadEdgeLocator';
+import LocateFailureException from './LocateFailureException';
+import Vertex from './Vertex';
+import LineSegment from '../../geom/LineSegment';
 import ArrayList from 'java/util/ArrayList';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
-import Triangle from 'com/vividsolutions/jts/geom/Triangle';
-import TriangleVisitor from 'com/vividsolutions/jts/triangulate/quadedge/TriangleVisitor';
+import Envelope from '../../geom/Envelope';
+import Triangle from '../../geom/Triangle';
+import TriangleVisitor from './TriangleVisitor';
 export default class QuadEdgeSubdivision {
 	constructor(...args) {
 		(() => {

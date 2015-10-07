@@ -1,4 +1,4 @@
-import EdgeRing from 'com/vividsolutions/jts/geomgraph/EdgeRing';
+import EdgeRing from '../../geomgraph/EdgeRing';
 export default class MinimalEdgeRing extends EdgeRing {
 	constructor(...args) {
 		super();

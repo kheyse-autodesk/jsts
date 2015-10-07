@@ -1,7 +1,7 @@
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
+import CGAlgorithms from '../algorithm/CGAlgorithms';
 import Comparable from 'java/lang/Comparable';
-import Quadrant from 'com/vividsolutions/jts/geomgraph/Quadrant';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import Quadrant from './Quadrant';
+import Assert from '../util/Assert';
 export default class EdgeEnd {
 	constructor(...args) {
 		(() => {

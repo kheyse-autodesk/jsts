@@ -1,10 +1,10 @@
-import NoninvertibleTransformationException from 'com/vividsolutions/jts/geom/util/NoninvertibleTransformationException';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import NoninvertibleTransformationException from './NoninvertibleTransformationException';
+import Coordinate from '../Coordinate';
 import Exception from 'java/lang/Exception';
-import CoordinateSequence from 'com/vividsolutions/jts/geom/CoordinateSequence';
+import CoordinateSequence from '../CoordinateSequence';
 import Cloneable from 'java/lang/Cloneable';
-import CoordinateSequenceFilter from 'com/vividsolutions/jts/geom/CoordinateSequenceFilter';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import CoordinateSequenceFilter from '../CoordinateSequenceFilter';
+import Assert from '../../util/Assert';
 export default class AffineTransformation {
 	constructor(...args) {
 		(() => {

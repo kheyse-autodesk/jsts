@@ -1,5 +1,5 @@
-import TaggedLineStringSimplifier from 'com/vividsolutions/jts/simplify/TaggedLineStringSimplifier';
-import LineSegmentIndex from 'com/vividsolutions/jts/simplify/LineSegmentIndex';
+import TaggedLineStringSimplifier from './TaggedLineStringSimplifier';
+import LineSegmentIndex from './LineSegmentIndex';
 export default class TaggedLinesSimplifier {
 	constructor(...args) {
 		(() => {

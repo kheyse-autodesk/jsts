@@ -1,5 +1,5 @@
-import WKTWriter from 'com/vividsolutions/jts/io/WKTWriter';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import WKTWriter from '../../io/WKTWriter';
+import Coordinate from '../../geom/Coordinate';
 import Double from 'java/lang/Double';
 import Comparator from 'java/util/Comparator';
 export default class IntervalRTreeNode {

@@ -1,6 +1,6 @@
-import Location from 'com/vividsolutions/jts/geom/Location';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Node from 'com/vividsolutions/jts/geomgraph/Node';
+import Location from '../geom/Location';
+import Coordinate from '../geom/Coordinate';
+import Node from './Node';
 import ArrayList from 'java/util/ArrayList';
 import TreeMap from 'java/util/TreeMap';
 export default class NodeMap {

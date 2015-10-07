@@ -1,8 +1,8 @@
-import DistanceToPointFinder from 'com/vividsolutions/jts/operation/buffer/validate/DistanceToPointFinder';
-import CoordinateFilter from 'com/vividsolutions/jts/geom/CoordinateFilter';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import PointPairDistance from 'com/vividsolutions/jts/operation/buffer/validate/PointPairDistance';
-import CoordinateSequenceFilter from 'com/vividsolutions/jts/geom/CoordinateSequenceFilter';
+import DistanceToPointFinder from './DistanceToPointFinder';
+import CoordinateFilter from '../../../geom/CoordinateFilter';
+import Coordinate from '../../../geom/Coordinate';
+import PointPairDistance from './PointPairDistance';
+import CoordinateSequenceFilter from '../../../geom/CoordinateSequenceFilter';
 export default class BufferCurveMaximumDistanceFinder {
 	constructor(...args) {
 		(() => {

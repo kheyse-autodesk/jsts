@@ -1,9 +1,9 @@
-import CoordinateList from 'com/vividsolutions/jts/geom/CoordinateList';
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import CoordinateList from './CoordinateList';
+import Geometry from './Geometry';
+import Coordinate from './Coordinate';
 import Double from 'java/lang/Double';
-import CoordinateSequence from 'com/vividsolutions/jts/geom/CoordinateSequence';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
+import CoordinateSequence from './CoordinateSequence';
+import Envelope from './Envelope';
 export default class OctagonalEnvelope {
 	constructor(...args) {
 		(() => {

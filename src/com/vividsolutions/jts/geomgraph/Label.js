@@ -1,6 +1,6 @@
-import Location from 'com/vividsolutions/jts/geom/Location';
-import Position from 'com/vividsolutions/jts/geomgraph/Position';
-import TopologyLocation from 'com/vividsolutions/jts/geomgraph/TopologyLocation';
+import Location from '../geom/Location';
+import Position from './Position';
+import TopologyLocation from './TopologyLocation';
 export default class Label {
 	constructor(...args) {
 		(() => {

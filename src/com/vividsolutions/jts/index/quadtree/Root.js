@@ -1,8 +1,8 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import NodeBase from 'com/vividsolutions/jts/index/quadtree/NodeBase';
-import Node from 'com/vividsolutions/jts/index/quadtree/Node';
-import IntervalSize from 'com/vividsolutions/jts/index/quadtree/IntervalSize';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import Coordinate from '../../geom/Coordinate';
+import NodeBase from './NodeBase';
+import Node from './Node';
+import IntervalSize from './IntervalSize';
+import Assert from '../../util/Assert';
 export default class Root extends NodeBase {
 	constructor(...args) {
 		super();

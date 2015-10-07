@@ -1,5 +1,5 @@
-import AffineTransformation from 'com/vividsolutions/jts/geom/util/AffineTransformation';
-import Matrix from 'com/vividsolutions/jts/math/Matrix';
+import AffineTransformation from './AffineTransformation';
+import Matrix from '../../math/Matrix';
 export default class AffineTransformationBuilder {
 	constructor(...args) {
 		(() => {

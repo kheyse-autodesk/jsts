@@ -1,5 +1,5 @@
-import WKTWriter from 'com/vividsolutions/jts/io/WKTWriter';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import WKTWriter from '../io/WKTWriter';
+import Coordinate from '../geom/Coordinate';
 import RuntimeException from 'java/lang/RuntimeException';
 export default class ConstraintEnforcementException extends RuntimeException {
 	constructor(...args) {

@@ -1,7 +1,7 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import FacetSequence from 'com/vividsolutions/jts/operation/distance/FacetSequence';
-import STRtree from 'com/vividsolutions/jts/index/strtree/STRtree';
-import Point from 'com/vividsolutions/jts/geom/Point';
+import LineString from '../../geom/LineString';
+import FacetSequence from './FacetSequence';
+import STRtree from '../../index/strtree/STRtree';
+import Point from '../../geom/Point';
 import ArrayList from 'java/util/ArrayList';
 export default class FacetSequenceTreeBuilder {
 	get interfaces_() {

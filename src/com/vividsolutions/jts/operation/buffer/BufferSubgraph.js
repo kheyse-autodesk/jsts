@@ -1,12 +1,12 @@
 import HashSet from 'java/util/HashSet';
-import Position from 'com/vividsolutions/jts/geomgraph/Position';
+import Position from '../../geomgraph/Position';
 import Stack from 'java/util/Stack';
-import RightmostEdgeFinder from 'com/vividsolutions/jts/operation/buffer/RightmostEdgeFinder';
-import TopologyException from 'com/vividsolutions/jts/geom/TopologyException';
+import RightmostEdgeFinder from './RightmostEdgeFinder';
+import TopologyException from '../../geom/TopologyException';
 import LinkedList from 'java/util/LinkedList';
 import Comparable from 'java/lang/Comparable';
 import ArrayList from 'java/util/ArrayList';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
+import Envelope from '../../geom/Envelope';
 export default class BufferSubgraph {
 	constructor(...args) {
 		(() => {

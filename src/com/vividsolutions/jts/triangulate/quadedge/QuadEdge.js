@@ -1,5 +1,5 @@
-import WKTWriter from 'com/vividsolutions/jts/io/WKTWriter';
-import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
+import WKTWriter from '../../io/WKTWriter';
+import LineSegment from '../../geom/LineSegment';
 export default class QuadEdge {
 	constructor(...args) {
 		(() => {

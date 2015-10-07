@@ -1,5 +1,5 @@
-import NotRepresentableException from 'com/vividsolutions/jts/algorithm/NotRepresentableException';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import NotRepresentableException from './NotRepresentableException';
+import Coordinate from '../geom/Coordinate';
 import Double from 'java/lang/Double';
 export default class HCoordinate {
 	constructor(...args) {

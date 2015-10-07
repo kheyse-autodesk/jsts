@@ -1,17 +1,17 @@
 import TreeSet from 'java/util/TreeSet';
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
-import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
+import LineString from '../../geom/LineString';
+import Geometry from '../../geom/Geometry';
+import GeometryFactory from '../../geom/GeometryFactory';
 import Collection from 'java/util/Collection';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import Coordinate from '../../geom/Coordinate';
 import Integer from 'java/lang/Integer';
-import LineMergeGraph from 'com/vividsolutions/jts/operation/linemerge/LineMergeGraph';
+import LineMergeGraph from './LineMergeGraph';
 import LinkedList from 'java/util/LinkedList';
 import ArrayList from 'java/util/ArrayList';
-import ConnectedSubgraphFinder from 'com/vividsolutions/jts/planargraph/algorithm/ConnectedSubgraphFinder';
-import Assert from 'com/vividsolutions/jts/util/Assert';
-import MultiLineString from 'com/vividsolutions/jts/geom/MultiLineString';
-import GraphComponent from 'com/vividsolutions/jts/planargraph/GraphComponent';
+import ConnectedSubgraphFinder from '../../planargraph/algorithm/ConnectedSubgraphFinder';
+import Assert from '../../util/Assert';
+import MultiLineString from '../../geom/MultiLineString';
+import GraphComponent from '../../planargraph/GraphComponent';
 export default class LineSequencer {
 	constructor(...args) {
 		(() => {

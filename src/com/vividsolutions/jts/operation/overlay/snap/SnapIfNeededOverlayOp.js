@@ -1,6 +1,6 @@
-import SnapOverlayOp from 'com/vividsolutions/jts/operation/overlay/snap/SnapOverlayOp';
+import SnapOverlayOp from './SnapOverlayOp';
 import RuntimeException from 'java/lang/RuntimeException';
-import OverlayOp from 'com/vividsolutions/jts/operation/overlay/OverlayOp';
+import OverlayOp from '../OverlayOp';
 export default class SnapIfNeededOverlayOp {
 	constructor(...args) {
 		(() => {

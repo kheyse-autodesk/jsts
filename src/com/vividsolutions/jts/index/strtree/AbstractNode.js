@@ -1,7 +1,7 @@
-import Boundable from 'com/vividsolutions/jts/index/strtree/Boundable';
+import Boundable from './Boundable';
 import ArrayList from 'java/util/ArrayList';
 import Serializable from 'java/io/Serializable';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import Assert from '../../util/Assert';
 export default class AbstractNode {
 	constructor(...args) {
 		(() => {

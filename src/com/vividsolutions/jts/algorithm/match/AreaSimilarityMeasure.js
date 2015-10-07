@@ -1,5 +1,5 @@
-import SimilarityMeasure from 'com/vividsolutions/jts/algorithm/match/SimilarityMeasure';
-import OverlayOp from 'com/vividsolutions/jts/operation/overlay/OverlayOp';
+import SimilarityMeasure from './SimilarityMeasure';
+import OverlayOp from '../../operation/overlay/OverlayOp';
 export default class AreaSimilarityMeasure {
 	constructor(...args) {
 		(() => {})();

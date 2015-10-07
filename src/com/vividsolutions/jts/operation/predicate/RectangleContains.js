@@ -1,7 +1,7 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Point from 'com/vividsolutions/jts/geom/Point';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
+import LineString from '../../geom/LineString';
+import Coordinate from '../../geom/Coordinate';
+import Point from '../../geom/Point';
+import Polygon from '../../geom/Polygon';
 export default class RectangleContains {
 	constructor(...args) {
 		(() => {

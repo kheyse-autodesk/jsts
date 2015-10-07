@@ -1,11 +1,11 @@
-import Location from 'com/vividsolutions/jts/geom/Location';
-import Position from 'com/vividsolutions/jts/geomgraph/Position';
-import TopologyException from 'com/vividsolutions/jts/geom/TopologyException';
-import EdgeEndStar from 'com/vividsolutions/jts/geomgraph/EdgeEndStar';
-import Label from 'com/vividsolutions/jts/geomgraph/Label';
+import Location from '../geom/Location';
+import Position from './Position';
+import TopologyException from '../geom/TopologyException';
+import EdgeEndStar from './EdgeEndStar';
+import Label from './Label';
 import ArrayList from 'java/util/ArrayList';
-import Quadrant from 'com/vividsolutions/jts/geomgraph/Quadrant';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import Quadrant from './Quadrant';
+import Assert from '../util/Assert';
 export default class DirectedEdgeStar extends EdgeEndStar {
 	constructor(...args) {
 		super();

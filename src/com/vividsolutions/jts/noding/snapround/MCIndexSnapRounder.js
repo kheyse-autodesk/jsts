@@ -1,13 +1,13 @@
-import NodingValidator from 'com/vividsolutions/jts/noding/NodingValidator';
+import NodingValidator from '../NodingValidator';
 import Collection from 'java/util/Collection';
-import Noder from 'com/vividsolutions/jts/noding/Noder';
-import MCIndexNoder from 'com/vividsolutions/jts/noding/MCIndexNoder';
-import NodedSegmentString from 'com/vividsolutions/jts/noding/NodedSegmentString';
-import HotPixel from 'com/vividsolutions/jts/noding/snapround/HotPixel';
+import Noder from '../Noder';
+import MCIndexNoder from '../MCIndexNoder';
+import NodedSegmentString from '../NodedSegmentString';
+import HotPixel from './HotPixel';
 import Exception from 'java/lang/Exception';
-import MCIndexPointSnapper from 'com/vividsolutions/jts/noding/snapround/MCIndexPointSnapper';
-import RobustLineIntersector from 'com/vividsolutions/jts/algorithm/RobustLineIntersector';
-import InteriorIntersectionFinderAdder from 'com/vividsolutions/jts/noding/InteriorIntersectionFinderAdder';
+import MCIndexPointSnapper from './MCIndexPointSnapper';
+import RobustLineIntersector from '../../algorithm/RobustLineIntersector';
+import InteriorIntersectionFinderAdder from '../InteriorIntersectionFinderAdder';
 export default class MCIndexSnapRounder {
 	constructor(...args) {
 		(() => {

@@ -1,9 +1,9 @@
-import Quadtree from 'com/vividsolutions/jts/index/quadtree/Quadtree';
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import IsValidOp from 'com/vividsolutions/jts/operation/valid/IsValidOp';
+import Quadtree from '../../index/quadtree/Quadtree';
+import CGAlgorithms from '../../algorithm/CGAlgorithms';
+import IsValidOp from './IsValidOp';
 import ArrayList from 'java/util/ArrayList';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import Envelope from '../../geom/Envelope';
+import Assert from '../../util/Assert';
 export default class QuadtreeNestedRingTester {
 	constructor(...args) {
 		(() => {

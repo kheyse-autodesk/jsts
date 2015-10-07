@@ -1,11 +1,11 @@
-import ItemBoundable from 'com/vividsolutions/jts/index/strtree/ItemBoundable';
-import FacetSequence from 'com/vividsolutions/jts/operation/distance/FacetSequence';
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import ItemBoundable from '../index/strtree/ItemBoundable';
+import FacetSequence from '../operation/distance/FacetSequence';
+import CGAlgorithms from '../algorithm/CGAlgorithms';
+import Coordinate from '../geom/Coordinate';
 import Double from 'java/lang/Double';
-import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
-import FacetSequenceTreeBuilder from 'com/vividsolutions/jts/operation/distance/FacetSequenceTreeBuilder';
-import ItemDistance from 'com/vividsolutions/jts/index/strtree/ItemDistance';
+import LineSegment from '../geom/LineSegment';
+import FacetSequenceTreeBuilder from '../operation/distance/FacetSequenceTreeBuilder';
+import ItemDistance from '../index/strtree/ItemDistance';
 export default class MinimumClearance {
 	constructor(...args) {
 		(() => {

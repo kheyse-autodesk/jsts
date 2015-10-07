@@ -1,5 +1,5 @@
-import Interval from 'com/vividsolutions/jts/index/bintree/Interval';
-import DoubleBits from 'com/vividsolutions/jts/index/quadtree/DoubleBits';
+import Interval from './Interval';
+import DoubleBits from '../quadtree/DoubleBits';
 export default class Key {
 	constructor(...args) {
 		(() => {

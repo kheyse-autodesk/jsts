@@ -1,4 +1,4 @@
-import SegmentSetMutualIntersector from 'com/vividsolutions/jts/noding/SegmentSetMutualIntersector';
+import SegmentSetMutualIntersector from './SegmentSetMutualIntersector';
 export default class SimpleSegmentSetMutualIntersector {
 	constructor(...args) {
 		(() => {

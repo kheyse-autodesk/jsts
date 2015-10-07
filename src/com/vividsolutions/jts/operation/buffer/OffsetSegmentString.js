@@ -1,5 +1,5 @@
-import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import GeometryFactory from '../../geom/GeometryFactory';
+import Coordinate from '../../geom/Coordinate';
 import ArrayList from 'java/util/ArrayList';
 export default class OffsetSegmentString {
 	constructor(...args) {

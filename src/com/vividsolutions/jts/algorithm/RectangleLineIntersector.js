@@ -1,6 +1,6 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import RobustLineIntersector from 'com/vividsolutions/jts/algorithm/RobustLineIntersector';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
+import Coordinate from '../geom/Coordinate';
+import RobustLineIntersector from './RobustLineIntersector';
+import Envelope from '../geom/Envelope';
 export default class RectangleLineIntersector {
 	constructor(...args) {
 		(() => {

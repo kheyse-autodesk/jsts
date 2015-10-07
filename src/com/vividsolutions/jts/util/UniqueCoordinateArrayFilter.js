@@ -1,5 +1,5 @@
 import TreeSet from 'java/util/TreeSet';
-import CoordinateFilter from 'com/vividsolutions/jts/geom/CoordinateFilter';
+import CoordinateFilter from '../geom/CoordinateFilter';
 import ArrayList from 'java/util/ArrayList';
 export default class UniqueCoordinateArrayFilter {
 	constructor(...args) {

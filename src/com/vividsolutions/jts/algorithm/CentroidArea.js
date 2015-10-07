@@ -1,8 +1,8 @@
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
+import CGAlgorithms from './CGAlgorithms';
+import Geometry from '../geom/Geometry';
+import Coordinate from '../geom/Coordinate';
+import Polygon from '../geom/Polygon';
+import GeometryCollection from '../geom/GeometryCollection';
 export default class CentroidArea {
 	constructor(...args) {
 		(() => {

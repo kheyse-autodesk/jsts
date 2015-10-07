@@ -1,4 +1,4 @@
-import AssertionFailedException from 'com/vividsolutions/jts/util/AssertionFailedException';
+import AssertionFailedException from './AssertionFailedException';
 export default class Assert {
 	get interfaces_() {
 		return [];

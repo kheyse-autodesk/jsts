@@ -1,7 +1,7 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
-import ShortCircuitedGeometryVisitor from 'com/vividsolutions/jts/geom/util/ShortCircuitedGeometryVisitor';
-import SimplePointInAreaLocator from 'com/vividsolutions/jts/algorithm/locate/SimplePointInAreaLocator';
+import Coordinate from '../../geom/Coordinate';
+import Polygon from '../../geom/Polygon';
+import ShortCircuitedGeometryVisitor from '../../geom/util/ShortCircuitedGeometryVisitor';
+import SimplePointInAreaLocator from '../../algorithm/locate/SimplePointInAreaLocator';
 export default class GeometryContainsPointVisitor extends ShortCircuitedGeometryVisitor {
 	constructor(...args) {
 		super();

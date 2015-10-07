@@ -1,11 +1,11 @@
-import EdgeIntersectionList from 'com/vividsolutions/jts/geomgraph/EdgeIntersectionList';
-import MonotoneChainEdge from 'com/vividsolutions/jts/geomgraph/index/MonotoneChainEdge';
-import Position from 'com/vividsolutions/jts/geomgraph/Position';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Label from 'com/vividsolutions/jts/geomgraph/Label';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
-import Depth from 'com/vividsolutions/jts/geomgraph/Depth';
-import GraphComponent from 'com/vividsolutions/jts/geomgraph/GraphComponent';
+import EdgeIntersectionList from './EdgeIntersectionList';
+import MonotoneChainEdge from './index/MonotoneChainEdge';
+import Position from './Position';
+import Coordinate from '../geom/Coordinate';
+import Label from './Label';
+import Envelope from '../geom/Envelope';
+import Depth from './Depth';
+import GraphComponent from './GraphComponent';
 export default class Edge extends GraphComponent {
 	constructor(...args) {
 		super();

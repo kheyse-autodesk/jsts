@@ -1,7 +1,7 @@
-import NodeBase from 'com/vividsolutions/jts/index/bintree/NodeBase';
-import Node from 'com/vividsolutions/jts/index/bintree/Node';
-import IntervalSize from 'com/vividsolutions/jts/index/quadtree/IntervalSize';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import NodeBase from './NodeBase';
+import Node from './Node';
+import IntervalSize from '../quadtree/IntervalSize';
+import Assert from '../../util/Assert';
 export default class Root extends NodeBase {
 	constructor(...args) {
 		super();

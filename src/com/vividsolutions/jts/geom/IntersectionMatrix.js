@@ -1,5 +1,5 @@
-import Location from 'com/vividsolutions/jts/geom/Location';
-import Dimension from 'com/vividsolutions/jts/geom/Dimension';
+import Location from './Location';
+import Dimension from './Dimension';
 import Cloneable from 'java/lang/Cloneable';
 export default class IntersectionMatrix {
 	constructor(...args) {

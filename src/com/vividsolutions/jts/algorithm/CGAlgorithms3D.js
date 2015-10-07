@@ -1,6 +1,6 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import Coordinate from '../geom/Coordinate';
 import Double from 'java/lang/Double';
-import Vector3D from 'com/vividsolutions/jts/math/Vector3D';
+import Vector3D from '../math/Vector3D';
 export default class CGAlgorithms3D {
 	get interfaces_() {
 		return [];

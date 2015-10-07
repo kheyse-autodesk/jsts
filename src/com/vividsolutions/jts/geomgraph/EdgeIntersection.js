@@ -1,4 +1,4 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import Coordinate from '../geom/Coordinate';
 import Comparable from 'java/lang/Comparable';
 export default class EdgeIntersection {
 	constructor(...args) {

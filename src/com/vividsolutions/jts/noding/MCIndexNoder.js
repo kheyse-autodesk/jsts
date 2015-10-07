@@ -1,9 +1,9 @@
-import SegmentOverlapAction from 'com/vividsolutions/jts/noding/SegmentOverlapAction';
-import STRtree from 'com/vividsolutions/jts/index/strtree/STRtree';
-import NodedSegmentString from 'com/vividsolutions/jts/noding/NodedSegmentString';
-import MonotoneChainBuilder from 'com/vividsolutions/jts/index/chain/MonotoneChainBuilder';
+import SegmentOverlapAction from './SegmentOverlapAction';
+import STRtree from '../index/strtree/STRtree';
+import NodedSegmentString from './NodedSegmentString';
+import MonotoneChainBuilder from '../index/chain/MonotoneChainBuilder';
 import ArrayList from 'java/util/ArrayList';
-import SinglePassNoder from 'com/vividsolutions/jts/noding/SinglePassNoder';
+import SinglePassNoder from './SinglePassNoder';
 export default class MCIndexNoder extends SinglePassNoder {
 	constructor(...args) {
 		super();

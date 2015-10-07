@@ -1,4 +1,4 @@
-import QuadEdge from 'com/vividsolutions/jts/triangulate/quadedge/QuadEdge';
+import QuadEdge from './quadedge/QuadEdge';
 export default class IncrementalDelaunayTriangulator {
 	constructor(...args) {
 		(() => {

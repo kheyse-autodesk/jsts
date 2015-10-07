@@ -1,6 +1,6 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import Point from 'com/vividsolutions/jts/geom/Point';
-import GeometryComponentFilter from 'com/vividsolutions/jts/geom/GeometryComponentFilter';
+import LineString from '../LineString';
+import Point from '../Point';
+import GeometryComponentFilter from '../GeometryComponentFilter';
 import ArrayList from 'java/util/ArrayList';
 export default class ComponentCoordinateExtracter {
 	constructor(...args) {

@@ -1,5 +1,5 @@
 import Double from 'java/lang/Double';
-import Vector3D from 'com/vividsolutions/jts/math/Vector3D';
+import Vector3D from './Vector3D';
 export default class Plane3D {
 	constructor(...args) {
 		(() => {

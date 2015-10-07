@@ -1,9 +1,9 @@
 import TreeSet from 'java/util/TreeSet';
-import SnapTransformer from 'com/vividsolutions/jts/operation/overlay/snap/SnapTransformer';
+import SnapTransformer from './SnapTransformer';
 import Double from 'java/lang/Double';
-import BufferOp from 'com/vividsolutions/jts/operation/buffer/BufferOp';
-import PrecisionModel from 'com/vividsolutions/jts/geom/PrecisionModel';
-import Polygonal from 'com/vividsolutions/jts/geom/Polygonal';
+import BufferOp from '../../buffer/BufferOp';
+import PrecisionModel from '../../../geom/PrecisionModel';
+import Polygonal from '../../../geom/Polygonal';
 export default class GeometrySnapper {
 	constructor(...args) {
 		(() => {

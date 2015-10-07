@@ -1,4 +1,4 @@
-import TaggedLineSegment from 'com/vividsolutions/jts/simplify/TaggedLineSegment';
+import TaggedLineSegment from './TaggedLineSegment';
 import ArrayList from 'java/util/ArrayList';
 export default class TaggedLineString {
 	constructor(...args) {

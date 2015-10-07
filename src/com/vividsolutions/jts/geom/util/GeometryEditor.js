@@ -1,13 +1,13 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import Point from 'com/vividsolutions/jts/geom/Point';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
-import MultiPoint from 'com/vividsolutions/jts/geom/MultiPoint';
-import LinearRing from 'com/vividsolutions/jts/geom/LinearRing';
-import MultiPolygon from 'com/vividsolutions/jts/geom/MultiPolygon';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
+import LineString from '../LineString';
+import Point from '../Point';
+import Polygon from '../Polygon';
+import MultiPoint from '../MultiPoint';
+import LinearRing from '../LinearRing';
+import MultiPolygon from '../MultiPolygon';
+import GeometryCollection from '../GeometryCollection';
 import ArrayList from 'java/util/ArrayList';
-import Assert from 'com/vividsolutions/jts/util/Assert';
-import MultiLineString from 'com/vividsolutions/jts/geom/MultiLineString';
+import Assert from '../../util/Assert';
+import MultiLineString from '../MultiLineString';
 export default class GeometryEditor {
 	constructor(...args) {
 		(() => {

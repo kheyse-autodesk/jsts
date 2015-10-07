@@ -1,7 +1,7 @@
-import MonotoneChain from 'com/vividsolutions/jts/index/chain/MonotoneChain';
+import MonotoneChain from './MonotoneChain';
 import Integer from 'java/lang/Integer';
 import ArrayList from 'java/util/ArrayList';
-import Quadrant from 'com/vividsolutions/jts/geomgraph/Quadrant';
+import Quadrant from '../../geomgraph/Quadrant';
 export default class MonotoneChainBuilder {
 	constructor(...args) {
 		(() => {})();

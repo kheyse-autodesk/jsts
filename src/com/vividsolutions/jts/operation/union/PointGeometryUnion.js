@@ -1,8 +1,8 @@
-import PointLocator from 'com/vividsolutions/jts/algorithm/PointLocator';
-import Location from 'com/vividsolutions/jts/geom/Location';
+import PointLocator from '../../algorithm/PointLocator';
+import Location from '../../geom/Location';
 import TreeSet from 'java/util/TreeSet';
-import GeometryCombiner from 'com/vividsolutions/jts/geom/util/GeometryCombiner';
-import CoordinateArrays from 'com/vividsolutions/jts/geom/CoordinateArrays';
+import GeometryCombiner from '../../geom/util/GeometryCombiner';
+import CoordinateArrays from '../../geom/CoordinateArrays';
 export default class PointGeometryUnion {
 	constructor(...args) {
 		(() => {

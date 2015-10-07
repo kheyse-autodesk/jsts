@@ -1,4 +1,4 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import Coordinate from '../geom/Coordinate';
 export default class Vector3D {
 	constructor(...args) {
 		(() => {

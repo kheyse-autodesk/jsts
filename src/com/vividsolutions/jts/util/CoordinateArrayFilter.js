@@ -1,4 +1,4 @@
-import CoordinateFilter from 'com/vividsolutions/jts/geom/CoordinateFilter';
+import CoordinateFilter from '../geom/CoordinateFilter';
 export default class CoordinateArrayFilter {
 	constructor(...args) {
 		(() => {

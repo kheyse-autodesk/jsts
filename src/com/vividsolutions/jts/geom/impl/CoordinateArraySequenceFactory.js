@@ -1,6 +1,6 @@
-import CoordinateSequenceFactory from 'com/vividsolutions/jts/geom/CoordinateSequenceFactory';
-import CoordinateArraySequence from 'com/vividsolutions/jts/geom/impl/CoordinateArraySequence';
-import CoordinateSequence from 'com/vividsolutions/jts/geom/CoordinateSequence';
+import CoordinateSequenceFactory from '../CoordinateSequenceFactory';
+import CoordinateArraySequence from './CoordinateArraySequence';
+import CoordinateSequence from '../CoordinateSequence';
 import Serializable from 'java/io/Serializable';
 export default class CoordinateArraySequenceFactory {
 	constructor(...args) {

@@ -1,13 +1,13 @@
-import BufferParameters from 'com/vividsolutions/jts/operation/buffer/BufferParameters';
-import NotRepresentableException from 'com/vividsolutions/jts/algorithm/NotRepresentableException';
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import Position from 'com/vividsolutions/jts/geomgraph/Position';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import OffsetSegmentString from 'com/vividsolutions/jts/operation/buffer/OffsetSegmentString';
-import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
-import Angle from 'com/vividsolutions/jts/algorithm/Angle';
-import RobustLineIntersector from 'com/vividsolutions/jts/algorithm/RobustLineIntersector';
-import HCoordinate from 'com/vividsolutions/jts/algorithm/HCoordinate';
+import BufferParameters from './BufferParameters';
+import NotRepresentableException from '../../algorithm/NotRepresentableException';
+import CGAlgorithms from '../../algorithm/CGAlgorithms';
+import Position from '../../geomgraph/Position';
+import Coordinate from '../../geom/Coordinate';
+import OffsetSegmentString from './OffsetSegmentString';
+import LineSegment from '../../geom/LineSegment';
+import Angle from '../../algorithm/Angle';
+import RobustLineIntersector from '../../algorithm/RobustLineIntersector';
+import HCoordinate from '../../algorithm/HCoordinate';
 export default class OffsetSegmentGenerator {
 	constructor(...args) {
 		(() => {

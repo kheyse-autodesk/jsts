@@ -1,7 +1,7 @@
-import WKTWriter from 'com/vividsolutions/jts/io/WKTWriter';
-import CoordinateArraySequence from 'com/vividsolutions/jts/geom/impl/CoordinateArraySequence';
-import Octant from 'com/vividsolutions/jts/noding/Octant';
-import SegmentString from 'com/vividsolutions/jts/noding/SegmentString';
+import WKTWriter from '../io/WKTWriter';
+import CoordinateArraySequence from '../geom/impl/CoordinateArraySequence';
+import Octant from './Octant';
+import SegmentString from './SegmentString';
 export default class BasicSegmentString {
 	constructor(...args) {
 		(() => {

@@ -1,6 +1,6 @@
-import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
-import LineSegmentIndex from 'com/vividsolutions/jts/simplify/LineSegmentIndex';
-import RobustLineIntersector from 'com/vividsolutions/jts/algorithm/RobustLineIntersector';
+import LineSegment from '../geom/LineSegment';
+import LineSegmentIndex from './LineSegmentIndex';
+import RobustLineIntersector from '../algorithm/RobustLineIntersector';
 export default class TaggedLineStringSimplifier {
 	constructor(...args) {
 		(() => {

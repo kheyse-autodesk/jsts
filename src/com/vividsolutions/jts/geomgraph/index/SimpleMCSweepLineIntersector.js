@@ -1,10 +1,10 @@
-import MonotoneChain from 'com/vividsolutions/jts/geomgraph/index/MonotoneChain';
-import SweepLineEvent from 'com/vividsolutions/jts/geomgraph/index/SweepLineEvent';
-import EdgeSetIntersector from 'com/vividsolutions/jts/geomgraph/index/EdgeSetIntersector';
+import MonotoneChain from './MonotoneChain';
+import SweepLineEvent from './SweepLineEvent';
+import EdgeSetIntersector from './EdgeSetIntersector';
 import Collections from 'java/util/Collections';
-import SegmentIntersector from 'com/vividsolutions/jts/geomgraph/index/SegmentIntersector';
+import SegmentIntersector from './SegmentIntersector';
 import ArrayList from 'java/util/ArrayList';
-import Edge from 'com/vividsolutions/jts/geomgraph/Edge';
+import Edge from '../Edge';
 import List from 'java/util/List';
 export default class SimpleMCSweepLineIntersector extends EdgeSetIntersector {
 	constructor(...args) {

@@ -1,5 +1,5 @@
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
-import Polygonal from 'com/vividsolutions/jts/geom/Polygonal';
+import GeometryCollection from './GeometryCollection';
+import Polygonal from './Polygonal';
 import ArrayList from 'java/util/ArrayList';
 export default class MultiPolygon extends GeometryCollection {
 	constructor(...args) {

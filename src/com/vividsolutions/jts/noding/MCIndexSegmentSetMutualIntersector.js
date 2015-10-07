@@ -1,7 +1,7 @@
-import SegmentSetMutualIntersector from 'com/vividsolutions/jts/noding/SegmentSetMutualIntersector';
-import SegmentOverlapAction from 'com/vividsolutions/jts/noding/SegmentOverlapAction';
-import STRtree from 'com/vividsolutions/jts/index/strtree/STRtree';
-import MonotoneChainBuilder from 'com/vividsolutions/jts/index/chain/MonotoneChainBuilder';
+import SegmentSetMutualIntersector from './SegmentSetMutualIntersector';
+import SegmentOverlapAction from './SegmentOverlapAction';
+import STRtree from '../index/strtree/STRtree';
+import MonotoneChainBuilder from '../index/chain/MonotoneChainBuilder';
 import ArrayList from 'java/util/ArrayList';
 export default class MCIndexSegmentSetMutualIntersector {
 	constructor(...args) {

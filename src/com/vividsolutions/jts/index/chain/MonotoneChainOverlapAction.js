@@ -1,5 +1,5 @@
-import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
+import LineSegment from '../../geom/LineSegment';
+import Envelope from '../../geom/Envelope';
 export default class MonotoneChainOverlapAction {
 	constructor(...args) {
 		(() => {

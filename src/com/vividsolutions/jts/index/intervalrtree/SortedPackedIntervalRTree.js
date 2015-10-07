@@ -1,9 +1,9 @@
-import WKTWriter from 'com/vividsolutions/jts/io/WKTWriter';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import IntervalRTreeLeafNode from 'com/vividsolutions/jts/index/intervalrtree/IntervalRTreeLeafNode';
+import WKTWriter from '../../io/WKTWriter';
+import Coordinate from '../../geom/Coordinate';
+import IntervalRTreeLeafNode from './IntervalRTreeLeafNode';
 import Collections from 'java/util/Collections';
 import ArrayList from 'java/util/ArrayList';
-import IntervalRTreeBranchNode from 'com/vividsolutions/jts/index/intervalrtree/IntervalRTreeBranchNode';
+import IntervalRTreeBranchNode from './IntervalRTreeBranchNode';
 export default class SortedPackedIntervalRTree {
 	constructor(...args) {
 		(() => {

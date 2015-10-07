@@ -1,13 +1,13 @@
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
-import CoordinateFilter from 'com/vividsolutions/jts/geom/CoordinateFilter';
-import Lineal from 'com/vividsolutions/jts/geom/Lineal';
-import CoordinateSequences from 'com/vividsolutions/jts/geom/CoordinateSequences';
-import GeometryComponentFilter from 'com/vividsolutions/jts/geom/GeometryComponentFilter';
-import Dimension from 'com/vividsolutions/jts/geom/Dimension';
-import GeometryFilter from 'com/vividsolutions/jts/geom/GeometryFilter';
-import CoordinateSequenceFilter from 'com/vividsolutions/jts/geom/CoordinateSequenceFilter';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
+import CGAlgorithms from '../algorithm/CGAlgorithms';
+import Geometry from './Geometry';
+import CoordinateFilter from './CoordinateFilter';
+import Lineal from './Lineal';
+import CoordinateSequences from './CoordinateSequences';
+import GeometryComponentFilter from './GeometryComponentFilter';
+import Dimension from './Dimension';
+import GeometryFilter from './GeometryFilter';
+import CoordinateSequenceFilter from './CoordinateSequenceFilter';
+import Envelope from './Envelope';
 export default class LineString extends Geometry {
 	constructor(...args) {
 		super();

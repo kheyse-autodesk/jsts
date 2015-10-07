@@ -1,20 +1,20 @@
-import CoordinateSequenceFactory from 'com/vividsolutions/jts/geom/CoordinateSequenceFactory';
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Point from 'com/vividsolutions/jts/geom/Point';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
-import MultiPoint from 'com/vividsolutions/jts/geom/MultiPoint';
-import GeometryEditor from 'com/vividsolutions/jts/geom/util/GeometryEditor';
-import LinearRing from 'com/vividsolutions/jts/geom/LinearRing';
-import CoordinateArraySequenceFactory from 'com/vividsolutions/jts/geom/impl/CoordinateArraySequenceFactory';
-import MultiPolygon from 'com/vividsolutions/jts/geom/MultiPolygon';
-import CoordinateSequences from 'com/vividsolutions/jts/geom/CoordinateSequences';
-import CoordinateSequence from 'com/vividsolutions/jts/geom/CoordinateSequence';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
-import PrecisionModel from 'com/vividsolutions/jts/geom/PrecisionModel';
+import CoordinateSequenceFactory from './CoordinateSequenceFactory';
+import LineString from './LineString';
+import Coordinate from './Coordinate';
+import Point from './Point';
+import Polygon from './Polygon';
+import MultiPoint from './MultiPoint';
+import GeometryEditor from './util/GeometryEditor';
+import LinearRing from './LinearRing';
+import CoordinateArraySequenceFactory from './impl/CoordinateArraySequenceFactory';
+import MultiPolygon from './MultiPolygon';
+import CoordinateSequences from './CoordinateSequences';
+import CoordinateSequence from './CoordinateSequence';
+import GeometryCollection from './GeometryCollection';
+import PrecisionModel from './PrecisionModel';
 import Serializable from 'java/io/Serializable';
-import Assert from 'com/vividsolutions/jts/util/Assert';
-import MultiLineString from 'com/vividsolutions/jts/geom/MultiLineString';
+import Assert from '../util/Assert';
+import MultiLineString from './MultiLineString';
 export default class GeometryFactory {
 	constructor(...args) {
 		(() => {

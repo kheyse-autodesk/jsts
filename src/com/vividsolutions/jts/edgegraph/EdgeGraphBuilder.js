@@ -1,7 +1,7 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
+import LineString from '../geom/LineString';
+import Geometry from '../geom/Geometry';
 import Collection from 'java/util/Collection';
-import EdgeGraph from 'com/vividsolutions/jts/edgegraph/EdgeGraph';
+import EdgeGraph from './EdgeGraph';
 export default class EdgeGraphBuilder {
 	constructor(...args) {
 		(() => {

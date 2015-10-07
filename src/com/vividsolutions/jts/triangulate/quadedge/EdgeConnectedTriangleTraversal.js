@@ -1,5 +1,5 @@
 import Collection from 'java/util/Collection';
-import QuadEdgeTriangle from 'com/vividsolutions/jts/triangulate/quadedge/QuadEdgeTriangle';
+import QuadEdgeTriangle from './QuadEdgeTriangle';
 import LinkedList from 'java/util/LinkedList';
 export default class EdgeConnectedTriangleTraversal {
 	constructor(...args) {

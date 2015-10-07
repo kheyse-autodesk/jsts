@@ -1,4 +1,4 @@
-import RobustLineIntersector from 'com/vividsolutions/jts/algorithm/RobustLineIntersector';
+import RobustLineIntersector from '../algorithm/RobustLineIntersector';
 import RuntimeException from 'java/lang/RuntimeException';
 export default class NodingValidator {
 	constructor(...args) {

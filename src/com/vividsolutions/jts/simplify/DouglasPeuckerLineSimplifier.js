@@ -1,6 +1,6 @@
-import CoordinateList from 'com/vividsolutions/jts/geom/CoordinateList';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
+import CoordinateList from '../geom/CoordinateList';
+import Coordinate from '../geom/Coordinate';
+import LineSegment from '../geom/LineSegment';
 export default class DouglasPeuckerLineSimplifier {
 	constructor(...args) {
 		(() => {

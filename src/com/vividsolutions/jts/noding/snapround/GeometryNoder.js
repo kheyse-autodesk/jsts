@@ -1,8 +1,8 @@
-import NodingValidator from 'com/vividsolutions/jts/noding/NodingValidator';
-import NodedSegmentString from 'com/vividsolutions/jts/noding/NodedSegmentString';
+import NodingValidator from '../NodingValidator';
+import NodedSegmentString from '../NodedSegmentString';
 import ArrayList from 'java/util/ArrayList';
-import LinearComponentExtracter from 'com/vividsolutions/jts/geom/util/LinearComponentExtracter';
-import MCIndexSnapRounder from 'com/vividsolutions/jts/noding/snapround/MCIndexSnapRounder';
+import LinearComponentExtracter from '../../geom/util/LinearComponentExtracter';
+import MCIndexSnapRounder from './MCIndexSnapRounder';
 export default class GeometryNoder {
 	constructor(...args) {
 		(() => {

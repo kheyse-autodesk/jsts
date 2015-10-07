@@ -1,14 +1,14 @@
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import CoordinateList from 'com/vividsolutions/jts/geom/CoordinateList';
-import WKTWriter from 'com/vividsolutions/jts/io/WKTWriter';
-import CoordinateArraySequence from 'com/vividsolutions/jts/geom/impl/CoordinateArraySequence';
-import IsValidOp from 'com/vividsolutions/jts/operation/valid/IsValidOp';
-import LinearRing from 'com/vividsolutions/jts/geom/LinearRing';
+import CGAlgorithms from '../../algorithm/CGAlgorithms';
+import CoordinateList from '../../geom/CoordinateList';
+import WKTWriter from '../../io/WKTWriter';
+import CoordinateArraySequence from '../../geom/impl/CoordinateArraySequence';
+import IsValidOp from '../valid/IsValidOp';
+import LinearRing from '../../geom/LinearRing';
 import Exception from 'java/lang/Exception';
-import CoordinateArrays from 'com/vividsolutions/jts/geom/CoordinateArrays';
+import CoordinateArrays from '../../geom/CoordinateArrays';
 import ArrayList from 'java/util/ArrayList';
 import Comparator from 'java/util/Comparator';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import Assert from '../../util/Assert';
 export default class EdgeRing {
 	constructor(...args) {
 		(() => {

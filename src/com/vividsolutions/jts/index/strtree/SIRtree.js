@@ -1,5 +1,5 @@
-import Interval from 'com/vividsolutions/jts/index/strtree/Interval';
-import AbstractSTRtree from 'com/vividsolutions/jts/index/strtree/AbstractSTRtree';
+import Interval from './Interval';
+import AbstractSTRtree from './AbstractSTRtree';
 export default class SIRtree extends AbstractSTRtree {
 	constructor(...args) {
 		super();

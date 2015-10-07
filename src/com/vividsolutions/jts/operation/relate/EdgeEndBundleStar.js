@@ -1,5 +1,5 @@
-import EdgeEndStar from 'com/vividsolutions/jts/geomgraph/EdgeEndStar';
-import EdgeEndBundle from 'com/vividsolutions/jts/operation/relate/EdgeEndBundle';
+import EdgeEndStar from '../../geomgraph/EdgeEndStar';
+import EdgeEndBundle from './EdgeEndBundle';
 export default class EdgeEndBundleStar extends EdgeEndStar {
 	constructor(...args) {
 		super();

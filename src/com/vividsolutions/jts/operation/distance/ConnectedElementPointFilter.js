@@ -1,8 +1,8 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import Point from 'com/vividsolutions/jts/geom/Point';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
+import LineString from '../../geom/LineString';
+import Point from '../../geom/Point';
+import Polygon from '../../geom/Polygon';
 import ArrayList from 'java/util/ArrayList';
-import GeometryFilter from 'com/vividsolutions/jts/geom/GeometryFilter';
+import GeometryFilter from '../../geom/GeometryFilter';
 export default class ConnectedElementPointFilter {
 	constructor(...args) {
 		(() => {

@@ -1,4 +1,4 @@
-import Noder from 'com/vividsolutions/jts/noding/Noder';
+import Noder from './Noder';
 export default class SinglePassNoder {
 	constructor(...args) {
 		(() => {

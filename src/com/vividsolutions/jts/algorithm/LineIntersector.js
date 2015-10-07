@@ -1,5 +1,5 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import Coordinate from '../geom/Coordinate';
+import Assert from '../util/Assert';
 export default class LineIntersector {
 	constructor(...args) {
 		(() => {

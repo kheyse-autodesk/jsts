@@ -1,9 +1,9 @@
-import Location from 'com/vividsolutions/jts/geom/Location';
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
-import PointOnGeometryLocator from 'com/vividsolutions/jts/algorithm/locate/PointOnGeometryLocator';
-import GeometryCollectionIterator from 'com/vividsolutions/jts/geom/GeometryCollectionIterator';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
+import Location from '../../geom/Location';
+import CGAlgorithms from '../CGAlgorithms';
+import Polygon from '../../geom/Polygon';
+import PointOnGeometryLocator from './PointOnGeometryLocator';
+import GeometryCollectionIterator from '../../geom/GeometryCollectionIterator';
+import GeometryCollection from '../../geom/GeometryCollection';
 export default class SimplePointInAreaLocator {
 	constructor(...args) {
 		(() => {

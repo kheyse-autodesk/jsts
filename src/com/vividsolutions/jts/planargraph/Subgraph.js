@@ -1,5 +1,5 @@
 import HashSet from 'java/util/HashSet';
-import NodeMap from 'com/vividsolutions/jts/planargraph/NodeMap';
+import NodeMap from './NodeMap';
 import ArrayList from 'java/util/ArrayList';
 export default class Subgraph {
 	constructor(...args) {

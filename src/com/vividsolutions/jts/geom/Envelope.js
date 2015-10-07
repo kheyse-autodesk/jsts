@@ -1,4 +1,4 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import Coordinate from './Coordinate';
 import Comparable from 'java/lang/Comparable';
 import Serializable from 'java/io/Serializable';
 export default class Envelope {

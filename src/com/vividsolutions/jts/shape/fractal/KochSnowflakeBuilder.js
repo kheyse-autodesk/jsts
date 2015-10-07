@@ -1,7 +1,7 @@
-import CoordinateList from 'com/vividsolutions/jts/geom/CoordinateList';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Vector2D from 'com/vividsolutions/jts/math/Vector2D';
-import GeometricShapeBuilder from 'com/vividsolutions/jts/shape/GeometricShapeBuilder';
+import CoordinateList from '../../geom/CoordinateList';
+import Coordinate from '../../geom/Coordinate';
+import Vector2D from '../../math/Vector2D';
+import GeometricShapeBuilder from '../GeometricShapeBuilder';
 export default class KochSnowflakeBuilder extends GeometricShapeBuilder {
 	constructor(...args) {
 		super();

@@ -1,13 +1,13 @@
 import TreeSet from 'java/util/TreeSet';
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import MultiPoint from 'com/vividsolutions/jts/geom/MultiPoint';
-import GeometryGraph from 'com/vividsolutions/jts/geomgraph/GeometryGraph';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
-import Polygonal from 'com/vividsolutions/jts/geom/Polygonal';
-import RobustLineIntersector from 'com/vividsolutions/jts/algorithm/RobustLineIntersector';
-import LinearComponentExtracter from 'com/vividsolutions/jts/geom/util/LinearComponentExtracter';
+import LineString from '../geom/LineString';
+import MultiPoint from '../geom/MultiPoint';
+import GeometryGraph from '../geomgraph/GeometryGraph';
+import GeometryCollection from '../geom/GeometryCollection';
+import Polygonal from '../geom/Polygonal';
+import RobustLineIntersector from '../algorithm/RobustLineIntersector';
+import LinearComponentExtracter from '../geom/util/LinearComponentExtracter';
 import TreeMap from 'java/util/TreeMap';
-import MultiLineString from 'com/vividsolutions/jts/geom/MultiLineString';
+import MultiLineString from '../geom/MultiLineString';
 export default class IsSimpleOp {
 	constructor(...args) {
 		(() => {

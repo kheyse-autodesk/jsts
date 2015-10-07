@@ -1,7 +1,7 @@
-import EdgeIntersection from 'com/vividsolutions/jts/geomgraph/EdgeIntersection';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Label from 'com/vividsolutions/jts/geomgraph/Label';
-import Edge from 'com/vividsolutions/jts/geomgraph/Edge';
+import EdgeIntersection from './EdgeIntersection';
+import Coordinate from '../geom/Coordinate';
+import Label from './Label';
+import Edge from './Edge';
 import TreeMap from 'java/util/TreeMap';
 export default class EdgeIntersectionList {
 	constructor(...args) {

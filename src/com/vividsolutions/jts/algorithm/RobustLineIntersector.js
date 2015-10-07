@@ -1,10 +1,10 @@
-import NotRepresentableException from 'com/vividsolutions/jts/algorithm/NotRepresentableException';
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import CGAlgorithmsDD from 'com/vividsolutions/jts/algorithm/CGAlgorithmsDD';
-import HCoordinate from 'com/vividsolutions/jts/algorithm/HCoordinate';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
-import LineIntersector from 'com/vividsolutions/jts/algorithm/LineIntersector';
+import NotRepresentableException from './NotRepresentableException';
+import CGAlgorithms from './CGAlgorithms';
+import Coordinate from '../geom/Coordinate';
+import CGAlgorithmsDD from './CGAlgorithmsDD';
+import HCoordinate from './HCoordinate';
+import Envelope from '../geom/Envelope';
+import LineIntersector from './LineIntersector';
 export default class RobustLineIntersector extends LineIntersector {
 	constructor(...args) {
 		super();

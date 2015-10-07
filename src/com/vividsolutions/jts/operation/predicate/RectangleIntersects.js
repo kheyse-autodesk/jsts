@@ -1,6 +1,6 @@
-import GeometryContainsPointVisitor from 'com/vividsolutions/jts/operation/predicate/GeometryContainsPointVisitor';
-import RectangleIntersectsSegmentVisitor from 'com/vividsolutions/jts/operation/predicate/RectangleIntersectsSegmentVisitor';
-import EnvelopeIntersectsVisitor from 'com/vividsolutions/jts/operation/predicate/EnvelopeIntersectsVisitor';
+import GeometryContainsPointVisitor from './GeometryContainsPointVisitor';
+import RectangleIntersectsSegmentVisitor from './RectangleIntersectsSegmentVisitor';
+import EnvelopeIntersectsVisitor from './EnvelopeIntersectsVisitor';
 export default class RectangleIntersects {
 	constructor(...args) {
 		(() => {

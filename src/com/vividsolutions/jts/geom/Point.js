@@ -1,12 +1,12 @@
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
-import CoordinateFilter from 'com/vividsolutions/jts/geom/CoordinateFilter';
-import GeometryComponentFilter from 'com/vividsolutions/jts/geom/GeometryComponentFilter';
-import Dimension from 'com/vividsolutions/jts/geom/Dimension';
-import GeometryFilter from 'com/vividsolutions/jts/geom/GeometryFilter';
-import CoordinateSequenceFilter from 'com/vividsolutions/jts/geom/CoordinateSequenceFilter';
-import Puntal from 'com/vividsolutions/jts/geom/Puntal';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import Geometry from './Geometry';
+import CoordinateFilter from './CoordinateFilter';
+import GeometryComponentFilter from './GeometryComponentFilter';
+import Dimension from './Dimension';
+import GeometryFilter from './GeometryFilter';
+import CoordinateSequenceFilter from './CoordinateSequenceFilter';
+import Puntal from './Puntal';
+import Envelope from './Envelope';
+import Assert from '../util/Assert';
 export default class Point extends Geometry {
 	constructor(...args) {
 		super();

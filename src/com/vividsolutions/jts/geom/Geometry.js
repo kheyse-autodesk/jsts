@@ -1,7 +1,7 @@
 import Cloneable from 'java/lang/Cloneable';
 import Serializable from 'java/io/Serializable';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import Envelope from './Envelope';
+import Assert from '../util/Assert';
 export default class Geometry {
 	constructor(...args) {
 		(() => {

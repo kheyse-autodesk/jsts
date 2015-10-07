@@ -1,6 +1,6 @@
-import Location from 'com/vividsolutions/jts/geom/Location';
-import Label from 'com/vividsolutions/jts/geomgraph/Label';
-import GraphComponent from 'com/vividsolutions/jts/geomgraph/GraphComponent';
+import Location from '../geom/Location';
+import Label from './Label';
+import GraphComponent from './GraphComponent';
 export default class Node extends GraphComponent {
 	constructor(...args) {
 		super();

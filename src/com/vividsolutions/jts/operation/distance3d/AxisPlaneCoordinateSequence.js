@@ -1,5 +1,5 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import CoordinateSequence from 'com/vividsolutions/jts/geom/CoordinateSequence';
+import Coordinate from '../../geom/Coordinate';
+import CoordinateSequence from '../../geom/CoordinateSequence';
 export default class AxisPlaneCoordinateSequence {
 	constructor(...args) {
 		(() => {

@@ -1,10 +1,10 @@
-import NotRepresentableException from 'com/vividsolutions/jts/algorithm/NotRepresentableException';
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import NotRepresentableException from '../algorithm/NotRepresentableException';
+import CGAlgorithms from '../algorithm/CGAlgorithms';
+import Coordinate from './Coordinate';
 import Double from 'java/lang/Double';
 import Comparable from 'java/lang/Comparable';
-import RobustLineIntersector from 'com/vividsolutions/jts/algorithm/RobustLineIntersector';
-import HCoordinate from 'com/vividsolutions/jts/algorithm/HCoordinate';
+import RobustLineIntersector from '../algorithm/RobustLineIntersector';
+import HCoordinate from '../algorithm/HCoordinate';
 import Serializable from 'java/io/Serializable';
 export default class LineSegment {
 	constructor(...args) {

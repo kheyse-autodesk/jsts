@@ -1,10 +1,10 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
-import PolygonizeGraph from 'com/vividsolutions/jts/operation/polygonize/PolygonizeGraph';
-import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
+import LineString from '../../geom/LineString';
+import Geometry from '../../geom/Geometry';
+import PolygonizeGraph from './PolygonizeGraph';
+import GeometryFactory from '../../geom/GeometryFactory';
 import Collection from 'java/util/Collection';
 import Collections from 'java/util/Collections';
-import EdgeRing from 'com/vividsolutions/jts/operation/polygonize/EdgeRing';
+import EdgeRing from './EdgeRing';
 import ArrayList from 'java/util/ArrayList';
 export default class Polygonizer {
 	constructor(...args) {

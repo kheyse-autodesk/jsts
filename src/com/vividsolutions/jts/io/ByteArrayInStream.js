@@ -1,4 +1,4 @@
-import InStream from 'com/vividsolutions/jts/io/InStream';
+import InStream from './InStream';
 export default class ByteArrayInStream {
 	constructor(...args) {
 		(() => {

@@ -1,13 +1,13 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
-import Point from 'com/vividsolutions/jts/geom/Point';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
-import MultiPoint from 'com/vividsolutions/jts/geom/MultiPoint';
-import LinearRing from 'com/vividsolutions/jts/geom/LinearRing';
-import MultiPolygon from 'com/vividsolutions/jts/geom/MultiPolygon';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
+import LineString from '../LineString';
+import GeometryFactory from '../GeometryFactory';
+import Point from '../Point';
+import Polygon from '../Polygon';
+import MultiPoint from '../MultiPoint';
+import LinearRing from '../LinearRing';
+import MultiPolygon from '../MultiPolygon';
+import GeometryCollection from '../GeometryCollection';
 import ArrayList from 'java/util/ArrayList';
-import MultiLineString from 'com/vividsolutions/jts/geom/MultiLineString';
+import MultiLineString from '../MultiLineString';
 export default class GeometryTransformer {
 	constructor(...args) {
 		(() => {

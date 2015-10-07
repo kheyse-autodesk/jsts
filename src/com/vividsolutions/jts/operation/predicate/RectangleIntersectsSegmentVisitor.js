@@ -1,7 +1,7 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import RectangleLineIntersector from 'com/vividsolutions/jts/algorithm/RectangleLineIntersector';
-import ShortCircuitedGeometryVisitor from 'com/vividsolutions/jts/geom/util/ShortCircuitedGeometryVisitor';
-import LinearComponentExtracter from 'com/vividsolutions/jts/geom/util/LinearComponentExtracter';
+import Coordinate from '../../geom/Coordinate';
+import RectangleLineIntersector from '../../algorithm/RectangleLineIntersector';
+import ShortCircuitedGeometryVisitor from '../../geom/util/ShortCircuitedGeometryVisitor';
+import LinearComponentExtracter from '../../geom/util/LinearComponentExtracter';
 export default class RectangleIntersectsSegmentVisitor extends ShortCircuitedGeometryVisitor {
 	constructor(...args) {
 		super();

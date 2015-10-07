@@ -1,8 +1,8 @@
-import LineMergeDirectedEdge from 'com/vividsolutions/jts/operation/linemerge/LineMergeDirectedEdge';
-import Node from 'com/vividsolutions/jts/planargraph/Node';
-import CoordinateArrays from 'com/vividsolutions/jts/geom/CoordinateArrays';
-import LineMergeEdge from 'com/vividsolutions/jts/operation/linemerge/LineMergeEdge';
-import PlanarGraph from 'com/vividsolutions/jts/planargraph/PlanarGraph';
+import LineMergeDirectedEdge from './LineMergeDirectedEdge';
+import Node from '../../planargraph/Node';
+import CoordinateArrays from '../../geom/CoordinateArrays';
+import LineMergeEdge from './LineMergeEdge';
+import PlanarGraph from '../../planargraph/PlanarGraph';
 export default class LineMergeGraph extends PlanarGraph {
 	get interfaces_() {
 		return [];

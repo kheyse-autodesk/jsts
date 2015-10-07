@@ -1,14 +1,14 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
-import PointGeometryUnion from 'com/vividsolutions/jts/operation/union/PointGeometryUnion';
+import LineString from '../../geom/LineString';
+import Geometry from '../../geom/Geometry';
+import PointGeometryUnion from './PointGeometryUnion';
 import Collection from 'java/util/Collection';
-import Point from 'com/vividsolutions/jts/geom/Point';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
-import SnapIfNeededOverlayOp from 'com/vividsolutions/jts/operation/overlay/snap/SnapIfNeededOverlayOp';
+import Point from '../../geom/Point';
+import Polygon from '../../geom/Polygon';
+import SnapIfNeededOverlayOp from '../overlay/snap/SnapIfNeededOverlayOp';
 import ArrayList from 'java/util/ArrayList';
-import GeometryExtracter from 'com/vividsolutions/jts/geom/util/GeometryExtracter';
-import OverlayOp from 'com/vividsolutions/jts/operation/overlay/OverlayOp';
-import CascadedPolygonUnion from 'com/vividsolutions/jts/operation/union/CascadedPolygonUnion';
+import GeometryExtracter from '../../geom/util/GeometryExtracter';
+import OverlayOp from '../overlay/OverlayOp';
+import CascadedPolygonUnion from './CascadedPolygonUnion';
 export default class UnaryUnionOp {
 	constructor(...args) {
 		(() => {

@@ -1,8 +1,8 @@
-import Noder from 'com/vividsolutions/jts/noding/Noder';
-import MCIndexNoder from 'com/vividsolutions/jts/noding/MCIndexNoder';
-import TopologyException from 'com/vividsolutions/jts/geom/TopologyException';
-import RobustLineIntersector from 'com/vividsolutions/jts/algorithm/RobustLineIntersector';
-import IntersectionAdder from 'com/vividsolutions/jts/noding/IntersectionAdder';
+import Noder from './Noder';
+import MCIndexNoder from './MCIndexNoder';
+import TopologyException from '../geom/TopologyException';
+import RobustLineIntersector from '../algorithm/RobustLineIntersector';
+import IntersectionAdder from './IntersectionAdder';
 export default class IteratedNoder {
 	constructor(...args) {
 		(() => {

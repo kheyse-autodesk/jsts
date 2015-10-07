@@ -1,5 +1,5 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import ConstraintSplitPointFinder from 'com/vividsolutions/jts/triangulate/ConstraintSplitPointFinder';
+import Coordinate from '../geom/Coordinate';
+import ConstraintSplitPointFinder from './ConstraintSplitPointFinder';
 export default class MidpointSplitPointFinder {
 	get interfaces_() {
 		return [ConstraintSplitPointFinder];

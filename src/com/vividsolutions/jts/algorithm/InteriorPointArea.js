@@ -1,9 +1,9 @@
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
+import Geometry from '../geom/Geometry';
+import Coordinate from '../geom/Coordinate';
+import Polygon from '../geom/Polygon';
 import Double from 'java/lang/Double';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
-import OverlayOp from 'com/vividsolutions/jts/operation/overlay/OverlayOp';
+import GeometryCollection from '../geom/GeometryCollection';
+import OverlayOp from '../operation/overlay/OverlayOp';
 export default class InteriorPointArea {
 	constructor(...args) {
 		(() => {

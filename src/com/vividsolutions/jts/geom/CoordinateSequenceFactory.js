@@ -1,4 +1,4 @@
-import CoordinateSequence from 'com/vividsolutions/jts/geom/CoordinateSequence';
+import CoordinateSequence from './CoordinateSequence';
 export default class CoordinateSequenceFactory {
 	get interfaces_() {
 		return [];

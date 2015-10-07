@@ -1,8 +1,8 @@
-import WKTWriter from 'com/vividsolutions/jts/io/WKTWriter';
-import MCIndexNoder from 'com/vividsolutions/jts/noding/MCIndexNoder';
-import TopologyException from 'com/vividsolutions/jts/geom/TopologyException';
-import RobustLineIntersector from 'com/vividsolutions/jts/algorithm/RobustLineIntersector';
-import InteriorIntersectionFinder from 'com/vividsolutions/jts/noding/InteriorIntersectionFinder';
+import WKTWriter from '../io/WKTWriter';
+import MCIndexNoder from './MCIndexNoder';
+import TopologyException from '../geom/TopologyException';
+import RobustLineIntersector from '../algorithm/RobustLineIntersector';
+import InteriorIntersectionFinder from './InteriorIntersectionFinder';
 export default class FastNodingValidator {
 	constructor(...args) {
 		(() => {

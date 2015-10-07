@@ -1,5 +1,5 @@
-import EdgeEnd from 'com/vividsolutions/jts/geomgraph/EdgeEnd';
-import Label from 'com/vividsolutions/jts/geomgraph/Label';
+import EdgeEnd from '../../geomgraph/EdgeEnd';
+import Label from '../../geomgraph/Label';
 import ArrayList from 'java/util/ArrayList';
 export default class EdgeEndBuilder {
 	constructor(...args) {

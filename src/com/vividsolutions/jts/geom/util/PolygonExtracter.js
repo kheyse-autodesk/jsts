@@ -1,7 +1,7 @@
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
+import Polygon from '../Polygon';
+import GeometryCollection from '../GeometryCollection';
 import ArrayList from 'java/util/ArrayList';
-import GeometryFilter from 'com/vividsolutions/jts/geom/GeometryFilter';
+import GeometryFilter from '../GeometryFilter';
 export default class PolygonExtracter {
 	constructor(...args) {
 		(() => {

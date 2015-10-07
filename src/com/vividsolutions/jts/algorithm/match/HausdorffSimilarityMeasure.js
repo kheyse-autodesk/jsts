@@ -1,6 +1,6 @@
-import SimilarityMeasure from 'com/vividsolutions/jts/algorithm/match/SimilarityMeasure';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
-import DiscreteHausdorffDistance from 'com/vividsolutions/jts/algorithm/distance/DiscreteHausdorffDistance';
+import SimilarityMeasure from './SimilarityMeasure';
+import Envelope from '../../geom/Envelope';
+import DiscreteHausdorffDistance from '../distance/DiscreteHausdorffDistance';
 export default class HausdorffSimilarityMeasure {
 	constructor(...args) {
 		(() => {})();

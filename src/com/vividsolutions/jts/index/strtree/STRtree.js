@@ -1,16 +1,16 @@
-import ItemBoundable from 'com/vividsolutions/jts/index/strtree/ItemBoundable';
-import PriorityQueue from 'com/vividsolutions/jts/util/PriorityQueue';
-import SpatialIndex from 'com/vividsolutions/jts/index/SpatialIndex';
-import AbstractNode from 'com/vividsolutions/jts/index/strtree/AbstractNode';
+import ItemBoundable from './ItemBoundable';
+import PriorityQueue from '../../util/PriorityQueue';
+import SpatialIndex from '../SpatialIndex';
+import AbstractNode from './AbstractNode';
 import Double from 'java/lang/Double';
 import Collections from 'java/util/Collections';
-import BoundablePair from 'com/vividsolutions/jts/index/strtree/BoundablePair';
+import BoundablePair from './BoundablePair';
 import ArrayList from 'java/util/ArrayList';
 import Serializable from 'java/io/Serializable';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
-import Assert from 'com/vividsolutions/jts/util/Assert';
-import AbstractSTRtree from 'com/vividsolutions/jts/index/strtree/AbstractSTRtree';
-import ItemDistance from 'com/vividsolutions/jts/index/strtree/ItemDistance';
+import Envelope from '../../geom/Envelope';
+import Assert from '../../util/Assert';
+import AbstractSTRtree from './AbstractSTRtree';
+import ItemDistance from './ItemDistance';
 export default class STRtree extends AbstractSTRtree {
 	constructor(...args) {
 		super();

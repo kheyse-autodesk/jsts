@@ -1,5 +1,5 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
+import Coordinate from '../geom/Coordinate';
+import LineSegment from '../geom/LineSegment';
 export default class Segment {
 	constructor(...args) {
 		(() => {

@@ -1,6 +1,6 @@
-import NodedSegmentString from 'com/vividsolutions/jts/noding/NodedSegmentString';
+import NodedSegmentString from './NodedSegmentString';
 import ArrayList from 'java/util/ArrayList';
-import LinearComponentExtracter from 'com/vividsolutions/jts/geom/util/LinearComponentExtracter';
+import LinearComponentExtracter from '../geom/util/LinearComponentExtracter';
 export default class SegmentStringUtil {
 	get interfaces_() {
 		return [];

@@ -1,6 +1,6 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
+import Coordinate from '../geom/Coordinate';
+import LineSegment from '../geom/LineSegment';
+import Envelope from '../geom/Envelope';
 export default class GeometricShapeBuilder {
 	constructor(...args) {
 		(() => {

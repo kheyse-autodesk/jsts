@@ -1,6 +1,6 @@
-import BufferOp from 'com/vividsolutions/jts/operation/buffer/BufferOp';
-import CommonBitsRemover from 'com/vividsolutions/jts/precision/CommonBitsRemover';
-import OverlayOp from 'com/vividsolutions/jts/operation/overlay/OverlayOp';
+import BufferOp from '../operation/buffer/BufferOp';
+import CommonBitsRemover from './CommonBitsRemover';
+import OverlayOp from '../operation/overlay/OverlayOp';
 export default class CommonBitsOp {
 	constructor(...args) {
 		(() => {

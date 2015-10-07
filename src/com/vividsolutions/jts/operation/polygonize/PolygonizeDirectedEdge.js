@@ -1,4 +1,4 @@
-import DirectedEdge from 'com/vividsolutions/jts/planargraph/DirectedEdge';
+import DirectedEdge from '../../planargraph/DirectedEdge';
 export default class PolygonizeDirectedEdge extends DirectedEdge {
 	constructor(...args) {
 		super();

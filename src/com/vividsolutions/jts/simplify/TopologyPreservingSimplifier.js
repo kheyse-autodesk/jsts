@@ -1,5 +1,5 @@
 import HashMap from 'java/util/HashMap';
-import TaggedLinesSimplifier from 'com/vividsolutions/jts/simplify/TaggedLinesSimplifier';
+import TaggedLinesSimplifier from './TaggedLinesSimplifier';
 export default class TopologyPreservingSimplifier {
 	constructor(...args) {
 		(() => {

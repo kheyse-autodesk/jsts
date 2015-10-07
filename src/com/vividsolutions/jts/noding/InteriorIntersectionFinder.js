@@ -1,4 +1,4 @@
-import SegmentIntersector from 'com/vividsolutions/jts/noding/SegmentIntersector';
+import SegmentIntersector from './SegmentIntersector';
 import ArrayList from 'java/util/ArrayList';
 export default class InteriorIntersectionFinder {
 	constructor(...args) {

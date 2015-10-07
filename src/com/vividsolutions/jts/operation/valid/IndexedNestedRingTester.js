@@ -1,8 +1,8 @@
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import STRtree from 'com/vividsolutions/jts/index/strtree/STRtree';
-import IsValidOp from 'com/vividsolutions/jts/operation/valid/IsValidOp';
+import CGAlgorithms from '../../algorithm/CGAlgorithms';
+import STRtree from '../../index/strtree/STRtree';
+import IsValidOp from './IsValidOp';
 import ArrayList from 'java/util/ArrayList';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
+import Envelope from '../../geom/Envelope';
 export default class IndexedNestedRingTester {
 	constructor(...args) {
 		(() => {

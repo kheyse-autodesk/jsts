@@ -1,4 +1,4 @@
-import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
+import GeometryFactory from '../GeometryFactory';
 import ArrayList from 'java/util/ArrayList';
 export default class GeometryCollectionMapper {
 	constructor(...args) {

@@ -1,9 +1,9 @@
-import GeometrySnapper from 'com/vividsolutions/jts/operation/overlay/snap/GeometrySnapper';
-import Location from 'com/vividsolutions/jts/geom/Location';
-import FuzzyPointLocator from 'com/vividsolutions/jts/operation/overlay/validate/FuzzyPointLocator';
-import OffsetPointGenerator from 'com/vividsolutions/jts/operation/overlay/validate/OffsetPointGenerator';
+import GeometrySnapper from '../snap/GeometrySnapper';
+import Location from '../../../geom/Location';
+import FuzzyPointLocator from './FuzzyPointLocator';
+import OffsetPointGenerator from './OffsetPointGenerator';
 import ArrayList from 'java/util/ArrayList';
-import OverlayOp from 'com/vividsolutions/jts/operation/overlay/OverlayOp';
+import OverlayOp from '../OverlayOp';
 export default class OverlayResultValidator {
 	constructor(...args) {
 		(() => {

@@ -1,9 +1,9 @@
-import BufferParameters from 'com/vividsolutions/jts/operation/buffer/BufferParameters';
-import Position from 'com/vividsolutions/jts/geomgraph/Position';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import BufferInputLineSimplifier from 'com/vividsolutions/jts/operation/buffer/BufferInputLineSimplifier';
-import CoordinateArrays from 'com/vividsolutions/jts/geom/CoordinateArrays';
-import OffsetSegmentGenerator from 'com/vividsolutions/jts/operation/buffer/OffsetSegmentGenerator';
+import BufferParameters from './BufferParameters';
+import Position from '../../geomgraph/Position';
+import Coordinate from '../../geom/Coordinate';
+import BufferInputLineSimplifier from './BufferInputLineSimplifier';
+import CoordinateArrays from '../../geom/CoordinateArrays';
+import OffsetSegmentGenerator from './OffsetSegmentGenerator';
 export default class OffsetCurveBuilder {
 	constructor(...args) {
 		(() => {

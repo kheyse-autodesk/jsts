@@ -1,7 +1,7 @@
-import Location from 'com/vividsolutions/jts/geom/Location';
-import EdgeEndBuilder from 'com/vividsolutions/jts/operation/relate/EdgeEndBuilder';
-import NodeMap from 'com/vividsolutions/jts/geomgraph/NodeMap';
-import RelateNodeFactory from 'com/vividsolutions/jts/operation/relate/RelateNodeFactory';
+import Location from '../../geom/Location';
+import EdgeEndBuilder from './EdgeEndBuilder';
+import NodeMap from '../../geomgraph/NodeMap';
+import RelateNodeFactory from './RelateNodeFactory';
 export default class RelateNodeGraph {
 	constructor(...args) {
 		(() => {

@@ -1,4 +1,4 @@
-import OrientedCoordinateArray from 'com/vividsolutions/jts/noding/OrientedCoordinateArray';
+import OrientedCoordinateArray from '../noding/OrientedCoordinateArray';
 import ArrayList from 'java/util/ArrayList';
 import TreeMap from 'java/util/TreeMap';
 export default class EdgeList {

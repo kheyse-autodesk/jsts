@@ -1,10 +1,10 @@
-import PointLocator from 'com/vividsolutions/jts/algorithm/PointLocator';
-import Location from 'com/vividsolutions/jts/geom/Location';
-import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
-import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
+import PointLocator from '../../../algorithm/PointLocator';
+import Location from '../../../geom/Location';
+import GeometryFactory from '../../../geom/GeometryFactory';
+import Polygon from '../../../geom/Polygon';
+import LineSegment from '../../../geom/LineSegment';
 import ArrayList from 'java/util/ArrayList';
-import GeometryFilter from 'com/vividsolutions/jts/geom/GeometryFilter';
+import GeometryFilter from '../../../geom/GeometryFilter';
 export default class FuzzyPointLocator {
 	constructor(...args) {
 		(() => {

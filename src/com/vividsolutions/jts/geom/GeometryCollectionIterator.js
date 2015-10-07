@@ -1,6 +1,6 @@
 import Iterator from 'java/util/Iterator';
 import NoSuchElementException from 'java/util/NoSuchElementException';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
+import GeometryCollection from './GeometryCollection';
 export default class GeometryCollectionIterator {
 	constructor(...args) {
 		(() => {

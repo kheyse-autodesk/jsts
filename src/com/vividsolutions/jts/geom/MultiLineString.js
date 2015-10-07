@@ -1,6 +1,6 @@
-import Lineal from 'com/vividsolutions/jts/geom/Lineal';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
-import Dimension from 'com/vividsolutions/jts/geom/Dimension';
+import Lineal from './Lineal';
+import GeometryCollection from './GeometryCollection';
+import Dimension from './Dimension';
 export default class MultiLineString extends GeometryCollection {
 	constructor(...args) {
 		super();

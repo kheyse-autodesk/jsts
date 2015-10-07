@@ -1,11 +1,11 @@
-import Bintree from 'com/vividsolutions/jts/index/bintree/Bintree';
-import Interval from 'com/vividsolutions/jts/index/bintree/Interval';
+import Bintree from '../index/bintree/Bintree';
+import Interval from '../index/bintree/Interval';
 import Double from 'java/lang/Double';
-import MonotoneChainBuilder from 'com/vividsolutions/jts/index/chain/MonotoneChainBuilder';
-import CoordinateArrays from 'com/vividsolutions/jts/geom/CoordinateArrays';
-import RobustDeterminant from 'com/vividsolutions/jts/algorithm/RobustDeterminant';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
-import PointInRing from 'com/vividsolutions/jts/algorithm/PointInRing';
+import MonotoneChainBuilder from '../index/chain/MonotoneChainBuilder';
+import CoordinateArrays from '../geom/CoordinateArrays';
+import RobustDeterminant from './RobustDeterminant';
+import Envelope from '../geom/Envelope';
+import PointInRing from './PointInRing';
 export default class MCPointInRing {
 	constructor(...args) {
 		(() => {

@@ -1,5 +1,5 @@
 import Collection from 'java/util/Collection';
-import LineIntersector from 'com/vividsolutions/jts/algorithm/LineIntersector';
+import LineIntersector from '../../algorithm/LineIntersector';
 export default class SegmentIntersector {
 	constructor(...args) {
 		(() => {

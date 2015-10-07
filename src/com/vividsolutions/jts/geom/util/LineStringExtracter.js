@@ -1,7 +1,7 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
+import LineString from '../LineString';
+import GeometryCollection from '../GeometryCollection';
 import ArrayList from 'java/util/ArrayList';
-import GeometryFilter from 'com/vividsolutions/jts/geom/GeometryFilter';
+import GeometryFilter from '../GeometryFilter';
 export default class LineStringExtracter {
 	constructor(...args) {
 		(() => {

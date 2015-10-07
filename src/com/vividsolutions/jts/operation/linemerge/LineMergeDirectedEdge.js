@@ -1,5 +1,5 @@
-import DirectedEdge from 'com/vividsolutions/jts/planargraph/DirectedEdge';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import DirectedEdge from '../../planargraph/DirectedEdge';
+import Assert from '../../util/Assert';
 export default class LineMergeDirectedEdge extends DirectedEdge {
 	constructor(...args) {
 		super();

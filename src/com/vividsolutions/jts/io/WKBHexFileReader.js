@@ -1,5 +1,5 @@
 import BufferedReader from 'java/io/BufferedReader';
-import WKBReader from 'com/vividsolutions/jts/io/WKBReader';
+import WKBReader from './WKBReader';
 import File from 'java/io/File';
 import StreamTokenizer from 'java/io/StreamTokenizer';
 import ArrayList from 'java/util/ArrayList';

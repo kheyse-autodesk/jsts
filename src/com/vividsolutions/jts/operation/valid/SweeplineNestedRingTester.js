@@ -1,9 +1,9 @@
-import CGAlgorithms from 'com/vividsolutions/jts/algorithm/CGAlgorithms';
-import SweepLineIndex from 'com/vividsolutions/jts/index/sweepline/SweepLineIndex';
-import IsValidOp from 'com/vividsolutions/jts/operation/valid/IsValidOp';
-import SweepLineInterval from 'com/vividsolutions/jts/index/sweepline/SweepLineInterval';
+import CGAlgorithms from '../../algorithm/CGAlgorithms';
+import SweepLineIndex from '../../index/sweepline/SweepLineIndex';
+import IsValidOp from './IsValidOp';
+import SweepLineInterval from '../../index/sweepline/SweepLineInterval';
 import ArrayList from 'java/util/ArrayList';
-import Assert from 'com/vividsolutions/jts/util/Assert';
+import Assert from '../../util/Assert';
 export default class SweeplineNestedRingTester {
 	constructor(...args) {
 		(() => {

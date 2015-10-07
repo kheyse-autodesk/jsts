@@ -1,11 +1,11 @@
-import Location from 'com/vividsolutions/jts/geom/Location';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import MathUtil from 'com/vividsolutions/jts/math/MathUtil';
-import CGAlgorithmsDD from 'com/vividsolutions/jts/algorithm/CGAlgorithmsDD';
-import CoordinateSequence from 'com/vividsolutions/jts/geom/CoordinateSequence';
-import RobustLineIntersector from 'com/vividsolutions/jts/algorithm/RobustLineIntersector';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
-import RayCrossingCounter from 'com/vividsolutions/jts/algorithm/RayCrossingCounter';
+import Location from '../geom/Location';
+import Coordinate from '../geom/Coordinate';
+import MathUtil from '../math/MathUtil';
+import CGAlgorithmsDD from './CGAlgorithmsDD';
+import CoordinateSequence from '../geom/CoordinateSequence';
+import RobustLineIntersector from './RobustLineIntersector';
+import Envelope from '../geom/Envelope';
+import RayCrossingCounter from './RayCrossingCounter';
 export default class CGAlgorithms {
 	constructor(...args) {
 		(() => {})();

@@ -1,6 +1,6 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
+import Coordinate from '../Coordinate';
 import Double from 'java/lang/Double';
-import CoordinateSequence from 'com/vividsolutions/jts/geom/CoordinateSequence';
+import CoordinateSequence from '../CoordinateSequence';
 import Serializable from 'java/io/Serializable';
 export default class CoordinateArraySequence {
 	constructor(...args) {

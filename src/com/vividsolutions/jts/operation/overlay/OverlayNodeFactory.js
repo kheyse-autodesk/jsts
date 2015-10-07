@@ -1,6 +1,6 @@
-import DirectedEdgeStar from 'com/vividsolutions/jts/geomgraph/DirectedEdgeStar';
-import Node from 'com/vividsolutions/jts/geomgraph/Node';
-import NodeFactory from 'com/vividsolutions/jts/geomgraph/NodeFactory';
+import DirectedEdgeStar from '../../geomgraph/DirectedEdgeStar';
+import Node from '../../geomgraph/Node';
+import NodeFactory from '../../geomgraph/NodeFactory';
 export default class OverlayNodeFactory extends NodeFactory {
 	get interfaces_() {
 		return [];

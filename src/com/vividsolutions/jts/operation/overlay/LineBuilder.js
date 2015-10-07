@@ -1,6 +1,6 @@
 import ArrayList from 'java/util/ArrayList';
-import Assert from 'com/vividsolutions/jts/util/Assert';
-import OverlayOp from 'com/vividsolutions/jts/operation/overlay/OverlayOp';
+import Assert from '../../util/Assert';
+import OverlayOp from './OverlayOp';
 export default class LineBuilder {
 	constructor(...args) {
 		(() => {

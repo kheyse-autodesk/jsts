@@ -1,8 +1,8 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
+import LineString from '../geom/LineString';
+import Geometry from '../geom/Geometry';
+import Coordinate from '../geom/Coordinate';
+import Polygon from '../geom/Polygon';
+import GeometryCollection from '../geom/GeometryCollection';
 export default class CentroidLine {
 	constructor(...args) {
 		(() => {

@@ -1,8 +1,8 @@
-import DistanceToPoint from 'com/vividsolutions/jts/algorithm/distance/DistanceToPoint';
-import CoordinateFilter from 'com/vividsolutions/jts/geom/CoordinateFilter';
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import PointPairDistance from 'com/vividsolutions/jts/algorithm/distance/PointPairDistance';
-import CoordinateSequenceFilter from 'com/vividsolutions/jts/geom/CoordinateSequenceFilter';
+import DistanceToPoint from './DistanceToPoint';
+import CoordinateFilter from '../../geom/CoordinateFilter';
+import Coordinate from '../../geom/Coordinate';
+import PointPairDistance from './PointPairDistance';
+import CoordinateSequenceFilter from '../../geom/CoordinateSequenceFilter';
 export default class DiscreteHausdorffDistance {
 	constructor(...args) {
 		(() => {

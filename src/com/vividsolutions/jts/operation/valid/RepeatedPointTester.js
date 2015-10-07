@@ -1,9 +1,9 @@
-import LineString from 'com/vividsolutions/jts/geom/LineString';
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
-import Point from 'com/vividsolutions/jts/geom/Point';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
-import MultiPoint from 'com/vividsolutions/jts/geom/MultiPoint';
-import GeometryCollection from 'com/vividsolutions/jts/geom/GeometryCollection';
+import LineString from '../../geom/LineString';
+import Geometry from '../../geom/Geometry';
+import Point from '../../geom/Point';
+import Polygon from '../../geom/Polygon';
+import MultiPoint from '../../geom/MultiPoint';
+import GeometryCollection from '../../geom/GeometryCollection';
 export default class RepeatedPointTester {
 	constructor(...args) {
 		(() => {

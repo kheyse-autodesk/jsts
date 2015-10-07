@@ -1,6 +1,6 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Angle from 'com/vividsolutions/jts/algorithm/Angle';
-import HCoordinate from 'com/vividsolutions/jts/algorithm/HCoordinate';
+import Coordinate from './Coordinate';
+import Angle from '../algorithm/Angle';
+import HCoordinate from '../algorithm/HCoordinate';
 export default class Triangle {
 	constructor(...args) {
 		(() => {

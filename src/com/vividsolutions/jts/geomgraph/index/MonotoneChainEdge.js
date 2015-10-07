@@ -1,5 +1,5 @@
-import MonotoneChainIndexer from 'com/vividsolutions/jts/geomgraph/index/MonotoneChainIndexer';
-import Envelope from 'com/vividsolutions/jts/geom/Envelope';
+import MonotoneChainIndexer from './MonotoneChainIndexer';
+import Envelope from '../../geom/Envelope';
 export default class MonotoneChainEdge {
 	constructor(...args) {
 		(() => {

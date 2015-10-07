@@ -1,4 +1,4 @@
-import AbstractNode from 'com/vividsolutions/jts/index/strtree/AbstractNode';
+import AbstractNode from './AbstractNode';
 import Comparable from 'java/lang/Comparable';
 export default class BoundablePair {
 	constructor(...args) {

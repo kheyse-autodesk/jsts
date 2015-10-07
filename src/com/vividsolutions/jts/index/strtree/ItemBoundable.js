@@ -1,4 +1,4 @@
-import Boundable from 'com/vividsolutions/jts/index/strtree/Boundable';
+import Boundable from './Boundable';
 import Serializable from 'java/io/Serializable';
 export default class ItemBoundable {
 	constructor(...args) {

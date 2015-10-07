@@ -1,7 +1,7 @@
 import Collection from 'java/util/Collection';
-import OrientedCoordinateArray from 'com/vividsolutions/jts/noding/OrientedCoordinateArray';
-import SegmentString from 'com/vividsolutions/jts/noding/SegmentString';
-import CoordinateArrays from 'com/vividsolutions/jts/geom/CoordinateArrays';
+import OrientedCoordinateArray from './OrientedCoordinateArray';
+import SegmentString from './SegmentString';
+import CoordinateArrays from '../geom/CoordinateArrays';
 import TreeMap from 'java/util/TreeMap';
 export default class SegmentStringDissolver {
 	constructor(...args) {

@@ -1,7 +1,7 @@
 import Stack from 'java/util/Stack';
-import Subgraph from 'com/vividsolutions/jts/planargraph/Subgraph';
+import Subgraph from '../Subgraph';
 import ArrayList from 'java/util/ArrayList';
-import GraphComponent from 'com/vividsolutions/jts/planargraph/GraphComponent';
+import GraphComponent from '../GraphComponent';
 export default class ConnectedSubgraphFinder {
 	constructor(...args) {
 		(() => {

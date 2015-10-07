@@ -1,8 +1,8 @@
-import Coordinate from 'com/vividsolutions/jts/geom/Coordinate';
-import Polygon from 'com/vividsolutions/jts/geom/Polygon';
+import Coordinate from '../geom/Coordinate';
+import Polygon from '../geom/Polygon';
 import Double from 'java/lang/Double';
-import LineSegment from 'com/vividsolutions/jts/geom/LineSegment';
-import ConvexHull from 'com/vividsolutions/jts/algorithm/ConvexHull';
+import LineSegment from '../geom/LineSegment';
+import ConvexHull from './ConvexHull';
 export default class MinimumDiameter {
 	constructor(...args) {
 		(() => {

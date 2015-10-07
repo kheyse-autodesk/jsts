@@ -1,4 +1,4 @@
-import Geometry from 'com/vividsolutions/jts/geom/Geometry';
+import Geometry from '../Geometry';
 import Collection from 'java/util/Collection';
 import ArrayList from 'java/util/ArrayList';
 export default class GeometryMapper {
