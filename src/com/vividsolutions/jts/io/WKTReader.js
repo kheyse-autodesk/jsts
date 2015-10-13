@@ -48,8 +48,6 @@ export default class WKTReader {
     if (this.precisionModel.getType() === PrecisionModel.FIXED) {
       this.reducePrecision(geometry);
     }
-    
-    //console.log(geometry);
 
     return geometry;
   };

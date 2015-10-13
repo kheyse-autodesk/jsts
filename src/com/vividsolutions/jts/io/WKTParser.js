@@ -242,7 +242,7 @@ export default class WKTParser {
      */
     'point': function(str) {
       if (str === undefined) {
-        return this.geometryFactory.createPoint(null);
+        return this.geometryFactory.createPoint();
       }
 
       var coords = str.trim().split(this.regExes.spaces);
@@ -260,7 +260,7 @@ export default class WKTParser {
      */
     'multipoint': function(str) {
       if (str === undefined) {
-        return this.geometryFactory.createMultiPoint(null);
+        return this.geometryFactory.createMultiPoint();
       }
 
       var point;
@@ -283,7 +283,7 @@ export default class WKTParser {
      */
     'linestring': function(str) {
       if (str === undefined) {
-        return this.geometryFactory.createLineString(null);
+        return this.geometryFactory.createLineString();
       }
 
       var points = str.trim().split(',');
@@ -306,7 +306,7 @@ export default class WKTParser {
      */
     'linearring': function(str) {
       if (str === undefined) {
-        return this.geometryFactory.createLinearRing(null);
+        return this.geometryFactory.createLinearRing();
       }
 
       var points = str.trim().split(',');
@@ -329,7 +329,7 @@ export default class WKTParser {
      */
     'multilinestring': function(str) {
       if (str === undefined) {
-        return this.geometryFactory.createMultiLineString(null);
+        return this.geometryFactory.createMultiLineString();
       }
 
       var line;
@@ -352,7 +352,7 @@ export default class WKTParser {
      */
     'polygon': function(str) {
       if (str === undefined) {
-        return this.geometryFactory.createPolygon(null);
+        return this.geometryFactory.createPolygon();
       }
 
       var ring, linestring, linearring;
@@ -383,7 +383,7 @@ export default class WKTParser {
      */
     'multipolygon': function(str) {
       if (str === undefined) {
-        return this.geometryFactory.createMultiPolygon(null);
+        return this.geometryFactory.createMultiPolygon();
       }
 
       var polygon;
@@ -406,7 +406,7 @@ export default class WKTParser {
      */
     'geometrycollection': function(str) {
       if (str === undefined) {
-        return this.geometryFactory.createGeometryCollection(null);
+        return this.geometryFactory.createGeometryCollection();
       }
 
       // separate components of the collection with |
