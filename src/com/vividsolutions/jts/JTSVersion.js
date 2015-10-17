@@ -1,3 +1,4 @@
+import System from 'java/lang/System';
 export default class JTSVersion {
 	constructor(...args) {
 		(() => {})();

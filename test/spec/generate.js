@@ -7,6 +7,7 @@ import WKTReader from 'com/vividsolutions/jts/io/WKTReader'
 import WKTWriter from 'com/vividsolutions/jts/io/WKTWriter'
 
 import BufferOp from 'com/vividsolutions/jts/operation/buffer/BufferOp'
+import OverlayOp from 'com/vividsolutions/jts/operation/overlay/OverlayOp'
 import Centroid from 'com/vividsolutions/jts/algorithm/Centroid'
 
 import BufferResultMatcher from './BufferResultMatcher'

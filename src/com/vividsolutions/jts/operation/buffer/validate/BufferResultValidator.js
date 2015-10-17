@@ -1,6 +1,7 @@
 import BufferDistanceValidator from './BufferDistanceValidator';
 import Polygon from '../../../geom/Polygon';
 import MultiPolygon from '../../../geom/MultiPolygon';
+import System from 'java/lang/System';
 import Envelope from '../../../geom/Envelope';
 export default class BufferResultValidator {
 	constructor(...args) {

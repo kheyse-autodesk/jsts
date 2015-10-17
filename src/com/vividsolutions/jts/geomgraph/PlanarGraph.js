@@ -4,6 +4,7 @@ import Coordinate from '../geom/Coordinate';
 import Node from './Node';
 import NodeMap from './NodeMap';
 import DirectedEdge from './DirectedEdge';
+import System from 'java/lang/System';
 import ArrayList from 'java/util/ArrayList';
 import Quadrant from './Quadrant';
 import NodeFactory from './NodeFactory';

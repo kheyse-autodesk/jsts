@@ -2,6 +2,7 @@ import PolygonExtracter from '../../../geom/util/PolygonExtracter';
 import WKTWriter from '../../../io/WKTWriter';
 import Polygon from '../../../geom/Polygon';
 import MultiPolygon from '../../../geom/MultiPolygon';
+import System from 'java/lang/System';
 import GeometryCollection from '../../../geom/GeometryCollection';
 import ArrayList from 'java/util/ArrayList';
 import LinearComponentExtracter from '../../../geom/util/LinearComponentExtracter';

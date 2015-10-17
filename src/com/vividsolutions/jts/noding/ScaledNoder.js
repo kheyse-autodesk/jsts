@@ -2,6 +2,7 @@ import Collection from 'java/util/Collection';
 import Noder from './Noder';
 import Coordinate from '../geom/Coordinate';
 import NodedSegmentString from './NodedSegmentString';
+import System from 'java/lang/System';
 import CoordinateArrays from '../geom/CoordinateArrays';
 import CollectionUtil from '../util/CollectionUtil';
 export default class ScaledNoder {

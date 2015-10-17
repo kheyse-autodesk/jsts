@@ -2,6 +2,7 @@ import WKTWriter from '../../io/WKTWriter';
 import Coordinate from '../../geom/Coordinate';
 import IntervalRTreeLeafNode from './IntervalRTreeLeafNode';
 import Collections from 'java/util/Collections';
+import System from 'java/lang/System';
 import ArrayList from 'java/util/ArrayList';
 import IntervalRTreeBranchNode from './IntervalRTreeBranchNode';
 export default class SortedPackedIntervalRTree {

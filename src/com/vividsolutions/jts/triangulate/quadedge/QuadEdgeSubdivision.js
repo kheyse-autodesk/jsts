@@ -8,6 +8,7 @@ import Stack from 'java/util/Stack';
 import LastFoundQuadEdgeLocator from './LastFoundQuadEdgeLocator';
 import LocateFailureException from './LocateFailureException';
 import Vertex from './Vertex';
+import System from 'java/lang/System';
 import LineSegment from '../../geom/LineSegment';
 import ArrayList from 'java/util/ArrayList';
 import Envelope from '../../geom/Envelope';

@@ -2,6 +2,7 @@ import NotRepresentableException from './NotRepresentableException';
 import CGAlgorithms from './CGAlgorithms';
 import Coordinate from '../geom/Coordinate';
 import CGAlgorithmsDD from './CGAlgorithmsDD';
+import System from 'java/lang/System';
 import HCoordinate from './HCoordinate';
 import Envelope from '../geom/Envelope';
 import LineIntersector from './LineIntersector';

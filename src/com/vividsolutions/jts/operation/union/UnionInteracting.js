@@ -1,5 +1,6 @@
 import BufferOp from '../buffer/BufferOp';
 import GeometryCombiner from '../../geom/util/GeometryCombiner';
+import System from 'java/lang/System';
 import ArrayList from 'java/util/ArrayList';
 import OverlayOp from '../overlay/OverlayOp';
 export default class UnionInteracting {

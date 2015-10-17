@@ -2,6 +2,7 @@ import Location from '../geom/Location';
 import Position from './Position';
 import TopologyException from '../geom/TopologyException';
 import EdgeEndStar from './EdgeEndStar';
+import System from 'java/lang/System';
 import Label from './Label';
 import ArrayList from 'java/util/ArrayList';
 import Quadrant from './Quadrant';

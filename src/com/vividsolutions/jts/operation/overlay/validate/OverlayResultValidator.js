@@ -2,6 +2,7 @@ import GeometrySnapper from '../snap/GeometrySnapper';
 import Location from '../../../geom/Location';
 import FuzzyPointLocator from './FuzzyPointLocator';
 import OffsetPointGenerator from './OffsetPointGenerator';
+import System from 'java/lang/System';
 import ArrayList from 'java/util/ArrayList';
 import OverlayOp from '../OverlayOp';
 export default class OverlayResultValidator {

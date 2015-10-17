@@ -1,6 +1,7 @@
 import NotRepresentableException from '../../algorithm/NotRepresentableException';
 import Coordinate from '../../geom/Coordinate';
 import TrianglePredicate from './TrianglePredicate';
+import System from 'java/lang/System';
 import HCoordinate from '../../algorithm/HCoordinate';
 export default class Vertex {
 	constructor(...args) {

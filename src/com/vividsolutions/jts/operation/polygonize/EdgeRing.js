@@ -5,6 +5,7 @@ import CoordinateArraySequence from '../../geom/impl/CoordinateArraySequence';
 import IsValidOp from '../valid/IsValidOp';
 import LinearRing from '../../geom/LinearRing';
 import Exception from 'java/lang/Exception';
+import System from 'java/lang/System';
 import CoordinateArrays from '../../geom/CoordinateArrays';
 import ArrayList from 'java/util/ArrayList';
 import Comparator from 'java/util/Comparator';

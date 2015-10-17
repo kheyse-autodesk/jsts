@@ -123,7 +123,7 @@ export default class WKTParser {
      * @return {String} A string of coordinates representing the point.
      */
     'point': function(point) {
-      return point.coordinate.x + ' ' + point.coordinate.y;
+      return this.extract.coordinate.call(this, point.coordinates.coordinates[0])
     },
 
     /**

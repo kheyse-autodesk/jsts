@@ -1,6 +1,7 @@
 import WKTWriter from '../../io/WKTWriter';
 import CoordinateArraySequence from '../../geom/impl/CoordinateArraySequence';
 import DD from '../../math/DD';
+import System from 'java/lang/System';
 import Triangle from '../../geom/Triangle';
 export default class TrianglePredicate {
 	get interfaces_() {

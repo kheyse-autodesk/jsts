@@ -2,6 +2,7 @@ import CGAlgorithms from '../algorithm/CGAlgorithms';
 import Geometry from './Geometry';
 import Arrays from 'java/util/Arrays';
 import CoordinateFilter from './CoordinateFilter';
+import System from 'java/lang/System';
 import GeometryComponentFilter from './GeometryComponentFilter';
 import CoordinateArrays from './CoordinateArrays';
 import Polygonal from './Polygonal';

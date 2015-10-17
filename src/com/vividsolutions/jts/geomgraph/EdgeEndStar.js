@@ -1,6 +1,7 @@
 import Location from '../geom/Location';
 import Position from './Position';
 import TopologyException from '../geom/TopologyException';
+import System from 'java/lang/System';
 import SimplePointInAreaLocator from '../algorithm/locate/SimplePointInAreaLocator';
 import ArrayList from 'java/util/ArrayList';
 import Assert from '../util/Assert';

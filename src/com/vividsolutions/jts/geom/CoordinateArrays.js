@@ -1,6 +1,7 @@
 import CoordinateList from './CoordinateList';
 import Coordinate from './Coordinate';
 import MathUtil from '../math/MathUtil';
+import System from 'java/lang/System';
 import Comparator from 'java/util/Comparator';
 import Envelope from './Envelope';
 export default class CoordinateArrays {
