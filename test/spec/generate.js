@@ -41,7 +41,7 @@ export default function(doc, title) {
   const generateSpec = function(a, b, opname, arg2, arg3, expected) { 
     it('Executing ' + opname + ' on ' + writer.write(a) + ' geometry', function() {
 
-      var inputs = ' Input geometry A: ' + a + (b ? ' B: ' + b : '');
+      var inputs = ' Input geometry A: ' + writer.write(a) + (b ? ' B: ' + writer.write(b) : '');
 
       var result;
 
@@ -90,8 +90,8 @@ export default function(doc, title) {
         var matcher = new BufferResultMatcher();
 
         if (!matcher.isBufferResultMatch(result, expectedGeometry, parseFloat(arg2))) {
-          throw new Error('Result: ' + result + ' Expected: ' +
-              expectedGeometry + inputs);
+          throw new Error('\nResult: ' + writer.write(result) + '\nExpected: ' +
+              writer.write(expectedGeometry) + inputs);
         } else {
           expect(true).to.be.ok();
         }

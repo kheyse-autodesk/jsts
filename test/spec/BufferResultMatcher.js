@@ -1,4 +1,8 @@
-//import OverlayOp from 'com/vividsolutions/jts/operation/overlay/OverlayOp'
+var WKTReader = require('com/vividsolutions/jts/io/WKTReader')
+var WKTWriter = require('com/vividsolutions/jts/io/WKTWriter')
+var BufferOp = require('com/vividsolutions/jts/operation/buffer/BufferOp')
+var OverlayOp = require('com/vividsolutions/jts/operation/overlay/OverlayOp')
+var RelateOp = require('com/vividsolutions/jts/operation/relate/RelateOp')
 
 /**
  * A {@link ResultMatcher} which compares the results of buffer operations for
