@@ -187,9 +187,7 @@ export default class LineString extends Geometry {
 		return other instanceof LineString;
 	}
 	clone() {
-		var ls = super.clone();
-		ls.points = this.points.clone();
-		return ls;
+		return new LineString(this.points.clone(), this.factory);
 	}
 	getCoordinateN(n) {
 		return this.points.getCoordinate(n);

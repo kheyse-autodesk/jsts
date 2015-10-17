@@ -8,6 +8,8 @@ import WKTWriter from 'com/vividsolutions/jts/io/WKTWriter'
 
 import BufferOp from 'com/vividsolutions/jts/operation/buffer/BufferOp'
 import OverlayOp from 'com/vividsolutions/jts/operation/overlay/OverlayOp'
+import IsSimpleOp from 'com/vividsolutions/jts/operation/IsSimpleOp'
+import RelateOp from 'com/vividsolutions/jts/operation/relate/RelateOp'
 import Centroid from 'com/vividsolutions/jts/algorithm/Centroid'
 
 import BufferResultMatcher from './BufferResultMatcher'
@@ -38,7 +40,7 @@ export default function(doc, title) {
   /**
    * Translate JTS XML "test" to a Jasmine test spec
    */
-  const generateSpec = function(a, b, opname, arg2, arg3, expected) { 
+  const generateSpec = function(a, b, opname, arg2, arg3, expected) {
     it('Executing ' + opname + ' on ' + writer.write(a) + ' geometry', function() {
 
       var inputs = ' Input geometry A: ' + writer.write(a) + (b ? ' B: ' + writer.write(b) : '');
@@ -58,7 +60,17 @@ export default function(doc, title) {
         result = BufferOp.bufferOp(a, parseFloat(arg2));
       } else if (opname === 'getCentroid') {
         result = Centroid.getCentroid(a);
+      } else if (opname === 'isSimple') {
+        result = new IsSimpleOp(a).isSimple();
+      } else if (opname === 'relate') {
+        result = RelateOp.relate(a,b);
+      } else if (opname === 'intersection' || opname === 'union' || opname === 'difference' || opname === 'symdifference' || opname === 'symDifference' ) {
+        if (opname === 'symdifference') {
+          opname = 'symDifference'
+        }
+        result = OverlayOp[opname](a, b, arg3);
       } else {
+        console.log(opname)
         result = a[opname](b, arg3);
       }
 

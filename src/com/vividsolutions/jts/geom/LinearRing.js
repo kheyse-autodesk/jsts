@@ -55,6 +55,9 @@ export default class LinearRing extends LineString {
 			throw new IllegalArgumentException("Invalid number of points in LinearRing (found " + this.getCoordinateSequence().size() + " - must be 0 or >= 4)");
 		}
 	}
+	clone() {
+		return new LinearRing(this.points.clone(), this.factory);
+	}
 	getGeometryType() {
 		return "LinearRing";
 	}

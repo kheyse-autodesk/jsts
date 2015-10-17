@@ -62,7 +62,7 @@ export default class DoubleBits {
 		return this.biasedExponent() - DoubleBits.EXPONENT_BIAS;
 	}
 	biasedExponent() {
-		var signExp = this.xBits >> 52;
+		var signExp = Math.trunc(this.xBits >> 52);
 		var exp = signExp & 0x07ff;
 		return exp;
 	}

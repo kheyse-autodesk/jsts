@@ -1,6 +1,5 @@
 import Geometry from './Geometry';
 import CoordinateFilter from './CoordinateFilter';
-import GeometryFactory from './GeometryFactory';
 import GeometryComponentFilter from './GeometryComponentFilter';
 import Dimension from './Dimension';
 import GeometryFilter from './GeometryFilter';
@@ -25,11 +24,6 @@ export default class GeometryCollection extends Geometry {
 							throw new IllegalArgumentException("geometries must not contain null elements");
 						}
 						this.geometries = geometries;
-					})(...args);
-				case 3:
-					return ((...args) => {
-						let [geometries, precisionModel, SRID] = args;
-						overloads.call(this, geometries, new GeometryFactory(precisionModel, SRID));
 					})(...args);
 			}
 		};
@@ -164,12 +158,11 @@ export default class GeometryCollection extends Geometry {
 		return null;
 	}
 	clone() {
-		var gc = super.clone();
-		gc.geometries = new Array(this.geometries.length);
-		for (var i = 0; i < this.geometries.length; i++) {
-			gc.geometries[i] = this.geometries[i].clone();
+		var geometries = new Array(this.geometries.length);
+		for (var i = 0; i < geometries.length; i++) {
+			geometries[i] = this.geometries[i].clone();
 		}
-		return gc;
+		return new GeometryCollection(geometries, this.factory);
 	}
 	getGeometryType() {
 		return "GeometryCollection";

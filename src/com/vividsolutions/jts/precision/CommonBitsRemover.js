@@ -1,4 +1,6 @@
+import Translater from './Translater';
 import Coordinate from '../geom/Coordinate';
+import CommonCoordinateFilter from './CommonCoordinateFilter';
 export default class CommonBitsRemover {
 	constructor(...args) {
 		(() => {

@@ -118,6 +118,11 @@ export default class GeometryFactory {
 	createLineString(...args) {
 		const overloads = (...args) => {
 			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+						return new LineString(this);
+					})(...args);
 				case 1:
 					if (args[0] instanceof Array) {
 						return ((...args) => {
@@ -175,6 +180,11 @@ export default class GeometryFactory {
 	createPoint(...args) {
 		const overloads = (...args) => {
 			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+						return new Point(this);
+					})(...args);
 				case 1:
 					if (args[0] instanceof Coordinate) {
 						return ((...args) => {

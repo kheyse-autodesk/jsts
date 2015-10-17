@@ -1,4 +1,3 @@
-import Cloneable from 'java/lang/Cloneable';
 export default class CoordinateSequence {
 	constructor(...args) {
 		(() => {
@@ -9,7 +8,7 @@ export default class CoordinateSequence {
 		})();
 	}
 	get interfaces_() {
-		return [Cloneable];
+		return [];
 	}
 	setOrdinate(index, ordinateIndex, value) {}
 	size() {}

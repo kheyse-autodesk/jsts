@@ -1,7 +1,5 @@
-import Cloneable from 'java/lang/Cloneable';
 import Serializable from 'java/io/Serializable';
 import Envelope from './Envelope';
-import Assert from '../util/Assert';
 export default class Geometry {
 	constructor(...args) {
 		(() => {
@@ -23,7 +21,7 @@ export default class Geometry {
 		return overloads.apply(this, args);
 	}
 	get interfaces_() {
-		return [Cloneable, Serializable];
+		return [Serializable];
 	}
 	static get serialVersionUID() {
 		return 8763622679187376702;
@@ -93,20 +91,6 @@ export default class Geometry {
 			this.envelope = this.computeEnvelopeInternal();
 		}
 		return new Envelope(this.envelope);
-	}
-	clone() {
-		try {
-			var clone = super.clone();
-			if (clone.envelope !== null) {
-				clone.envelope = new Envelope(clone.envelope);
-			}
-			return clone;
-		} catch (e) {
-			if (e instanceof CloneNotSupportedException) {
-				Assert.shouldNeverReachHere();
-				return null;
-			} else throw e;
-		} finally {}
 	}
 	setSRID(SRID) {
 		this.SRID = SRID;

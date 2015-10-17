@@ -97,7 +97,7 @@ export default class STRtree extends AbstractSTRtree {
 		return STRtree.intersectsOp;
 	}
 	verticalSlices(childBoundables, sliceCount) {
-		var sliceCapacity = Math.ceil(childBoundables.size() / sliceCount);
+		var sliceCapacity = Math.trunc(Math.ceil(childBoundables.size() / sliceCount));
 		var slices = new Array(sliceCount);
 		var i = childBoundables.iterator();
 		for (var j = 0; j < sliceCount; j++) {
@@ -142,10 +142,10 @@ export default class STRtree extends AbstractSTRtree {
 	}
 	createParentBoundables(childBoundables, newLevel) {
 		Assert.isTrue(!childBoundables.isEmpty());
-		var minLeafCount = Math.ceil(childBoundables.size() / this.getNodeCapacity());
+		var minLeafCount = Math.trunc(Math.ceil(childBoundables.size() / this.getNodeCapacity()));
 		var sortedChildBoundables = new ArrayList(childBoundables);
 		Collections.sort(sortedChildBoundables, STRtree.xComparator);
-		var verticalSlices = this.verticalSlices(sortedChildBoundables, Math.ceil(Math.sqrt(minLeafCount)));
+		var verticalSlices = this.verticalSlices(sortedChildBoundables, Math.trunc(Math.ceil(Math.sqrt(minLeafCount))));
 		return this.createParentBoundablesFromVerticalSlices(verticalSlices, newLevel);
 	}
 	nearestNeighbour(...args) {

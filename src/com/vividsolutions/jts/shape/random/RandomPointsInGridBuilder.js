@@ -47,7 +47,7 @@ export default class RandomPointsInGridBuilder extends GeometricShapeBuilder {
 		return this.randomPointInGridCell(orgX, orgY, xLen, yLen);
 	}
 	getGeometry() {
-		var nCells = Math.sqrt(this.numPts);
+		var nCells = Math.trunc(Math.sqrt(this.numPts));
 		if (nCells * nCells < this.numPts) nCells += 1;
 		var gridDX = this.getExtent().getWidth() / nCells;
 		var gridDY = this.getExtent().getHeight() / nCells;

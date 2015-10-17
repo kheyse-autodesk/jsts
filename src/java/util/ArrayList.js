@@ -25,6 +25,8 @@ class ArrayList extends List {
       this.addAll(arguments[0]);
     }
   }
+  
+  ensureCapacity () {}
 };
 
 

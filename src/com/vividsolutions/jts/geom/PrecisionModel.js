@@ -138,7 +138,7 @@ export default class PrecisionModel {
 		} else if (this.modelType === PrecisionModel.FLOATING_SINGLE) {
 			maxSigDigits = 6;
 		} else if (this.modelType === PrecisionModel.FIXED) {
-			maxSigDigits = 1 + Math.ceil(Math.log(this.getScale()) / Math.log(10));
+			maxSigDigits = 1 + Math.trunc(Math.ceil(Math.log(this.getScale()) / Math.log(10)));
 		}
 		return maxSigDigits;
 	}

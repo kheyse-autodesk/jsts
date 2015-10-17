@@ -3,6 +3,7 @@ var WKTWriter = require('com/vividsolutions/jts/io/WKTWriter')
 var BufferOp = require('com/vividsolutions/jts/operation/buffer/BufferOp')
 var OverlayOp = require('com/vividsolutions/jts/operation/overlay/OverlayOp')
 var RelateOp = require('com/vividsolutions/jts/operation/relate/RelateOp')
+var DiscreteHausdorffDistance = require('com/vividsolutions/jts/algorithm/distance/DiscreteHausdorffDistance')
 
 /**
  * A {@link ResultMatcher} which compares the results of buffer operations for
@@ -74,7 +75,7 @@ export default class BufferResultMatcher {
     var actualBdy = actualBuffer.getBoundary();
     var expectedBdy = expectedBuffer.getBoundary();
 
-    var haus = new jsts.algorithm.distance.DiscreteHausdorffDistance(actualBdy, expectedBdy);
+    var haus = new DiscreteHausdorffDistance(actualBdy, expectedBdy);
     haus.setDensifyFraction(0.25);
     var maxDistanceFound = haus.orientedDistance();
     var expectedDistanceTol = Math.abs(distance) /

@@ -189,7 +189,7 @@ export default class OffsetSegmentGenerator {
 	addFillet(p, startAngle, endAngle, direction, radius) {
 		var directionFactor = direction === CGAlgorithms.CLOCKWISE ? -1 : 1;
 		var totalAngle = Math.abs(startAngle - endAngle);
-		var nSegs = totalAngle / this.filletAngleQuantum + 0.5;
+		var nSegs = Math.trunc(totalAngle / this.filletAngleQuantum + 0.5);
 		if (nSegs < 1) return null;
 		var initAngle = null, currAngleInc = null;
 		initAngle = 0.0;

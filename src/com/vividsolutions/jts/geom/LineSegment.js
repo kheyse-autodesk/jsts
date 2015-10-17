@@ -310,10 +310,10 @@ export default class LineSegment {
 	hashCode() {
 		var bits0 = java.lang.Double.doubleToLongBits(this.p0.x);
 		bits0 ^= java.lang.Double.doubleToLongBits(this.p0.y) * 31;
-		var hash0 = bits0 ^ bits0 >> 32;
+		var hash0 = Math.trunc(bits0) ^ Math.trunc(bits0 >> 32);
 		var bits1 = java.lang.Double.doubleToLongBits(this.p1.x);
 		bits1 ^= java.lang.Double.doubleToLongBits(this.p1.y) * 31;
-		var hash1 = bits1 ^ bits1 >> 32;
+		var hash1 = Math.trunc(bits1) ^ Math.trunc(bits1 >> 32);
 		return hash0 ^ hash1;
 	}
 	getClass() {

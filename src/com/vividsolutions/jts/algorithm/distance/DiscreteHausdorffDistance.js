@@ -133,7 +133,7 @@ class MaxDensifiedByFractionDistanceFilter {
 					return ((...args) => {
 						let [geom, fraction] = args;
 						this.geom = geom;
-						this.numSubSegs = Math.rint(1.0 / fraction);
+						this.numSubSegs = Math.trunc(Math.round(1.0 / fraction));
 					})(...args);
 			}
 		};

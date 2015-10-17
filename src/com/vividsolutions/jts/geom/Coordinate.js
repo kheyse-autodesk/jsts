@@ -1,10 +1,8 @@
 import NumberUtil from '../util/NumberUtil';
 import Double from 'java/lang/Double';
 import Comparable from 'java/lang/Comparable';
-import Cloneable from 'java/lang/Cloneable';
 import Comparator from 'java/util/Comparator';
 import Serializable from 'java/io/Serializable';
-import Assert from '../util/Assert';
 export default class Coordinate {
 	constructor(...args) {
 		(() => {
@@ -41,7 +39,7 @@ export default class Coordinate {
 		return overloads.apply(this, args);
 	}
 	get interfaces_() {
-		return [Comparable, Cloneable, Serializable];
+		return [Comparable, Serializable];
 	}
 	static get serialVersionUID() {
 		return 6683108902428366910;
@@ -63,7 +61,7 @@ export default class Coordinate {
 	}
 	static hashCode(x) {
 		var f = Double.doubleToLongBits(x);
-		return f ^ f >>> 32;
+		return Math.trunc(f ^ f >>> 32);
 	}
 	setOrdinate(ordinateIndex, value) {
 		switch (ordinateIndex) {
@@ -141,15 +139,7 @@ export default class Coordinate {
 		return 0;
 	}
 	clone() {
-		try {
-			var coord = super.clone();
-			return coord;
-		} catch (e) {
-			if (e instanceof CloneNotSupportedException) {
-				Assert.shouldNeverReachHere("this shouldn't happen because this class is Cloneable");
-				return null;
-			} else throw e;
-		} finally {}
+		return new Coordinate(this);
 	}
 	toString() {
 		return "(" + this.x + ", " + this.y + ", " + this.z + ")";

@@ -96,7 +96,7 @@ export default class BufferOp {
 		var envMax = MathUtil.max(Math.abs(env.getMaxX()), Math.abs(env.getMaxY()), Math.abs(env.getMinX()), Math.abs(env.getMinY()));
 		var expandByDistance = distance > 0.0 ? distance : 0.0;
 		var bufEnvMax = envMax + 2 * expandByDistance;
-		var bufEnvPrecisionDigits = Math.log(bufEnvMax) / Math.log(10) + 1.0;
+		var bufEnvPrecisionDigits = Math.trunc(Math.log(bufEnvMax) / Math.log(10) + 1.0);
 		var minUnitLog10 = maxPrecisionDigits - bufEnvPrecisionDigits;
 		var scaleFactor = Math.pow(10.0, minUnitLog10);
 		return scaleFactor;

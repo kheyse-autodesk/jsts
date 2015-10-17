@@ -276,13 +276,12 @@ export default class Polygon extends Geometry {
 		return this.getFactory().createMultiLineString(rings);
 	}
 	clone() {
-		var poly = super.clone();
-		poly.shell = this.shell.clone();
-		poly.holes = new Array(this.holes.length);
-		for (var i = 0; i < this.holes.length; i++) {
-			poly.holes[i] = this.holes[i].clone();
+		var shell = this.shell.clone();
+		var holes = new Array(this.holes.length);
+		for (var i = 0; i < holes.length; i++) {
+			holes[i] = this.holes[i].clone();
 		}
-		return poly;
+		return new Polygon(shell, holes, this.factory);
 	}
 	getGeometryType() {
 		return "Polygon";

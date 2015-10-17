@@ -28,7 +28,7 @@ export default class Densifier {
 			seg.p1 = pts[i + 1];
 			coordList.add(seg.p0, false);
 			var len = seg.getLength();
-			var densifiedSegCount = len / distanceTolerance + 1;
+			var densifiedSegCount = Math.trunc(len / distanceTolerance) + 1;
 			if (densifiedSegCount > 1) {
 				var densifiedSegLen = len / densifiedSegCount;
 				for (var j = 1; j < densifiedSegCount; j++) {

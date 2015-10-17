@@ -176,7 +176,7 @@ export default class DD {
 	static magnitude(x) {
 		var xAbs = Math.abs(x);
 		var xLog10 = Math.log(xAbs) / Math.log(10);
-		var xMag = Math.floor(xLog10);
+		var xMag = Math.trunc(Math.floor(xLog10));
 		var xApprox = Math.pow(10, xMag);
 		if (xApprox * 10 <= xAbs) xMag += 1;
 		return xMag;
@@ -210,7 +210,7 @@ export default class DD {
 			if (insertDecimalPoint && i === decimalPointPos) {
 				buf.append('.');
 			}
-			var digit = y.hi;
+			var digit = Math.trunc(y.hi);
 			if (digit < 0 || digit > 9) {}
 			if (digit < 0) {
 				break;
@@ -602,7 +602,7 @@ export default class DD {
 		return Double.isNaN(this.hi);
 	}
 	intValue() {
-		return this.hi;
+		return Math.trunc(this.hi);
 	}
 	toString() {
 		var mag = DD.magnitude(this.hi);

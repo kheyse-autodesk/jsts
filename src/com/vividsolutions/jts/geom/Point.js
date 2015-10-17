@@ -15,6 +15,12 @@ export default class Point extends Geometry {
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [factory] = args;
+						super(factory);
+						this.init(null);
+					})(...args);
 				case 2:
 					return ((...args) => {
 						let [coordinates, factory] = args;
@@ -129,9 +135,7 @@ export default class Point extends Geometry {
 		return this.getFactory().createGeometryCollection(null);
 	}
 	clone() {
-		var p = super.clone();
-		p.coordinates = this.coordinates.clone();
-		return p;
+		return new Point(this.coordinates.clone(), this.factory);
 	}
 	getGeometryType() {
 		return "Point";
