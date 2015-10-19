@@ -1,4 +1,5 @@
 import Geometry from './Geometry';
+import Arrays from 'java/util/Arrays';
 import CoordinateFilter from './CoordinateFilter';
 import GeometryComponentFilter from './GeometryComponentFilter';
 import Dimension from './Dimension';
@@ -75,6 +76,12 @@ export default class GeometryCollection extends Geometry {
 			}
 		}
 		return true;
+	}
+	normalize() {
+		for (var i = 0; i < this.geometries.length; i++) {
+			this.geometries[i].normalize();
+		}
+		Arrays.sort(this.geometries);
 	}
 	getCoordinate() {
 		if (this.isEmpty()) return null;

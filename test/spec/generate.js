@@ -10,6 +10,7 @@ import BufferOp from 'com/vividsolutions/jts/operation/buffer/BufferOp'
 import OverlayOp from 'com/vividsolutions/jts/operation/overlay/OverlayOp'
 import IsSimpleOp from 'com/vividsolutions/jts/operation/IsSimpleOp'
 import RelateOp from 'com/vividsolutions/jts/operation/relate/RelateOp'
+import ConvexHull from 'com/vividsolutions/jts/algorithm/ConvexHull'
 import Centroid from 'com/vividsolutions/jts/algorithm/Centroid'
 
 import BufferResultMatcher from './BufferResultMatcher'
@@ -60,18 +61,30 @@ export default function(doc, title) {
         result = BufferOp.bufferOp(a, parseFloat(arg2));
       } else if (opname === 'getCentroid') {
         result = Centroid.getCentroid(a);
+      } else if (opname === 'equalsExact') {
+        result = a.equalsExact(b);
+      } else if (opname === 'equalsNorm') {
+        result = a.equalsNorm(b);
+      } else if (opname === 'getBoundary') {
+        result = a.getBoundary();
+      } else if (opname === 'convexHull') {
+        result = new ConvexHull(a).getConvexHull();
       } else if (opname === 'isSimple') {
         result = new IsSimpleOp(a).isSimple();
       } else if (opname === 'relate') {
         result = RelateOp.relate(a,b);
+      } else if (opname === 'intersects') {
+        result = RelateOp.intersects(a,b);
+      } else if (opname === 'contains') {
+        result = RelateOp.contains(a,b);
       } else if (opname === 'intersection' || opname === 'union' || opname === 'difference' || opname === 'symdifference' || opname === 'symDifference' ) {
         if (opname === 'symdifference') {
           opname = 'symDifference'
         }
         result = OverlayOp[opname](a, b, arg3);
       } else {
-        console.log(opname)
-        result = a[opname](b, arg3);
+        console.log('Unknown op: ' + opname)
+        return
       }
 
       // switch comparison logic depending on opname
@@ -109,12 +122,17 @@ export default function(doc, title) {
         }
       } else {
         var expectedGeometry = reader.read(expected);
+        
+        if (typeof result.normalize !== "function") {
+          console.log(result.constructor.name);
+        }
+        
         result.normalize();
         expectedGeometry.normalize();
 
-        if (result.compareTo(expectedGeometry) !== 0) {
-          throw new Error('Result: ' + result + ' Expected: ' +
-              expectedGeometry + inputs);
+        if (result.equals(expectedGeometry) === false) {
+          throw new Error('Result: ' + writer.write(result) + ' Expected: ' +
+              writer.write(expectedGeometry) + inputs);
         } else {
           expect(true).to.be.ok();
         }

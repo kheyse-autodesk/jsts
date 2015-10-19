@@ -1,3 +1,4 @@
+import StringBuffer from 'java/lang/StringBuffer';
 import Location from './Location';
 import Dimension from './Dimension';
 import Cloneable from 'java/lang/Cloneable';

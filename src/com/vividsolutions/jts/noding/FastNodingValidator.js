@@ -10,7 +10,7 @@ export default class FastNodingValidator {
 			this.segStrings = null;
 			this.findAllIntersections = false;
 			this.segInt = null;
-			this.isValid = true;
+			this.valid = true;
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -41,29 +41,29 @@ export default class FastNodingValidator {
 	}
 	isValid() {
 		this.execute();
-		return this.isValid;
+		return this.valid;
 	}
 	setFindAllIntersections(findAllIntersections) {
 		this.findAllIntersections = findAllIntersections;
 	}
 	checkInteriorIntersections() {
-		this.isValid = true;
+		this.valid = true;
 		this.segInt = new InteriorIntersectionFinder(this.li);
 		this.segInt.setFindAllIntersections(this.findAllIntersections);
 		var noder = new MCIndexNoder();
 		noder.setSegmentIntersector(this.segInt);
 		noder.computeNodes(this.segStrings);
 		if (this.segInt.hasIntersection()) {
-			this.isValid = false;
+			this.valid = false;
 			return null;
 		}
 	}
 	checkValid() {
 		this.execute();
-		if (!this.isValid) throw new TopologyException(this.getErrorMessage(), this.segInt.getInteriorIntersection());
+		if (!this.valid) throw new TopologyException(this.getErrorMessage(), this.segInt.getInteriorIntersection());
 	}
 	getErrorMessage() {
-		if (this.isValid) return "no intersections found";
+		if (this.valid) return "no intersections found";
 		var intSegs = this.segInt.getIntersectionSegments();
 		return "found non-noded intersection between " + WKTWriter.toLineString(intSegs[0], intSegs[1]) + " and " + WKTWriter.toLineString(intSegs[2], intSegs[3]);
 	}

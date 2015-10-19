@@ -4,7 +4,7 @@ export default class EnvelopeIntersectsVisitor extends ShortCircuitedGeometryVis
 		super();
 		(() => {
 			this.rectEnv = null;
-			this.intersects = false;
+			this._intersects = false;
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -21,7 +21,7 @@ export default class EnvelopeIntersectsVisitor extends ShortCircuitedGeometryVis
 		return [];
 	}
 	isDone() {
-		return this.intersects === true;
+		return this._intersects === true;
 	}
 	visit(element) {
 		var elementEnv = element.getEnvelopeInternal();
@@ -29,20 +29,20 @@ export default class EnvelopeIntersectsVisitor extends ShortCircuitedGeometryVis
 			return null;
 		}
 		if (this.rectEnv.contains(elementEnv)) {
-			this.intersects = true;
+			this._intersects = true;
 			return null;
 		}
 		if (elementEnv.getMinX() >= this.rectEnv.getMinX() && elementEnv.getMaxX() <= this.rectEnv.getMaxX()) {
-			this.intersects = true;
+			this._intersects = true;
 			return null;
 		}
 		if (elementEnv.getMinY() >= this.rectEnv.getMinY() && elementEnv.getMaxY() <= this.rectEnv.getMaxY()) {
-			this.intersects = true;
+			this._intersects = true;
 			return null;
 		}
 	}
 	intersects() {
-		return this.intersects;
+		return this._intersects;
 	}
 	getClass() {
 		return EnvelopeIntersectsVisitor;

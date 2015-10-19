@@ -1,3 +1,4 @@
+import StringBuffer from 'java/lang/StringBuffer';
 import Location from '../geom/Location';
 import Position from './Position';
 export default class TopologyLocation {

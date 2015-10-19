@@ -1,3 +1,4 @@
+import StringBuffer from 'java/lang/StringBuffer';
 import EdgeIntersectionList from './EdgeIntersectionList';
 import MonotoneChainEdge from './index/MonotoneChainEdge';
 import Position from './Position';

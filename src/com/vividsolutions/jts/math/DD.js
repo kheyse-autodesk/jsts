@@ -1,3 +1,4 @@
+import StringBuffer from 'java/lang/StringBuffer';
 import Double from 'java/lang/Double';
 import Integer from 'java/lang/Integer';
 import Character from 'java/lang/Character';

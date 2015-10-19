@@ -1,3 +1,4 @@
+import StringBuffer from 'java/lang/StringBuffer';
 import Coordinate from '../Coordinate';
 import Double from 'java/lang/Double';
 import CoordinateSequence from '../CoordinateSequence';

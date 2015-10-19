@@ -1,3 +1,4 @@
+import StringBuffer from 'java/lang/StringBuffer';
 import NodedSegmentString from './NodedSegmentString';
 import ArrayList from 'java/util/ArrayList';
 import LinearComponentExtracter from '../geom/util/LinearComponentExtracter';

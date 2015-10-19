@@ -8,7 +8,7 @@ export default class GeometryContainsPointVisitor extends ShortCircuitedGeometry
 		(() => {
 			this.rectSeq = null;
 			this.rectEnv = null;
-			this.containsPoint = false;
+			this._containsPoint = false;
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -26,7 +26,7 @@ export default class GeometryContainsPointVisitor extends ShortCircuitedGeometry
 		return [];
 	}
 	isDone() {
-		return this.containsPoint === true;
+		return this._containsPoint === true;
 	}
 	visit(geom) {
 		if (!(geom instanceof Polygon)) return null;
@@ -37,13 +37,13 @@ export default class GeometryContainsPointVisitor extends ShortCircuitedGeometry
 			this.rectSeq.getCoordinate(i, rectPt);
 			if (!elementEnv.contains(rectPt)) continue;
 			if (SimplePointInAreaLocator.containsPointInPolygon(rectPt, geom)) {
-				this.containsPoint = true;
+				this._containsPoint = true;
 				return null;
 			}
 		}
 	}
 	containsPoint() {
-		return this.containsPoint;
+		return this._containsPoint;
 	}
 	getClass() {
 		return GeometryContainsPointVisitor;

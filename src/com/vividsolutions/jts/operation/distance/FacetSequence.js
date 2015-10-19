@@ -1,3 +1,4 @@
+import StringBuffer from 'java/lang/StringBuffer';
 import CGAlgorithms from '../../algorithm/CGAlgorithms';
 import Coordinate from '../../geom/Coordinate';
 import Double from 'java/lang/Double';
