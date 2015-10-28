@@ -13,7 +13,10 @@ var Arrays = function() {};
 Arrays.sort = function() {
   var a = arguments[0], i, t, comparator, compare;
   if (arguments.length === 1) {
-    a.sort();
+    compare = function(a, b) {
+      return a.compareTo(b);
+    }
+    a.sort(compare);
     return;
   } else if (arguments.length === 2) {
     comparator = arguments[1];

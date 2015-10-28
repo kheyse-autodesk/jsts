@@ -11,20 +11,9 @@ export default class SweepLineEvent {
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
-				case 2:
+				case 0:
 					return ((...args) => {
-						let [x, insertEvent] = args;
-						this.eventType = SweepLineEvent.DELETE;
-						this.xValue = x;
-						this.insertEvent = insertEvent;
-					})(...args);
-				case 3:
-					return ((...args) => {
-						let [label, x, obj] = args;
-						this.eventType = SweepLineEvent.INSERT;
-						this.label = label;
-						this.xValue = x;
-						this.obj = obj;
+						let [] = args;
 					})(...args);
 			}
 		};
@@ -38,6 +27,29 @@ export default class SweepLineEvent {
 	}
 	static get DELETE() {
 		return 2;
+	}
+	static createDelete(x, insertEvent) {
+		var e = new SweepLineEvent();
+		e.eventType = SweepLineEvent.DELETE;
+		e.xValue = x;
+		e.insertEvent = insertEvent;
+		return e;
+	}
+	static createInsertWithLabelAndObject(x, label, obj) {
+		var e = SweepLineEvent.createInsertWithLabel(x, label);
+		e.obj = obj;
+		return e;
+	}
+	static createInsert(x) {
+		var e = new SweepLineEvent();
+		e.eventType = SweepLineEvent.INSERT;
+		e.xValue = x;
+		return e;
+	}
+	static createInsertWithLabel(x, label) {
+		var e = SweepLineEvent.createInsert(x);
+		e.label = label;
+		return e;
 	}
 	isDelete() {
 		return this.eventType === SweepLineEvent.DELETE;

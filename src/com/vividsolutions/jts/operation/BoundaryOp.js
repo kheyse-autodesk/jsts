@@ -33,6 +33,9 @@ export default class BoundaryOp {
 	get interfaces_() {
 		return [];
 	}
+	static getBoundary(geom, bnRule) {
+		return new BoundaryOp(geom, bnRule).getBoundary();
+	}
 	boundaryMultiLineString(mLine) {
 		if (this.geom.isEmpty()) {
 			return this.getEmptyMultiPoint();

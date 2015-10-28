@@ -8,9 +8,17 @@ export default class Collections {
       }
     }
   }
+  static min(l) {
+    Collections.sort(l)
+    return l.get(0)
+  }
   static sort(l, c) {
     const a = l.toArray();
-    Arrays.sort(a, c);
+    if (c) {
+      Arrays.sort(a, c);
+    } else {
+      Arrays.sort(a);
+    }
     const i = l.iterator();
     for (let pos = 0, alen = a.length;  pos < alen;  pos++) {
       i.next();

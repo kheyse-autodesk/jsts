@@ -8,4 +8,7 @@ export default class Double {
   static longBitsToDouble(n) {
     return n
   }
+  static isInfinite(n) {
+    return !Number.isFinite(n)
+  }
 }

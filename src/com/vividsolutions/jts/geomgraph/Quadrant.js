@@ -20,13 +20,13 @@ export default class Quadrant {
 	}
 	static isOpposite(quad1, quad2) {
 		if (quad1 === quad2) return false;
-		var diff = (quad1 - quad2 + 4) % 4;
+		var diff = Math.trunc((quad1 - quad2 + 4) % 4);
 		if (diff === 2) return true;
 		return false;
 	}
 	static commonHalfPlane(quad1, quad2) {
 		if (quad1 === quad2) return quad1;
-		var diff = (quad1 - quad2 + 4) % 4;
+		var diff = Math.trunc((quad1 - quad2 + 4) % 4);
 		if (diff === 2) return -1;
 		var min = quad1 < quad2 ? quad1 : quad2;
 		var max = quad1 > quad2 ? quad1 : quad2;

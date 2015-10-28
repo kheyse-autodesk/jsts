@@ -1,5 +1,3 @@
-import Collection from 'java/util/Collection';
-import LineIntersector from '../../algorithm/LineIntersector';
 export default class SegmentIntersector {
 	constructor(...args) {
 		(() => {
@@ -60,32 +58,19 @@ export default class SegmentIntersector {
 	hasIntersection() {
 		return this.intersection;
 	}
-	isBoundaryPoint(...args) {
-		const overloads = (...args) => {
-			switch (args.length) {
-				case 2:
-					if (args[0] instanceof LineIntersector && args[1].interfaces_ && args[1].interfaces_.indexOf(Collection) > -1) {
-						return ((...args) => {
-							let [li, bdyNodes] = args;
-							for (var i = bdyNodes.iterator(); i.hasNext(); ) {
-								var node = i.next();
-								var pt = node.getCoordinate();
-								if (li.isIntersection(pt)) return true;
-							}
-							return false;
-						})(...args);
-					} else if (args[0] instanceof LineIntersector && args[1] instanceof Array) {
-						return ((...args) => {
-							let [li, bdyNodes] = args;
-							if (bdyNodes === null) return false;
-							if (this.isBoundaryPoint(li, bdyNodes[0])) return true;
-							if (this.isBoundaryPoint(li, bdyNodes[1])) return true;
-							return false;
-						})(...args);
-					}
-			}
-		};
-		return overloads.apply(this, args);
+	isBoundaryPoint(li, bdyNodes) {
+		if (bdyNodes === null) return false;
+		if (this.isBoundaryPoint2(li, bdyNodes[0])) return true;
+		if (this.isBoundaryPoint2(li, bdyNodes[1])) return true;
+		return false;
+	}
+	isBoundaryPoint2(li, bdyNodes) {
+		for (var i = bdyNodes.iterator(); i.hasNext(); ) {
+			var node = i.next();
+			var pt = node.getCoordinate();
+			if (li.isIntersection(pt)) return true;
+		}
+		return false;
 	}
 	setBoundaryNodes(bdyNodes0, bdyNodes1) {
 		this.bdyNodes = new Array(2);

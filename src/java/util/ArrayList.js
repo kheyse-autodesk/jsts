@@ -27,6 +27,7 @@ class ArrayList extends List {
   }
   
   ensureCapacity () {}
+  get interfaces_() { return [List] }
 };
 
 

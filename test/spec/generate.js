@@ -130,7 +130,7 @@ export default function(doc, title) {
         result.normalize();
         expectedGeometry.normalize();
 
-        if (result.equals(expectedGeometry) === false) {
+        if (result.equalsExact(expectedGeometry) === false) {
           throw new Error('Result: ' + writer.write(result) + ' Expected: ' +
               writer.write(expectedGeometry) + inputs);
         } else {
