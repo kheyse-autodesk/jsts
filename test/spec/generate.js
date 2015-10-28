@@ -26,7 +26,11 @@ function createGeometryFactory(precisionModelInfo) {
     if (type !== 'FLOATING') {
       var scale = parseFloat(precisionModelInfo.attr('scale'));
       return new GeometryFactory(new PrecisionModel(scale));
+    } else {
+      return new GeometryFactory();
     }
+  } else {
+    return new GeometryFactory();
   }
 }
 
@@ -60,7 +64,7 @@ export default function(doc, title) {
       if (opname === 'buffer') {
         result = BufferOp.bufferOp(a, parseFloat(arg2));
       } else if (opname === 'getCentroid') {
-        result = Centroid.getCentroid(a);
+        result = geometryFactory.createPoint(Centroid.getCentroid(a));
       } else if (opname === 'equalsExact') {
         result = a.equalsExact(b);
       } else if (opname === 'equalsNorm') {
@@ -130,7 +134,7 @@ export default function(doc, title) {
         result.normalize();
         expectedGeometry.normalize();
 
-        if (result.equalsExact(expectedGeometry) === false) {
+        if (result.equals(expectedGeometry) === false) {
           throw new Error('Result: ' + writer.write(result) + ' Expected: ' +
               writer.write(expectedGeometry) + inputs);
         } else {
