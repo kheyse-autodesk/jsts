@@ -88,7 +88,7 @@ export default class CoordinateArrays {
 	}
 	static reverse(coord) {
 		var last = coord.length - 1;
-		var mid = last / 2;
+		var mid = Math.trunc(last / 2);
 		for (var i = 0; i <= mid; i++) {
 			var tmp = coord[i];
 			coord[i] = coord[last - i];
@@ -161,7 +161,7 @@ export default class CoordinateArrays {
 		return -1;
 	}
 	static increasingDirection(pts) {
-		for (var i = 0; i < pts.length / 2; i++) {
+		for (var i = 0; i < Math.trunc(pts.length / 2); i++) {
 			var j = pts.length - 1 - i;
 			var comp = pts[i].compareTo(pts[j]);
 			if (comp !== 0) return comp;

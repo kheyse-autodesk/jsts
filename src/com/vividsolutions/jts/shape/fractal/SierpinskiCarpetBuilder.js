@@ -24,7 +24,7 @@ export default class SierpinskiCarpetBuilder extends GeometricShapeBuilder {
 		return [];
 	}
 	static recursionLevelForSize(numPts) {
-		var pow4 = numPts / 3;
+		var pow4 = Math.trunc(numPts / 3);
 		var exp = Math.log(pow4) / Math.log(4);
 		return Math.trunc(exp);
 	}

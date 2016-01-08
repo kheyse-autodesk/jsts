@@ -57,7 +57,7 @@ export default class Geometry {
 	equals(o) {
 		if (!(o instanceof Geometry)) return false;
 		var g = o;
-		return this.equalsExact(g, 0);
+		return this.equalsExact(g);
 	}
 	equalsExact(other) {
 		return this === other || this.equalsExact(other, 0);

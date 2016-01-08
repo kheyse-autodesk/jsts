@@ -54,8 +54,8 @@ export default class PriorityQueue {
 		this.size += 1;
 		var hole = this.size;
 		this.items.set(0, x);
-		for (; x.compareTo(this.items.get(hole / 2)) < 0; hole /= 2) {
-			this.items.set(hole, this.items.get(hole / 2));
+		for (; x.compareTo(this.items.get(Math.trunc(hole / 2))) < 0; hole /= 2) {
+			this.items.set(hole, this.items.get(Math.trunc(hole / 2)));
 		}
 		this.items.set(hole, x);
 	}

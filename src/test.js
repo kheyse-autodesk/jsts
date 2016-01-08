@@ -1,8 +1,6 @@
-var WKTReader = require('./com/vividsolutions/jts/io/WKTReader')
-var WKTWriter = require('./com/vividsolutions/jts/io/WKTWriter')
-var BufferOp = require('./com/vividsolutions/jts/operation/buffer/BufferOp')
-var OverlayOp = require('./com/vividsolutions/jts/operation/overlay/OverlayOp')
-var RelateOp = require('./com/vividsolutions/jts/operation/relate/RelateOp')
+import WKTReader from './com/vividsolutions/jts/io/WKTReader'
+import WKTWriter from './com/vividsolutions/jts/io/WKTWriter'
+import OverlayOp from './com/vividsolutions/jts/operation/overlay/OverlayOp'
 
 var reader = new WKTReader()
 var writer = new WKTWriter()
@@ -34,12 +32,7 @@ console.log(writer.write(intersection))*/
 //var union = OverlayOp.union(a1, a2)
 //console.log(writer.write(union))
 
-var a = reader.read('LINESTRING(0 0, 2 2)')
-var b = reader.read('POLYGON((1 1, 1 2, 2 2, 2 1, 1 1))')
-var intersection = OverlayOp.intersection(a, b)
-console.log(writer.write(intersection))
-
-
-var a = reader.read('POLYGON((10 10,10 100,50 100,50 50,100 50,100 10,10 10))')
-var b = reader.read('POLYGON((10 10,10 100,50 100,50 50,100 50,100 10,10 10))')
-console.log(a.equals(b));
+var a = reader.read('POLYGON((1 1, 1 5, 5 5, 5 1, 1 1))')
+var b = reader.read('POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))')
+var union = OverlayOp.union(a, b)
+console.log(writer.write(union))

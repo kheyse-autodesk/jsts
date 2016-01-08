@@ -35,7 +35,7 @@ export default class KochSnowflakeBuilder extends GeometricShapeBuilder {
 		return 2.0 / 3.0;
 	}
 	static recursionLevelForSize(numPts) {
-		var pow4 = numPts / 3;
+		var pow4 = Math.trunc(numPts / 3);
 		var exp = Math.log(pow4) / Math.log(4);
 		return Math.trunc(exp);
 	}

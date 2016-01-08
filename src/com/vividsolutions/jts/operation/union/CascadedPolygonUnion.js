@@ -112,7 +112,7 @@ export default class CascadedPolygonUnion {
 						} else if (end - start === 2) {
 							return this.unionSafe(CascadedPolygonUnion.getGeometry(geoms, start), CascadedPolygonUnion.getGeometry(geoms, start + 1));
 						} else {
-							var mid = (end + start) / 2;
+							var mid = Math.trunc((end + start) / 2);
 							var g0 = this.binaryUnion(geoms, start, mid);
 							var g1 = this.binaryUnion(geoms, mid, end);
 							return this.unionSafe(g0, g1);

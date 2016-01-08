@@ -106,7 +106,7 @@ export default class IntersectionMatrix {
 					return ((...args) => {
 						let [dimensionSymbols] = args;
 						for (var i = 0; i < dimensionSymbols.length(); i++) {
-							var row = i / 3;
+							var row = Math.trunc(i / 3);
 							var col = i % 3;
 							this.matrix[row][col] = Dimension.toDimensionValue(dimensionSymbols.charAt(i));
 						}
@@ -130,7 +130,7 @@ export default class IntersectionMatrix {
 					return ((...args) => {
 						let [minimumDimensionSymbols] = args;
 						for (var i = 0; i < minimumDimensionSymbols.length(); i++) {
-							var row = i / 3;
+							var row = Math.trunc(i / 3);
 							var col = i % 3;
 							this.setAtLeast(row, col, Dimension.toDimensionValue(minimumDimensionSymbols.charAt(i)));
 						}

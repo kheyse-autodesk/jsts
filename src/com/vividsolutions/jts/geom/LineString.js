@@ -63,7 +63,7 @@ export default class LineString extends Geometry {
 		return true;
 	}
 	normalize() {
-		for (var i = 0; i < this.points.size() / 2; i++) {
+		for (var i = 0; i < Math.trunc(this.points.size() / 2); i++) {
 			var j = this.points.size() - 1 - i;
 			if (!this.points.getCoordinate(i).equals(this.points.getCoordinate(j))) {
 				if (this.points.getCoordinate(i).compareTo(this.points.getCoordinate(j)) > 0) {

@@ -73,7 +73,7 @@ export default class BufferInputLineSimplifier {
 		return dist < distanceTol;
 	}
 	isShallowSampled(p0, p2, i0, i2, distanceTol) {
-		var inc = (i2 - i0) / BufferInputLineSimplifier.NUM_PTS_TO_CHECK;
+		var inc = Math.trunc((i2 - i0) / BufferInputLineSimplifier.NUM_PTS_TO_CHECK);
 		if (inc <= 0) inc = 1;
 		for (var i = i0; i < i2; i += inc) {
 			if (!this.isShallow(p0, p2, this.inputLine[i], distanceTol)) return false;

@@ -43,7 +43,7 @@ export default class CoordinateSequences {
 	}
 	static reverse(seq) {
 		var last = seq.size() - 1;
-		var mid = last / 2;
+		var mid = Math.trunc(last / 2);
 		for (var i = 0; i <= mid; i++) {
 			CoordinateSequences.swap(seq, i, last - i);
 		}

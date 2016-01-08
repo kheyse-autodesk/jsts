@@ -39,7 +39,7 @@ export default class MonotoneChain {
 			return null;
 		}
 		if (!searchEnv.intersects(mcs.tempEnv1)) return null;
-		var mid = (start0 + end0) / 2;
+		var mid = Math.trunc((start0 + end0) / 2);
 		if (start0 < mid) {
 			this.computeSelect(searchEnv, start0, mid, mcs);
 		}
@@ -77,8 +77,8 @@ export default class MonotoneChain {
 						mco.tempEnv1.init(p00, p01);
 						mco.tempEnv2.init(p10, p11);
 						if (!mco.tempEnv1.intersects(mco.tempEnv2)) return null;
-						var mid0 = (start0 + end0) / 2;
-						var mid1 = (start1 + end1) / 2;
+						var mid0 = Math.trunc((start0 + end0) / 2);
+						var mid1 = Math.trunc((start1 + end1) / 2);
 						if (start0 < mid0) {
 							if (start1 < mid1) this.computeOverlaps(start0, mid0, mc, start1, mid1, mco);
 							if (mid1 < end1) this.computeOverlaps(start0, mid0, mc, mid1, end1, mco);
