@@ -9,7 +9,7 @@ export default class BufferResultValidator {
 			this.input = null;
 			this.distance = null;
 			this.result = null;
-			this.isValid = true;
+			this._isValid = true;
 			this.errorMsg = null;
 			this.errorLocation = null;
 			this.errorIndicator = null;
@@ -48,15 +48,15 @@ export default class BufferResultValidator {
 	}
 	isValid() {
 		this.checkPolygonal();
-		if (!this.isValid) return this.isValid;
+		if (!this._isValid) return this._isValid;
 		this.checkExpectedEmpty();
-		if (!this.isValid) return this.isValid;
+		if (!this._isValid) return this._isValid;
 		this.checkEnvelope();
-		if (!this.isValid) return this.isValid;
+		if (!this._isValid) return this._isValid;
 		this.checkArea();
-		if (!this.isValid) return this.isValid;
+		if (!this._isValid) return this._isValid;
 		this.checkDistance();
-		return this.isValid;
+		return this._isValid;
 	}
 	checkEnvelope() {
 		if (this.distance < 0.0) return null;
@@ -67,7 +67,7 @@ export default class BufferResultValidator {
 		var bufEnv = new Envelope(this.result.getEnvelopeInternal());
 		bufEnv.expandBy(padding);
 		if (!bufEnv.contains(expectedEnv)) {
-			this.isValid = false;
+			this._isValid = false;
 			this.errorMsg = "Buffer envelope is incorrect";
 			this.errorIndicator = this.input.getFactory().toGeometry(bufEnv);
 		}
@@ -76,7 +76,7 @@ export default class BufferResultValidator {
 	checkDistance() {
 		var distValid = new BufferDistanceValidator(this.input, this.distance, this.result);
 		if (!distValid.isValid()) {
-			this.isValid = false;
+			this._isValid = false;
 			this.errorMsg = distValid.getErrorMessage();
 			this.errorLocation = distValid.getErrorLocation();
 			this.errorIndicator = distValid.getErrorIndicator();
@@ -87,19 +87,19 @@ export default class BufferResultValidator {
 		var inputArea = this.input.getArea();
 		var resultArea = this.result.getArea();
 		if (this.distance > 0.0 && inputArea > resultArea) {
-			this.isValid = false;
+			this._isValid = false;
 			this.errorMsg = "Area of positive buffer is smaller than input";
 			this.errorIndicator = this.result;
 		}
 		if (this.distance < 0.0 && inputArea < resultArea) {
-			this.isValid = false;
+			this._isValid = false;
 			this.errorMsg = "Area of negative buffer is larger than input";
 			this.errorIndicator = this.result;
 		}
 		this.report("Area");
 	}
 	checkPolygonal() {
-		if (!(this.result instanceof Polygon || this.result instanceof MultiPolygon)) this.isValid = false;
+		if (!(this.result instanceof Polygon || this.result instanceof MultiPolygon)) this._isValid = false;
 		this.errorMsg = "Result is not polygonal";
 		this.errorIndicator = this.result;
 		this.report("Polygonal");
@@ -114,7 +114,7 @@ export default class BufferResultValidator {
 		if (this.input.getDimension() >= 2) return null;
 		if (this.distance > 0.0) return null;
 		if (!this.result.isEmpty()) {
-			this.isValid = false;
+			this._isValid = false;
 			this.errorMsg = "Result is non-empty";
 			this.errorIndicator = this.result;
 		}
@@ -122,7 +122,7 @@ export default class BufferResultValidator {
 	}
 	report(checkName) {
 		if (!BufferResultValidator.VERBOSE) return null;
-		System.out.println(Math.trunc("Check " + checkName + ": ") + (this.isValid ? "passed" : "FAILED"));
+		System.out.println(Math.trunc("Check " + checkName + ": ") + (this._isValid ? "passed" : "FAILED"));
 	}
 	getErrorMessage() {
 		return this.errorMsg;

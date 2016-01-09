@@ -27,7 +27,7 @@ export default class OffsetSegmentGenerator {
 			this.offset0 = new LineSegment();
 			this.offset1 = new LineSegment();
 			this.side = 0;
-			this.hasNarrowConcaveAngle = false;
+			this._hasNarrowConcaveAngle = false;
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -259,7 +259,7 @@ export default class OffsetSegmentGenerator {
 		if (this.li.hasIntersection()) {
 			this.segList.addPt(this.li.getIntersection(0));
 		} else {
-			this.hasNarrowConcaveAngle = true;
+			this._hasNarrowConcaveAngle = true;
 			if (this.offset0.p1.distance(this.offset1.p0) < this.distance * OffsetSegmentGenerator.INSIDE_TURN_VERTEX_SNAP_DISTANCE_FACTOR) {
 				this.segList.addPt(this.offset0.p1);
 			} else {
@@ -309,7 +309,7 @@ export default class OffsetSegmentGenerator {
 		this.segList.closeRing();
 	}
 	hasNarrowConcaveAngle() {
-		return this.hasNarrowConcaveAngle;
+		return this._hasNarrowConcaveAngle;
 	}
 	getClass() {
 		return OffsetSegmentGenerator;

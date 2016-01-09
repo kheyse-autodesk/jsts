@@ -35,7 +35,7 @@ export default class ObjectCounter {
 class Counter {
 	constructor(...args) {
 		(() => {
-			this.count = 0;
+			this._count = 0;
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -46,7 +46,7 @@ class Counter {
 				case 1:
 					return ((...args) => {
 						let [count] = args;
-						this.count = count;
+						this._count = count;
 					})(...args);
 			}
 		};
@@ -56,10 +56,10 @@ class Counter {
 		return [];
 	}
 	count() {
-		return this.count;
+		return this._count;
 	}
 	increment() {
-		this.count++;
+		this._count++;
 	}
 	getClass() {
 		return Counter;

@@ -49,12 +49,12 @@ export default class RobustLineIntersector extends LineIntersector {
 		return env0.contains(intPt) && env1.contains(intPt);
 	}
 	computeIntersection(p, p1, p2) {
-		this.isProper = false;
+		this._isProper = false;
 		if (Envelope.intersects(p1, p2, p)) {
 			if (CGAlgorithms.orientationIndex(p1, p2, p) === 0 && CGAlgorithms.orientationIndex(p2, p1, p) === 0) {
-				this.isProper = true;
+				this._isProper = true;
 				if (p.equals(p1) || p.equals(p2)) {
-					this.isProper = false;
+					this._isProper = false;
 				}
 				this.result = LineIntersector.POINT_INTERSECTION;
 				return null;
@@ -195,7 +195,7 @@ export default class RobustLineIntersector extends LineIntersector {
 		n11.y -= normPt.y;
 	}
 	computeIntersect(p1, p2, q1, q2) {
-		this.isProper = false;
+		this._isProper = false;
 		if (!Envelope.intersects(p1, p2, q1, q2)) return LineIntersector.NO_INTERSECTION;
 		var Pq1 = CGAlgorithms.orientationIndex(p1, p2, q1);
 		var Pq2 = CGAlgorithms.orientationIndex(p1, p2, q2);
@@ -212,7 +212,7 @@ export default class RobustLineIntersector extends LineIntersector {
 			return this.computeCollinearIntersection(p1, p2, q1, q2);
 		}
 		if (Pq1 === 0 || Pq2 === 0 || Qp1 === 0 || Qp2 === 0) {
-			this.isProper = false;
+			this._isProper = false;
 			if (p1.equals2D(q1) || p1.equals2D(q2)) {
 				this.intPt[0] = p1;
 			} else if (p2.equals2D(q1) || p2.equals2D(q2)) {
@@ -227,7 +227,7 @@ export default class RobustLineIntersector extends LineIntersector {
 				this.intPt[0] = new Coordinate(p2);
 			}
 		} else {
-			this.isProper = true;
+			this._isProper = true;
 			this.intPt[0] = this.intersection(p1, p2, q1, q2);
 		}
 		return LineIntersector.POINT_INTERSECTION;

@@ -1,7 +1,10 @@
+import LineString from './LineString';
 import CoordinateList from './CoordinateList';
 import Geometry from './Geometry';
 import Coordinate from './Coordinate';
+import Point from './Point';
 import Double from 'java/lang/Double';
+import GeometryComponentFilter from './GeometryComponentFilter';
 import CoordinateSequence from './CoordinateSequence';
 import Envelope from './Envelope';
 export default class OctagonalEnvelope {
@@ -59,6 +62,9 @@ export default class OctagonalEnvelope {
 	}
 	static get SQRT2() {
 		return Math.sqrt(2.0);
+	}
+	static get BoundingOctagonComponentFilter() {
+		return BoundingOctagonComponentFilter;
 	}
 	static octagonalEnvelope(geom) {
 		return new OctagonalEnvelope(geom).toGeometry(geom.getFactory());
@@ -219,7 +225,7 @@ export default class OctagonalEnvelope {
 					} else if (args[0] instanceof Geometry) {
 						return ((...args) => {
 							let [g] = args;
-							g.apply(new BoundingOctagonComponentFilter());
+							g.apply(new BoundingOctagonComponentFilter(this));
 						})(...args);
 					} else if (args[0].interfaces_ && args[0].interfaces_.indexOf(CoordinateSequence) > -1) {
 						return ((...args) => {
@@ -295,6 +301,36 @@ export default class OctagonalEnvelope {
 	}
 	getClass() {
 		return OctagonalEnvelope;
+	}
+}
+class BoundingOctagonComponentFilter {
+	constructor(...args) {
+		(() => {
+			this.oe = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [oe] = args;
+						this.oe = oe;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [GeometryComponentFilter];
+	}
+	filter(geom) {
+		if (geom instanceof LineString) {
+			this.oe.expandToInclude(geom.getCoordinateSequence());
+		} else if (geom instanceof Point) {
+			this.oe.expandToInclude(geom.getCoordinateSequence());
+		}
+	}
+	getClass() {
+		return BoundingOctagonComponentFilter;
 	}
 }
 

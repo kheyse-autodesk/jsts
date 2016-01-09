@@ -5,7 +5,7 @@ export default class BoundablePair {
 		(() => {
 			this.boundable1 = null;
 			this.boundable2 = null;
-			this.distance = null;
+			this._distance = null;
 			this.itemDistance = null;
 		})();
 		const overloads = (...args) => {
@@ -16,7 +16,7 @@ export default class BoundablePair {
 						this.boundable1 = boundable1;
 						this.boundable2 = boundable2;
 						this.itemDistance = itemDistance;
-						this.distance = this.distance();
+						this._distance = this.distance();
 					})(...args);
 			}
 		};
@@ -56,8 +56,8 @@ export default class BoundablePair {
 	}
 	compareTo(o) {
 		var nd = o;
-		if (this.distance < nd.distance) return -1;
-		if (this.distance > nd.distance) return 1;
+		if (this._distance < nd._distance) return -1;
+		if (this._distance > nd._distance) return 1;
 		return 0;
 	}
 	expand(bndComposite, bndOther, priQ, minDistance) {
@@ -75,7 +75,7 @@ export default class BoundablePair {
 		return this.boundable2;
 	}
 	getDistance() {
-		return this.distance;
+		return this._distance;
 	}
 	distance() {
 		if (this.isLeaves()) {

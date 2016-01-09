@@ -10,7 +10,7 @@ export default class LineStringSnapper {
 			this.srcPts = null;
 			this.seg = new LineSegment();
 			this.allowSnappingToSourceVertices = false;
-			this.isClosed = false;
+			this._isClosed = false;
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -24,7 +24,7 @@ export default class LineStringSnapper {
 						return ((...args) => {
 							let [srcPts, snapTolerance] = args;
 							this.srcPts = srcPts;
-							this.isClosed = LineStringSnapper.isClosed(srcPts);
+							this._isClosed = LineStringSnapper.isClosed(srcPts);
 							this.snapTolerance = snapTolerance;
 						})(...args);
 					}
@@ -40,13 +40,13 @@ export default class LineStringSnapper {
 		return pts[0].equals2D(pts[pts.length - 1]);
 	}
 	snapVertices(srcCoords, snapPts) {
-		var end = this.isClosed ? srcCoords.size() - 1 : srcCoords.size();
+		var end = this._isClosed ? srcCoords.size() - 1 : srcCoords.size();
 		for (var i = 0; i < end; i++) {
 			var srcPt = srcCoords.get(i);
 			var snapVert = this.findSnapForVertex(srcPt, snapPts);
 			if (snapVert !== null) {
 				srcCoords.set(i, new Coordinate(snapVert));
-				if (i === 0 && this.isClosed) srcCoords.set(srcCoords.size() - 1, new Coordinate(snapVert));
+				if (i === 0 && this._isClosed) srcCoords.set(srcCoords.size() - 1, new Coordinate(snapVert));
 			}
 		}
 	}

@@ -4,7 +4,7 @@ export default class RelateOp extends GeometryGraphOperation {
 	constructor(...args) {
 		super();
 		(() => {
-			this.relate = null;
+			this._relate = null;
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -12,13 +12,13 @@ export default class RelateOp extends GeometryGraphOperation {
 					return ((...args) => {
 						let [g0, g1] = args;
 						super(g0, g1);
-						this.relate = new RelateComputer(this.arg);
+						this._relate = new RelateComputer(this.arg);
 					})(...args);
 				case 3:
 					return ((...args) => {
 						let [g0, g1, boundaryNodeRule] = args;
 						super(g0, g1, boundaryNodeRule);
-						this.relate = new RelateComputer(this.arg);
+						this._relate = new RelateComputer(this.arg);
 					})(...args);
 			}
 		};
@@ -49,7 +49,7 @@ export default class RelateOp extends GeometryGraphOperation {
 		return overloads.apply(this, args);
 	}
 	getIntersectionMatrix() {
-		return this.relate.computeIM();
+		return this._relate.computeIM();
 	}
 	getClass() {
 		return RelateOp;

@@ -1,8 +1,8 @@
 export default class GraphComponent {
 	constructor(...args) {
 		(() => {
-			this.isMarked = false;
-			this.isVisited = false;
+			this._isMarked = false;
+			this._isVisited = false;
 			this.data = null;
 		})();
 		const overloads = (...args) => {
@@ -38,10 +38,10 @@ export default class GraphComponent {
 		}
 	}
 	setVisited(isVisited) {
-		this.isVisited = isVisited;
+		this._isVisited = isVisited;
 	}
 	isMarked() {
-		return this.isMarked;
+		return this._isMarked;
 	}
 	setData(data) {
 		this.data = data;
@@ -50,13 +50,13 @@ export default class GraphComponent {
 		return this.data;
 	}
 	setMarked(isMarked) {
-		this.isMarked = isMarked;
+		this._isMarked = isMarked;
 	}
 	getContext() {
 		return this.data;
 	}
 	isVisited() {
-		return this.isVisited;
+		return this._isVisited;
 	}
 	setContext(data) {
 		this.data = data;

@@ -3,7 +3,7 @@ import LineSegment from '../../geom/LineSegment';
 export default class QuadEdge {
 	constructor(...args) {
 		(() => {
-			this.rot = null;
+			this._rot = null;
 			this.vertex = null;
 			this.next = null;
 			this.data = null;
@@ -26,10 +26,10 @@ export default class QuadEdge {
 		var q1 = new QuadEdge();
 		var q2 = new QuadEdge();
 		var q3 = new QuadEdge();
-		q0.rot = q1;
-		q1.rot = q2;
-		q2.rot = q3;
-		q3.rot = q0;
+		q0._rot = q1;
+		q1._rot = q2;
+		q2._rot = q3;
+		q3._rot = q0;
 		q0.setNext(q0);
 		q1.setNext(q3);
 		q2.setNext(q2);
@@ -95,13 +95,13 @@ export default class QuadEdge {
 		return this.sym().oNext();
 	}
 	rot() {
-		return this.rot;
+		return this._rot;
 	}
 	oPrev() {
-		return this.rot.next.rot;
+		return this._rot.next._rot;
 	}
 	sym() {
-		return this.rot.rot;
+		return this._rot._rot;
 	}
 	setOrig(o) {
 		this.vertex = o;
@@ -113,7 +113,7 @@ export default class QuadEdge {
 		return this.orig().getCoordinate().distance(this.dest().getCoordinate());
 	}
 	invRot() {
-		return this.rot.sym();
+		return this._rot.sym();
 	}
 	setDest(d) {
 		this.sym().setOrig(d);
@@ -125,13 +125,13 @@ export default class QuadEdge {
 		return this.data;
 	}
 	delete() {
-		this.rot = null;
+		this._rot = null;
 	}
 	orig() {
 		return this.vertex;
 	}
 	rNext() {
-		return this.rot.next.invRot();
+		return this._rot.next.invRot();
 	}
 	toString() {
 		var p0 = this.vertex.getCoordinate();
@@ -139,7 +139,7 @@ export default class QuadEdge {
 		return WKTWriter.toLineString(p0, p1);
 	}
 	isLive() {
-		return this.rot !== null;
+		return this._rot !== null;
 	}
 	getPrimary() {
 		if (this.orig().getCoordinate().compareTo(this.dest().getCoordinate()) <= 0) return this; else return this.sym();

@@ -2,7 +2,7 @@ import SegmentIntersector from './SegmentIntersector';
 export default class IntersectionAdder {
 	constructor(...args) {
 		(() => {
-			this.hasIntersection = false;
+			this._hasIntersection = false;
 			this.hasProper = false;
 			this.hasProperInterior = false;
 			this.hasInterior = false;
@@ -72,7 +72,7 @@ export default class IntersectionAdder {
 				this.hasInterior = true;
 			}
 			if (!this.isTrivialIntersection(e0, segIndex0, e1, segIndex1)) {
-				this.hasIntersection = true;
+				this._hasIntersection = true;
 				e0.addIntersections(this.li, segIndex0, 0);
 				e1.addIntersections(this.li, segIndex1, 1);
 				if (this.li.isProper()) {
@@ -84,7 +84,7 @@ export default class IntersectionAdder {
 		}
 	}
 	hasIntersection() {
-		return this.hasIntersection;
+		return this._hasIntersection;
 	}
 	isDone() {
 		return false;

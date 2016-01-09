@@ -71,7 +71,7 @@ class VWVertex {
 			this.prev = null;
 			this.next = null;
 			this.area = VWVertex.MAX_AREA;
-			this.isLive = true;
+			this._isLive = true;
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -138,11 +138,11 @@ class VWVertex {
 			this.next.updateArea();
 			if (result === null) result = this.next;
 		}
-		this.isLive = false;
+		this._isLive = false;
 		return result;
 	}
 	isLive() {
-		return this.isLive;
+		return this._isLive;
 	}
 	setPrev(prev) {
 		this.prev = prev;

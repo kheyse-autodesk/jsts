@@ -4,7 +4,7 @@ export default class OrientedCoordinateArray {
 	constructor(...args) {
 		(() => {
 			this.pts = null;
-			this.orientation = null;
+			this._orientation = null;
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -12,7 +12,7 @@ export default class OrientedCoordinateArray {
 					return ((...args) => {
 						let [pts] = args;
 						this.pts = pts;
-						this.orientation = OrientedCoordinateArray.orientation(pts);
+						this._orientation = OrientedCoordinateArray.orientation(pts);
 					})(...args);
 			}
 		};
@@ -46,7 +46,7 @@ export default class OrientedCoordinateArray {
 	}
 	compareTo(o1) {
 		var oca = o1;
-		var comp = OrientedCoordinateArray.compareOriented(this.pts, this.orientation, oca.pts, oca.orientation);
+		var comp = OrientedCoordinateArray.compareOriented(this.pts, this._orientation, oca.pts, oca._orientation);
 		return comp;
 	}
 	getClass() {

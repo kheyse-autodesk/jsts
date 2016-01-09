@@ -3,7 +3,7 @@ export default class MarkHalfEdge extends HalfEdge {
 	constructor(...args) {
 		super();
 		(() => {
-			this.isMarked = false;
+			this._isMarked = false;
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -37,13 +37,13 @@ export default class MarkHalfEdge extends HalfEdge {
 		e.mark();
 	}
 	mark() {
-		this.isMarked = true;
+		this._isMarked = true;
 	}
 	setMark(isMarked) {
-		this.isMarked = isMarked;
+		this._isMarked = isMarked;
 	}
 	isMarked() {
-		return this.isMarked;
+		return this._isMarked;
 	}
 	getClass() {
 		return MarkHalfEdge;

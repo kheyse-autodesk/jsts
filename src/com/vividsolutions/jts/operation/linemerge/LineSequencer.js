@@ -20,7 +20,7 @@ export default class LineSequencer {
 			this.lineCount = 0;
 			this.isRun = false;
 			this.sequencedGeometry = null;
-			this.isSequenceable = false;
+			this._isSequenceable = false;
 		})();
 	}
 	get interfaces_() {
@@ -114,7 +114,7 @@ export default class LineSequencer {
 		var sequences = this.findSequences();
 		if (sequences === null) return null;
 		this.sequencedGeometry = this.buildSequencedGeometry(sequences);
-		this.isSequenceable = true;
+		this._isSequenceable = true;
 		var finalLineCount = this.sequencedGeometry.getNumGeometries();
 		Assert.isTrue(this.lineCount === finalLineCount, "Lines were missing from result");
 		Assert.isTrue(this.sequencedGeometry instanceof LineString || this.sequencedGeometry instanceof MultiLineString, "Result is not lineal");
@@ -219,7 +219,7 @@ export default class LineSequencer {
 	}
 	isSequenceable() {
 		this.computeSequence();
-		return this.isSequenceable;
+		return this._isSequenceable;
 	}
 	add(...args) {
 		const overloads = (...args) => {

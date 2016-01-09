@@ -9,7 +9,7 @@ export default class LineIntersector {
 			this.inputLines = Array(2).fill().map(() => Array(2));
 			this.intPt = new Array(2);
 			this.intLineIndex = null;
-			this.isProper = null;
+			this._isProper = null;
 			this.pa = null;
 			this.pb = null;
 			this.precisionModel = null;
@@ -83,7 +83,7 @@ export default class LineIntersector {
 	getTopologySummary() {
 		var catBuf = new StringBuffer();
 		if (this.isEndPoint()) catBuf.append(" endpoint");
-		if (this.isProper) catBuf.append(" proper");
+		if (this._isProper) catBuf.append(" proper");
 		if (this.isCollinear()) catBuf.append(" collinear");
 		return catBuf.toString();
 	}
@@ -127,7 +127,7 @@ export default class LineIntersector {
 		return overloads.apply(this, args);
 	}
 	isProper() {
-		return this.hasIntersection() && this.isProper;
+		return this.hasIntersection() && this._isProper;
 	}
 	setPrecisionModel(precisionModel) {
 		this.precisionModel = precisionModel;
@@ -160,7 +160,7 @@ export default class LineIntersector {
 		return this.intPt[intIndex];
 	}
 	isEndPoint() {
-		return this.hasIntersection() && !this.isProper;
+		return this.hasIntersection() && !this._isProper;
 	}
 	hasIntersection() {
 		return this.result !== LineIntersector.NO_INTERSECTION;

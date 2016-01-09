@@ -1,4 +1,7 @@
+import LineString from '../geom/LineString';
 import CoordinateList from '../geom/CoordinateList';
+import GeometryTransformer from '../geom/util/GeometryTransformer';
+import MultiPolygon from '../geom/MultiPolygon';
 import LineSegment from '../geom/LineSegment';
 export default class Densifier {
 	constructor(...args) {
@@ -19,6 +22,9 @@ export default class Densifier {
 	}
 	get interfaces_() {
 		return [];
+	}
+	static get DensifyTransformer() {
+		return DensifyTransformer;
 	}
 	static densifyPoints(pts, distanceTolerance, precModel) {
 		var seg = new LineSegment();
@@ -48,7 +54,7 @@ export default class Densifier {
 		return densifier.getResultGeometry();
 	}
 	getResultGeometry() {
-		return new DensifyTransformer().transform(this.inputGeom);
+		return new DensifyTransformer(this.distanceTolerance).transform(this.inputGeom);
 	}
 	setDistanceTolerance(distanceTolerance) {
 		if (distanceTolerance <= 0.0) throw new IllegalArgumentException("Tolerance must be positive");
@@ -56,6 +62,52 @@ export default class Densifier {
 	}
 	getClass() {
 		return Densifier;
+	}
+}
+class DensifyTransformer extends GeometryTransformer {
+	constructor(...args) {
+		super();
+		(() => {
+			this.distanceTolerance = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [distanceTolerance] = args;
+						this.distanceTolerance = distanceTolerance;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [];
+	}
+	transformMultiPolygon(geom, parent) {
+		var roughGeom = super.transformMultiPolygon(geom, parent);
+		return this.createValidArea(roughGeom);
+	}
+	transformPolygon(geom, parent) {
+		var roughGeom = super.transformPolygon(geom, parent);
+		if (parent instanceof MultiPolygon) {
+			return roughGeom;
+		}
+		return this.createValidArea(roughGeom);
+	}
+	transformCoordinates(coords, parent) {
+		var inputPts = coords.toCoordinateArray();
+		var newPts = Densifier.densifyPoints(inputPts, this.distanceTolerance, parent.getPrecisionModel());
+		if (parent instanceof LineString && newPts.length === 1) {
+			newPts = new Array(0);
+		}
+		return this.factory.getCoordinateSequenceFactory().create(newPts);
+	}
+	createValidArea(roughAreaGeom) {
+		return roughAreaGeom.buffer(0.0);
+	}
+	getClass() {
+		return DensifyTransformer;
 	}
 }
 

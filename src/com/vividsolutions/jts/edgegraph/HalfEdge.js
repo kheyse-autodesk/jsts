@@ -4,16 +4,16 @@ import Assert from '../util/Assert';
 export default class HalfEdge {
 	constructor(...args) {
 		(() => {
-			this.orig = null;
-			this.sym = null;
-			this.next = null;
+			this._orig = null;
+			this._sym = null;
+			this._next = null;
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
 				case 1:
 					return ((...args) => {
 						let [orig] = args;
-						this.orig = orig;
+						this._orig = orig;
 					})(...args);
 			}
 		};
@@ -23,7 +23,7 @@ export default class HalfEdge {
 		return [];
 	}
 	static init(e0, e1) {
-		if (e0.sym !== null || e1.sym !== null || e0.next !== null || e1.next !== null) throw new IllegalStateException("Edges are already initialized");
+		if (e0._sym !== null || e1._sym !== null || e0._next !== null || e1._next !== null) throw new IllegalStateException("Edges are already initialized");
 		e0.init(e1);
 		return e0;
 	}
@@ -43,10 +43,10 @@ export default class HalfEdge {
 		return null;
 	}
 	dest() {
-		return this.sym.orig;
+		return this._sym._orig;
 	}
 	oNext() {
-		return this.sym.next;
+		return this._sym._next;
 	}
 	insert(e) {
 		if (this.oNext() === this) {
@@ -67,9 +67,9 @@ export default class HalfEdge {
 		Assert.shouldNeverReachHere();
 	}
 	insertAfter(e) {
-		Assert.equals(this.orig, e.orig());
+		Assert.equals(this._orig, e.orig());
 		var save = this.oNext();
-		this.sym.setNext(e);
+		this._sym.setNext(e);
 		e.sym().setNext(save);
 	}
 	degree() {
@@ -82,16 +82,16 @@ export default class HalfEdge {
 		return degree;
 	}
 	equals(p0, p1) {
-		return this.orig.equals2D(p0) && this.sym.orig.equals(p1);
+		return this._orig.equals2D(p0) && this._sym._orig.equals(p1);
 	}
 	deltaY() {
-		return this.sym.orig.y - this.orig.y;
+		return this._sym._orig.y - this._orig.y;
 	}
 	sym() {
-		return this.sym;
+		return this._sym;
 	}
 	prev() {
-		return this.sym.next().sym;
+		return this._sym.next()._sym;
 	}
 	compareAngularDirection(e) {
 		var dx = this.deltaX();
@@ -103,7 +103,7 @@ export default class HalfEdge {
 		var quadrant2 = Quadrant.quadrant(dx2, dy2);
 		if (quadrant > quadrant2) return 1;
 		if (quadrant < quadrant2) return -1;
-		return CGAlgorithms.computeOrientation(e.orig, e.dest(), this.dest());
+		return CGAlgorithms.computeOrientation(e._orig, e.dest(), this.dest());
 	}
 	prevNode() {
 		var e = this;
@@ -119,19 +119,19 @@ export default class HalfEdge {
 		return comp;
 	}
 	next() {
-		return this.next;
+		return this._next;
 	}
 	setSym(e) {
-		this.sym = e;
+		this._sym = e;
 	}
 	orig() {
-		return this.orig;
+		return this._orig;
 	}
 	toString() {
-		return Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc("HE(" + this.orig.x + " ") + this.orig.y) + ", ") + this.sym.orig.x) + " ") + this.sym.orig.y) + ")";
+		return Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc("HE(" + this._orig.x + " ") + this._orig.y) + ", ") + this._sym._orig.x) + " ") + this._sym._orig.y) + ")";
 	}
 	setNext(e) {
-		this.next = e;
+		this._next = e;
 	}
 	init(e) {
 		this.setSym(e);
@@ -140,7 +140,7 @@ export default class HalfEdge {
 		e.setNext(this);
 	}
 	deltaX() {
-		return this.sym.orig.x - this.orig.x;
+		return this._sym._orig.x - this._orig.x;
 	}
 	getClass() {
 		return HalfEdge;

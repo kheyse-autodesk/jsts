@@ -16,7 +16,7 @@ export default class Edge extends GraphComponent {
 			this.eiList = new EdgeIntersectionList(this);
 			this.name = null;
 			this.mce = null;
-			this.isIsolated = true;
+			this._isIsolated = true;
 			this.depth = new Depth();
 			this.depthDelta = 0;
 		})();
@@ -58,13 +58,13 @@ export default class Edge extends GraphComponent {
 		return newe;
 	}
 	isIsolated() {
-		return this.isIsolated;
+		return this._isIsolated;
 	}
 	getCoordinates() {
 		return this.pts;
 	}
 	setIsolated(isIsolated) {
-		this.isIsolated = isIsolated;
+		this._isIsolated = isIsolated;
 	}
 	setName(name) {
 		this.name = name;

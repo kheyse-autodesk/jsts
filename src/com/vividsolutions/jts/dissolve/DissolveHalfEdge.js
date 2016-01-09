@@ -3,7 +3,7 @@ export default class DissolveHalfEdge extends MarkHalfEdge {
 	constructor(...args) {
 		super();
 		(() => {
-			this.isStart = false;
+			this._isStart = false;
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -20,10 +20,10 @@ export default class DissolveHalfEdge extends MarkHalfEdge {
 		return [];
 	}
 	setStart() {
-		this.isStart = true;
+		this._isStart = true;
 	}
 	isStart() {
-		return this.isStart;
+		return this._isStart;
 	}
 	getClass() {
 		return DissolveHalfEdge;

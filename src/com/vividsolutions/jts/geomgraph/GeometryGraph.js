@@ -32,7 +32,7 @@ export default class GeometryGraph extends PlanarGraph {
 			this.useBoundaryDeterminationRule = true;
 			this.argIndex = null;
 			this.boundaryNodes = null;
-			this.hasTooFewPoints = false;
+			this._hasTooFewPoints = false;
 			this.invalidPoint = null;
 			this.areaPtLocator = null;
 			this.ptLocator = new PointLocator();
@@ -105,7 +105,7 @@ export default class GeometryGraph extends PlanarGraph {
 		return this.boundaryNodeRule;
 	}
 	hasTooFewPoints() {
-		return this.hasTooFewPoints;
+		return this._hasTooFewPoints;
 	}
 	addPoint(...args) {
 		const overloads = (...args) => {
@@ -143,7 +143,7 @@ export default class GeometryGraph extends PlanarGraph {
 	addLineString(line) {
 		var coord = CoordinateArrays.removeRepeatedPoints(line.getCoordinates());
 		if (coord.length < 2) {
-			this.hasTooFewPoints = true;
+			this._hasTooFewPoints = true;
 			this.invalidPoint = coord[0];
 			return null;
 		}
@@ -179,7 +179,7 @@ export default class GeometryGraph extends PlanarGraph {
 		if (lr.isEmpty()) return null;
 		var coord = CoordinateArrays.removeRepeatedPoints(lr.getCoordinates());
 		if (coord.length < 4) {
-			this.hasTooFewPoints = true;
+			this._hasTooFewPoints = true;
 			this.invalidPoint = coord[0];
 			return null;
 		}

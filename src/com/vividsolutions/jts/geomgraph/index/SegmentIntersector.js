@@ -3,7 +3,7 @@ import LineIntersector from '../../algorithm/LineIntersector';
 export default class SegmentIntersector {
 	constructor(...args) {
 		(() => {
-			this.hasIntersection = false;
+			this._hasIntersection = false;
 			this.hasProper = false;
 			this.hasProperInterior = false;
 			this.properIntersectionPoint = null;
@@ -58,7 +58,7 @@ export default class SegmentIntersector {
 		return this.hasProper;
 	}
 	hasIntersection() {
-		return this.hasIntersection;
+		return this._hasIntersection;
 	}
 	isBoundaryPoint(...args) {
 		const overloads = (...args) => {
@@ -107,7 +107,7 @@ export default class SegmentIntersector {
 			}
 			this.numIntersections++;
 			if (!this.isTrivialIntersection(e0, segIndex0, e1, segIndex1)) {
-				this.hasIntersection = true;
+				this._hasIntersection = true;
 				if (this.includeProper || !this.li.isProper()) {
 					e0.addIntersections(this.li, segIndex0, 0);
 					e1.addIntersections(this.li, segIndex1, 1);

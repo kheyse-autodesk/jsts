@@ -19,10 +19,10 @@ export default class EdgeRing {
 			this.ringPts = null;
 			this.holes = null;
 			this.shell = null;
-			this.isHole = null;
-			this.isProcessed = false;
-			this.isIncludedSet = false;
-			this.isIncluded = false;
+			this._isHole = null;
+			this._isProcessed = false;
+			this._isIncludedSet = false;
+			this._isIncluded = false;
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -101,7 +101,7 @@ export default class EdgeRing {
 		return minShell;
 	}
 	isIncluded() {
-		return this.isIncluded;
+		return this._isIncluded;
 	}
 	getCoordinates() {
 		if (this.ringPts === null) {
@@ -116,7 +116,7 @@ export default class EdgeRing {
 		return this.ringPts;
 	}
 	isIncludedSet() {
-		return this.isIncludedSet;
+		return this._isIncludedSet;
 	}
 	isValid() {
 		this.getCoordinates();
@@ -135,7 +135,7 @@ export default class EdgeRing {
 		} while (de !== startDE);
 	}
 	isOuterHole() {
-		if (!this.isHole) return false;
+		if (!this._isHole) return false;
 		return !this.hasShell();
 	}
 	getPolygon() {
@@ -150,10 +150,10 @@ export default class EdgeRing {
 		return poly;
 	}
 	isHole() {
-		return this.isHole;
+		return this._isHole;
 	}
 	isProcessed() {
-		return this.isProcessed;
+		return this._isProcessed;
 	}
 	addHole(...args) {
 		const overloads = (...args) => {
@@ -179,8 +179,8 @@ export default class EdgeRing {
 		return overloads.apply(this, args);
 	}
 	setIncluded(isIncluded) {
-		this.isIncluded = isIncluded;
-		this.isIncludedSet = true;
+		this._isIncluded = isIncluded;
+		this._isIncludedSet = true;
 	}
 	getOuterHole() {
 		if (this.isHole()) return null;
@@ -193,7 +193,7 @@ export default class EdgeRing {
 	}
 	computeHole() {
 		var ring = this.getRing();
-		this.isHole = CGAlgorithms.isCCW(ring.getCoordinates());
+		this._isHole = CGAlgorithms.isCCW(ring.getCoordinates());
 	}
 	hasShell() {
 		return this.shell !== null;
@@ -243,7 +243,7 @@ export default class EdgeRing {
 		this.shell = shell;
 	}
 	setProcessed(isProcessed) {
-		this.isProcessed = isProcessed;
+		this._isProcessed = isProcessed;
 	}
 	getClass() {
 		return EdgeRing;

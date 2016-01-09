@@ -51,7 +51,7 @@ class EnvelopeIntersectsVisitor extends ShortCircuitedGeometryVisitor {
 		super();
 		(() => {
 			this.rectEnv = null;
-			this.intersects = false;
+			this._intersects = false;
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -68,7 +68,7 @@ class EnvelopeIntersectsVisitor extends ShortCircuitedGeometryVisitor {
 		return [];
 	}
 	isDone() {
-		return this.intersects === true;
+		return this._intersects === true;
 	}
 	visit(element) {
 		var elementEnv = element.getEnvelopeInternal();
@@ -76,20 +76,20 @@ class EnvelopeIntersectsVisitor extends ShortCircuitedGeometryVisitor {
 			return null;
 		}
 		if (this.rectEnv.contains(elementEnv)) {
-			this.intersects = true;
+			this._intersects = true;
 			return null;
 		}
 		if (elementEnv.getMinX() >= this.rectEnv.getMinX() && elementEnv.getMaxX() <= this.rectEnv.getMaxX()) {
-			this.intersects = true;
+			this._intersects = true;
 			return null;
 		}
 		if (elementEnv.getMinY() >= this.rectEnv.getMinY() && elementEnv.getMaxY() <= this.rectEnv.getMaxY()) {
-			this.intersects = true;
+			this._intersects = true;
 			return null;
 		}
 	}
 	intersects() {
-		return this.intersects;
+		return this._intersects;
 	}
 	getClass() {
 		return EnvelopeIntersectsVisitor;
@@ -101,7 +101,7 @@ class GeometryContainsPointVisitor extends ShortCircuitedGeometryVisitor {
 		(() => {
 			this.rectSeq = null;
 			this.rectEnv = null;
-			this.containsPoint = false;
+			this._containsPoint = false;
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -119,7 +119,7 @@ class GeometryContainsPointVisitor extends ShortCircuitedGeometryVisitor {
 		return [];
 	}
 	isDone() {
-		return this.containsPoint === true;
+		return this._containsPoint === true;
 	}
 	visit(geom) {
 		if (!(geom instanceof Polygon)) return null;
@@ -130,13 +130,13 @@ class GeometryContainsPointVisitor extends ShortCircuitedGeometryVisitor {
 			this.rectSeq.getCoordinate(i, rectPt);
 			if (!elementEnv.contains(rectPt)) continue;
 			if (SimplePointInAreaLocator.containsPointInPolygon(rectPt, geom)) {
-				this.containsPoint = true;
+				this._containsPoint = true;
 				return null;
 			}
 		}
 	}
 	containsPoint() {
-		return this.containsPoint;
+		return this._containsPoint;
 	}
 	getClass() {
 		return GeometryContainsPointVisitor;

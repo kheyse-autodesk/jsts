@@ -3,7 +3,7 @@ export default class ConstraintVertex extends Vertex {
 	constructor(...args) {
 		super();
 		(() => {
-			this.isOnConstraint = null;
+			this._isOnConstraint = null;
 			this.constraint = null;
 		})();
 		const overloads = (...args) => {
@@ -24,19 +24,19 @@ export default class ConstraintVertex extends Vertex {
 		return this.constraint;
 	}
 	setOnConstraint(isOnConstraint) {
-		this.isOnConstraint = isOnConstraint;
+		this._isOnConstraint = isOnConstraint;
 	}
 	merge(other) {
-		if (other.isOnConstraint) {
-			this.isOnConstraint = true;
+		if (other._isOnConstraint) {
+			this._isOnConstraint = true;
 			this.constraint = other.constraint;
 		}
 	}
 	isOnConstraint() {
-		return this.isOnConstraint;
+		return this._isOnConstraint;
 	}
 	setConstraint(constraint) {
-		this.isOnConstraint = true;
+		this._isOnConstraint = true;
 		this.constraint = constraint;
 	}
 	getClass() {

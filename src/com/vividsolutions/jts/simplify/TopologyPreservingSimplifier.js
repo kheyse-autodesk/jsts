@@ -1,5 +1,9 @@
+import LineString from '../geom/LineString';
 import HashMap from 'java/util/HashMap';
+import GeometryTransformer from '../geom/util/GeometryTransformer';
 import TaggedLinesSimplifier from './TaggedLinesSimplifier';
+import GeometryComponentFilter from '../geom/GeometryComponentFilter';
+import TaggedLineString from './TaggedLineString';
 export default class TopologyPreservingSimplifier {
 	constructor(...args) {
 		(() => {
@@ -21,6 +25,12 @@ export default class TopologyPreservingSimplifier {
 	get interfaces_() {
 		return [];
 	}
+	static get LineStringTransformer() {
+		return LineStringTransformer;
+	}
+	static get LineStringMapBuilderFilter() {
+		return LineStringMapBuilderFilter;
+	}
 	static simplify(geom, distanceTolerance) {
 		var tss = new TopologyPreservingSimplifier(geom);
 		tss.setDistanceTolerance(distanceTolerance);
@@ -29,9 +39,9 @@ export default class TopologyPreservingSimplifier {
 	getResultGeometry() {
 		if (this.inputGeom.isEmpty()) return this.inputGeom.clone();
 		this.linestringMap = new HashMap();
-		this.inputGeom.apply(new LineStringMapBuilderFilter());
+		this.inputGeom.apply(new LineStringMapBuilderFilter(this));
 		this.lineSimplifier.simplify(this.linestringMap.values());
-		var result = new LineStringTransformer().transform(this.inputGeom);
+		var result = new LineStringTransformer(this).transform(this.inputGeom);
 		return result;
 	}
 	setDistanceTolerance(distanceTolerance) {
@@ -40,6 +50,70 @@ export default class TopologyPreservingSimplifier {
 	}
 	getClass() {
 		return TopologyPreservingSimplifier;
+	}
+}
+class LineStringTransformer extends GeometryTransformer {
+	constructor(...args) {
+		super();
+		(() => {
+			this.tps = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [tps] = args;
+						this.tps = tps;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [];
+	}
+	transformCoordinates(coords, parent) {
+		if (coords.size() === 0) return null;
+		if (parent instanceof LineString) {
+			var taggedLine = this.tps.linestringMap.get(parent);
+			return this.createCoordinateSequence(taggedLine.getResultCoordinates());
+		}
+		return super.transformCoordinates(coords, parent);
+	}
+	getClass() {
+		return LineStringTransformer;
+	}
+}
+class LineStringMapBuilderFilter {
+	constructor(...args) {
+		(() => {
+			this.tps = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [tps] = args;
+						this.tps = tps;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [GeometryComponentFilter];
+	}
+	filter(geom) {
+		if (geom instanceof LineString) {
+			var line = geom;
+			if (line.isEmpty()) return null;
+			var minSize = line.isClosed() ? 4 : 2;
+			var taggedLine = new TaggedLineString(line, minSize);
+			this.tps.linestringMap.put(line, taggedLine);
+		}
+	}
+	getClass() {
+		return LineStringMapBuilderFilter;
 	}
 }
 

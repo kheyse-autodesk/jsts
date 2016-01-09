@@ -2,7 +2,7 @@ import GeometryCollection from '../GeometryCollection';
 export default class ShortCircuitedGeometryVisitor {
 	constructor(...args) {
 		(() => {
-			this.isDone = false;
+			this._isDone = false;
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -18,12 +18,12 @@ export default class ShortCircuitedGeometryVisitor {
 		return [];
 	}
 	applyTo(geom) {
-		for (var i = 0; i < geom.getNumGeometries() && !this.isDone; i++) {
+		for (var i = 0; i < geom.getNumGeometries() && !this._isDone; i++) {
 			var element = geom.getGeometryN(i);
 			if (!(element instanceof GeometryCollection)) {
 				this.visit(element);
 				if (this.isDone()) {
-					this.isDone = true;
+					this._isDone = true;
 					return null;
 				}
 			} else this.applyTo(element);

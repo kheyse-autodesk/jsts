@@ -5,11 +5,12 @@ import GeometryFactory from '../../geom/GeometryFactory';
 import Collection from 'java/util/Collection';
 import Collections from 'java/util/Collections';
 import EdgeRing from './EdgeRing';
+import GeometryComponentFilter from '../../geom/GeometryComponentFilter';
 import ArrayList from 'java/util/ArrayList';
 export default class Polygonizer {
 	constructor(...args) {
 		(() => {
-			this.lineStringAdder = new LineStringAdder();
+			this.lineStringAdder = new LineStringAdder(this);
 			this.graph = null;
 			this.dangles = new ArrayList();
 			this.cutEdges = new ArrayList();
@@ -39,6 +40,9 @@ export default class Polygonizer {
 	}
 	get interfaces_() {
 		return [];
+	}
+	static get LineStringAdder() {
+		return LineStringAdder;
 	}
 	static findOuterShells(shellList) {
 		for (var i = shellList.iterator(); i.hasNext(); ) {
@@ -184,6 +188,32 @@ export default class Polygonizer {
 	}
 	getClass() {
 		return Polygonizer;
+	}
+}
+class LineStringAdder {
+	constructor(...args) {
+		(() => {
+			this.p = null;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [p] = args;
+						this.p = p;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [GeometryComponentFilter];
+	}
+	filter(g) {
+		if (g instanceof LineString) this.p.add(g);
+	}
+	getClass() {
+		return LineStringAdder;
 	}
 }
 

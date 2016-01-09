@@ -6,9 +6,9 @@ export default class SegmentIntersectionDetector {
 			this.li = null;
 			this.findProper = false;
 			this.findAllTypes = false;
-			this.hasIntersection = false;
-			this.hasProperIntersection = false;
-			this.hasNonProperIntersection = false;
+			this._hasIntersection = false;
+			this._hasProperIntersection = false;
+			this._hasNonProperIntersection = false;
 			this.intPt = null;
 			this.intSegments = null;
 		})();
@@ -38,7 +38,7 @@ export default class SegmentIntersectionDetector {
 		this.findAllTypes = findAllTypes;
 	}
 	hasProperIntersection() {
-		return this.hasProperIntersection;
+		return this._hasProperIntersection;
 	}
 	getIntersection() {
 		return this.intPt;
@@ -51,10 +51,10 @@ export default class SegmentIntersectionDetector {
 		var p11 = e1.getCoordinates()[segIndex1 + 1];
 		this.li.computeIntersection(p00, p01, p10, p11);
 		if (this.li.hasIntersection()) {
-			this.hasIntersection = true;
+			this._hasIntersection = true;
 			var isProper = this.li.isProper();
-			if (isProper) this.hasProperIntersection = true;
-			if (!isProper) this.hasNonProperIntersection = true;
+			if (isProper) this._hasProperIntersection = true;
+			if (!isProper) this._hasNonProperIntersection = true;
 			var saveLocation = true;
 			if (this.findProper && !isProper) saveLocation = false;
 			if (this.intPt === null || saveLocation) {
@@ -68,19 +68,19 @@ export default class SegmentIntersectionDetector {
 		}
 	}
 	hasIntersection() {
-		return this.hasIntersection;
+		return this._hasIntersection;
 	}
 	isDone() {
 		if (this.findAllTypes) {
-			return this.hasProperIntersection && this.hasNonProperIntersection;
+			return this._hasProperIntersection && this._hasNonProperIntersection;
 		}
 		if (this.findProper) {
-			return this.hasProperIntersection;
+			return this._hasProperIntersection;
 		}
-		return this.hasIntersection;
+		return this._hasIntersection;
 	}
 	hasNonProperIntersection() {
-		return this.hasNonProperIntersection;
+		return this._hasNonProperIntersection;
 	}
 	setFindProper(findProper) {
 		this.findProper = findProper;
