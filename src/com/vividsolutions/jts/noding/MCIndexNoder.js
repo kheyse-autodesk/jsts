@@ -1,4 +1,3 @@
-import SegmentOverlapAction from './SegmentOverlapAction';
 import STRtree from '../index/strtree/STRtree';
 import NodedSegmentString from './NodedSegmentString';
 import MonotoneChainBuilder from '../index/chain/MonotoneChainBuilder';

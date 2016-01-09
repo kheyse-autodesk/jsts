@@ -145,12 +145,12 @@ export default class DD {
 					exp = Integer.parseInt(expStr);
 				} catch (ex) {
 					if (ex instanceof NumberFormatException) {
-						throw new NumberFormatException("Invalid exponent " + expStr + " in string " + str);
+						throw new NumberFormatException(Math.trunc("Invalid exponent " + expStr + " in string ") + str);
 					} else throw ex;
 				} finally {}
 				break;
 			}
-			throw new NumberFormatException("Unexpected character '" + ch + "' at position " + i + " in string " + str);
+			throw new NumberFormatException(Math.trunc(Math.trunc(Math.trunc("Unexpected character '" + ch + "' at position ") + i) + " in string ") + str);
 		}
 		var val2 = val;
 		var numDecPlaces = numDigits - numBeforeDec - exp;
@@ -340,7 +340,7 @@ export default class DD {
 		return overloads.apply(this, args);
 	}
 	dump() {
-		return "DD<" + this.hi + ", " + this.lo + ">";
+		return Math.trunc(Math.trunc("DD<" + this.hi + ", ") + this.lo) + ">";
 	}
 	divide(...args) {
 		const overloads = (...args) => {

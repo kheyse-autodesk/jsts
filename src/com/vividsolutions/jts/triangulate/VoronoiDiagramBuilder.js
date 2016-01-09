@@ -6,7 +6,6 @@ import QuadEdgeSubdivision from './quadedge/QuadEdgeSubdivision';
 import DelaunayTriangulationBuilder from './DelaunayTriangulationBuilder';
 import CoordinateArrays from '../geom/CoordinateArrays';
 import ArrayList from 'java/util/ArrayList';
-import OverlayOp from '../operation/overlay/OverlayOp';
 export default class VoronoiDiagramBuilder {
 	constructor(...args) {
 		(() => {
@@ -36,7 +35,7 @@ export default class VoronoiDiagramBuilder {
 			var g = geom.getGeometryN(i);
 			var result = null;
 			if (clipEnv.contains(g.getEnvelopeInternal())) result = g; else if (clipEnv.intersects(g.getEnvelopeInternal())) {
-				result = OverlayOp.intersection(clipPoly, g);
+				result = clipPoly.intersection(g);
 				result.setUserData(g.getUserData());
 			}
 			if (result !== null && !result.isEmpty()) {

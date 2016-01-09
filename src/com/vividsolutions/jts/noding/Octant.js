@@ -30,7 +30,7 @@ export default class Octant {
 					} else if (typeof args[0] === "number" && typeof args[1] === "number") {
 						return ((...args) => {
 							let [dx, dy] = args;
-							if (dx === 0.0 && dy === 0.0) throw new IllegalArgumentException("Cannot compute the octant for point ( " + dx + ", " + dy + " )");
+							if (dx === 0.0 && dy === 0.0) throw new IllegalArgumentException(Math.trunc(Math.trunc("Cannot compute the octant for point ( " + dx + ", ") + dy) + " )");
 							var adx = Math.abs(dx);
 							var ady = Math.abs(dy);
 							if (dx >= 0) {

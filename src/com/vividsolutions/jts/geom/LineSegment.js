@@ -277,7 +277,7 @@ export default class LineSegment {
 		return segFrac;
 	}
 	toString() {
-		return "LINESTRING( " + this.p0.x + " " + this.p0.y + ", " + this.p1.x + " " + this.p1.y + ")";
+		return Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc("LINESTRING( " + this.p0.x + " ") + this.p0.y) + ", ") + this.p1.x) + " ") + this.p1.y) + ")";
 	}
 	isHorizontal() {
 		return this.p0.y === this.p1.y;

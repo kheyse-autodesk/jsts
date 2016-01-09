@@ -35,7 +35,7 @@ export default class LocateFailureException extends RuntimeException {
 		return [];
 	}
 	static msgWithSpatial(msg, seg) {
-		if (seg !== null) return msg + " [ " + seg + " ]";
+		if (seg !== null) return Math.trunc(msg + " [ " + seg) + " ]";
 		return msg;
 	}
 	getSegment() {

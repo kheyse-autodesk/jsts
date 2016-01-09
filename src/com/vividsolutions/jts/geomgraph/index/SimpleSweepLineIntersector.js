@@ -67,7 +67,7 @@ export default class SimpleSweepLineIntersector extends EdgeSetIntersector {
 					if (typeof args[2] === "boolean" && args[0].interfaces_ && args[0].interfaces_.indexOf(List) > -1 && args[1] instanceof SegmentIntersector) {
 						return ((...args) => {
 							let [edges, si, testAllSegments] = args;
-							this.add(edges, testAllSegments);
+							if (testAllSegments) this.add(edges, null); else this.add(edges);
 							this.computeIntersections(si);
 						})(...args);
 					} else if (args[2] instanceof SegmentIntersector && args[0].interfaces_ && args[0].interfaces_.indexOf(List) > -1 && args[1].interfaces_ && args[1].interfaces_.indexOf(List) > -1) {
@@ -86,26 +86,13 @@ export default class SimpleSweepLineIntersector extends EdgeSetIntersector {
 		const overloads = (...args) => {
 			switch (args.length) {
 				case 1:
-					if (args[0] instanceof Edge) {
-						return ((...args) => {
-							let [edge] = args;
-							var pts = edge.getCoordinates();
-							for (var i = 0; i < pts.length - 1; i++) {
-								var ss = new SweepLineSegment(edge, i);
-								var insertEvent = SweepLineEvent.createInsert(ss.getMinX());
-								this.events.add(insertEvent);
-								this.events.add(SweepLineEvent.createDelete(ss.getMaxX(), insertEvent));
-							}
-						})(...args);
-					} else if (args[0].interfaces_ && args[0].interfaces_.indexOf(List) > -1) {
-						return ((...args) => {
-							let [edges] = args;
-							for (var i = edges.iterator(); i.hasNext(); ) {
-								var edge = i.next();
-								this.add(edge);
-							}
-						})(...args);
-					}
+					return ((...args) => {
+						let [edges] = args;
+						for (var i = edges.iterator(); i.hasNext(); ) {
+							var edge = i.next();
+							this.add(edge, edge);
+						}
+					})(...args);
 				case 2:
 					if (args[0] instanceof Edge && args[1] instanceof Object) {
 						return ((...args) => {
@@ -113,21 +100,9 @@ export default class SimpleSweepLineIntersector extends EdgeSetIntersector {
 							var pts = edge.getCoordinates();
 							for (var i = 0; i < pts.length - 1; i++) {
 								var ss = new SweepLineSegment(edge, i);
-								var insertEvent = SweepLineEvent.createInsertWithLabel(ss.getMinX(), edgeSet);
+								var insertEvent = new SweepLineEvent(edgeSet, ss.getMinX(), null);
 								this.events.add(insertEvent);
-								this.events.add(SweepLineEvent.createDelete(ss.getMaxX(), insertEvent));
-							}
-						})(...args);
-					} else if (args[0].interfaces_ && args[0].interfaces_.indexOf(List) > -1 && typeof args[1] === "boolean") {
-						return ((...args) => {
-							let [edges, testAllSegments] = args;
-							for (var i = edges.iterator(); i.hasNext(); ) {
-								var edge = i.next();
-								if (testAllSegments) {
-									this.add(edge);
-								} else {
-									this.add(edge, edge);
-								}
+								this.events.add(new SweepLineEvent(ss.getMaxX(), insertEvent));
 							}
 						})(...args);
 					} else if (args[0].interfaces_ && args[0].interfaces_.indexOf(List) > -1 && args[1] instanceof Object) {

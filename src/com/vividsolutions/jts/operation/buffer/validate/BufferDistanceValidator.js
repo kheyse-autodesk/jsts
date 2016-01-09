@@ -54,7 +54,7 @@ export default class BufferDistanceValidator {
 			var pts = haus.getCoordinates();
 			this.errorLocation = pts[1];
 			this.errorIndicator = input.getFactory().createLineString(pts);
-			this.errMsg = "Distance between buffer curve and input is too large " + "(" + this.maxDistanceFound + " at " + WKTWriter.toLineString(pts[0], pts[1]) + ")";
+			this.errMsg = Math.trunc(Math.trunc("Distance between buffer curve and input is too large " + "(" + this.maxDistanceFound + " at ") + WKTWriter.toLineString(pts[0], pts[1])) + ")";
 		}
 	}
 	isValid() {
@@ -69,7 +69,7 @@ export default class BufferDistanceValidator {
 			this.checkNegativeValid();
 		}
 		if (BufferDistanceValidator.VERBOSE) {
-			System.out.println("Min Dist= " + this.minDistanceFound + "  err= " + 1.0 - this.minDistanceFound / this.bufDistance + "  Max Dist= " + this.maxDistanceFound + "  err= " + this.maxDistanceFound / this.bufDistance - 1.0);
+			System.out.println(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc("Min Dist= " + this.minDistanceFound + "  err= ") + 1.0 - this.minDistanceFound / this.bufDistance) + "  Max Dist= ") + this.maxDistanceFound) + "  err= ") + this.maxDistanceFound / this.bufDistance - 1.0);
 		}
 		return this.isValid;
 	}
@@ -93,7 +93,7 @@ export default class BufferDistanceValidator {
 			var pts = distOp.nearestPoints();
 			this.errorLocation = distOp.nearestPoints()[1];
 			this.errorIndicator = g1.getFactory().createLineString(pts);
-			this.errMsg = "Distance between buffer curve and input is too small " + "(" + this.minDistanceFound + " at " + WKTWriter.toLineString(pts[0], pts[1]) + " )";
+			this.errMsg = Math.trunc(Math.trunc("Distance between buffer curve and input is too small " + "(" + this.minDistanceFound + " at ") + WKTWriter.toLineString(pts[0], pts[1])) + " )";
 		}
 	}
 	checkPositiveValid() {

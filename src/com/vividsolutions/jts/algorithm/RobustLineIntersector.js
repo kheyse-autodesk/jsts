@@ -48,33 +48,19 @@ export default class RobustLineIntersector extends LineIntersector {
 		var env1 = new Envelope(this.inputLines[1][0], this.inputLines[1][1]);
 		return env0.contains(intPt) && env1.contains(intPt);
 	}
-	computeIntersection(...args) {
-		const overloads = (...args) => {
-			switch (args.length) {
-				case 3:
-					return ((...args) => {
-						let [p, p1, p2] = args;
-						this.proper = false;
-						if (Envelope.intersects(p1, p2, p)) {
-							if (CGAlgorithms.orientationIndex(p1, p2, p) === 0 && CGAlgorithms.orientationIndex(p2, p1, p) === 0) {
-								this.proper = true;
-								if (p.equals(p1) || p.equals(p2)) {
-									this.proper = false;
-								}
-								this.result = LineIntersector.POINT_INTERSECTION;
-								return null;
-							}
-						}
-						this.result = LineIntersector.NO_INTERSECTION;
-					})(...args);
-				case 4:
-					return ((...args) => {
-						let [p1, p2, p3, p4] = args;
-						super.computeIntersection(p1, p2, p3, p4);
-					})(...args);
+	computeIntersection(p, p1, p2) {
+		this.isProper = false;
+		if (Envelope.intersects(p1, p2, p)) {
+			if (CGAlgorithms.orientationIndex(p1, p2, p) === 0 && CGAlgorithms.orientationIndex(p2, p1, p) === 0) {
+				this.isProper = true;
+				if (p.equals(p1) || p.equals(p2)) {
+					this.isProper = false;
+				}
+				this.result = LineIntersector.POINT_INTERSECTION;
+				return null;
 			}
-		};
-		return overloads.apply(this, args);
+		}
+		this.result = LineIntersector.NO_INTERSECTION;
 	}
 	normalizeToMinimum(n1, n2, n3, n4, normPt) {
 		normPt.x = this.smallestInAbsValue(n1.x, n2.x, n3.x, n4.x);
@@ -128,7 +114,7 @@ export default class RobustLineIntersector extends LineIntersector {
 	checkDD(p1, p2, q1, q2, intPt) {
 		var intPtDD = CGAlgorithmsDD.intersection(p1, p2, q1, q2);
 		var isIn = this.isInSegmentEnvelopes(intPtDD);
-		System.out.println("DD in env = " + isIn + "  --------------------- " + intPtDD);
+		System.out.println(Math.trunc("DD in env = " + isIn + "  --------------------- ") + intPtDD);
 		if (intPt.distance(intPtDD) > 0.0001) {
 			System.out.println("Distance = " + intPt.distance(intPtDD));
 		}
@@ -209,7 +195,7 @@ export default class RobustLineIntersector extends LineIntersector {
 		n11.y -= normPt.y;
 	}
 	computeIntersect(p1, p2, q1, q2) {
-		this.proper = false;
+		this.isProper = false;
 		if (!Envelope.intersects(p1, p2, q1, q2)) return LineIntersector.NO_INTERSECTION;
 		var Pq1 = CGAlgorithms.orientationIndex(p1, p2, q1);
 		var Pq2 = CGAlgorithms.orientationIndex(p1, p2, q2);
@@ -226,7 +212,7 @@ export default class RobustLineIntersector extends LineIntersector {
 			return this.computeCollinearIntersection(p1, p2, q1, q2);
 		}
 		if (Pq1 === 0 || Pq2 === 0 || Qp1 === 0 || Qp2 === 0) {
-			this.proper = false;
+			this.isProper = false;
 			if (p1.equals2D(q1) || p1.equals2D(q2)) {
 				this.intPt[0] = p1;
 			} else if (p2.equals2D(q1) || p2.equals2D(q2)) {
@@ -241,7 +227,7 @@ export default class RobustLineIntersector extends LineIntersector {
 				this.intPt[0] = new Coordinate(p2);
 			}
 		} else {
-			this.proper = true;
+			this.isProper = true;
 			this.intPt[0] = this.intersection(p1, p2, q1, q2);
 		}
 		return LineIntersector.POINT_INTERSECTION;

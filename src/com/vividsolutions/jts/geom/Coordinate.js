@@ -1,8 +1,10 @@
 import NumberUtil from '../util/NumberUtil';
 import Double from 'java/lang/Double';
 import Comparable from 'java/lang/Comparable';
+import Cloneable from 'java/lang/Cloneable';
 import Comparator from 'java/util/Comparator';
 import Serializable from 'java/io/Serializable';
+import Assert from '../util/Assert';
 export default class Coordinate {
 	constructor(...args) {
 		(() => {
@@ -39,7 +41,7 @@ export default class Coordinate {
 		return overloads.apply(this, args);
 	}
 	get interfaces_() {
-		return [Comparable, Serializable];
+		return [Comparable, Cloneable, Serializable];
 	}
 	static get serialVersionUID() {
 		return 6683108902428366910;
@@ -139,10 +141,18 @@ export default class Coordinate {
 		return 0;
 	}
 	clone() {
-		return new Coordinate(this);
+		try {
+			var coord = super.clone();
+			return coord;
+		} catch (e) {
+			if (e instanceof CloneNotSupportedException) {
+				Assert.shouldNeverReachHere("this shouldn't happen because this class is Cloneable");
+				return null;
+			} else throw e;
+		} finally {}
 	}
 	toString() {
-		return "(" + this.x + ", " + this.y + ", " + this.z + ")";
+		return Math.trunc(Math.trunc(Math.trunc(Math.trunc("(" + this.x + ", ") + this.y) + ", ") + this.z) + ")";
 	}
 	distance3D(c) {
 		var dx = this.x - c.x;

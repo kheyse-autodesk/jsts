@@ -1,6 +1,4 @@
-import Translater from './Translater';
 import Coordinate from '../geom/Coordinate';
-import CommonCoordinateFilter from './CommonCoordinateFilter';
 export default class CommonBitsRemover {
 	constructor(...args) {
 		(() => {
@@ -23,6 +21,7 @@ export default class CommonBitsRemover {
 	addCommonBits(geom) {
 		var trans = new Translater(this.commonCoord);
 		geom.apply(trans);
+		geom.geometryChanged();
 	}
 	removeCommonBits(geom) {
 		if (this.commonCoord.x === 0.0 && this.commonCoord.y === 0.0) return geom;
@@ -31,6 +30,7 @@ export default class CommonBitsRemover {
 		invCoord.y = -invCoord.y;
 		var trans = new Translater(invCoord);
 		geom.apply(trans);
+		geom.geometryChanged();
 		return geom;
 	}
 	getCommonCoordinate() {

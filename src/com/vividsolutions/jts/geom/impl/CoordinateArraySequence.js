@@ -11,11 +11,6 @@ export default class CoordinateArraySequence {
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
-				case 0:
-					return ((...args) => {
-						let [] = args;
-						overloads.call(this, [], 3);
-					})(...args);
 				case 1:
 					if (args[0] instanceof Array) {
 						return ((...args) => {
@@ -33,6 +28,10 @@ export default class CoordinateArraySequence {
 					} else if (args[0].interfaces_ && args[0].interfaces_.indexOf(CoordinateSequence) > -1) {
 						return ((...args) => {
 							let [coordSeq] = args;
+							if (coordSeq === null) {
+								this.coordinates = new Array(0);
+								return null;
+							}
 							this.dimension = coordSeq.getDimension();
 							this.coordinates = new Array(coordSeq.size());
 							for (var i = 0; i < this.coordinates.length; i++) {
@@ -46,6 +45,7 @@ export default class CoordinateArraySequence {
 							let [coordinates, dimension] = args;
 							this.coordinates = coordinates;
 							this.dimension = dimension;
+							if (coordinates === null) this.coordinates = new Array(0);
 						})(...args);
 					} else if (Number.isInteger(args[0]) && Number.isInteger(args[1])) {
 						return ((...args) => {
@@ -129,7 +129,7 @@ export default class CoordinateArraySequence {
 		for (var i = 0; i < this.coordinates.length; i++) {
 			cloneCoordinates[i] = this.coordinates[i].clone();
 		}
-		return new CoordinateArraySequence(cloneCoordinates);
+		return new CoordinateArraySequence(cloneCoordinates, this.dimension);
 	}
 	expandEnvelope(env) {
 		for (var i = 0; i < this.coordinates.length; i++) {

@@ -1,3 +1,5 @@
+import StringBuffer from 'java/lang/StringBuffer';
+import StringUtil from '../util/StringUtil';
 import Double from 'java/lang/Double';
 import CoordinateSequence from './CoordinateSequence';
 export default class CoordinateSequences {
@@ -60,6 +62,22 @@ export default class CoordinateSequences {
 		for (var i = 0; i < length; i++) {
 			CoordinateSequences.copyCoord(src, srcPos + i, dest, destPos + i);
 		}
+	}
+	static toString(cs) {
+		var size = cs.size();
+		if (size === 0) return "()";
+		var dim = cs.getDimension();
+		var buf = new StringBuffer();
+		buf.append('(');
+		for (var i = 0; i < size; i++) {
+			if (i > 0) buf.append(" ");
+			for (var d = 0; d < dim; d++) {
+				if (d > 0) buf.append(",");
+				buf.append(StringUtil.toString(cs.getOrdinate(i, d)));
+			}
+		}
+		buf.append(')');
+		return buf.toString();
 	}
 	static ensureValidRing(fact, seq) {
 		var n = seq.size();

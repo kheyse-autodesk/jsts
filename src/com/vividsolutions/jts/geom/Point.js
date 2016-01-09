@@ -1,5 +1,6 @@
 import Geometry from './Geometry';
 import CoordinateFilter from './CoordinateFilter';
+import GeometryFactory from './GeometryFactory';
 import GeometryComponentFilter from './GeometryComponentFilter';
 import Dimension from './Dimension';
 import GeometryFilter from './GeometryFilter';
@@ -15,17 +16,17 @@ export default class Point extends Geometry {
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
-				case 1:
-					return ((...args) => {
-						let [factory] = args;
-						super(factory);
-						this.init(null);
-					})(...args);
 				case 2:
 					return ((...args) => {
 						let [coordinates, factory] = args;
 						super(factory);
 						this.init(coordinates);
+					})(...args);
+				case 3:
+					return ((...args) => {
+						let [coordinate, precisionModel, SRID] = args;
+						super(new GeometryFactory(precisionModel, SRID));
+						this.init(this.getFactory().getCoordinateSequenceFactory().create(coordinate !== null ? [coordinate] : []));
 					})(...args);
 			}
 		};
@@ -45,10 +46,16 @@ export default class Point extends Geometry {
 		env.expandToInclude(this.coordinates.getX(0), this.coordinates.getY(0));
 		return env;
 	}
+	getSortIndex() {
+		return Geometry.SORTINDEX_POINT;
+	}
 	getCoordinates() {
 		return this.isEmpty() ? [] : [this.getCoordinate()];
 	}
 	equalsExact(other, tolerance) {
+		if (!this.isEquivalentClass(other)) {
+			return false;
+		}
 		if (this.isEmpty() && other.isEmpty()) {
 			return true;
 		}
@@ -115,6 +122,7 @@ export default class Point extends Geometry {
 							let [filter] = args;
 							if (this.isEmpty()) return null;
 							filter.filter(this.coordinates, 0);
+							if (filter.isGeometryChanged()) this.geometryChanged();
 						})(...args);
 					} else if (args[0].interfaces_ && args[0].interfaces_.indexOf(GeometryFilter) > -1) {
 						return ((...args) => {
@@ -135,7 +143,9 @@ export default class Point extends Geometry {
 		return this.getFactory().createGeometryCollection(null);
 	}
 	clone() {
-		return new Point(this.coordinates.clone(), this.factory);
+		var p = super.clone();
+		p.coordinates = this.coordinates.clone();
+		return p;
 	}
 	getGeometryType() {
 		return "Point";

@@ -86,7 +86,7 @@ export default class Depth {
 		return Location.INTERIOR;
 	}
 	toString() {
-		return "A: " + this.depth[0][1] + "," + this.depth[0][2] + " B: " + this.depth[1][1] + "," + this.depth[1][2];
+		return Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc("A: " + this.depth[0][1] + ",") + this.depth[0][2]) + " B: ") + this.depth[1][1]) + ",") + this.depth[1][2];
 	}
 	add(...args) {
 		const overloads = (...args) => {

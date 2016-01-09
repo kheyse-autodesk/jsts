@@ -105,7 +105,7 @@ export default class BufferBuilder {
 		return subgraphList;
 	}
 	createEmptyResultGeometry() {
-		var emptyGeom = this.geomFact.createPolygon();
+		var emptyGeom = this.geomFact.createPolygon(null, null);
 		return emptyGeom;
 	}
 	getNoder(precisionModel) {

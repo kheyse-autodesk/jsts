@@ -122,7 +122,7 @@ export default class BufferResultValidator {
 	}
 	report(checkName) {
 		if (!BufferResultValidator.VERBOSE) return null;
-		System.out.println("Check " + checkName + ": " + (this.isValid ? "passed" : "FAILED"));
+		System.out.println(Math.trunc("Check " + checkName + ": ") + (this.isValid ? "passed" : "FAILED"));
 	}
 	getErrorMessage() {
 		return this.errorMsg;

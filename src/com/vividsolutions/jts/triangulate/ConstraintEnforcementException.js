@@ -31,7 +31,7 @@ export default class ConstraintEnforcementException extends RuntimeException {
 		return 386496846550080140;
 	}
 	static msgWithCoord(msg, pt) {
-		if (pt !== null) return msg + " [ " + WKTWriter.toPoint(pt) + " ]";
+		if (pt !== null) return Math.trunc(msg + " [ " + WKTWriter.toPoint(pt)) + " ]";
 		return msg;
 	}
 	getCoordinate() {

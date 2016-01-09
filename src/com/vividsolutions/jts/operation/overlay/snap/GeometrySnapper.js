@@ -1,7 +1,7 @@
 import TreeSet from 'java/util/TreeSet';
-import SnapTransformer from './SnapTransformer';
+import GeometryTransformer from '../../../geom/util/GeometryTransformer';
 import Double from 'java/lang/Double';
-import BufferOp from '../../buffer/BufferOp';
+import LineStringSnapper from './LineStringSnapper';
 import PrecisionModel from '../../../geom/PrecisionModel';
 import Polygonal from '../../../geom/Polygonal';
 export default class GeometrySnapper {
@@ -78,7 +78,7 @@ export default class GeometrySnapper {
 		var snappedGeom = snapTrans.transform(this.srcGeom);
 		var result = snappedGeom;
 		if (cleanResult && result instanceof Polygonal) {
-			result = BufferOp.bufferOp(snappedGeom, 0);
+			result = snappedGeom.buffer(0);
 		}
 		return result;
 	}
@@ -105,6 +105,50 @@ export default class GeometrySnapper {
 	}
 	getClass() {
 		return GeometrySnapper;
+	}
+}
+class SnapTransformer extends GeometryTransformer {
+	constructor(...args) {
+		super();
+		(() => {
+			this.snapTolerance = null;
+			this.snapPts = null;
+			this.isSelfSnap = false;
+		})();
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 2:
+					return ((...args) => {
+						let [snapTolerance, snapPts] = args;
+						this.snapTolerance = snapTolerance;
+						this.snapPts = snapPts;
+					})(...args);
+				case 3:
+					return ((...args) => {
+						let [snapTolerance, snapPts, isSelfSnap] = args;
+						this.snapTolerance = snapTolerance;
+						this.snapPts = snapPts;
+						this.isSelfSnap = isSelfSnap;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
+	get interfaces_() {
+		return [];
+	}
+	snapLine(srcPts, snapPts) {
+		var snapper = new LineStringSnapper(srcPts, this.snapTolerance);
+		snapper.setAllowSnappingToSourceVertices(this.isSelfSnap);
+		return snapper.snapTo(snapPts);
+	}
+	transformCoordinates(coords, parent) {
+		var srcPts = coords.toCoordinateArray();
+		var newPts = this.snapLine(srcPts, this.snapPts);
+		return this.factory.getCoordinateSequenceFactory().create(newPts);
+	}
+	getClass() {
+		return SnapTransformer;
 	}
 }
 

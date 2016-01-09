@@ -5,7 +5,7 @@ export default class BufferParameters {
 			this.endCapStyle = BufferParameters.CAP_ROUND;
 			this.joinStyle = BufferParameters.JOIN_ROUND;
 			this.mitreLimit = BufferParameters.DEFAULT_MITRE_LIMIT;
-			this.singleSided = false;
+			this.isSingleSided = false;
 			this.simplifyFactor = BufferParameters.DEFAULT_SIMPLIFY_FACTOR;
 		})();
 		const overloads = (...args) => {
@@ -75,7 +75,7 @@ export default class BufferParameters {
 		return this.endCapStyle;
 	}
 	isSingleSided() {
-		return this.singleSided;
+		return this.isSingleSided;
 	}
 	setQuadrantSegments(quadSegs) {
 		this.quadrantSegments = quadSegs;
@@ -116,7 +116,7 @@ export default class BufferParameters {
 		this.mitreLimit = mitreLimit;
 	}
 	setSingleSided(isSingleSided) {
-		this.singleSided = isSingleSided;
+		this.isSingleSided = isSingleSided;
 	}
 	getClass() {
 		return BufferParameters;

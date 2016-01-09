@@ -55,7 +55,7 @@ export default class Assert {
 					return ((...args) => {
 						let [expectedValue, actualValue, message] = args;
 						if (!actualValue.equals(expectedValue)) {
-							throw new AssertionFailedException("Expected " + expectedValue + " but encountered " + actualValue + (message !== null ? ": " + message : ""));
+							throw new AssertionFailedException(Math.trunc(Math.trunc("Expected " + expectedValue + " but encountered ") + actualValue) + (message !== null ? ": " + message : ""));
 						}
 					})(...args);
 			}

@@ -14,7 +14,7 @@ export default class EdgeRing {
 			this.pts = new ArrayList();
 			this.label = new Label(Location.NONE);
 			this.ring = null;
-			this.hole = null;
+			this.isHole = null;
 			this.shell = null;
 			this.holes = new ArrayList();
 			this.geometryFactory = null;
@@ -42,7 +42,7 @@ export default class EdgeRing {
 			coord[i] = this.pts.get(i);
 		}
 		this.ring = this.geometryFactory.createLinearRing(coord);
-		this.hole = CGAlgorithms.isCCW(this.ring.getCoordinates());
+		this.isHole = CGAlgorithms.isCCW(this.ring.getCoordinates());
 	}
 	isIsolated() {
 		return this.label.getGeometryCount() === 1;
@@ -98,7 +98,7 @@ export default class EdgeRing {
 		}
 	}
 	isHole() {
-		return this.hole;
+		return this.isHole;
 	}
 	setInResult() {
 		var de = this.startDe;

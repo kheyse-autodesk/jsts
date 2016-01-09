@@ -43,7 +43,7 @@ export default class JTSVersion {
 		return JTSVersion.MINOR;
 	}
 	toString() {
-		var ver = JTSVersion.MAJOR + "." + JTSVersion.MINOR + "." + JTSVersion.PATCH;
+		var ver = Math.trunc(Math.trunc(JTSVersion.MAJOR + "." + JTSVersion.MINOR) + ".") + JTSVersion.PATCH;
 		if (JTSVersion.releaseInfo !== null && JTSVersion.releaseInfo.length() > 0) return ver + " " + JTSVersion.releaseInfo;
 		return ver;
 	}

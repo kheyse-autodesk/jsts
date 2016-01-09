@@ -2,9 +2,12 @@ import CGAlgorithms from '../algorithm/CGAlgorithms';
 import Geometry from './Geometry';
 import Arrays from 'java/util/Arrays';
 import CoordinateFilter from './CoordinateFilter';
+import GeometryFactory from './GeometryFactory';
+import LinearRing from './LinearRing';
 import System from 'java/lang/System';
 import GeometryComponentFilter from './GeometryComponentFilter';
 import CoordinateArrays from './CoordinateArrays';
+import PrecisionModel from './PrecisionModel';
 import Polygonal from './Polygonal';
 import GeometryFilter from './GeometryFilter';
 import CoordinateSequenceFilter from './CoordinateSequenceFilter';
@@ -17,31 +20,36 @@ export default class Polygon extends Geometry {
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
-				case 1:
-					return ((...args) => {
-						let [factory] = args;
-						super(factory);
-						this.shell = this.getFactory().createLinearRing();
-						this.holes = [];
-					})(...args);
 				case 3:
+					if (args[2] instanceof GeometryFactory && args[0] instanceof LinearRing && args[1] instanceof Array) {
+						return ((...args) => {
+							let [shell, holes, factory] = args;
+							super(factory);
+							if (shell === null) {
+								shell = this.getFactory().createLinearRing(null);
+							}
+							if (holes === null) {
+								holes = [];
+							}
+							if (Polygon.hasNullElements(holes)) {
+								throw new IllegalArgumentException("holes must not contain null elements");
+							}
+							if (shell.isEmpty() && Polygon.hasNonEmptyElements(holes)) {
+								throw new IllegalArgumentException("shell is empty but holes are not");
+							}
+							this.shell = shell;
+							this.holes = holes;
+						})(...args);
+					} else if (Number.isInteger(args[2]) && args[0] instanceof LinearRing && args[1] instanceof PrecisionModel) {
+						return ((...args) => {
+							let [shell, precisionModel, SRID] = args;
+							overloads.call(this, shell, [], new GeometryFactory(precisionModel, SRID));
+						})(...args);
+					}
+				case 4:
 					return ((...args) => {
-						let [shell, holes, factory] = args;
-						super(factory);
-						if (shell === null) {
-							shell = this.getFactory().createLinearRing(null);
-						}
-						if (holes === null) {
-							holes = [];
-						}
-						if (Polygon.hasNullElements(holes)) {
-							throw new IllegalArgumentException("holes must not contain null elements");
-						}
-						if (shell.isEmpty() && Polygon.hasNonEmptyElements(holes)) {
-							throw new IllegalArgumentException("shell is empty but holes are not");
-						}
-						this.shell = shell;
-						this.holes = holes;
+						let [shell, holes, precisionModel, SRID] = args;
+						overloads.call(this, shell, holes, new GeometryFactory(precisionModel, SRID));
 					})(...args);
 			}
 		};
@@ -55,6 +63,9 @@ export default class Polygon extends Geometry {
 	}
 	computeEnvelopeInternal() {
 		return this.shell.getEnvelopeInternal();
+	}
+	getSortIndex() {
+		return Geometry.SORTINDEX_POLYGON;
 	}
 	getCoordinates() {
 		if (this.isEmpty()) {
@@ -110,6 +121,9 @@ export default class Polygon extends Geometry {
 		return true;
 	}
 	equalsExact(other, tolerance) {
+		if (!this.isEquivalentClass(other)) {
+			return false;
+		}
 		var otherPolygon = other;
 		var thisShell = this.shell;
 		var otherPolygonShell = otherPolygon.shell;
@@ -185,6 +199,18 @@ export default class Polygon extends Geometry {
 		}
 		return numPoints;
 	}
+	reverse() {
+		var poly = super.clone();
+		poly.shell = this.shell.clone().reverse();
+		poly.holes = new Array(this.holes.length);
+		for (var i = 0; i < this.holes.length; i++) {
+			poly.holes[i] = this.holes[i].clone().reverse();
+		}
+		return poly;
+	}
+	convexHull() {
+		return this.getExteriorRing().convexHull();
+	}
 	compareToSameClass(...args) {
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -243,6 +269,7 @@ export default class Polygon extends Geometry {
 									if (filter.isDone()) break;
 								}
 							}
+							if (filter.isGeometryChanged()) this.geometryChanged();
 						})(...args);
 					} else if (args[0].interfaces_ && args[0].interfaces_.indexOf(GeometryFilter) > -1) {
 						return ((...args) => {
@@ -276,12 +303,13 @@ export default class Polygon extends Geometry {
 		return this.getFactory().createMultiLineString(rings);
 	}
 	clone() {
-		var shell = this.shell.clone();
-		var holes = new Array(this.holes.length);
-		for (var i = 0; i < holes.length; i++) {
-			holes[i] = this.holes[i].clone();
+		var poly = super.clone();
+		poly.shell = this.shell.clone();
+		poly.holes = new Array(this.holes.length);
+		for (var i = 0; i < this.holes.length; i++) {
+			poly.holes[i] = this.holes[i].clone();
 		}
-		return new Polygon(shell, holes, this.factory);
+		return poly;
 	}
 	getGeometryType() {
 		return "Polygon";

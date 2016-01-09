@@ -1,5 +1,5 @@
 var ArrayList = require('./ArrayList');
-var Map = require('./Map');
+var MapInterface = require('./Map');
 
 
 /**
@@ -14,16 +14,16 @@ var HashMap = function() {
    * @type {Object}
    * @private
   */
-  this.object_ = {};
+  this.map_ = new Map();
 };
-HashMap.prototype = new Map();
+HashMap.prototype = new MapInterface();
 
 
 /**
  * @override
  */
 HashMap.prototype.get = function(key) {
-  return this.object_[key] || null;
+  return this.map_.get(key) || null;
 };
 
 
@@ -31,7 +31,7 @@ HashMap.prototype.get = function(key) {
  * @override
  */
 HashMap.prototype.put = function(key, value) {
-  this.object_[key] = value;
+  this.map_.set(key, value);
   return value;
 };
 
@@ -40,13 +40,9 @@ HashMap.prototype.put = function(key, value) {
  * @override
  */
 HashMap.prototype.values = function() {
-  var arrayList = new ArrayList();
-  for (var key in this.object_) {
-    if (this.object_.hasOwnProperty(key)) {
-      arrayList.add(this.object_[key]);
-    }
-  }
-  return arrayList;
+  const arrayList = new ArrayList()
+  Array.from(this.map_.values()).forEach(value => arrayList.add(value))
+  return arrayList
 };
 
 
@@ -54,7 +50,7 @@ HashMap.prototype.values = function() {
  * @override
  */
 HashMap.prototype.size = function() {
-  return this.values().size();
+  return this.map_.size();
 };
 
 module.exports = HashMap;

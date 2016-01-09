@@ -27,7 +27,7 @@ export default class NonRobustLineIntersector extends LineIntersector {
 		var b1 = null;
 		var c1 = null;
 		var r = null;
-		this.proper = false;
+		this.isProper = false;
 		a1 = p2.y - p1.y;
 		b1 = p1.x - p2.x;
 		c1 = p2.x * p1.y - p1.x * p2.y;
@@ -41,9 +41,9 @@ export default class NonRobustLineIntersector extends LineIntersector {
 			this.result = LineIntersector.NO_INTERSECTION;
 			return null;
 		}
-		this.proper = true;
+		this.isProper = true;
 		if (p.equals(p1) || p.equals(p2)) {
-			this.proper = false;
+			this.isProper = false;
 		}
 		this.result = LineIntersector.POINT_INTERSECTION;
 	}
@@ -114,7 +114,7 @@ export default class NonRobustLineIntersector extends LineIntersector {
 		var r2 = null;
 		var r3 = null;
 		var r4 = null;
-		this.proper = false;
+		this.isProper = false;
 		a1 = p2.y - p1.y;
 		b1 = p1.x - p2.x;
 		c1 = p2.x * p1.y - p1.x * p2.y;
@@ -139,9 +139,9 @@ export default class NonRobustLineIntersector extends LineIntersector {
 		this.pa.x = numX / denom;
 		var numY = a2 * c1 - a1 * c2;
 		this.pa.y = numY / denom;
-		this.proper = true;
-		if (this.pa.equals(p1) || this.pa.equals(p2) || this.pa.equals(p3) || this.pa.equals(p4)) {
-			this.proper = false;
+		this.isProper = true;
+		if (Math.trunc(this.pa.equals(p1) || this.pa.equals(p2) || this.pa.equals(p3)) || this.pa.equals(p4)) {
+			this.isProper = false;
 		}
 		if (this.precisionModel !== null) {
 			this.precisionModel.makePrecise(this.pa);

@@ -3,10 +3,10 @@ export default class GraphComponent {
 	constructor(...args) {
 		(() => {
 			this.label = null;
-			this.inResult = false;
-			this.covered = false;
-			this.coveredSet = false;
-			this.visited = false;
+			this.isInResult = false;
+			this.isCovered = false;
+			this.isCoveredSet = false;
+			this.isVisited = false;
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -27,16 +27,16 @@ export default class GraphComponent {
 		return [];
 	}
 	setVisited(isVisited) {
-		this.visited = isVisited;
+		this.isVisited = isVisited;
 	}
 	setInResult(isInResult) {
-		this.inResult = isInResult;
+		this.isInResult = isInResult;
 	}
 	isCovered() {
-		return this.covered;
+		return this.isCovered;
 	}
 	isCoveredSet() {
-		return this.coveredSet;
+		return this.isCoveredSet;
 	}
 	setLabel(label) {
 		this.label = label;
@@ -45,18 +45,18 @@ export default class GraphComponent {
 		return this.label;
 	}
 	setCovered(isCovered) {
-		this.covered = isCovered;
-		this.coveredSet = true;
+		this.isCovered = isCovered;
+		this.isCoveredSet = true;
 	}
 	updateIM(im) {
 		Assert.isTrue(this.label.getGeometryCount() >= 2, "found partial label");
 		this.computeIM(im);
 	}
 	isInResult() {
-		return this.inResult;
+		return this.isInResult;
 	}
 	isVisited() {
-		return this.visited;
+		return this.isVisited;
 	}
 	getClass() {
 		return GraphComponent;

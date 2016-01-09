@@ -5,7 +5,6 @@ import PolygonBuilder from './PolygonBuilder';
 import Position from '../../geomgraph/Position';
 import LineBuilder from './LineBuilder';
 import PointBuilder from './PointBuilder';
-import SnapIfNeededOverlayOp from './snap/SnapIfNeededOverlayOp';
 import Label from '../../geomgraph/Label';
 import OverlayNodeFactory from './OverlayNodeFactory';
 import GeometryGraphOperation from '../GeometryGraphOperation';
@@ -59,69 +58,6 @@ export default class OverlayOp extends GeometryGraphOperation {
 		var geomOv = gov.getResultGeometry(opCode);
 		return geomOv;
 	}
-	static union(g1, other) {
-		if (g1.isEmpty() || other.isEmpty()) {
-			if (g1.isEmpty() && other.isEmpty()) return OverlayOp.createEmptyResult(OverlayOp.UNION, g1, other, g1.getFactory());
-			if (g1.isEmpty()) return other.clone();
-			if (other.isEmpty()) return g1.clone();
-		}
-		return SnapIfNeededOverlayOp.overlayOp(g1, other, OverlayOp.UNION);
-	}
-	static intersection(g1, g2) {
-		if (g1.isEmpty() || g2.isEmpty()) return OverlayOp.createEmptyResult(OverlayOp.INTERSECTION, g1, g2, g1.getFactory());
-		return SnapIfNeededOverlayOp.overlayOp(g1, g2, OverlayOp.INTERSECTION);
-	}
-	static symDifference(g1, other) {
-		if (g1.isEmpty() || other.isEmpty()) {
-			if (g1.isEmpty() && other.isEmpty()) return OverlayOp.createEmptyResult(OverlayOp.SYMDIFFERENCE, g1, other, g1.getFactory());
-			if (g1.isEmpty()) return other.clone();
-			if (other.isEmpty()) return g1.clone();
-		}
-		return SnapIfNeededOverlayOp.overlayOp(g1, other, OverlayOp.SYMDIFFERENCE);
-	}
-	static resultDimension(opCode, g0, g1) {
-		var dim0 = g0.getDimension();
-		var dim1 = g1.getDimension();
-		var resultDimension = -1;
-		switch (opCode) {
-			case OverlayOp.INTERSECTION:
-				resultDimension = Math.min(dim0, dim1);
-				break;
-			case OverlayOp.UNION:
-				resultDimension = Math.max(dim0, dim1);
-				break;
-			case OverlayOp.DIFFERENCE:
-				resultDimension = dim0;
-				break;
-			case OverlayOp.SYMDIFFERENCE:
-				resultDimension = Math.max(dim0, dim1);
-				break;
-		}
-		return resultDimension;
-	}
-	static createEmptyResult(overlayOpCode, a, b, geomFact) {
-		var result = null;
-		switch (OverlayOp.resultDimension(overlayOpCode, a, b)) {
-			case -1:
-				result = geomFact.createGeometryCollection(new Array(0));
-				break;
-			case 0:
-				result = geomFact.createPoint();
-				break;
-			case 1:
-				result = geomFact.createLineString();
-				break;
-			case 2:
-				result = geomFact.createPolygon();
-				break;
-		}
-		return result;
-	}
-	static difference(g1, other) {
-		if (g1.isEmpty()) return OverlayOp.createEmptyResult(OverlayOp.DIFFERENCE, g1, other, g1.getFactory());
-		if (other.isEmpty()) return g1.clone();
-		return SnapIfNeededOverlayOp.overlayOp(g1, other, OverlayOp.DIFFERENCE);
-	}
 	static isResultOfOp(...args) {
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -152,6 +88,44 @@ export default class OverlayOp extends GeometryGraphOperation {
 			}
 		};
 		return overloads.apply(this, args);
+	}
+	static createEmptyResult(overlayOpCode, a, b, geomFact) {
+		var result = null;
+		switch (OverlayOp.resultDimension(overlayOpCode, a, b)) {
+			case -1:
+				result = geomFact.createGeometryCollection(new Array(0));
+				break;
+			case 0:
+				result = geomFact.createPoint(null);
+				break;
+			case 1:
+				result = geomFact.createLineString(null);
+				break;
+			case 2:
+				result = geomFact.createPolygon(null, null);
+				break;
+		}
+		return result;
+	}
+	static resultDimension(opCode, g0, g1) {
+		var dim0 = g0.getDimension();
+		var dim1 = g1.getDimension();
+		var resultDimension = -1;
+		switch (opCode) {
+			case OverlayOp.INTERSECTION:
+				resultDimension = Math.min(dim0, dim1);
+				break;
+			case OverlayOp.UNION:
+				resultDimension = Math.max(dim0, dim1);
+				break;
+			case OverlayOp.DIFFERENCE:
+				resultDimension = dim0;
+				break;
+			case OverlayOp.SYMDIFFERENCE:
+				resultDimension = Math.max(dim0, dim1);
+				break;
+		}
+		return resultDimension;
 	}
 	insertUniqueEdge(e) {
 		var existingEdge = this.edgeList.findEqualEdge(e);

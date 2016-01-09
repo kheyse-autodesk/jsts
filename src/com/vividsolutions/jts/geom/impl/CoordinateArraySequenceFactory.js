@@ -33,11 +33,6 @@ export default class CoordinateArraySequenceFactory {
 	create(...args) {
 		const overloads = (...args) => {
 			switch (args.length) {
-				case 0:
-					return ((...args) => {
-						let [] = args;
-						return new CoordinateArraySequence();
-					})(...args);
 				case 1:
 					if (args[0] instanceof Array) {
 						return ((...args) => {

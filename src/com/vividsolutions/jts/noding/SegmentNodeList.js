@@ -1,3 +1,4 @@
+import CoordinateList from '../geom/CoordinateList';
 import SegmentNode from './SegmentNode';
 import Iterator from 'java/util/Iterator';
 import Coordinate from '../geom/Coordinate';
@@ -27,6 +28,18 @@ export default class SegmentNodeList {
 	get interfaces_() {
 		return [];
 	}
+	getSplitCoordinates() {
+		var coordList = new CoordinateList();
+		this.addEndpoints();
+		var it = this.iterator();
+		var eiPrev = it.next();
+		while (it.hasNext()) {
+			var ei = it.next();
+			this.addEdgeCoordinates(eiPrev, ei, coordList);
+			eiPrev = ei;
+		}
+		return coordList.toCoordinateArray();
+	}
 	addCollapsedNodes() {
 		var collapsedVertexIndexes = new ArrayList();
 		this.findCollapsesFromInsertedNodes(collapsedVertexIndexes);
@@ -51,6 +64,22 @@ export default class SegmentNodeList {
 			if (p0.equals2D(p2)) {
 				collapsedVertexIndexes.add(new Integer(i + 1));
 			}
+		}
+	}
+	addEdgeCoordinates(ei0, ei1, coordList) {
+		var npts = ei1.segmentIndex - ei0.segmentIndex + 2;
+		var lastSegStartPt = this.edge.getCoordinate(ei1.segmentIndex);
+		var useIntPt1 = ei1.isInterior() || !ei1.coord.equals2D(lastSegStartPt);
+		if (!useIntPt1) {
+			npts--;
+		}
+		var ipt = 0;
+		coordList.add(new Coordinate(ei0.coord), false);
+		for (var i = ei0.segmentIndex + 1; i <= ei1.segmentIndex; i++) {
+			coordList.add(this.edge.getCoordinate(i));
+		}
+		if (useIntPt1) {
+			coordList.add(new Coordinate(ei1.coord));
 		}
 	}
 	iterator() {
@@ -112,7 +141,7 @@ export default class SegmentNodeList {
 		for (var i = ei0.segmentIndex + 1; i <= ei1.segmentIndex; i++) {
 			pts[ipt++] = this.edge.getCoordinate(i);
 		}
-		if (useIntPt1) pts[ipt] = ei1.coord;
+		if (useIntPt1) pts[ipt] = new Coordinate(ei1.coord);
 		return new NodedSegmentString(pts, this.edge.getData());
 	}
 	add(intPt, segmentIndex) {

@@ -1,8 +1,6 @@
-import BufferOp from '../buffer/BufferOp';
 import GeometryCombiner from '../../geom/util/GeometryCombiner';
 import System from 'java/lang/System';
 import ArrayList from 'java/util/ArrayList';
-import OverlayOp from '../overlay/OverlayOp';
 export default class UnionInteracting {
 	constructor(...args) {
 		(() => {
@@ -76,7 +74,7 @@ export default class UnionInteracting {
 		if (int0.isEmpty() || int1.isEmpty()) {
 			System.out.println("found empty!");
 		}
-		var union = OverlayOp.union(int0, int1);
+		var union = int0.union(int1);
 		var disjoint0 = this.extractElements(this.g0, this.interacts0, false);
 		var disjoint1 = this.extractElements(this.g1, this.interacts1, false);
 		var overallUnion = GeometryCombiner.combine(union, disjoint0, disjoint1);
@@ -85,7 +83,7 @@ export default class UnionInteracting {
 	bufferUnion(g0, g1) {
 		var factory = g0.getFactory();
 		var gColl = factory.createGeometryCollection([g0, g1]);
-		var unionAll = BufferOp.bufferOp(gColl, 0.0);
+		var unionAll = gColl.buffer(0.0);
 		return unionAll;
 	}
 	getClass() {

@@ -9,7 +9,7 @@ export default class ParseException extends Exception {
 					if (args[0] instanceof Exception) {
 						return ((...args) => {
 							let [e] = args;
-							overloads.call(this, e.toString());
+							overloads.call(this, e.toString(), e);
 						})(...args);
 					} else if (typeof args[0] === "string") {
 						return ((...args) => {
@@ -17,6 +17,11 @@ export default class ParseException extends Exception {
 							super(message);
 						})(...args);
 					}
+				case 2:
+					return ((...args) => {
+						let [message, e] = args;
+						super(message, e);
+					})(...args);
 			}
 		};
 		return overloads.apply(this, args);

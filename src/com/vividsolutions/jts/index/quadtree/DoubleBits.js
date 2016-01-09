@@ -79,7 +79,7 @@ export default class DoubleBits {
 		var zero64 = "0000000000000000000000000000000000000000000000000000000000000000";
 		var padStr = zero64 + numStr;
 		var bitStr = padStr.substring(padStr.length() - 64);
-		var str = bitStr.substring(0, 1) + "  " + bitStr.substring(1, 12) + "(" + this.getExponent() + ") " + bitStr.substring(12) + " [ " + this.x + " ]";
+		var str = Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc(bitStr.substring(0, 1) + "  " + bitStr.substring(1, 12)) + "(") + this.getExponent()) + ") ") + bitStr.substring(12)) + " [ ") + this.x) + " ]";
 		return str;
 	}
 	getBit(i) {

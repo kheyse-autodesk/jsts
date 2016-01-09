@@ -104,7 +104,7 @@ export default class CGAlgorithms {
 				var s_num = (A.y - C.y) * (B.x - A.x) - (A.x - C.x) * (B.y - A.y);
 				var s = s_num / denom;
 				var r = r_num / denom;
-				if (r < 0 || r > 1 || s < 0 || s > 1) {
+				if (Math.trunc(r < 0 || r > 1 || s < 0) || s > 1) {
 					noIntersection = true;
 				}
 			}
@@ -161,6 +161,26 @@ export default class CGAlgorithms {
 	static computeOrientation(p1, p2, q) {
 		return CGAlgorithms.orientationIndex(p1, p2, q);
 	}
+	static length(pts) {
+		var n = pts.size();
+		if (n <= 1) return 0.0;
+		var len = 0.0;
+		var p = new Coordinate();
+		pts.getCoordinate(0, p);
+		var x0 = p.x;
+		var y0 = p.y;
+		for (var i = 1; i < n; i++) {
+			pts.getCoordinate(i, p);
+			var x1 = p.x;
+			var y1 = p.y;
+			var dx = x1 - x0;
+			var dy = y1 - y0;
+			len += Math.sqrt(dx * dx + dy * dy);
+			x0 = x1;
+			y0 = y1;
+		}
+		return len;
+	}
 	static distancePointLine(...args) {
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -203,26 +223,6 @@ export default class CGAlgorithms {
 			}
 		}
 		return false;
-	}
-	static distance(pts) {
-		var n = pts.size();
-		if (n <= 1) return 0.0;
-		var len = 0.0;
-		var p = new Coordinate();
-		pts.getCoordinate(0, p);
-		var x0 = p.x;
-		var y0 = p.y;
-		for (var i = 1; i < n; i++) {
-			pts.getCoordinate(i, p);
-			var x1 = p.x;
-			var y1 = p.y;
-			var dx = x1 - x0;
-			var dy = y1 - y0;
-			len += Math.sqrt(dx * dx + dy * dy);
-			x0 = x1;
-			y0 = y1;
-		}
-		return len;
 	}
 	getClass() {
 		return CGAlgorithms;

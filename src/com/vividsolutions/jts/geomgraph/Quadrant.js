@@ -56,7 +56,7 @@ export default class Quadrant {
 					} else if (typeof args[0] === "number" && typeof args[1] === "number") {
 						return ((...args) => {
 							let [dx, dy] = args;
-							if (dx === 0.0 && dy === 0.0) throw new IllegalArgumentException("Cannot compute the quadrant for point ( " + dx + ", " + dy + " )");
+							if (dx === 0.0 && dy === 0.0) throw new IllegalArgumentException(Math.trunc(Math.trunc("Cannot compute the quadrant for point ( " + dx + ", ") + dy) + " )");
 							if (dx >= 0.0) {
 								if (dy >= 0.0) return Quadrant.NE; else return Quadrant.SE;
 							} else {

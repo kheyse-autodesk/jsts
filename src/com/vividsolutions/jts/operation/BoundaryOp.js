@@ -33,8 +33,24 @@ export default class BoundaryOp {
 	get interfaces_() {
 		return [];
 	}
-	static getBoundary(geom, bnRule) {
-		return new BoundaryOp(geom, bnRule).getBoundary();
+	static getBoundary(...args) {
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [g] = args;
+						var bop = new BoundaryOp(g);
+						return bop.getBoundary();
+					})(...args);
+				case 2:
+					return ((...args) => {
+						let [g, bnRule] = args;
+						var bop = new BoundaryOp(g, bnRule);
+						return bop.getBoundary();
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
 	}
 	boundaryMultiLineString(mLine) {
 		if (this.geom.isEmpty()) {

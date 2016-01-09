@@ -2,7 +2,6 @@ import CGAlgorithms from '../../algorithm/CGAlgorithms';
 import CoordinateList from '../../geom/CoordinateList';
 import WKTWriter from '../../io/WKTWriter';
 import CoordinateArraySequence from '../../geom/impl/CoordinateArraySequence';
-import IsValidOp from '../valid/IsValidOp';
 import LinearRing from '../../geom/LinearRing';
 import Exception from 'java/lang/Exception';
 import System from 'java/lang/System';
@@ -123,7 +122,7 @@ export default class EdgeRing {
 		this.getCoordinates();
 		if (this.ringPts.length <= 3) return false;
 		this.getRing();
-		return IsValidOp.isValid(this.ring);
+		return this.ring.isValid();
 	}
 	build(startDE) {
 		var de = startDE;
@@ -257,7 +256,7 @@ class EnvelopeComparator {
 	compare(obj0, obj1) {
 		var r0 = obj0;
 		var r1 = obj1;
-		return r0.getRing().getEnvelopeInternal().compareTo(r1.getRing().getEnvelopeInternal());
+		return r0.getRing().getEnvelope().compareTo(r1.getRing().getEnvelope());
 	}
 	getClass() {
 		return EnvelopeComparator;

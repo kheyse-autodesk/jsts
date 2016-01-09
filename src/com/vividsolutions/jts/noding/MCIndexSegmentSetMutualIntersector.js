@@ -1,5 +1,4 @@
 import SegmentSetMutualIntersector from './SegmentSetMutualIntersector';
-import SegmentOverlapAction from './SegmentOverlapAction';
 import STRtree from '../index/strtree/STRtree';
 import MonotoneChainBuilder from '../index/chain/MonotoneChainBuilder';
 import ArrayList from 'java/util/ArrayList';

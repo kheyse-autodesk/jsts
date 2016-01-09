@@ -118,11 +118,6 @@ export default class GeometryFactory {
 	createLineString(...args) {
 		const overloads = (...args) => {
 			switch (args.length) {
-				case 0:
-					return ((...args) => {
-						let [] = args;
-						return new LineString(this);
-					})(...args);
 				case 1:
 					if (args[0] instanceof Array) {
 						return ((...args) => {
@@ -180,11 +175,6 @@ export default class GeometryFactory {
 	createPoint(...args) {
 		const overloads = (...args) => {
 			switch (args.length) {
-				case 0:
-					return ((...args) => {
-						let [] = args;
-						return new Point(this);
-					})(...args);
 				case 1:
 					if (args[0] instanceof Coordinate) {
 						return ((...args) => {
@@ -207,11 +197,6 @@ export default class GeometryFactory {
 	createPolygon(...args) {
 		const overloads = (...args) => {
 			switch (args.length) {
-				case 0:
-					return ((...args) => {
-						let [] = args;
-						return new Polygon(this);
-					})(...args);
 				case 1:
 					if (args[0] instanceof LinearRing) {
 						return ((...args) => {
@@ -258,16 +243,11 @@ export default class GeometryFactory {
 	createLinearRing(...args) {
 		const overloads = (...args) => {
 			switch (args.length) {
-				case 0:
-					return ((...args) => {
-						let [] = args;
-						return new LinearRing(this);
-					})(...args);
 				case 1:
 					if (args[0] instanceof Array) {
 						return ((...args) => {
 							let [coordinates] = args;
-							return this.createLinearRing(this.getCoordinateSequenceFactory().create(coordinates));
+							return this.createLinearRing(coordinates !== null ? this.getCoordinateSequenceFactory().create(coordinates) : null);
 						})(...args);
 					} else if (args[0].interfaces_ && args[0].interfaces_.indexOf(CoordinateSequence) > -1) {
 						return ((...args) => {
@@ -294,7 +274,7 @@ export default class GeometryFactory {
 					} else if (args[0] instanceof Array) {
 						return ((...args) => {
 							let [coordinates] = args;
-							return this.createMultiPoint(this.getCoordinateSequenceFactory().create(coordinates));
+							return this.createMultiPoint(coordinates !== null ? this.getCoordinateSequenceFactory().create(coordinates) : null);
 						})(...args);
 					} else if (args[0].interfaces_ && args[0].interfaces_.indexOf(CoordinateSequence) > -1) {
 						return ((...args) => {

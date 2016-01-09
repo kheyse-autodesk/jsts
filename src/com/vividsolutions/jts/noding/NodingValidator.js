@@ -1,3 +1,4 @@
+import Debug from '../util/Debug';
 import RobustLineIntersector from '../algorithm/RobustLineIntersector';
 import RuntimeException from 'java/lang/RuntimeException';
 export default class NodingValidator {
@@ -40,7 +41,7 @@ export default class NodingValidator {
 							var ss = i.next();
 							var pts = ss.getCoordinates();
 							for (var j = 1; j < pts.length - 1; j++) {
-								if (pts[j].equals(testPt)) throw new RuntimeException("found endpt/interior pt intersection at index " + j + " :pt " + testPt);
+								if (pts[j].equals(testPt)) throw new RuntimeException(Math.trunc("found endpt/interior pt intersection at index " + j + " :pt ") + testPt);
 							}
 						}
 					})(...args);
@@ -84,7 +85,7 @@ export default class NodingValidator {
 						this.li.computeIntersection(p00, p01, p10, p11);
 						if (this.li.hasIntersection()) {
 							if (this.li.isProper() || this.hasInteriorIntersection(this.li, p00, p01) || this.hasInteriorIntersection(this.li, p10, p11)) {
-								throw new RuntimeException("found non-noded intersection at " + p00 + "-" + p01 + " and " + p10 + "-" + p11);
+								throw new RuntimeException(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc("found non-noded intersection at " + p00 + "-") + p01) + " and ") + p10) + "-") + p11);
 							}
 						}
 					})(...args);
@@ -128,7 +129,7 @@ export default class NodingValidator {
 		return false;
 	}
 	checkCollapse(p0, p1, p2) {
-		if (p0.equals(p2)) throw new RuntimeException("found non-noded collapse");
+		if (p0.equals(p2)) throw new RuntimeException("found non-noded collapse at " + Debug.toLine(p0, p1, p2));
 	}
 	getClass() {
 		return NodingValidator;

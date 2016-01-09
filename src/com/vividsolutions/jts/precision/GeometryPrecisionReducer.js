@@ -1,7 +1,5 @@
 import GeometryFactory from '../geom/GeometryFactory';
-import IsValidOp from '../operation/valid/IsValidOp';
 import GeometryEditor from '../geom/util/GeometryEditor';
-import BufferOp from '../operation/buffer/BufferOp';
 import Polygonal from '../geom/Polygonal';
 import PrecisionReducerCoordinateOperation from './PrecisionReducerCoordinateOperation';
 export default class GeometryPrecisionReducer {
@@ -40,7 +38,7 @@ export default class GeometryPrecisionReducer {
 		if (!this.changePrecisionModel) {
 			geomToBuffer = this.changePM(geom, this.targetPM);
 		}
-		var bufGeom = BufferOp.bufferOp(geomToBuffer, 0);
+		var bufGeom = geomToBuffer.buffer(0);
 		var finalGeom = bufGeom;
 		if (!this.changePrecisionModel) {
 			finalGeom = geom.getFactory().createGeometry(bufGeom);
@@ -76,7 +74,7 @@ export default class GeometryPrecisionReducer {
 		var reducePW = this.reducePointwise(geom);
 		if (this.isPointwise) return reducePW;
 		if (!(reducePW instanceof Polygonal)) return reducePW;
-		if (IsValidOp.isValid(reducePW)) return reducePW;
+		if (reducePW.isValid()) return reducePW;
 		return this.fixPolygonalTopology(reducePW);
 	}
 	setPointwise(isPointwise) {

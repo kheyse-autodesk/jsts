@@ -1,5 +1,4 @@
 import GeometrySnapper from './GeometrySnapper';
-import IsValidOp from '../../valid/IsValidOp';
 import System from 'java/lang/System';
 import CommonBitsRemover from '../../../precision/CommonBitsRemover';
 import OverlayOp from '../OverlayOp';
@@ -66,7 +65,7 @@ export default class SnapOverlayOp {
 		return this.prepareResult(result);
 	}
 	checkValid(g) {
-		if (!IsValidOp.isValid(g)) {
+		if (!g.isValid()) {
 			System.out.println("Snapped geometry is invalid");
 		}
 	}

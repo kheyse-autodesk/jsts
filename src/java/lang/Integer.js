@@ -8,4 +8,9 @@ export default class Integer {
   intValue() {
     return this.value
   }
+  compareTo(o) {
+    if (this.value < o) return -1;
+    if (this.value > o) return 1;
+    return 0;
+  }
 }

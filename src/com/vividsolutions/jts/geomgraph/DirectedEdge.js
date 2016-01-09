@@ -7,9 +7,9 @@ export default class DirectedEdge extends EdgeEnd {
 	constructor(...args) {
 		super();
 		(() => {
-			this.forward = null;
-			this.inResult = false;
-			this.visited = false;
+			this.isForward = null;
+			this.isInResult = false;
+			this.isVisited = false;
 			this.sym = null;
 			this.next = null;
 			this.nextMin = null;
@@ -23,7 +23,7 @@ export default class DirectedEdge extends EdgeEnd {
 					return ((...args) => {
 						let [edge, isForward] = args;
 						super(edge);
-						this.forward = isForward;
+						this.isForward = isForward;
 						if (isForward) {
 							this.init(edge.getCoordinate(0), edge.getCoordinate(1));
 						} else {
@@ -50,11 +50,11 @@ export default class DirectedEdge extends EdgeEnd {
 		return this.depth[position];
 	}
 	setVisited(isVisited) {
-		this.visited = isVisited;
+		this.isVisited = isVisited;
 	}
 	computeDirectedLabel() {
 		this.label = new Label(this.edge.getLabel());
-		if (!this.forward) this.label.flip();
+		if (!this.isForward) this.label.flip();
 	}
 	getNext() {
 		return this.next;
@@ -79,9 +79,9 @@ export default class DirectedEdge extends EdgeEnd {
 	}
 	print(out) {
 		super.print(out);
-		out.print(" " + this.depth[Position.LEFT] + "/" + this.depth[Position.RIGHT]);
+		out.print(Math.trunc(" " + this.depth[Position.LEFT] + "/") + this.depth[Position.RIGHT]);
 		out.print(" (" + this.getDepthDelta() + ")");
-		if (this.inResult) out.print(" inResult");
+		if (this.isInResult) out.print(" inResult");
 	}
 	setMinEdgeRing(minEdgeRing) {
 		this.minEdgeRing = minEdgeRing;
@@ -100,17 +100,17 @@ export default class DirectedEdge extends EdgeEnd {
 	}
 	getDepthDelta() {
 		var depthDelta = this.edge.getDepthDelta();
-		if (!this.forward) depthDelta = -depthDelta;
+		if (!this.isForward) depthDelta = -depthDelta;
 		return depthDelta;
 	}
 	setInResult(isInResult) {
-		this.inResult = isInResult;
+		this.isInResult = isInResult;
 	}
 	getSym() {
 		return this.sym;
 	}
 	isForward() {
-		return this.forward;
+		return this.isForward;
 	}
 	getEdge() {
 		return this.edge;
@@ -118,7 +118,7 @@ export default class DirectedEdge extends EdgeEnd {
 	printEdge(out) {
 		this.print(out);
 		out.print(" ");
-		if (this.forward) this.edge.print(out); else this.edge.printReverse(out);
+		if (this.isForward) this.edge.print(out); else this.edge.printReverse(out);
 	}
 	setSym(de) {
 		this.sym = de;
@@ -129,7 +129,7 @@ export default class DirectedEdge extends EdgeEnd {
 	}
 	setEdgeDepths(position, depth) {
 		var depthDelta = this.getEdge().getDepthDelta();
-		if (!this.forward) depthDelta = -depthDelta;
+		if (!this.isForward) depthDelta = -depthDelta;
 		var directionFactor = 1;
 		if (position === Position.LEFT) directionFactor = -1;
 		var oppositePos = Position.opposite(position);
@@ -142,13 +142,13 @@ export default class DirectedEdge extends EdgeEnd {
 		return this.edgeRing;
 	}
 	isInResult() {
-		return this.inResult;
+		return this.isInResult;
 	}
 	setNext(next) {
 		this.next = next;
 	}
 	isVisited() {
-		return this.visited;
+		return this.isVisited;
 	}
 	getClass() {
 		return DirectedEdge;

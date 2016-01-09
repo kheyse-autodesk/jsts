@@ -2,12 +2,10 @@ import PolygonExtracter from '../../geom/util/PolygonExtracter';
 import STRtree from '../../index/strtree/STRtree';
 import Geometry from '../../geom/Geometry';
 import GeometryFactory from '../../geom/GeometryFactory';
-import BufferOp from '../buffer/BufferOp';
 import GeometryCombiner from '../../geom/util/GeometryCombiner';
 import Polygonal from '../../geom/Polygonal';
 import ArrayList from 'java/util/ArrayList';
 import List from 'java/util/List';
-import OverlayOp from '../overlay/OverlayOp';
 export default class CascadedPolygonUnion {
 	constructor(...args) {
 		(() => {
@@ -126,7 +124,7 @@ export default class CascadedPolygonUnion {
 		var union = null;
 		for (var i = geoms.iterator(); i.hasNext(); ) {
 			var g = i.next();
-			if (union === null) union = g.clone(); else union = OverlayOp.union(union, g);
+			if (union === null) union = g.clone(); else union = union.union(g);
 		}
 		return union;
 	}
@@ -137,7 +135,7 @@ export default class CascadedPolygonUnion {
 		return this.unionOptimized(g0, g1);
 	}
 	unionActual(g0, g1) {
-		return CascadedPolygonUnion.restrictToPolygons(OverlayOp.union(g0, g1));
+		return CascadedPolygonUnion.restrictToPolygons(g0.union(g1));
 	}
 	unionTree(geomTree) {
 		var geoms = this.reduceToGeometries(geomTree);
@@ -161,7 +159,7 @@ export default class CascadedPolygonUnion {
 						let [geoms] = args;
 						var factory = geoms.get(0).getFactory();
 						var gColl = factory.buildGeometry(geoms);
-						var unionAll = BufferOp.bufferOp(gColl, 0.0);
+						var unionAll = gColl.buffer(0.0);
 						return unionAll;
 					})(...args);
 				case 2:
@@ -169,7 +167,7 @@ export default class CascadedPolygonUnion {
 						let [g0, g1] = args;
 						var factory = g0.getFactory();
 						var gColl = factory.createGeometryCollection([g0, g1]);
-						var unionAll = BufferOp.bufferOp(gColl, 0.0);
+						var unionAll = gColl.buffer(0.0);
 						return unionAll;
 					})(...args);
 			}

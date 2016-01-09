@@ -44,7 +44,7 @@ export default class EdgeIntersection {
 		return false;
 	}
 	toString() {
-		return this.coord + " seg # = " + this.segmentIndex + " dist = " + this.dist;
+		return Math.trunc(Math.trunc(this.coord + " seg # = " + this.segmentIndex) + " dist = ") + this.dist;
 	}
 	getDistance() {
 		return this.dist;

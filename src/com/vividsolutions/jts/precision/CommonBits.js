@@ -65,7 +65,7 @@ export default class CommonBits {
 		var numStr = Long.toBinaryString(bits);
 		var padStr = "0000000000000000000000000000000000000000000000000000000000000000" + numStr;
 		var bitStr = padStr.substring(padStr.length() - 64);
-		var str = bitStr.substring(0, 1) + "  " + bitStr.substring(1, 12) + "(exp) " + bitStr.substring(12) + " [ " + x + " ]";
+		var str = Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc(bitStr.substring(0, 1) + "  " + bitStr.substring(1, 12)) + "(exp) ") + bitStr.substring(12)) + " [ ") + x) + " ]";
 		return str;
 	}
 	getClass() {

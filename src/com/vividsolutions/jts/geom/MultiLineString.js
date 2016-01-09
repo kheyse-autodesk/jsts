@@ -1,3 +1,6 @@
+import Geometry from './Geometry';
+import GeometryFactory from './GeometryFactory';
+import BoundaryOp from '../operation/BoundaryOp';
 import Lineal from './Lineal';
 import GeometryCollection from './GeometryCollection';
 import Dimension from './Dimension';
@@ -12,6 +15,11 @@ export default class MultiLineString extends GeometryCollection {
 						let [lineStrings, factory] = args;
 						super(lineStrings, factory);
 					})(...args);
+				case 3:
+					return ((...args) => {
+						let [lineStrings, precisionModel, SRID] = args;
+						super(lineStrings, new GeometryFactory(precisionModel, SRID));
+					})(...args);
 			}
 		};
 		return overloads.apply(this, args);
@@ -22,7 +30,13 @@ export default class MultiLineString extends GeometryCollection {
 	static get serialVersionUID() {
 		return 8166665132445433741;
 	}
+	getSortIndex() {
+		return Geometry.SORTINDEX_MULTILINESTRING;
+	}
 	equalsExact(other, tolerance) {
+		if (!this.isEquivalentClass(other)) {
+			return false;
+		}
 		return super.equalsExact(other, tolerance);
 	}
 	getBoundaryDimension() {
@@ -45,8 +59,16 @@ export default class MultiLineString extends GeometryCollection {
 	getDimension() {
 		return 1;
 	}
+	reverse() {
+		var nLines = this.geometries.length;
+		var revLines = new Array(nLines);
+		for (var i = 0; i < this.geometries.length; i++) {
+			revLines[nLines - 1 - i] = this.geometries[i].reverse();
+		}
+		return this.getFactory().createMultiLineString(revLines);
+	}
 	getBoundary() {
-		return null;
+		return new BoundaryOp(this).getBoundary();
 	}
 	getGeometryType() {
 		return "MultiLineString";

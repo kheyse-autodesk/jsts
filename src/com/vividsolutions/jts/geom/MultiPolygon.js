@@ -1,3 +1,5 @@
+import Geometry from './Geometry';
+import GeometryFactory from './GeometryFactory';
 import GeometryCollection from './GeometryCollection';
 import Polygonal from './Polygonal';
 import ArrayList from 'java/util/ArrayList';
@@ -12,6 +14,11 @@ export default class MultiPolygon extends GeometryCollection {
 						let [polygons, factory] = args;
 						super(polygons, factory);
 					})(...args);
+				case 3:
+					return ((...args) => {
+						let [polygons, precisionModel, SRID] = args;
+						overloads.call(this, polygons, new GeometryFactory(precisionModel, SRID));
+					})(...args);
 			}
 		};
 		return overloads.apply(this, args);
@@ -22,7 +29,13 @@ export default class MultiPolygon extends GeometryCollection {
 	static get serialVersionUID() {
 		return -551033529766975875;
 	}
+	getSortIndex() {
+		return Geometry.SORTINDEX_MULTIPOLYGON;
+	}
 	equalsExact(other, tolerance) {
+		if (!this.isEquivalentClass(other)) {
+			return false;
+		}
 		return super.equalsExact(other, tolerance);
 	}
 	getBoundaryDimension() {
@@ -30,6 +43,14 @@ export default class MultiPolygon extends GeometryCollection {
 	}
 	getDimension() {
 		return 2;
+	}
+	reverse() {
+		var n = this.geometries.length;
+		var revGeoms = new Array(n);
+		for (var i = 0; i < this.geometries.length; i++) {
+			revGeoms[i] = this.geometries[i].reverse();
+		}
+		return this.getFactory().createMultiPolygon(revGeoms);
 	}
 	getBoundary() {
 		if (this.isEmpty()) {

@@ -60,7 +60,7 @@ export default class EdgeEnd {
 		var className = this.getClass().getName();
 		var lastDotPos = className.lastIndexOf('.');
 		var name = className.substring(lastDotPos + 1);
-		out.print("  " + name + ": " + this.p0 + " - " + this.p1 + " " + this.quadrant + ":" + angle + "   " + this.label);
+		out.print(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc("  " + name + ": ") + this.p0) + " - ") + this.p1) + " ") + this.quadrant) + ":") + angle) + "   ") + this.label);
 	}
 	compareTo(obj) {
 		var e = obj;
@@ -89,7 +89,7 @@ export default class EdgeEnd {
 		var className = this.getClass().getName();
 		var lastDotPos = className.lastIndexOf('.');
 		var name = className.substring(lastDotPos + 1);
-		return "  " + name + ": " + this.p0 + " - " + this.p1 + " " + this.quadrant + ":" + angle + "   " + this.label;
+		return Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc("  " + name + ": ") + this.p0) + " - ") + this.p1) + " ") + this.quadrant) + ":") + angle) + "   ") + this.label;
 	}
 	computeLabel(boundaryNodeRule) {}
 	init(p0, p1) {

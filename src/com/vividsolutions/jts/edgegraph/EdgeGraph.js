@@ -18,6 +18,10 @@ export default class EdgeGraph {
 	get interfaces_() {
 		return [];
 	}
+	static isValidEdge(orig, dest) {
+		var cmp = dest.compareTo(orig);
+		return cmp !== 0;
+	}
 	insert(orig, dest, eAdj) {
 		var e = this.create(orig, dest);
 		if (eAdj !== null) {
@@ -43,8 +47,7 @@ export default class EdgeGraph {
 		return new HalfEdge(orig);
 	}
 	addEdge(orig, dest) {
-		var cmp = dest.compareTo(orig);
-		if (cmp === 0) return null;
+		if (!EdgeGraph.isValidEdge(orig, dest)) return null;
 		var eAdj = this.vertexMap.get(orig);
 		var eSame = null;
 		if (eAdj !== null) {

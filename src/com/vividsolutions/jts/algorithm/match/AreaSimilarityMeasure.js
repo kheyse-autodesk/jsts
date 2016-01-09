@@ -1,5 +1,4 @@
 import SimilarityMeasure from './SimilarityMeasure';
-import OverlayOp from '../../operation/overlay/OverlayOp';
 export default class AreaSimilarityMeasure {
 	constructor(...args) {
 		(() => {})();
@@ -17,8 +16,8 @@ export default class AreaSimilarityMeasure {
 		return [SimilarityMeasure];
 	}
 	measure(g1, g2) {
-		var areaInt = OverlayOp.intersection(g1, g2).getArea();
-		var areaUnion = OverlayOp.union(g1, g2).getArea();
+		var areaInt = g1.intersection(g2).getArea();
+		var areaUnion = g1.union(g2).getArea();
 		return areaInt / areaUnion;
 	}
 	getClass() {

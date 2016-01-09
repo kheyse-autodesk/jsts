@@ -2,6 +2,8 @@ import WKTReader from './com/vividsolutions/jts/io/WKTReader'
 import WKTWriter from './com/vividsolutions/jts/io/WKTWriter'
 import OverlayOp from './com/vividsolutions/jts/operation/overlay/OverlayOp'
 
+import GeometryMixin from './com/vividsolutions/jts/geom/GeometryMixin'
+
 var reader = new WKTReader()
 var writer = new WKTWriter()
 
@@ -34,5 +36,5 @@ console.log(writer.write(intersection))*/
 
 var a = reader.read('POLYGON((1 1, 1 5, 5 5, 5 1, 1 1))')
 var b = reader.read('POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))')
-var union = OverlayOp.union(a, b)
+var union = a.union(b)
 console.log(writer.write(union))

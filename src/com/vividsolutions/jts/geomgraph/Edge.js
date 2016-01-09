@@ -16,7 +16,7 @@ export default class Edge extends GraphComponent {
 			this.eiList = new EdgeIntersectionList(this);
 			this.name = null;
 			this.mce = null;
-			this.isolated = true;
+			this.isIsolated = true;
 			this.depth = new Depth();
 			this.depthDelta = 0;
 		})();
@@ -58,13 +58,13 @@ export default class Edge extends GraphComponent {
 		return newe;
 	}
 	isIsolated() {
-		return this.isolated;
+		return this.isIsolated;
 	}
 	getCoordinates() {
 		return this.pts;
 	}
 	setIsolated(isIsolated) {
-		this.isolated = isIsolated;
+		this.isIsolated = isIsolated;
 	}
 	setName(name) {
 		this.name = name;
@@ -112,7 +112,7 @@ export default class Edge extends GraphComponent {
 			if (i > 0) out.print(",");
 			out.print(this.pts[i].x + " " + this.pts[i].y);
 		}
-		out.print(")  " + this.label + " " + this.depthDelta);
+		out.print(Math.trunc(")  " + this.label + " ") + this.depthDelta);
 	}
 	computeIM(im) {
 		Edge.updateIM(this.label, im);
@@ -177,7 +177,7 @@ export default class Edge extends GraphComponent {
 			if (i > 0) buf.append(",");
 			buf.append(this.pts[i].x + " " + this.pts[i].y);
 		}
-		buf.append(")  " + this.label + " " + this.depthDelta);
+		buf.append(Math.trunc(")  " + this.label + " ") + this.depthDelta);
 		return buf.toString();
 	}
 	isPointwiseEqual(e) {

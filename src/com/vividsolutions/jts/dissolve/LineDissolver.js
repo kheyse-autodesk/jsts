@@ -129,9 +129,14 @@ export default class LineDissolver {
 								this.factory = lineString.getFactory();
 							}
 							var seq = lineString.getCoordinateSequence();
+							var doneStart = false;
 							for (var i = 1; i < seq.size(); i++) {
 								var e = this.graph.addEdge(seq.getCoordinate(i - 1), seq.getCoordinate(i));
-								if (i === 1) e.setStart();
+								if (e === null) continue;
+								if (!doneStart) {
+									e.setStart();
+									doneStart = true;
+								}
 							}
 						})(...args);
 					} else if (args[0] instanceof Geometry) {

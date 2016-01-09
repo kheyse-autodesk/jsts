@@ -2,7 +2,6 @@ import Geometry from '../geom/Geometry';
 import Coordinate from '../geom/Coordinate';
 import Point from '../geom/Point';
 import Double from 'java/lang/Double';
-import Centroid from './Centroid';
 import GeometryCollection from '../geom/GeometryCollection';
 export default class InteriorPointPoint {
 	constructor(...args) {
@@ -16,7 +15,7 @@ export default class InteriorPointPoint {
 				case 1:
 					return ((...args) => {
 						let [g] = args;
-						this.centroid = Centroid.getCentroid(g);
+						this.centroid = g.getCentroid().getCoordinate();
 						this.add(g);
 					})(...args);
 			}

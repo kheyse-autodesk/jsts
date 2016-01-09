@@ -1,7 +1,5 @@
 import Coordinate from '../geom/Coordinate';
 import Double from 'java/lang/Double';
-import BufferOp from '../operation/buffer/BufferOp';
-import ConvexHull from './ConvexHull';
 import CoordinateArrays from '../geom/CoordinateArrays';
 import Angle from './Angle';
 import Assert from '../util/Assert';
@@ -98,7 +96,7 @@ export default class MinimumBoundingCircle {
 			this.extremalPts = [new Coordinate(pts[0])];
 			return null;
 		}
-		var convexHull = new ConvexHull(this.input).getConvexHull();
+		var convexHull = this.input.convexHull();
 		var hullPts = convexHull.getCoordinates();
 		var pts = hullPts;
 		if (hullPts[0].equals2D(hullPts[hullPts.length - 1])) {
@@ -153,7 +151,7 @@ export default class MinimumBoundingCircle {
 		if (this.centre === null) return this.input.getFactory().createPolygon(null, null);
 		var centrePoint = this.input.getFactory().createPoint(this.centre);
 		if (this.radius === 0.0) return centrePoint;
-		return BufferOp.bufferOp(centrePoint, this.radius);
+		return centrePoint.buffer(this.radius);
 	}
 	getCentre() {
 		this.compute();

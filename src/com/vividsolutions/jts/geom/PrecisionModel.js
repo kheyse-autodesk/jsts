@@ -1,6 +1,7 @@
 import HashMap from 'java/util/HashMap';
 import Coordinate from './Coordinate';
 import Double from 'java/lang/Double';
+import Integer from 'java/lang/Integer';
 import Comparable from 'java/lang/Comparable';
 import Serializable from 'java/io/Serializable';
 export default class PrecisionModel {
@@ -38,6 +39,12 @@ export default class PrecisionModel {
 							this.setScale(scale);
 						})(...args);
 					}
+				case 3:
+					return ((...args) => {
+						let [scale, offsetX, offsetY] = args;
+						this.modelType = PrecisionModel.FIXED;
+						this.setScale(scale);
+					})(...args);
 			}
 		};
 		return overloads.apply(this, args);
@@ -67,6 +74,32 @@ export default class PrecisionModel {
 		if (pm1.compareTo(pm2) >= 0) return pm1;
 		return pm2;
 	}
+	toInternal(...args) {
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [external] = args;
+						var internal = new Coordinate(external);
+						this.makePrecise(internal);
+						return internal;
+					})(...args);
+				case 2:
+					return ((...args) => {
+						let [external, internal] = args;
+						if (this.isFloating()) {
+							internal.x = external.x;
+							internal.y = external.y;
+						} else {
+							internal.x = this.makePrecise(external.x);
+							internal.y = this.makePrecise(external.y);
+						}
+						internal.z = external.z;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
 	equals(other) {
 		if (!(other instanceof PrecisionModel)) {
 			return false;
@@ -74,13 +107,14 @@ export default class PrecisionModel {
 		var otherPrecisionModel = other;
 		return this.modelType === otherPrecisionModel.modelType && this.scale === otherPrecisionModel.scale;
 	}
+	getOffsetY() {
+		return 0;
+	}
 	compareTo(o) {
 		var other = o;
 		var sigDigits = this.getMaximumSignificantDigits();
 		var otherSigDigits = other.getMaximumSignificantDigits();
-		if (sigDigits < otherSigDigits) return -1;
-		if (sigDigits > otherSigDigits) return 1;
-		return 0;
+		return new Integer(sigDigits).compareTo(new Integer(otherSigDigits));
 	}
 	getScale() {
 		return this.scale;
@@ -88,8 +122,30 @@ export default class PrecisionModel {
 	isFloating() {
 		return this.modelType === PrecisionModel.FLOATING || this.modelType === PrecisionModel.FLOATING_SINGLE;
 	}
+	toExternal(...args) {
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [internal] = args;
+						var external = new Coordinate(internal);
+						return external;
+					})(...args);
+				case 2:
+					return ((...args) => {
+						let [internal, external] = args;
+						external.x = internal.x;
+						external.y = internal.y;
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
+	}
 	getType() {
 		return this.modelType;
+	}
+	getOffsetX() {
+		return 0;
 	}
 	toString() {
 		var description = "UNKNOWN";

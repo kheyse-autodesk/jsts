@@ -8,7 +8,7 @@ export default class SegmentNode {
 			this.coord = null;
 			this.segmentIndex = null;
 			this.segmentOctant = null;
-			this.interior = null;
+			this.isInterior = null;
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -19,7 +19,7 @@ export default class SegmentNode {
 						this.coord = new Coordinate(coord);
 						this.segmentIndex = segmentIndex;
 						this.segmentOctant = segmentOctant;
-						this.interior = !coord.equals2D(segString.getCoordinate(segmentIndex));
+						this.isInterior = !coord.equals2D(segString.getCoordinate(segmentIndex));
 					})(...args);
 			}
 		};
@@ -43,12 +43,12 @@ export default class SegmentNode {
 		return SegmentPointComparator.compare(this.segmentOctant, this.coord, other.coord);
 	}
 	isEndPoint(maxSegmentIndex) {
-		if (this.segmentIndex === 0 && !this.interior) return true;
+		if (this.segmentIndex === 0 && !this.isInterior) return true;
 		if (this.segmentIndex === maxSegmentIndex) return true;
 		return false;
 	}
 	isInterior() {
-		return this.interior;
+		return this.isInterior;
 	}
 	getClass() {
 		return SegmentNode;

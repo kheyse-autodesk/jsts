@@ -1,4 +1,5 @@
 import StringBuffer from 'java/lang/StringBuffer';
+import WKTWriter from '../io/WKTWriter';
 import Coordinate from '../geom/Coordinate';
 import Assert from '../util/Assert';
 export default class LineIntersector {
@@ -8,7 +9,7 @@ export default class LineIntersector {
 			this.inputLines = Array(2).fill().map(() => Array(2));
 			this.intPt = new Array(2);
 			this.intLineIndex = null;
-			this.proper = null;
+			this.isProper = null;
 			this.pa = null;
 			this.pb = null;
 			this.precisionModel = null;
@@ -82,7 +83,7 @@ export default class LineIntersector {
 	getTopologySummary() {
 		var catBuf = new StringBuffer();
 		if (this.isEndPoint()) catBuf.append(" endpoint");
-		if (this.proper) catBuf.append(" proper");
+		if (this.isProper) catBuf.append(" proper");
 		if (this.isCollinear()) catBuf.append(" collinear");
 		return catBuf.toString();
 	}
@@ -126,7 +127,7 @@ export default class LineIntersector {
 		return overloads.apply(this, args);
 	}
 	isProper() {
-		return this.hasIntersection() && this.proper;
+		return this.hasIntersection() && this.isProper;
 	}
 	setPrecisionModel(precisionModel) {
 		this.precisionModel = precisionModel;
@@ -159,7 +160,7 @@ export default class LineIntersector {
 		return this.intPt[intIndex];
 	}
 	isEndPoint() {
-		return this.hasIntersection() && !this.proper;
+		return this.hasIntersection() && !this.isProper;
 	}
 	hasIntersection() {
 		return this.result !== LineIntersector.NO_INTERSECTION;
@@ -170,6 +171,9 @@ export default class LineIntersector {
 	}
 	isCollinear() {
 		return this.result === LineIntersector.COLLINEAR_INTERSECTION;
+	}
+	toString() {
+		return Math.trunc(WKTWriter.toLineString(this.inputLines[0][0], this.inputLines[0][1]) + " - " + WKTWriter.toLineString(this.inputLines[1][0], this.inputLines[1][1])) + this.getTopologySummary();
 	}
 	setMakePrecise(precisionModel) {
 		this.precisionModel = precisionModel;

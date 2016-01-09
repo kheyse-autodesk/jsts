@@ -38,7 +38,7 @@ export default class NonRobustCGAlgorithms extends CGAlgorithms {
 		}
 		var s = s_top / s_bot;
 		var r = r_top / r_bot;
-		if (r < 0 || r > 1 || s < 0 || s > 1) {
+		if (Math.trunc(r < 0 || r > 1 || s < 0) || s > 1) {
 			return Math.min(NonRobustCGAlgorithms.distancePointLine(A, C, D), Math.min(NonRobustCGAlgorithms.distancePointLine(B, C, D), Math.min(NonRobustCGAlgorithms.distancePointLine(C, A, B), NonRobustCGAlgorithms.distancePointLine(D, A, B))));
 		}
 		return 0.0;

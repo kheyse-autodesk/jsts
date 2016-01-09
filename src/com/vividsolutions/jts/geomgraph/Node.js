@@ -38,7 +38,7 @@ export default class Node extends GraphComponent {
 		return this.coord;
 	}
 	print(out) {
-		out.println("node " + this.coord + " lbl: " + this.label);
+		out.println(Math.trunc("node " + this.coord + " lbl: ") + this.label);
 	}
 	computeIM(im) {}
 	computeMergedLocation(label2, eltIndex) {

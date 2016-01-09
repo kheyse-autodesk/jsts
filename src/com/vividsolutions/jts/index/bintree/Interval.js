@@ -58,7 +58,7 @@ export default class Interval {
 		return this.min;
 	}
 	toString() {
-		return "[" + this.min + ", " + this.max + "]";
+		return Math.trunc(Math.trunc("[" + this.min + ", ") + this.max) + "]";
 	}
 	contains(...args) {
 		const overloads = (...args) => {

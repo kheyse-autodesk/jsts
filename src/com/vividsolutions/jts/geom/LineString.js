@@ -1,6 +1,8 @@
 import CGAlgorithms from '../algorithm/CGAlgorithms';
 import Geometry from './Geometry';
 import CoordinateFilter from './CoordinateFilter';
+import GeometryFactory from './GeometryFactory';
+import BoundaryOp from '../operation/BoundaryOp';
 import Lineal from './Lineal';
 import CoordinateSequences from './CoordinateSequences';
 import GeometryComponentFilter from './GeometryComponentFilter';
@@ -16,17 +18,17 @@ export default class LineString extends Geometry {
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
-				case 1:
-					return ((...args) => {
-						let [factory] = args;
-						super(factory);
-						this.init(null);
-					})(...args);
 				case 2:
 					return ((...args) => {
 						let [points, factory] = args;
 						super(factory);
 						this.init(points);
+					})(...args);
+				case 3:
+					return ((...args) => {
+						let [points, precisionModel, SRID] = args;
+						super(new GeometryFactory(precisionModel, SRID));
+						this.init(this.getFactory().getCoordinateSequenceFactory().create(points));
 					})(...args);
 			}
 		};
@@ -43,6 +45,12 @@ export default class LineString extends Geometry {
 			return new Envelope();
 		}
 		return this.points.expandEnvelope(new Envelope());
+	}
+	isRing() {
+		return this.isClosed() && this.isSimple();
+	}
+	getSortIndex() {
+		return Geometry.SORTINDEX_LINESTRING;
 	}
 	getCoordinates() {
 		return this.points.toCoordinateArray();
@@ -99,7 +107,7 @@ export default class LineString extends Geometry {
 		return 1;
 	}
 	getLength() {
-		return CGAlgorithms.distance(this.points);
+		return CGAlgorithms.length(this.points);
 	}
 	getNumPoints() {
 		return this.points.size();
@@ -164,6 +172,7 @@ export default class LineString extends Geometry {
 								filter.filter(this.points, i);
 								if (filter.isDone()) break;
 							}
+							if (filter.isGeometryChanged()) this.geometryChanged();
 						})(...args);
 					} else if (args[0].interfaces_ && args[0].interfaces_.indexOf(GeometryFilter) > -1) {
 						return ((...args) => {
@@ -181,13 +190,15 @@ export default class LineString extends Geometry {
 		return overloads.apply(this, args);
 	}
 	getBoundary() {
-		return null;
+		return new BoundaryOp(this).getBoundary();
 	}
 	isEquivalentClass(other) {
 		return other instanceof LineString;
 	}
 	clone() {
-		return new LineString(this.points.clone(), this.factory);
+		var ls = super.clone();
+		ls.points = this.points.clone();
+		return ls;
 	}
 	getCoordinateN(n) {
 		return this.points.getCoordinate(n);
