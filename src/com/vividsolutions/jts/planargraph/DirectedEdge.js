@@ -61,7 +61,7 @@ export default class DirectedEdge extends GraphComponent {
 		var className = this.getClass().getName();
 		var lastDotPos = className.lastIndexOf('.');
 		var name = className.substring(lastDotPos + 1);
-		out.print(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc("  " + name + ": ") + this.p0) + " - ") + this.p1) + " ") + this.quadrant) + ":") + this.angle);
+		out.print("  " + name + ": " + this.p0 + " - " + this.p1 + " " + this.quadrant + ":" + this.angle);
 	}
 	getDirectionPt() {
 		return this.p1;

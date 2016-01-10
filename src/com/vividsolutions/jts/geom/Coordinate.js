@@ -152,7 +152,7 @@ export default class Coordinate {
 		} finally {}
 	}
 	toString() {
-		return Math.trunc(Math.trunc(Math.trunc(Math.trunc("(" + this.x + ", ") + this.y) + ", ") + this.z) + ")";
+		return "(" + this.x + ", " + this.y + ", " + this.z + ")";
 	}
 	distance3D(c) {
 		var dx = this.x - c.x;

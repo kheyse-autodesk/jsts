@@ -27,7 +27,7 @@ export default class TopologyException extends RuntimeException {
 		return [];
 	}
 	static msgWithCoord(msg, pt) {
-		if (pt !== null) return Math.trunc(msg + " [ " + pt) + " ]";
+		if (pt !== null) return msg + " [ " + pt + " ]";
 		return msg;
 	}
 	getCoordinate() {

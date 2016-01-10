@@ -50,12 +50,35 @@ Geometry.prototype.union = function(...args) {
 				})(...args);
 		}
 	};
+	return overloads.apply(this, args)
+}
+
+Geometry.prototype.buffer = function(...args) {
+	const overloads = (...args) => {
+		switch (args.length) {
+			case 1:
+				return ((...args) => {
+					let [distance] = args;
+					return BufferOp.bufferOp(this, distance);
+				})(...args);
+			case 2:
+				return ((...args) => {
+					let [distance, quadrantSegments] = args;
+					return BufferOp.bufferOp(this, distance, quadrantSegments);
+				})(...args);
+			case 3:
+				return ((...args) => {
+					let [distance, quadrantSegments, endCapStyle] = args;
+					return BufferOp.bufferOp(this, distance, quadrantSegments, endCapStyle);
+				})(...args);
+		}
+	};
 	return overloads.apply(this, args);
-};
+}
 
 Geometry.prototype.checkNotGeometryCollection = function() {
   return !(this instanceof GeometryCollection);
-};
+}
 
 /*
 

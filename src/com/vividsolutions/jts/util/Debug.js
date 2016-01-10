@@ -142,7 +142,7 @@ export default class Debug {
 		}
 		var time = Debug.stopwatch.getTime();
 		var elapsedTime = time - Debug.lastTimePrinted;
-		Debug.debug.instancePrint(Math.trunc(Math.trunc(Debug.formatField(Stopwatch.getTimeString(time), 10) + " (" + Debug.formatField(Stopwatch.getTimeString(elapsedTime), 10)) + " ) ") + tag);
+		Debug.debug.instancePrint(Debug.formatField(Stopwatch.getTimeString(time), 10) + " (" + Debug.formatField(Stopwatch.getTimeString(elapsedTime), 10) + " ) " + tag);
 		Debug.debug.println();
 		Debug.lastTimePrinted = time;
 	}

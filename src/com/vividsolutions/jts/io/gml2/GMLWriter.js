@@ -76,10 +76,10 @@ export default class GMLWriter {
 		if (geom === null) return null;
 		if (!this.isRootTag) return null;
 		if (this.emitNamespace) {
-			writer.write(Math.trunc(Math.trunc(" xmlns" + (this.prefix === null || "".equals(this.prefix) ? "" : ":" + this.prefix) + "='") + this.namespace) + "'");
+			writer.write(" xmlns" + (this.prefix === null || "".equals(this.prefix) ? "" : ":" + this.prefix) + "='" + this.namespace + "'");
 		}
 		if (this.srsName !== null && this.srsName.length() > 0) {
-			writer.write(Math.trunc(Math.trunc(" " + GMLConstants.GML_ATTR_SRSNAME + "='") + this.srsName) + "'");
+			writer.write(" " + GMLConstants.GML_ATTR_SRSNAME + "='" + this.srsName + "'");
 		}
 	}
 	setCustomElements(customElements) {

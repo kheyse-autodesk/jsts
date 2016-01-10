@@ -53,9 +53,9 @@ export default class ByteOrderValues {
 	}
 	static getInt(buf, byteOrder) {
 		if (byteOrder === ByteOrderValues.BIG_ENDIAN) {
-			return Math.trunc(Math.trunc(buf[0] & 0xff) << 24 | Math.trunc(buf[1] & 0xff) << 16 | Math.trunc(buf[2] & 0xff) << 8) | Math.trunc(buf[3] & 0xff);
+			return Math.trunc(buf[0] & 0xff) << 24 | Math.trunc(buf[1] & 0xff) << 16 | Math.trunc(buf[2] & 0xff) << 8 | Math.trunc(buf[3] & 0xff);
 		} else {
-			return Math.trunc(Math.trunc(buf[3] & 0xff) << 24 | Math.trunc(buf[2] & 0xff) << 16 | Math.trunc(buf[1] & 0xff) << 8) | Math.trunc(buf[0] & 0xff);
+			return Math.trunc(buf[3] & 0xff) << 24 | Math.trunc(buf[2] & 0xff) << 16 | Math.trunc(buf[1] & 0xff) << 8 | Math.trunc(buf[0] & 0xff);
 		}
 	}
 	static getLong(buf, byteOrder) {

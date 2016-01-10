@@ -147,14 +147,9 @@ export default class BufferOp {
 		this.bufParams.setQuadrantSegments(quadrantSegments);
 	}
 	bufferOriginalPrecision() {
-		try {
 			var bufBuilder = new BufferBuilder(this.bufParams);
 			this.resultGeometry = bufBuilder.buffer(this.argGeom, this.distance);
-		} catch (ex) {
-			if (ex instanceof RuntimeException) {
-				this.saveException = ex;
-			} else throw ex;
-		} finally {}
+
 	}
 	getResultGeometry(distance) {
 		this.distance = distance;

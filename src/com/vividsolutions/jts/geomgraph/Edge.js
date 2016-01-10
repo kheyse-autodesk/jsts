@@ -112,7 +112,7 @@ export default class Edge extends GraphComponent {
 			if (i > 0) out.print(",");
 			out.print(this.pts[i].x + " " + this.pts[i].y);
 		}
-		out.print(Math.trunc(")  " + this.label + " ") + this.depthDelta);
+		out.print(")  " + this.label + " " + this.depthDelta);
 	}
 	computeIM(im) {
 		Edge.updateIM(this.label, im);
@@ -177,7 +177,7 @@ export default class Edge extends GraphComponent {
 			if (i > 0) buf.append(",");
 			buf.append(this.pts[i].x + " " + this.pts[i].y);
 		}
-		buf.append(Math.trunc(")  " + this.label + " ") + this.depthDelta);
+		buf.append(")  " + this.label + " " + this.depthDelta);
 		return buf.toString();
 	}
 	isPointwiseEqual(e) {

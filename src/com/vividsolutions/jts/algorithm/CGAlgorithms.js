@@ -104,7 +104,7 @@ export default class CGAlgorithms {
 				var s_num = (A.y - C.y) * (B.x - A.x) - (A.x - C.x) * (B.y - A.y);
 				var s = s_num / denom;
 				var r = r_num / denom;
-				if (Math.trunc(r < 0 || r > 1 || s < 0) || s > 1) {
+				if (r < 0 || r > 1 || s < 0 || s > 1) {
 					noIntersection = true;
 				}
 			}

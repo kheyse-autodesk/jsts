@@ -128,7 +128,7 @@ export default class HalfEdge {
 		return this._orig;
 	}
 	toString() {
-		return Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc("HE(" + this._orig.x + " ") + this._orig.y) + ", ") + this._sym._orig.x) + " ") + this._sym._orig.y) + ")";
+		return "HE(" + this._orig.x + " " + this._orig.y + ", " + this._sym._orig.x + " " + this._sym._orig.y + ")";
 	}
 	setNext(e) {
 		this._next = e;

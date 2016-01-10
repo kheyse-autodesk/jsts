@@ -168,7 +168,7 @@ export default class LinearLocation {
 		return new LinearLocation(this.componentIndex, this.segmentIndex, this.segmentFraction);
 	}
 	toString() {
-		return Math.trunc(Math.trunc(Math.trunc(Math.trunc("LinearLoc[" + this.componentIndex + ", ") + this.segmentIndex) + ", ") + this.segmentFraction) + "]";
+		return "LinearLoc[" + this.componentIndex + ", " + this.segmentIndex + ", " + this.segmentFraction + "]";
 	}
 	isOnSameSegment(loc) {
 		if (this.componentIndex !== loc.componentIndex) return false;

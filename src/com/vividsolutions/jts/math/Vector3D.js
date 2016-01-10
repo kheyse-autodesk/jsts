@@ -101,7 +101,7 @@ export default class Vector3D {
 		return this.x;
 	}
 	toString() {
-		return Math.trunc(Math.trunc(Math.trunc(Math.trunc("[" + this.x + ", ") + this.y) + ", ") + this.z) + "]";
+		return "[" + this.x + ", " + this.y + ", " + this.z + "]";
 	}
 	length() {
 		return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);

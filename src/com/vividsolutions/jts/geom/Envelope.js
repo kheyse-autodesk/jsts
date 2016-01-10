@@ -294,7 +294,7 @@ export default class Envelope {
 		this.init(this.getMinX() + transX, this.getMaxX() + transX, this.getMinY() + transY, this.getMaxY() + transY);
 	}
 	toString() {
-		return Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc("Env[" + this.minx + " : ") + this.maxx) + ", ") + this.miny) + " : ") + this.maxy) + "]";
+		return "Env[" + this.minx + " : " + this.maxx + ", " + this.miny + " : " + this.maxy + "]";
 	}
 	setToNull() {
 		this.minx = 0;

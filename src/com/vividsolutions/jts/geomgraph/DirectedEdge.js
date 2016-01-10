@@ -79,7 +79,7 @@ export default class DirectedEdge extends EdgeEnd {
 	}
 	print(out) {
 		super.print(out);
-		out.print(Math.trunc(" " + this.depth[Position.LEFT] + "/") + this.depth[Position.RIGHT]);
+		out.print(" " + this.depth[Position.LEFT] + "/" + this.depth[Position.RIGHT]);
 		out.print(" (" + this.getDepthDelta() + ")");
 		if (this._isInResult) out.print(" inResult");
 	}

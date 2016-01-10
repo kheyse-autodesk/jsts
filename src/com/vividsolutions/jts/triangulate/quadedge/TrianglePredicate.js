@@ -34,9 +34,9 @@ export default class TrianglePredicate {
 		var circumCentre = Triangle.circumcentre(a, b, c);
 		System.out.println("p radius diff a = " + Math.abs(p.distance(circumCentre) - a.distance(circumCentre)) / a.distance(circumCentre));
 		if (nonRobustInCircle !== isInCircleDD || nonRobustInCircle !== isInCircleCC) {
-			System.out.println(Math.trunc(Math.trunc(Math.trunc(Math.trunc("inCircle robustness failure (double result = " + nonRobustInCircle + ", DD result = ") + isInCircleDD) + ", CC result = ") + isInCircleCC) + ")");
+			System.out.println("inCircle robustness failure (double result = " + nonRobustInCircle + ", DD result = " + isInCircleDD + ", CC result = " + isInCircleCC + ")");
 			System.out.println(WKTWriter.toLineString(new CoordinateArraySequence([a, b, c, p])));
-			System.out.println(Math.trunc("Circumcentre = " + WKTWriter.toPoint(circumCentre) + " radius = ") + a.distance(circumCentre));
+			System.out.println("Circumcentre = " + WKTWriter.toPoint(circumCentre) + " radius = " + a.distance(circumCentre));
 			System.out.println("p radius diff a = " + Math.abs(p.distance(circumCentre) / a.distance(circumCentre) - 1));
 			System.out.println("p radius diff b = " + Math.abs(p.distance(circumCentre) / b.distance(circumCentre) - 1));
 			System.out.println("p radius diff c = " + Math.abs(p.distance(circumCentre) / c.distance(circumCentre) - 1));

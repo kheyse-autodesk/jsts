@@ -96,7 +96,7 @@ export default class Vertex {
 			cc = new Vertex(hcc.getX(), hcc.getY());
 		} catch (nre) {
 			if (nre instanceof NotRepresentableException) {
-				System.err.println(Math.trunc(Math.trunc(Math.trunc("a: " + a + "  b: ") + b) + "  c: ") + c);
+				System.err.println("a: " + a + "  b: " + b + "  c: " + c);
 				System.err.println(nre);
 			} else throw nre;
 		} finally {}
@@ -195,7 +195,7 @@ export default class Vertex {
 		return this.isCCW(e.orig(), e.dest());
 	}
 	toString() {
-		return Math.trunc(Math.trunc("POINT (" + this.p.x + " ") + this.p.y) + ")";
+		return "POINT (" + this.p.x + " " + this.p.y + ")";
 	}
 	sub(v) {
 		return new Vertex(this.p.x - v.getX(), this.p.y - v.getY());

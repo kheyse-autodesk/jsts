@@ -48,7 +48,7 @@ export default class OverlayResultValidator {
 		return validator.isValid(overlayOp);
 	}
 	reportResult(overlayOp, location, expectedInterior) {
-		System.out.println(Math.trunc(Math.trunc(Math.trunc(Math.trunc(Math.trunc("Overlay result invalid - A:" + Location.toLocationSymbol(location[0]) + " B:") + Location.toLocationSymbol(location[1])) + " expected:") + (expectedInterior ? 'i' : 'e')) + " actual:") + Location.toLocationSymbol(location[2]));
+		System.out.println("Overlay result invalid - A:" + Location.toLocationSymbol(location[0]) + " B:" + Location.toLocationSymbol(location[1]) + " expected:" + (expectedInterior ? 'i' : 'e') + " actual:" + Location.toLocationSymbol(location[2]));
 	}
 	isValid(overlayOp) {
 		this.addTestPts(this.geom[0]);

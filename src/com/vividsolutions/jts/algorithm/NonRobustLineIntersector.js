@@ -140,7 +140,7 @@ export default class NonRobustLineIntersector extends LineIntersector {
 		var numY = a2 * c1 - a1 * c2;
 		this.pa.y = numY / denom;
 		this._isProper = true;
-		if (Math.trunc(this.pa.equals(p1) || this.pa.equals(p2) || this.pa.equals(p3)) || this.pa.equals(p4)) {
+		if (this.pa.equals(p1) || this.pa.equals(p2) || this.pa.equals(p3) || this.pa.equals(p4)) {
 			this._isProper = false;
 		}
 		if (this.precisionModel !== null) {

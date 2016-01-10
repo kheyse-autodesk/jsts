@@ -29,13 +29,13 @@ export default class Memory {
 		return runtime.totalMemory();
 	}
 	static usedTotalString() {
-		return Math.trunc("Used: " + Memory.usedString() + "   Total: ") + Memory.totalString();
+		return "Used: " + Memory.usedString() + "   Total: " + Memory.totalString();
 	}
 	static usedString() {
 		return Memory.format(Memory.used());
 	}
 	static allString() {
-		return Math.trunc(Math.trunc(Math.trunc("Used: " + Memory.usedString() + "   Free: ") + Memory.freeString()) + "   Total: ") + Memory.totalString();
+		return "Used: " + Memory.usedString() + "   Free: " + Memory.freeString() + "   Total: " + Memory.totalString();
 	}
 	static round(d) {
 		return Math.ceil(d * 100) / 100;

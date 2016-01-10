@@ -114,7 +114,7 @@ export default class RobustLineIntersector extends LineIntersector {
 	checkDD(p1, p2, q1, q2, intPt) {
 		var intPtDD = CGAlgorithmsDD.intersection(p1, p2, q1, q2);
 		var isIn = this.isInSegmentEnvelopes(intPtDD);
-		System.out.println(Math.trunc("DD in env = " + isIn + "  --------------------- ") + intPtDD);
+		System.out.println("DD in env = " + isIn + "  --------------------- " + intPtDD);
 		if (intPt.distance(intPtDD) > 0.0001) {
 			System.out.println("Distance = " + intPt.distance(intPtDD));
 		}

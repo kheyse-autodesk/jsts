@@ -69,7 +69,7 @@ export default class ConformingDelaunayTriangulator {
 		do {
 			splits = this.enforceGabriel(this.segments);
 			count++;
-			Debug.println(Math.trunc(Math.trunc(Math.trunc("Iter: " + count + "   Splits: ") + splits) + "   Current # segments = ") + this.segments.size());
+			Debug.println("Iter: " + count + "   Splits: " + splits + "   Current # segments = " + this.segments.size());
 		} while (splits > 0 && count < ConformingDelaunayTriangulator.MAX_SPLIT_ITER);
 		if (count === ConformingDelaunayTriangulator.MAX_SPLIT_ITER) {
 			Debug.println("ABORTED! Too many iterations while enforcing constraints");

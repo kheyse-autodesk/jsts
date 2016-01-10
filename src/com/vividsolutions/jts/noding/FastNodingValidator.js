@@ -65,7 +65,7 @@ export default class FastNodingValidator {
 	getErrorMessage() {
 		if (this._isValid) return "no intersections found";
 		var intSegs = this.segInt.getIntersectionSegments();
-		return Math.trunc("found non-noded intersection between " + WKTWriter.toLineString(intSegs[0], intSegs[1]) + " and ") + WKTWriter.toLineString(intSegs[2], intSegs[3]);
+		return "found non-noded intersection between " + WKTWriter.toLineString(intSegs[0], intSegs[1]) + " and " + WKTWriter.toLineString(intSegs[2], intSegs[3]);
 	}
 	getClass() {
 		return FastNodingValidator;

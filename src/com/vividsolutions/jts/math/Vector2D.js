@@ -182,7 +182,7 @@ export default class Vector2D {
 		return Vector2D.create(this.x * d, this.y * d);
 	}
 	toString() {
-		return Math.trunc(Math.trunc("[" + this.x + ", ") + this.y) + "]";
+		return "[" + this.x + ", " + this.y + "]";
 	}
 	length() {
 		return Math.sqrt(this.x * this.x + this.y * this.y);
