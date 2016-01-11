@@ -163,7 +163,7 @@ export default class GeometryGraph extends PlanarGraph {
 		var i = 0;
 		for (var it = coll.iterator(); it.hasNext(); ) {
 			var node = it.next();
-			pts[i++] = node.getCoordinate().clone();
+			pts[i++] = node.getCoordinate().copy();
 		}
 		return pts;
 	}

@@ -181,6 +181,11 @@ class Double extends PackedCoordinateSequence {
 		}
 		return env;
 	}
+	copy() {
+		var clone = new Array(this.coords.length);
+		System.arraycopy(this.coords, 0, clone, 0, this.coords.length);
+		return new Double(clone, this.dimension);
+	}
 	getClass() {
 		return Double;
 	}
@@ -270,6 +275,11 @@ class Float extends PackedCoordinateSequence {
 			env.expandToInclude(this.coords[i], this.coords[i + 1]);
 		}
 		return env;
+	}
+	copy() {
+		var clone = new Array(this.coords.length);
+		System.arraycopy(this.coords, 0, clone, 0, this.coords.length);
+		return new Float(clone, this.dimension);
 	}
 	getClass() {
 		return Float;

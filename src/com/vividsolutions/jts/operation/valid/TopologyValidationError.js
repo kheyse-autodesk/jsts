@@ -15,7 +15,7 @@ export default class TopologyValidationError {
 					return ((...args) => {
 						let [errorType, pt] = args;
 						this.errorType = errorType;
-						if (pt !== null) this.pt = pt.clone();
+						if (pt !== null) this.pt = pt.copy();
 					})(...args);
 			}
 		};

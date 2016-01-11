@@ -51,8 +51,8 @@ export default class SnapOverlayOp {
 		this.cbr.add(geom[0]);
 		this.cbr.add(geom[1]);
 		var remGeom = new Array(2);
-		remGeom[0] = this.cbr.removeCommonBits(geom[0].clone());
-		remGeom[1] = this.cbr.removeCommonBits(geom[1].clone());
+		remGeom[0] = this.cbr.removeCommonBits(geom[0].copy());
+		remGeom[1] = this.cbr.removeCommonBits(geom[1].copy());
 		return remGeom;
 	}
 	prepareResult(geom) {

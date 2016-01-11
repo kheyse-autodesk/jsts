@@ -314,6 +314,14 @@ export default class Polygon extends Geometry {
 	getGeometryType() {
 		return "Polygon";
 	}
+	copy() {
+		var shell = this.shell.copy();
+		var holes = new Array(this.holes.length);
+		for (var i = 0; i < holes.length; i++) {
+			holes[i] = this.holes[i].copy();
+		}
+		return new Polygon(shell, holes, this.factory);
+	}
 	getExteriorRing() {
 		return this.shell;
 	}

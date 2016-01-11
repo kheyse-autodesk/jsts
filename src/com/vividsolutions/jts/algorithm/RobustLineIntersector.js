@@ -48,19 +48,33 @@ export default class RobustLineIntersector extends LineIntersector {
 		var env1 = new Envelope(this.inputLines[1][0], this.inputLines[1][1]);
 		return env0.contains(intPt) && env1.contains(intPt);
 	}
-	computeIntersection(p, p1, p2) {
-		this._isProper = false;
-		if (Envelope.intersects(p1, p2, p)) {
-			if (CGAlgorithms.orientationIndex(p1, p2, p) === 0 && CGAlgorithms.orientationIndex(p2, p1, p) === 0) {
-				this._isProper = true;
-				if (p.equals(p1) || p.equals(p2)) {
-					this._isProper = false;
-				}
-				this.result = LineIntersector.POINT_INTERSECTION;
-				return null;
+	computeIntersection(...args) {
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 3:
+					return ((...args) => {
+						let [p, p1, p2] = args;
+						this._isProper = false;
+						if (Envelope.intersects(p1, p2, p)) {
+							if (CGAlgorithms.orientationIndex(p1, p2, p) === 0 && CGAlgorithms.orientationIndex(p2, p1, p) === 0) {
+								this._isProper = true;
+								if (p.equals(p1) || p.equals(p2)) {
+									this._isProper = false;
+								}
+								this.result = LineIntersector.POINT_INTERSECTION;
+								return null;
+							}
+						}
+						this.result = LineIntersector.NO_INTERSECTION;
+					})(...args);
+				case 4:
+					return ((...args) => {
+						let [p1, p2, p3, p4] = args;
+						super.computeIntersection(p1, p2, p3, p4);
+					})(...args);
 			}
-		}
-		this.result = LineIntersector.NO_INTERSECTION;
+		};
+		return overloads.apply(this, args);
 	}
 	normalizeToMinimum(n1, n2, n3, n4, normPt) {
 		normPt.x = this.smallestInAbsValue(n1.x, n2.x, n3.x, n4.x);

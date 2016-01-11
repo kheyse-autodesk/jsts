@@ -78,7 +78,7 @@ export default class Point extends Geometry {
 		return this.isEmpty() ? 0 : 1;
 	}
 	reverse() {
-		return this.clone();
+		return this.copy();
 	}
 	getX() {
 		if (this.getCoordinate() === null) {
@@ -149,6 +149,9 @@ export default class Point extends Geometry {
 	}
 	getGeometryType() {
 		return "Point";
+	}
+	copy() {
+		return new Point(this.coordinates.copy(), this.factory);
 	}
 	getCoordinateSequence() {
 		return this.coordinates;

@@ -151,6 +151,9 @@ export default class Coordinate {
 			} else throw e;
 		} finally {}
 	}
+	copy() {
+		return new Coordinate(this);
+	}
 	toString() {
 		return "(" + this.x + ", " + this.y + ", " + this.z + ")";
 	}

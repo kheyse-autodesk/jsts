@@ -113,7 +113,7 @@ export default class SegmentIntersector {
 					e1.addIntersections(this.li, segIndex1, 1);
 				}
 				if (this.li.isProper()) {
-					this.properIntersectionPoint = this.li.getIntersection(0).clone();
+					this.properIntersectionPoint = this.li.getIntersection(0).copy();
 					this.hasProper = true;
 					if (!this.isBoundaryPoint(this.li, this.bdyNodes)) this.hasProperInterior = true;
 				}

@@ -36,7 +36,7 @@ export default class VWSimplifier {
 		this.isEnsureValidTopology = isEnsureValidTopology;
 	}
 	getResultGeometry() {
-		if (this.inputGeom.isEmpty()) return this.inputGeom.clone();
+		if (this.inputGeom.isEmpty()) return this.inputGeom.copy();
 		return new VWTransformer(this, this.isEnsureValidTopology).transform(this.inputGeom);
 	}
 	setDistanceTolerance(distanceTolerance) {

@@ -225,12 +225,19 @@ export default class GeometryCollection extends Geometry {
 		var gc = super.clone();
 		gc.geometries = new Array(this.geometries.length);
 		for (var i = 0; i < this.geometries.length; i++) {
-			gc.geometries[i] = this.geometries[i].clone();
+			gc.geometries[i] = this.geometries[i].copy();
 		}
 		return gc;
 	}
 	getGeometryType() {
 		return "GeometryCollection";
+	}
+	copy() {
+		var geometries = new Array(this.geometries.length);
+		for (var i = 0; i < geometries.length; i++) {
+			geometries[i] = this.geometries[i].copy();
+		}
+		return new GeometryCollection(geometries, this.factory);
 	}
 	isEmpty() {
 		for (var i = 0; i < this.geometries.length; i++) {

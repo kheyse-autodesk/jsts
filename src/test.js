@@ -31,7 +31,7 @@ console.log(writer.write(intersection))*/
 //var union = OverlayOp.union(a1, a2)
 //console.log(writer.write(union))
 
-var buffer = l1.buffer(10)
+var buffer = a1.buffer(2)
 console.log(writer.write(buffer))
 
 var a = reader.read('POLYGON((1 1, 1 5, 5 5, 5 1, 1 1))')

@@ -47,7 +47,7 @@ export default class CoordinateList extends ArrayList {
 	clone() {
 		var clone = super.clone();
 		for (var i = 0; i < this.size(); i++) {
-			clone.add(i, this.get(i).clone());
+			clone.add(i, this.get(i).copy());
 		}
 		return clone;
 	}
@@ -57,6 +57,11 @@ export default class CoordinateList extends ArrayList {
 	add(...args) {
 		const overloads = (...args) => {
 			switch (args.length) {
+				case 1:
+					return ((...args) => {
+						let [coord] = args;
+						super.add(coord);
+					})(...args);
 				case 2:
 					if (args[0] instanceof Coordinate && typeof args[1] === "boolean") {
 						return ((...args) => {

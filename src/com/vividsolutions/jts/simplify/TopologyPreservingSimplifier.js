@@ -37,7 +37,7 @@ export default class TopologyPreservingSimplifier {
 		return tss.getResultGeometry();
 	}
 	getResultGeometry() {
-		if (this.inputGeom.isEmpty()) return this.inputGeom.clone();
+		if (this.inputGeom.isEmpty()) return this.inputGeom.copy();
 		this.linestringMap = new HashMap();
 		this.inputGeom.apply(new LineStringMapBuilderFilter(this));
 		this.lineSimplifier.simplify(this.linestringMap.values());

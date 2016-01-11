@@ -64,14 +64,14 @@ export default class LineDissolver {
 	buildRing(eStartRing) {
 		var line = new CoordinateList();
 		var e = eStartRing;
-		line.add(e.orig().clone(), false);
+		line.add(e.orig().copy(), false);
 		while (e.sym().degree() === 2) {
 			var eNext = e.next();
 			if (eNext === eStartRing) break;
-			line.add(eNext.orig().clone(), false);
+			line.add(eNext.orig().copy(), false);
 			e = eNext;
 		}
-		line.add(e.dest().clone(), false);
+		line.add(e.dest().copy(), false);
 		this.addLine(line);
 	}
 	buildLine(eStart) {
@@ -79,7 +79,7 @@ export default class LineDissolver {
 		var e = eStart;
 		this.ringStartEdge = null;
 		MarkHalfEdge.markBoth(e);
-		line.add(e.orig().clone(), false);
+		line.add(e.orig().copy(), false);
 		while (e.sym().degree() === 2) {
 			this.updateRingStartEdge(e);
 			var eNext = e.next();
@@ -87,11 +87,11 @@ export default class LineDissolver {
 				this.buildRing(this.ringStartEdge);
 				return null;
 			}
-			line.add(eNext.orig().clone(), false);
+			line.add(eNext.orig().copy(), false);
 			e = eNext;
 			MarkHalfEdge.markBoth(e);
 		}
-		line.add(e.dest().clone(), false);
+		line.add(e.dest().copy(), false);
 		this.stackEdges(e.sym());
 		this.addLine(line);
 	}

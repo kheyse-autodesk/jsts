@@ -124,14 +124,14 @@ export default class CascadedPolygonUnion {
 		var union = null;
 		for (var i = geoms.iterator(); i.hasNext(); ) {
 			var g = i.next();
-			if (union === null) union = g.clone(); else union = union.union(g);
+			if (union === null) union = g.copy(); else union = union.union(g);
 		}
 		return union;
 	}
 	unionSafe(g0, g1) {
 		if (g0 === null && g1 === null) return null;
-		if (g0 === null) return g1.clone();
-		if (g1 === null) return g0.clone();
+		if (g0 === null) return g1.copy();
+		if (g1 === null) return g0.copy();
 		return this.unionOptimized(g0, g1);
 	}
 	unionActual(g0, g1) {

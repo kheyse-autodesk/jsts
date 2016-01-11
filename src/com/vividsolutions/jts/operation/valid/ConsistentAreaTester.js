@@ -26,7 +26,7 @@ export default class ConsistentAreaTester {
 		for (var nodeIt = this.nodeGraph.getNodeIterator(); nodeIt.hasNext(); ) {
 			var node = nodeIt.next();
 			if (!node.getEdges().isAreaLabelsConsistent(this.geomGraph)) {
-				this.invalidPoint = node.getCoordinate().clone();
+				this.invalidPoint = node.getCoordinate().copy();
 				return false;
 			}
 		}

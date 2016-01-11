@@ -28,7 +28,7 @@ export default class DouglasPeuckerSimplifier {
 		this.isEnsureValidTopology = isEnsureValidTopology;
 	}
 	getResultGeometry() {
-		if (this.inputGeom.isEmpty()) return this.inputGeom.clone();
+		if (this.inputGeom.isEmpty()) return this.inputGeom.copy();
 		return new DPTransformer(this.isEnsureValidTopology).transform(this.inputGeom);
 	}
 	setDistanceTolerance(distanceTolerance) {

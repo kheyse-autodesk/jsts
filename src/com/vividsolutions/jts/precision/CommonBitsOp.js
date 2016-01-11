@@ -44,7 +44,7 @@ export default class CommonBitsOp {
 						let [geom0] = args;
 						this.cbr = new CommonBitsRemover();
 						this.cbr.add(geom0);
-						var geom = this.cbr.removeCommonBits(geom0.clone());
+						var geom = this.cbr.removeCommonBits(geom0.copy());
 						return geom;
 					})(...args);
 				case 2:
@@ -54,8 +54,8 @@ export default class CommonBitsOp {
 						this.cbr.add(geom0);
 						this.cbr.add(geom1);
 						var geom = new Array(2);
-						geom[0] = this.cbr.removeCommonBits(geom0.clone());
-						geom[1] = this.cbr.removeCommonBits(geom1.clone());
+						geom[0] = this.cbr.removeCommonBits(geom0.copy());
+						geom[1] = this.cbr.removeCommonBits(geom1.copy());
 						return geom;
 					})(...args);
 			}

@@ -104,7 +104,7 @@ export default class DefaultCoordinateSequence {
 	clone() {
 		var cloneCoordinates = new Array(this.size());
 		for (var i = 0; i < this.coordinates.length; i++) {
-			cloneCoordinates[i] = this.coordinates[i].clone();
+			cloneCoordinates[i] = this.coordinates[i].copy();
 		}
 		return new DefaultCoordinateSequence(cloneCoordinates);
 	}
@@ -113,6 +113,13 @@ export default class DefaultCoordinateSequence {
 			env.expandToInclude(this.coordinates[i]);
 		}
 		return env;
+	}
+	copy() {
+		var cloneCoordinates = new Array(this.size());
+		for (var i = 0; i < this.coordinates.length; i++) {
+			cloneCoordinates[i] = this.coordinates[i].copy();
+		}
+		return new DefaultCoordinateSequence(cloneCoordinates);
 	}
 	toString() {
 		if (this.coordinates.length > 0) {

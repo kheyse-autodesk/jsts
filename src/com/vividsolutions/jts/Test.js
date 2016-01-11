@@ -12,6 +12,9 @@ export default class Test {
 		var b = reader.read("POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))");
 		var union = a.union(b);
 		System.out.println(writer.write(union));
+		var p = reader.read("POINT(1 1)");
+		var buffer = p.buffer(2);
+		System.out.println(writer.write(buffer));
 	}
 	getClass() {
 		return Test;

@@ -101,8 +101,8 @@ export default class Geometry {
 						let [other] = args;
 						if (this.isEmpty() || other.isEmpty()) {
 							if (this.isEmpty() && other.isEmpty()) return OverlayOp.createEmptyResult(OverlayOp.UNION, this, other, this.factory);
-							if (this.isEmpty()) return other.clone();
-							if (other.isEmpty()) return this.clone();
+							if (this.isEmpty()) return other.copy();
+							if (other.isEmpty()) return this.copy();
 						}
 						this.checkNotGeometryCollection(this);
 						this.checkNotGeometryCollection(other);
@@ -316,9 +316,9 @@ export default class Geometry {
 		return this.relate(g).isOverlaps(this.getDimension(), g.getDimension());
 	}
 	norm() {
-		var copy = this.clone();
-		copy.normalize();
-		return copy;
+		var g = this.copy();
+		g.normalize();
+		return g;
 	}
 	getPrecisionModel() {
 		return this.factory.getPrecisionModel();
@@ -373,8 +373,8 @@ export default class Geometry {
 	symDifference(other) {
 		if (this.isEmpty() || other.isEmpty()) {
 			if (this.isEmpty() && other.isEmpty()) return OverlayOp.createEmptyResult(OverlayOp.SYMDIFFERENCE, this, other, this.factory);
-			if (this.isEmpty()) return other.clone();
-			if (other.isEmpty()) return this.clone();
+			if (this.isEmpty()) return other.copy();
+			if (other.isEmpty()) return this.copy();
 		}
 		this.checkNotGeometryCollection(this);
 		this.checkNotGeometryCollection(other);
@@ -410,7 +410,7 @@ export default class Geometry {
 	}
 	difference(other) {
 		if (this.isEmpty()) return OverlayOp.createEmptyResult(OverlayOp.DIFFERENCE, this, other, this.factory);
-		if (other.isEmpty()) return this.clone();
+		if (other.isEmpty()) return this.copy();
 		this.checkNotGeometryCollection(this);
 		this.checkNotGeometryCollection(other);
 		return SnapIfNeededOverlayOp.overlayOp(this, other, OverlayOp.DIFFERENCE);
@@ -453,4 +453,3 @@ export default class Geometry {
 		return Geometry;
 	}
 }
-

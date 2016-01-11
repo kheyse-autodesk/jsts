@@ -127,7 +127,7 @@ export default class BufferSubgraph {
 	}
 	addReachable(startNode) {
 		var nodeStack = new Stack();
-		nodeStack.add(startNode);
+		nodeStack.push(startNode);
 		while (!nodeStack.empty()) {
 			var node = nodeStack.pop();
 			this.add(node, nodeStack);

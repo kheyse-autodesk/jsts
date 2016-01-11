@@ -34,6 +34,7 @@ export default class CoordinateSequence {
 	getX(index) {}
 	clone() {}
 	expandEnvelope(env) {}
+	copy() {}
 	getY(index) {}
 	toCoordinateArray() {}
 	getClass() {

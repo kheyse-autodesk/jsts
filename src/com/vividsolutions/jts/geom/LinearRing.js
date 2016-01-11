@@ -72,6 +72,9 @@ export default class LinearRing extends LineString {
 	getGeometryType() {
 		return "LinearRing";
 	}
+	copy() {
+		return new LinearRing(this.points.copy(), this.factory);
+	}
 	getClass() {
 		return LinearRing;
 	}

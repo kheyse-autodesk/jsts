@@ -206,6 +206,9 @@ export default class LineString extends Geometry {
 	getGeometryType() {
 		return "LineString";
 	}
+	copy() {
+		return new LineString(this.points.copy(), this.factory);
+	}
 	getCoordinateSequence() {
 		return this.points;
 	}

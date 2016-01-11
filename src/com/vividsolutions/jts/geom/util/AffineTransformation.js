@@ -442,7 +442,7 @@ export default class AffineTransformation {
 				case 1:
 					return ((...args) => {
 						let [g] = args;
-						var g2 = g.clone();
+						var g2 = g.copy();
 						g2.apply(this);
 						return g2;
 					})(...args);

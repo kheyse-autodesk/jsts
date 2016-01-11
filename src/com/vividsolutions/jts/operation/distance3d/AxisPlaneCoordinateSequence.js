@@ -86,6 +86,9 @@ export default class AxisPlaneCoordinateSequence {
 	expandEnvelope(env) {
 		throw new UnsupportedOperationException();
 	}
+	copy() {
+		throw new UnsupportedOperationException();
+	}
 	getY(index) {
 		return this.getOrdinate(index, CoordinateSequence.Y);
 	}
