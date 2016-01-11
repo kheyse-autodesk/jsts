@@ -22,14 +22,14 @@ export default class BufferResultMatcher {
   /**
    * Tests whether the two results are equal within the given tolerance. The input
    * parameters are not considered.
-   * 
+   *
    * @return true if the actual and expected results are considered equal
    */
   isMatch(geom, distance, actualResult,
       expectedResult, tolerance) {
     return this.isBufferResultMatch(actualResult, expectedResult, distance);
   }
-  
+
   isBufferResultMatch(actualBuffer,
       expectedBuffer, distance) {
     if (actualBuffer.isEmpty() && expectedBuffer.isEmpty())
@@ -55,7 +55,7 @@ export default class BufferResultMatcher {
   isSymDiffAreaInTolerance(actualBuffer,
       expectedBuffer) {
     var area = expectedBuffer.getArea();
-    var diff = OverlayOp.symDifference(actualBuffer, expectedBuffer);
+    var diff = actualBuffer.symDifference(expectedBuffer);
     var areaDiff = diff.getArea();
 
     // can't get closer than difference area = 0 ! This also handles case when
@@ -87,9 +87,3 @@ export default class BufferResultMatcher {
     return true;
   }
 }
-
-
-
-
-
-  
