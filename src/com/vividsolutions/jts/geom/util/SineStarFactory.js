@@ -57,7 +57,7 @@ export default class SineStarFactory extends GeometricShapeFactory {
 		}
 		pts[iPt] = new Coordinate(pts[0]);
 		var ring = this.geomFact.createLinearRing(pts);
-		var poly = this.geomFact.createPolygon(ring, null);
+		var poly = this.geomFact.createPolygon(ring);
 		return poly;
 	}
 	getClass() {

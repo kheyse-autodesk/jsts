@@ -70,7 +70,7 @@ export default class ConvexHull {
 			return this.geomFactory.createLineString([coordinates[0], coordinates[1]]);
 		}
 		var linearRing = this.geomFactory.createLinearRing(coordinates);
-		return this.geomFactory.createPolygon(linearRing, null);
+		return this.geomFactory.createPolygon(linearRing);
 	}
 	cleanRing(original) {
 		Assert.equals(original[0], original[original.length - 1]);
@@ -132,7 +132,7 @@ export default class ConvexHull {
 	}
 	getConvexHull() {
 		if (this.inputPts.length === 0) {
-			return this.geomFactory.createGeometryCollection(null);
+			return this.geomFactory.createGeometryCollection();
 		}
 		if (this.inputPts.length === 1) {
 			return this.geomFactory.createPoint(this.inputPts[0]);

@@ -74,7 +74,7 @@ export default class MinimumBoundingCircle {
 		this.compute();
 		switch (this.extremalPts.length) {
 			case 0:
-				return this.input.getFactory().createLineString(null);
+				return this.input.getFactory().createLineString();
 			case 1:
 				return this.input.getFactory().createPoint(this.centre);
 		}
@@ -138,7 +138,7 @@ export default class MinimumBoundingCircle {
 		this.compute();
 		switch (this.extremalPts.length) {
 			case 0:
-				return this.input.getFactory().createLineString(null);
+				return this.input.getFactory().createLineString();
 			case 1:
 				return this.input.getFactory().createPoint(this.centre);
 		}
@@ -148,7 +148,7 @@ export default class MinimumBoundingCircle {
 	}
 	getCircle() {
 		this.compute();
-		if (this.centre === null) return this.input.getFactory().createPolygon(null, null);
+		if (this.centre === null) return this.input.getFactory().createPolygon();
 		var centrePoint = this.input.getFactory().createPoint(this.centre);
 		if (this.radius === 0.0) return centrePoint;
 		return centrePoint.buffer(this.radius);

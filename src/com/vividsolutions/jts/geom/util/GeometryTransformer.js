@@ -126,7 +126,7 @@ export default class GeometryTransformer {
 	}
 	transformLinearRing(geom, parent) {
 		var seq = this.transformCoordinates(geom.getCoordinateSequence(), geom);
-		if (seq === null) return this.factory.createLinearRing(null);
+		if (seq === null) return this.factory.createLinearRing();
 		var seqSize = seq.size();
 		if (seqSize > 0 && seqSize < 4 && !this.preserveType) return this.factory.createLineString(seq);
 		return this.factory.createLinearRing(seq);

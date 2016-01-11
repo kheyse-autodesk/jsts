@@ -92,13 +92,13 @@ export default class GeometryEditor {
 	}
 	editPolygon(polygon, operation) {
 		var newPolygon = operation.edit(polygon, this.factory);
-		if (newPolygon === null) newPolygon = this.factory.createPolygon(null);
+		if (newPolygon === null) newPolygon = this.factory.createPolygon();
 		if (newPolygon.isEmpty()) {
 			return newPolygon;
 		}
 		var shell = this.edit(newPolygon.getExteriorRing(), operation);
 		if (shell === null || shell.isEmpty()) {
-			return this.factory.createPolygon(null, null);
+			return this.factory.createPolygon();
 		}
 		var holes = new ArrayList();
 		for (var i = 0; i < newPolygon.getNumInteriorRing(); i++) {

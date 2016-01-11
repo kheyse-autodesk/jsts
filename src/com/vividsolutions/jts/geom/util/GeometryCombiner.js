@@ -90,7 +90,7 @@ export default class GeometryCombiner {
 		}
 		if (elems.size() === 0) {
 			if (this.geomFactory !== null) {
-				return this.geomFactory.createGeometryCollection(null);
+				return this.geomFactory.createGeometryCollection();
 			}
 			return null;
 		}

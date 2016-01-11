@@ -45,7 +45,7 @@ export default class MultiPoint extends GeometryCollection {
 		return 0;
 	}
 	getBoundary() {
-		return this.getFactory().createGeometryCollection(null);
+		return this.getFactory().createGeometryCollection();
 	}
 	getGeometryType() {
 		return "MultiPoint";

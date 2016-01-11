@@ -133,7 +133,7 @@ export default class Point extends Geometry {
 		return overloads.apply(this, args);
 	}
 	getBoundary() {
-		return this.getFactory().createGeometryCollection(null);
+		return this.getFactory().createGeometryCollection();
 	}
 	clone() {
 		var p = super.clone();

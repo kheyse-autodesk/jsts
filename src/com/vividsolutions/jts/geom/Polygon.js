@@ -23,7 +23,7 @@ export default class Polygon extends Geometry {
 						let [shell, holes, factory] = args;
 						super(factory);
 						if (shell === null) {
-							shell = this.getFactory().createLinearRing(null);
+							shell = this.getFactory().createLinearRing();
 						}
 						if (holes === null) {
 							holes = [];
@@ -278,7 +278,7 @@ export default class Polygon extends Geometry {
 	}
 	getBoundary() {
 		if (this.isEmpty()) {
-			return this.getFactory().createMultiLineString(null);
+			return this.getFactory().createMultiLineString();
 		}
 		var rings = new Array(this.holes.length + 1);
 		rings[0] = this.shell;

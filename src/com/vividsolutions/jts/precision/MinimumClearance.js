@@ -40,7 +40,7 @@ export default class MinimumClearance {
 	}
 	getLine() {
 		this.compute();
-		if (this.minClearancePts === null || this.minClearancePts[0] === null) return this.inputGeom.getFactory().createLineString(null);
+		if (this.minClearancePts === null || this.minClearancePts[0] === null) return this.inputGeom.getFactory().createLineString();
 		return this.inputGeom.getFactory().createLineString(this.minClearancePts);
 	}
 	compute() {

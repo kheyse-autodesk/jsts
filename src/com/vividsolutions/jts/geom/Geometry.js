@@ -324,7 +324,7 @@ export default class Geometry {
 		return this.factory.getPrecisionModel();
 	}
 	getCentroid() {
-		if (this.isEmpty()) return this.factory.createPoint(null);
+		if (this.isEmpty()) return this.factory.createPoint();
 		var centPt = Centroid.getCentroid(this);
 		return this.createPointFromInternalCoord(centPt, this);
 	}
@@ -355,7 +355,7 @@ export default class Geometry {
 		this.SRID = SRID;
 	}
 	getInteriorPoint() {
-		if (this.isEmpty()) return this.factory.createPoint(null);
+		if (this.isEmpty()) return this.factory.createPoint();
 		var interiorPt = null;
 		var dim = this.getDimension();
 		if (dim === 0) {

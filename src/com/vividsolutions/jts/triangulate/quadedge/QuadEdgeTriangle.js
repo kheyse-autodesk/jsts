@@ -41,7 +41,7 @@ export default class QuadEdgeTriangle {
 							var ringPts = [v[0].getCoordinate(), v[1].getCoordinate(), v[2].getCoordinate(), v[0].getCoordinate()];
 							var fact = new GeometryFactory();
 							var ring = fact.createLinearRing(ringPts);
-							var tri = fact.createPolygon(ring, null);
+							var tri = fact.createPolygon(ring);
 							return tri;
 						})(...args);
 					} else if (args[0] instanceof Array) {
@@ -50,7 +50,7 @@ export default class QuadEdgeTriangle {
 							var ringPts = [e[0].orig().getCoordinate(), e[1].orig().getCoordinate(), e[2].orig().getCoordinate(), e[0].orig().getCoordinate()];
 							var fact = new GeometryFactory();
 							var ring = fact.createLinearRing(ringPts);
-							var tri = fact.createPolygon(ring, null);
+							var tri = fact.createPolygon(ring);
 							return tri;
 						})(...args);
 					}
@@ -145,7 +145,7 @@ export default class QuadEdgeTriangle {
 	}
 	getGeometry(fact) {
 		var ring = fact.createLinearRing(this.getCoordinates());
-		var tri = fact.createPolygon(ring, null);
+		var tri = fact.createPolygon(ring);
 		return tri;
 	}
 	getCoordinate(i) {

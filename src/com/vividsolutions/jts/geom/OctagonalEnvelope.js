@@ -77,7 +77,7 @@ export default class OctagonalEnvelope {
 	}
 	toGeometry(geomFactory) {
 		if (this.isNull()) {
-			return geomFactory.createPoint(null);
+			return geomFactory.createPoint();
 		}
 		var px00 = new Coordinate(this.minX, this.minA - this.minX);
 		var px01 = new Coordinate(this.minX, this.minX - this.minB);
@@ -114,7 +114,7 @@ export default class OctagonalEnvelope {
 		}
 		coordList.add(px00, false);
 		var pts = coordList.toCoordinateArray();
-		return geomFactory.createPolygon(geomFactory.createLinearRing(pts), null);
+		return geomFactory.createPolygon(geomFactory.createLinearRing(pts));
 	}
 	getMinA() {
 		return this.minA;

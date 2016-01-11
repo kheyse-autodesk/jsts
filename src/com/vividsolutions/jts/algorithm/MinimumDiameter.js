@@ -70,7 +70,7 @@ export default class MinimumDiameter {
 	}
 	getDiameter() {
 		this.computeMinimumDiameter();
-		if (this.minWidthPt === null) return this.inputGeom.getFactory().createLineString(null);
+		if (this.minWidthPt === null) return this.inputGeom.getFactory().createLineString();
 		var basePt = this.minBaseSeg.project(this.minWidthPt);
 		return this.inputGeom.getFactory().createLineString([basePt, this.minWidthPt]);
 	}
@@ -163,7 +163,7 @@ export default class MinimumDiameter {
 		var p2 = minParaLine.lineIntersection(minPerpLine);
 		var p3 = maxParaLine.lineIntersection(minPerpLine);
 		var shell = this.inputGeom.getFactory().createLinearRing([p0, p1, p2, p3, p0]);
-		return this.inputGeom.getFactory().createPolygon(shell, null);
+		return this.inputGeom.getFactory().createPolygon(shell);
 	}
 	getClass() {
 		return MinimumDiameter;

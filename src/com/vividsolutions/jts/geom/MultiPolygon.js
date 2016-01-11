@@ -48,7 +48,7 @@ export default class MultiPolygon extends GeometryCollection {
 	}
 	getBoundary() {
 		if (this.isEmpty()) {
-			return this.getFactory().createMultiLineString(null);
+			return this.getFactory().createMultiLineString();
 		}
 		var allRings = new ArrayList();
 		for (var i = 0; i < this.geometries.length; i++) {

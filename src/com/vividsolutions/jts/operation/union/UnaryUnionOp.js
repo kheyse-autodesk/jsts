@@ -72,7 +72,7 @@ export default class UnaryUnionOp {
 		return overloads.apply(this, args);
 	}
 	unionNoOpt(g0) {
-		var empty = this.geomFact.createPoint(null);
+		var empty = this.geomFact.createPoint();
 		return SnapIfNeededOverlayOp.overlayOp(g0, empty, OverlayOp.UNION);
 	}
 	unionWithNull(g0, g1) {
@@ -127,7 +127,7 @@ export default class UnaryUnionOp {
 		var unionLA = this.unionWithNull(unionLines, unionPolygons);
 		var union = null;
 		if (unionPoints === null) union = unionLA; else if (unionLA === null) union = unionPoints; else union = PointGeometryUnion.union(unionPoints, unionLA);
-		if (union === null) return this.geomFact.createGeometryCollection(null);
+		if (union === null) return this.geomFact.createGeometryCollection();
 		return union;
 	}
 	getClass() {

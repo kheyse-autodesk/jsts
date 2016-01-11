@@ -105,7 +105,7 @@ export default class GeometryFactory {
 	}
 	toGeometry(envelope) {
 		if (envelope.isNull()) {
-			return this.createPoint(null);
+			return this.createPoint();
 		}
 		if (envelope.getMinX() === envelope.getMaxX() && envelope.getMinY() === envelope.getMaxY()) {
 			return this.createPoint(new Coordinate(envelope.getMinX(), envelope.getMinY()));
@@ -118,6 +118,11 @@ export default class GeometryFactory {
 	createLineString(...args) {
 		const overloads = (...args) => {
 			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+						return this.createLineString(this.getCoordinateSequenceFactory().create([]));
+					})(...args);
 				case 1:
 					if (args[0] instanceof Array) {
 						return ((...args) => {
@@ -134,8 +139,22 @@ export default class GeometryFactory {
 		};
 		return overloads.apply(this, args);
 	}
-	createMultiLineString(lineStrings) {
-		return new MultiLineString(lineStrings, this);
+	createMultiLineString(...args) {
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+						return new MultiLineString(null, this);
+					})(...args);
+				case 1:
+					return ((...args) => {
+						let [lineStrings] = args;
+						return new MultiLineString(lineStrings, this);
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
 	}
 	buildGeometry(geomList) {
 		var geomClass = null;
@@ -153,7 +172,7 @@ export default class GeometryFactory {
 			if (geom instanceof GeometryCollection) hasGeometryCollection = true;
 		}
 		if (geomClass === null) {
-			return this.createGeometryCollection(null);
+			return this.createGeometryCollection();
 		}
 		if (isHeterogeneous || hasGeometryCollection) {
 			return this.createGeometryCollection(GeometryFactory.toGeometryArray(geomList));
@@ -175,6 +194,11 @@ export default class GeometryFactory {
 	createPoint(...args) {
 		const overloads = (...args) => {
 			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+						return this.createPoint(this.getCoordinateSequenceFactory().create([]));
+					})(...args);
 				case 1:
 					if (args[0] instanceof Coordinate) {
 						return ((...args) => {
@@ -197,6 +221,11 @@ export default class GeometryFactory {
 	createPolygon(...args) {
 		const overloads = (...args) => {
 			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+						return new Polygon(null, null, this);
+					})(...args);
 				case 1:
 					if (args[0] instanceof LinearRing) {
 						return ((...args) => {
@@ -226,8 +255,22 @@ export default class GeometryFactory {
 	getSRID() {
 		return this.SRID;
 	}
-	createGeometryCollection(geometries) {
-		return new GeometryCollection(geometries, this);
+	createGeometryCollection(...args) {
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+						return new GeometryCollection(null, this);
+					})(...args);
+				case 1:
+					return ((...args) => {
+						let [geometries] = args;
+						return new GeometryCollection(geometries, this);
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
 	}
 	createGeometry(g) {
 		var editor = new GeometryEditor(this);
@@ -243,6 +286,11 @@ export default class GeometryFactory {
 	createLinearRing(...args) {
 		const overloads = (...args) => {
 			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+						return this.createLinearRing(this.getCoordinateSequenceFactory().create([]));
+					})(...args);
 				case 1:
 					if (args[0] instanceof Array) {
 						return ((...args) => {
@@ -259,12 +307,31 @@ export default class GeometryFactory {
 		};
 		return overloads.apply(this, args);
 	}
-	createMultiPolygon(polygons) {
-		return new MultiPolygon(polygons, this);
+	createMultiPolygon(...args) {
+		const overloads = (...args) => {
+			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+						return new MultiPolygon(null, this);
+					})(...args);
+				case 1:
+					return ((...args) => {
+						let [polygons] = args;
+						return new MultiPolygon(polygons, this);
+					})(...args);
+			}
+		};
+		return overloads.apply(this, args);
 	}
 	createMultiPoint(...args) {
 		const overloads = (...args) => {
 			switch (args.length) {
+				case 0:
+					return ((...args) => {
+						let [] = args;
+						return new MultiPoint(null, this);
+					})(...args);
 				case 1:
 					if (args[0] instanceof Array) {
 						return ((...args) => {

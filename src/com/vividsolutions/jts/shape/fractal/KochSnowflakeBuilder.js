@@ -57,7 +57,7 @@ export default class KochSnowflakeBuilder extends GeometricShapeBuilder {
 		var level = KochSnowflakeBuilder.recursionLevelForSize(this.numPts);
 		var baseLine = this.getSquareBaseLine();
 		var pts = this.getBoundary(level, baseLine.getCoordinate(0), baseLine.getLength());
-		return this.geomFactory.createPolygon(this.geomFactory.createLinearRing(pts), null);
+		return this.geomFactory.createPolygon(this.geomFactory.createLinearRing(pts));
 	}
 	addSegment(p0, p1) {
 		this.coordList.add(p1);

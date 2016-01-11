@@ -49,7 +49,7 @@ export default function(doc, title) {
       var inputs = ' Input geometry A: ' + a + (b ? ' B: ' + b : '')
 
       var result
-      
+
       // switch execution logic depending on opname
       if (opname === 'buffer') {
         result = a[opname](parseFloat(arg2))
@@ -104,7 +104,7 @@ export default function(doc, title) {
         result.normalize()
         expectedGeometry.normalize()
 
-        if (result.equals(expectedGeometry) === false) {
+        if (result.compareTo(expectedGeometry) !== 0) {
           throw new Error('Result: ' + result + ' Expected: ' +
             expectedGeometry + inputs)
         } else {
