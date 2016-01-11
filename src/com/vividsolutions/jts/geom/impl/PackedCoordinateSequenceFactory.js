@@ -1,4 +1,5 @@
 import CoordinateSequenceFactory from '../CoordinateSequenceFactory';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import CoordinateSequence from '../CoordinateSequence';
 export default class PackedCoordinateSequenceFactory {
 	constructor(...args) {

@@ -1,4 +1,5 @@
 import Coordinate from './Coordinate';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Angle from '../algorithm/Angle';
 import HCoordinate from '../algorithm/HCoordinate';
 export default class Triangle {

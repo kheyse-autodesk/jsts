@@ -1,5 +1,6 @@
 import StringBuffer from 'java/lang/StringBuffer';
 import Coordinate from '../Coordinate';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Double from 'java/lang/Double';
 import CoordinateSequence from '../CoordinateSequence';
 import Serializable from 'java/io/Serializable';

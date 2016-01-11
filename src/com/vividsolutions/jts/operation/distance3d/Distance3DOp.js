@@ -1,6 +1,7 @@
 import LineString from '../../geom/LineString';
 import Geometry from '../../geom/Geometry';
 import Coordinate from '../../geom/Coordinate';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Point from '../../geom/Point';
 import PlanarPolygon3D from './PlanarPolygon3D';
 import Polygon from '../../geom/Polygon';

@@ -3,6 +3,7 @@ import Geometry from './Geometry';
 import Arrays from 'java/util/Arrays';
 import CoordinateFilter from './CoordinateFilter';
 import GeometryFactory from './GeometryFactory';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import GeometryComponentFilter from './GeometryComponentFilter';
 import Dimension from './Dimension';
 import GeometryFilter from './GeometryFilter';

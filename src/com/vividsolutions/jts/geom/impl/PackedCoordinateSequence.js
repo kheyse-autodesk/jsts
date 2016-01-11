@@ -1,4 +1,5 @@
 import Coordinate from '../Coordinate';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Double from 'java/lang/Double';
 import SoftReference from 'java/lang/ref/SoftReference';
 import CoordinateSequences from '../CoordinateSequences';

@@ -1,5 +1,6 @@
 import GeometryTransformer from '../geom/util/GeometryTransformer';
 import VWLineSimplifier from './VWLineSimplifier';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Polygon from '../geom/Polygon';
 import LinearRing from '../geom/LinearRing';
 import MultiPolygon from '../geom/MultiPolygon';

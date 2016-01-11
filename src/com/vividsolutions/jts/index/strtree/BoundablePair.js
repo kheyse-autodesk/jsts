@@ -1,3 +1,4 @@
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import AbstractNode from './AbstractNode';
 import Comparable from 'java/lang/Comparable';
 export default class BoundablePair {

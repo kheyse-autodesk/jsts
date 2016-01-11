@@ -1,5 +1,6 @@
 import LineString from '../LineString';
 import GeometryFactory from '../GeometryFactory';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Point from '../Point';
 import Polygon from '../Polygon';
 import MultiPoint from '../MultiPoint';

@@ -1,6 +1,7 @@
 import LineString from '../geom/LineString';
 import WKBConstants from './WKBConstants';
 import GeometryFactory from '../geom/GeometryFactory';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Point from '../geom/Point';
 import Polygon from '../geom/Polygon';
 import ByteArrayInStream from './ByteArrayInStream';
@@ -55,11 +56,11 @@ export default class WKBReader {
 		return nib;
 	}
 	static hexToBytes(hex) {
-		var byteLen = Math.trunc(hex.length() / 2);
+		var byteLen = Math.trunc(hex.length / 2);
 		var bytes = new Array(byteLen);
-		for (var i = 0; i < Math.trunc(hex.length() / 2); i++) {
+		for (var i = 0; i < Math.trunc(hex.length / 2); i++) {
 			var i2 = 2 * i;
-			if (i2 + 1 > hex.length()) throw new IllegalArgumentException("Hex string has odd length");
+			if (i2 + 1 > hex.length) throw new IllegalArgumentException("Hex string has odd length");
 			var nib1 = WKBReader.hexToInt(hex.charAt(i2));
 			var nib0 = WKBReader.hexToInt(hex.charAt(i2 + 1));
 			var b = (nib1 << 4) + nib0;

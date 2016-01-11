@@ -1,4 +1,5 @@
 import Coordinate from '../../geom/Coordinate';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Envelope from '../../geom/Envelope';
 import Assert from '../../util/Assert';
 export default class HotPixel {

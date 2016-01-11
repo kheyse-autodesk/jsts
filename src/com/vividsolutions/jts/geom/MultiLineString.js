@@ -1,5 +1,4 @@
 import Geometry from './Geometry';
-import GeometryFactory from './GeometryFactory';
 import BoundaryOp from '../operation/BoundaryOp';
 import Lineal from './Lineal';
 import GeometryCollection from './GeometryCollection';
@@ -14,11 +13,6 @@ export default class MultiLineString extends GeometryCollection {
 					return ((...args) => {
 						let [lineStrings, factory] = args;
 						super(lineStrings, factory);
-					})(...args);
-				case 3:
-					return ((...args) => {
-						let [lineStrings, precisionModel, SRID] = args;
-						super(lineStrings, new GeometryFactory(precisionModel, SRID));
 					})(...args);
 			}
 		};
@@ -72,6 +66,13 @@ export default class MultiLineString extends GeometryCollection {
 	}
 	getGeometryType() {
 		return "MultiLineString";
+	}
+	copy() {
+		var lineStrings = new Array(this.geometries.length);
+		for (var i = 0; i < lineStrings.length; i++) {
+			lineStrings[i] = this.geometries[i].copy();
+		}
+		return new MultiLineString(lineStrings, this.factory);
 	}
 	getClass() {
 		return MultiLineString;

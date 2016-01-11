@@ -1,4 +1,5 @@
 import CoordinateList from '../geom/CoordinateList';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import ArrayList from 'java/util/ArrayList';
 export default class LinearGeometryBuilder {
 	constructor(...args) {

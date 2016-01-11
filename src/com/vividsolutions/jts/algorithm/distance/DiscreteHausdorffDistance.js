@@ -1,6 +1,7 @@
 import DistanceToPoint from './DistanceToPoint';
 import CoordinateFilter from '../../geom/CoordinateFilter';
 import Coordinate from '../../geom/Coordinate';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import PointPairDistance from './PointPairDistance';
 import CoordinateSequenceFilter from '../../geom/CoordinateSequenceFilter';
 export default class DiscreteHausdorffDistance {

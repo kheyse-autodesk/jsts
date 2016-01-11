@@ -1,5 +1,4 @@
 import Geometry from './Geometry';
-import GeometryFactory from './GeometryFactory';
 import GeometryCollection from './GeometryCollection';
 import Polygonal from './Polygonal';
 import ArrayList from 'java/util/ArrayList';
@@ -13,11 +12,6 @@ export default class MultiPolygon extends GeometryCollection {
 					return ((...args) => {
 						let [polygons, factory] = args;
 						super(polygons, factory);
-					})(...args);
-				case 3:
-					return ((...args) => {
-						let [polygons, precisionModel, SRID] = args;
-						overloads.call(this, polygons, new GeometryFactory(precisionModel, SRID));
 					})(...args);
 			}
 		};
@@ -69,6 +63,13 @@ export default class MultiPolygon extends GeometryCollection {
 	}
 	getGeometryType() {
 		return "MultiPolygon";
+	}
+	copy() {
+		var polygons = new Array(this.geometries.length);
+		for (var i = 0; i < polygons.length; i++) {
+			polygons[i] = this.geometries[i].copy();
+		}
+		return new MultiPolygon(polygons, this.factory);
 	}
 	getClass() {
 		return MultiPolygon;

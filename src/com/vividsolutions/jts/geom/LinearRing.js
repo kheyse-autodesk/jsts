@@ -2,6 +2,7 @@ import LineString from './LineString';
 import Geometry from './Geometry';
 import GeometryFactory from './GeometryFactory';
 import Coordinate from './Coordinate';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import CoordinateSequences from './CoordinateSequences';
 import CoordinateSequence from './CoordinateSequence';
 import Dimension from './Dimension';
@@ -24,12 +25,6 @@ export default class LinearRing extends LineString {
 							this.validateConstruction();
 						})(...args);
 					}
-				case 3:
-					return ((...args) => {
-						let [points, precisionModel, SRID] = args;
-						overloads.call(this, points, new GeometryFactory(precisionModel, SRID));
-						this.validateConstruction();
-					})(...args);
 			}
 		};
 		return overloads.apply(this, args);

@@ -1,3 +1,4 @@
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Character from 'java/lang/Character';
 export default class Dimension {
 	get interfaces_() {

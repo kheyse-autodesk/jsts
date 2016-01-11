@@ -1,4 +1,5 @@
 import Coordinate from '../geom/Coordinate';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Double from 'java/lang/Double';
 import Vector3D from '../math/Vector3D';
 export default class CGAlgorithms3D {

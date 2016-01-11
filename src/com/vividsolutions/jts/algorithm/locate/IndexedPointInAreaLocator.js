@@ -1,3 +1,4 @@
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import ItemVisitor from '../../index/ItemVisitor';
 import PointOnGeometryLocator from './PointOnGeometryLocator';
 import SortedPackedIntervalRTree from '../../index/intervalrtree/SortedPackedIntervalRTree';

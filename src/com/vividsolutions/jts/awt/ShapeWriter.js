@@ -1,6 +1,7 @@
 import LineString from '../geom/LineString';
 import GeometryCollectionShape from './GeometryCollectionShape';
 import Geometry from '../geom/Geometry';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Point from '../geom/Point';
 import Polygon from '../geom/Polygon';
 import GeneralPath from 'java/awt/geom/GeneralPath';

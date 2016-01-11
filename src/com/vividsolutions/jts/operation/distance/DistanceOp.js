@@ -3,6 +3,7 @@ import PolygonExtracter from '../../geom/util/PolygonExtracter';
 import Location from '../../geom/Location';
 import LineString from '../../geom/LineString';
 import CGAlgorithms from '../../algorithm/CGAlgorithms';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Point from '../../geom/Point';
 import Polygon from '../../geom/Polygon';
 import GeometryLocation from './GeometryLocation';

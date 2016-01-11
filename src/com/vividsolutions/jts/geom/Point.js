@@ -1,6 +1,5 @@
 import Geometry from './Geometry';
 import CoordinateFilter from './CoordinateFilter';
-import GeometryFactory from './GeometryFactory';
 import GeometryComponentFilter from './GeometryComponentFilter';
 import Dimension from './Dimension';
 import GeometryFilter from './GeometryFilter';
@@ -21,12 +20,6 @@ export default class Point extends Geometry {
 						let [coordinates, factory] = args;
 						super(factory);
 						this.init(coordinates);
-					})(...args);
-				case 3:
-					return ((...args) => {
-						let [coordinate, precisionModel, SRID] = args;
-						super(new GeometryFactory(precisionModel, SRID));
-						this.init(this.getFactory().getCoordinateSequenceFactory().create(coordinate !== null ? [coordinate] : []));
 					})(...args);
 			}
 		};

@@ -1,5 +1,6 @@
 import StringBuffer from 'java/lang/StringBuffer';
 import Location from './Location';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Dimension from './Dimension';
 import Cloneable from 'java/lang/Cloneable';
 export default class IntersectionMatrix {
@@ -54,7 +55,7 @@ export default class IntersectionMatrix {
 							var m = new IntersectionMatrix(actualDimensionSymbols);
 							return m.matches(requiredDimensionSymbols);
 						})(...args);
-					} else if (Number.isInteger(args[0]) && args[1] instanceof char) {
+					} else if (Number.isInteger(args[0]) && typeof args[1] === "string") {
 						return ((...args) => {
 							let [actualDimensionValue, requiredDimensionSymbol] = args;
 							if (requiredDimensionSymbol === Dimension.SYM_DONTCARE) {
@@ -105,7 +106,7 @@ export default class IntersectionMatrix {
 				case 1:
 					return ((...args) => {
 						let [dimensionSymbols] = args;
-						for (var i = 0; i < dimensionSymbols.length(); i++) {
+						for (var i = 0; i < dimensionSymbols.length; i++) {
 							var row = Math.trunc(i / 3);
 							var col = i % 3;
 							this.matrix[row][col] = Dimension.toDimensionValue(dimensionSymbols.charAt(i));
@@ -129,7 +130,7 @@ export default class IntersectionMatrix {
 				case 1:
 					return ((...args) => {
 						let [minimumDimensionSymbols] = args;
-						for (var i = 0; i < minimumDimensionSymbols.length(); i++) {
+						for (var i = 0; i < minimumDimensionSymbols.length; i++) {
 							var row = Math.trunc(i / 3);
 							var col = i % 3;
 							this.setAtLeast(row, col, Dimension.toDimensionValue(minimumDimensionSymbols.charAt(i)));
@@ -210,7 +211,7 @@ export default class IntersectionMatrix {
 		return this;
 	}
 	matches(requiredDimensionSymbols) {
-		if (requiredDimensionSymbols.length() !== 9) {
+		if (requiredDimensionSymbols.length !== 9) {
 			throw new IllegalArgumentException("Should be length 9: " + requiredDimensionSymbols);
 		}
 		for (var ai = 0; ai < 3; ai++) {

@@ -111,10 +111,10 @@ export default class Debug {
 		if (cond) Debug.doBreak();
 	}
 	static formatField(s, fieldLen) {
-		var nPad = fieldLen - s.length();
+		var nPad = fieldLen - s.length;
 		if (nPad <= 0) return s;
 		var padStr = Debug.spaces(nPad) + s;
-		return padStr.substring(padStr.length() - fieldLen);
+		return padStr.substring(padStr.length - fieldLen);
 	}
 	static main(args) {
 		System.out.println("JTS Debugging is " + (Debug.debugOn ? "ON" : "OFF"));

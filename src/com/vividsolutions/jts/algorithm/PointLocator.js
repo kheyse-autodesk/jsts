@@ -3,6 +3,7 @@ import LineString from '../geom/LineString';
 import CGAlgorithms from './CGAlgorithms';
 import Geometry from '../geom/Geometry';
 import Coordinate from '../geom/Coordinate';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Point from '../geom/Point';
 import Polygon from '../geom/Polygon';
 import BoundaryNodeRule from './BoundaryNodeRule';

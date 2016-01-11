@@ -1,4 +1,5 @@
 import NumberUtil from '../util/NumberUtil';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Double from 'java/lang/Double';
 import Comparable from 'java/lang/Comparable';
 import Cloneable from 'java/lang/Cloneable';

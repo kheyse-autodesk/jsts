@@ -63,7 +63,7 @@ export default class GMLHandler extends DefaultHandler {
 	startElement(uri, localName, qName, attributes) {
 		var ps = GeometryStrategies.findStrategy(uri, localName);
 		if (ps === null) {
-			var qn = qName.substring(qName.indexOf(':') + 1, qName.length());
+			var qn = qName.substring(qName.indexOf(':') + 1, qName.length);
 			ps = GeometryStrategies.findStrategy(null, qn);
 		}
 		var h = new Handler(ps, attributes);

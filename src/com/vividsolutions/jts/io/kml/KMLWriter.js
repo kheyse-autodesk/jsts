@@ -2,6 +2,7 @@ import StringBuffer from 'java/lang/StringBuffer';
 import LineString from '../../geom/LineString';
 import Geometry from '../../geom/Geometry';
 import Coordinate from '../../geom/Coordinate';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Writer from 'java/io/Writer';
 import Point from '../../geom/Point';
 import Polygon from '../../geom/Polygon';
@@ -111,7 +112,7 @@ export default class KMLWriter {
 		var buf = new StringBuffer();
 		buf.append("<");
 		buf.append(geometryName);
-		if (attributes !== null && attributes.length() > 0) {
+		if (attributes !== null && attributes.length > 0) {
 			buf.append(" ");
 			buf.append(attributes);
 		}

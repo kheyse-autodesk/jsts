@@ -2,6 +2,7 @@ import LineString from '../geom/LineString';
 import HashMap from 'java/util/HashMap';
 import GeometryTransformer from '../geom/util/GeometryTransformer';
 import TaggedLinesSimplifier from './TaggedLinesSimplifier';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import GeometryComponentFilter from '../geom/GeometryComponentFilter';
 import TaggedLineString from './TaggedLineString';
 export default class TopologyPreservingSimplifier {

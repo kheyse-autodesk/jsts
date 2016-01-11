@@ -71,7 +71,7 @@ export default class WKBHexFileReader {
 						var geoms = new ArrayList();
 						while (!this.isAtEndOfFile(bufferedReader) && !this.isAtLimit(geoms)) {
 							var line = bufferedReader.readLine().trim();
-							if (line.length() === 0) continue;
+							if (line.length === 0) continue;
 							var g = this.wkbReader.read(WKBReader.hexToBytes(line));
 							if (this.count >= this.offset) geoms.add(g);
 							this.count++;

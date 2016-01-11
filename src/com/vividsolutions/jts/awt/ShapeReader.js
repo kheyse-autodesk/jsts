@@ -2,6 +2,7 @@ import CGAlgorithms from '../algorithm/CGAlgorithms';
 import CoordinateList from '../geom/CoordinateList';
 import GeometryFactory from '../geom/GeometryFactory';
 import Coordinate from '../geom/Coordinate';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import AffineTransform from 'java/awt/geom/AffineTransform';
 import ArrayList from 'java/util/ArrayList';
 import PathIterator from 'java/awt/geom/PathIterator';

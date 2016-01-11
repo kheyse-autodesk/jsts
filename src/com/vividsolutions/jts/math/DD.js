@@ -110,7 +110,7 @@ export default class DD {
 	}
 	static parse(str) {
 		var i = 0;
-		var strlen = str.length();
+		var strlen = str.length;
 		while (Character.isWhitespace(str.charAt(i))) i++;
 		var isNegative = false;
 		if (i < strlen) {
@@ -622,7 +622,7 @@ export default class DD {
 		} else if (decimalPointPos < 0) {
 			num = "0." + DD.stringOfChar('0', -decimalPointPos) + sigDigits;
 		} else if (sigDigits.indexOf('.') === -1) {
-			var numZeroes = decimalPointPos - sigDigits.length();
+			var numZeroes = decimalPointPos - sigDigits.length;
 			var zeroes = DD.stringOfChar('0', numZeroes);
 			num = sigDigits + zeroes + ".0";
 		}
@@ -658,7 +658,7 @@ export default class DD {
 			throw new IllegalStateException("Found leading zero: " + digits);
 		}
 		var trailingDigits = "";
-		if (digits.length() > 1) trailingDigits = digits.substring(1);
+		if (digits.length > 1) trailingDigits = digits.substring(1);
 		var digitsWithDecimal = digits.charAt(0) + "." + trailingDigits;
 		if (this.isNegative()) return "-" + digitsWithDecimal + expStr;
 		return digitsWithDecimal + expStr;

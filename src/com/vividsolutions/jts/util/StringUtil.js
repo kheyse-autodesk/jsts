@@ -57,7 +57,7 @@ export default class StringUtil {
 		return overloads.apply(this, args);
 	}
 	static split(s, separator) {
-		var separatorlen = separator.length();
+		var separatorlen = separator.length;
 		var tokenList = new ArrayList();
 		var tmpString = "" + s;
 		var pos = tmpString.indexOf(separator);
@@ -67,7 +67,7 @@ export default class StringUtil {
 			tmpString = tmpString.substring(pos + separatorlen);
 			pos = tmpString.indexOf(separator);
 		}
-		if (tmpString.length() > 0) tokenList.add(tmpString);
+		if (tmpString.length > 0) tokenList.add(tmpString);
 		var res = new Array(tokenList.size());
 		for (var i = 0; i < res.length; i++) {
 			res[i] = tokenList.get(i);

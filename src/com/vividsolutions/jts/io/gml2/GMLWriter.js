@@ -1,5 +1,6 @@
 import LineString from '../../geom/LineString';
 import Geometry from '../../geom/Geometry';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Writer from 'java/io/Writer';
 import Point from '../../geom/Point';
 import Polygon from '../../geom/Polygon';
@@ -78,7 +79,7 @@ export default class GMLWriter {
 		if (this.emitNamespace) {
 			writer.write(" xmlns" + (this.prefix === null || "".equals(this.prefix) ? "" : ":" + this.prefix) + "='" + this.namespace + "'");
 		}
-		if (this.srsName !== null && this.srsName.length() > 0) {
+		if (this.srsName !== null && this.srsName.length > 0) {
 			writer.write(" " + GMLConstants.GML_ATTR_SRSNAME + "='" + this.srsName + "'");
 		}
 	}
@@ -112,7 +113,7 @@ export default class GMLWriter {
 		this.endGeomTag(GMLConstants.GML_MULTI_POLYGON, writer);
 	}
 	prefix() {
-		if (this.prefix === null || this.prefix.length() === 0) return "";
+		if (this.prefix === null || this.prefix.length === 0) return "";
 		return this.prefix + ":";
 	}
 	startGeomTag(geometryName, g, writer) {

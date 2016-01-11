@@ -1,3 +1,4 @@
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Double from 'java/lang/Double';
 import Vector3D from './Vector3D';
 export default class Plane3D {

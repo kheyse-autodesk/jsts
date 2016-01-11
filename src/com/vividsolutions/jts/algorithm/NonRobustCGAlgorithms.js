@@ -1,4 +1,5 @@
 import CGAlgorithms from './CGAlgorithms';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 export default class NonRobustCGAlgorithms extends CGAlgorithms {
 	constructor(...args) {
 		super();

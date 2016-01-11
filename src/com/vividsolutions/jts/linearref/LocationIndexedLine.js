@@ -1,4 +1,5 @@
 import LineString from '../geom/LineString';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import LinearLocation from './LinearLocation';
 import LocationIndexOfPoint from './LocationIndexOfPoint';
 import LocationIndexOfLine from './LocationIndexOfLine';

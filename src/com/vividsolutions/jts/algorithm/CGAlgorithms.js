@@ -1,5 +1,6 @@
 import Location from '../geom/Location';
 import Coordinate from '../geom/Coordinate';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import MathUtil from '../math/MathUtil';
 import CGAlgorithmsDD from './CGAlgorithmsDD';
 import CoordinateSequence from '../geom/CoordinateSequence';

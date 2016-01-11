@@ -1,4 +1,5 @@
 import Coordinate from '../Coordinate';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import AffineTransformation from './AffineTransformation';
 import AffineTransformationBuilder from './AffineTransformationBuilder';
 import Angle from '../../algorithm/Angle';

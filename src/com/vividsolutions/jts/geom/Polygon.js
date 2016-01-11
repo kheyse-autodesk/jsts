@@ -2,12 +2,10 @@ import CGAlgorithms from '../algorithm/CGAlgorithms';
 import Geometry from './Geometry';
 import Arrays from 'java/util/Arrays';
 import CoordinateFilter from './CoordinateFilter';
-import GeometryFactory from './GeometryFactory';
-import LinearRing from './LinearRing';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import System from 'java/lang/System';
 import GeometryComponentFilter from './GeometryComponentFilter';
 import CoordinateArrays from './CoordinateArrays';
-import PrecisionModel from './PrecisionModel';
 import Polygonal from './Polygonal';
 import GeometryFilter from './GeometryFilter';
 import CoordinateSequenceFilter from './CoordinateSequenceFilter';
@@ -21,35 +19,23 @@ export default class Polygon extends Geometry {
 		const overloads = (...args) => {
 			switch (args.length) {
 				case 3:
-					if (args[2] instanceof GeometryFactory && args[0] instanceof LinearRing && args[1] instanceof Array) {
-						return ((...args) => {
-							let [shell, holes, factory] = args;
-							super(factory);
-							if (shell === null) {
-								shell = this.getFactory().createLinearRing(null);
-							}
-							if (holes === null) {
-								holes = [];
-							}
-							if (Polygon.hasNullElements(holes)) {
-								throw new IllegalArgumentException("holes must not contain null elements");
-							}
-							if (shell.isEmpty() && Polygon.hasNonEmptyElements(holes)) {
-								throw new IllegalArgumentException("shell is empty but holes are not");
-							}
-							this.shell = shell;
-							this.holes = holes;
-						})(...args);
-					} else if (Number.isInteger(args[2]) && args[0] instanceof LinearRing && args[1] instanceof PrecisionModel) {
-						return ((...args) => {
-							let [shell, precisionModel, SRID] = args;
-							overloads.call(this, shell, [], new GeometryFactory(precisionModel, SRID));
-						})(...args);
-					}
-				case 4:
 					return ((...args) => {
-						let [shell, holes, precisionModel, SRID] = args;
-						overloads.call(this, shell, holes, new GeometryFactory(precisionModel, SRID));
+						let [shell, holes, factory] = args;
+						super(factory);
+						if (shell === null) {
+							shell = this.getFactory().createLinearRing(null);
+						}
+						if (holes === null) {
+							holes = [];
+						}
+						if (Polygon.hasNullElements(holes)) {
+							throw new IllegalArgumentException("holes must not contain null elements");
+						}
+						if (shell.isEmpty() && Polygon.hasNonEmptyElements(holes)) {
+							throw new IllegalArgumentException("shell is empty but holes are not");
+						}
+						this.shell = shell;
+						this.holes = holes;
 					})(...args);
 			}
 		};

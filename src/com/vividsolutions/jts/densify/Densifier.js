@@ -1,6 +1,7 @@
 import LineString from '../geom/LineString';
 import CoordinateList from '../geom/CoordinateList';
 import GeometryTransformer from '../geom/util/GeometryTransformer';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import MultiPolygon from '../geom/MultiPolygon';
 import LineSegment from '../geom/LineSegment';
 export default class Densifier {

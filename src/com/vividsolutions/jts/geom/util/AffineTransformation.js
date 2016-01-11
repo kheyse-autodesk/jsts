@@ -1,5 +1,6 @@
 import NoninvertibleTransformationException from './NoninvertibleTransformationException';
 import Coordinate from '../Coordinate';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Exception from 'java/lang/Exception';
 import CoordinateSequence from '../CoordinateSequence';
 import Cloneable from 'java/lang/Cloneable';

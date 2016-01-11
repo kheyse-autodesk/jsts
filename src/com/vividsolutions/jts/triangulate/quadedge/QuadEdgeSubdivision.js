@@ -4,6 +4,7 @@ import HashSet from 'java/util/HashSet';
 import WKTWriter from '../../io/WKTWriter';
 import GeometryFactory from '../../geom/GeometryFactory';
 import Coordinate from '../../geom/Coordinate';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Stack from 'java/util/Stack';
 import LastFoundQuadEdgeLocator from './LastFoundQuadEdgeLocator';
 import LocateFailureException from './LocateFailureException';

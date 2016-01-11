@@ -1,6 +1,7 @@
 import Location from '../../geom/Location';
 import GeometryFactory from '../../geom/GeometryFactory';
 import Coordinate from '../../geom/Coordinate';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Polygonal from '../../geom/Polygonal';
 import IndexedPointInAreaLocator from '../../algorithm/locate/IndexedPointInAreaLocator';
 import GeometricShapeBuilder from '../GeometricShapeBuilder';

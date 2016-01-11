@@ -1,4 +1,5 @@
 import Coordinate from '../geom/Coordinate';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 export default class Quadrant {
 	get interfaces_() {
 		return [];

@@ -1,5 +1,4 @@
 import Geometry from './Geometry';
-import GeometryFactory from './GeometryFactory';
 import GeometryCollection from './GeometryCollection';
 import Dimension from './Dimension';
 import Puntal from './Puntal';
@@ -13,11 +12,6 @@ export default class MultiPoint extends GeometryCollection {
 					return ((...args) => {
 						let [points, factory] = args;
 						super(points, factory);
-					})(...args);
-				case 3:
-					return ((...args) => {
-						let [points, precisionModel, SRID] = args;
-						super(points, new GeometryFactory(precisionModel, SRID));
 					})(...args);
 			}
 		};
@@ -55,6 +49,13 @@ export default class MultiPoint extends GeometryCollection {
 	}
 	getGeometryType() {
 		return "MultiPoint";
+	}
+	copy() {
+		var points = new Array(this.geometries.length);
+		for (var i = 0; i < points.length; i++) {
+			points[i] = this.geometries[i].copy();
+		}
+		return new MultiPoint(points, this.factory);
 	}
 	getClass() {
 		return MultiPoint;

@@ -1,3 +1,4 @@
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Lineal from '../geom/Lineal';
 export default class LinearIterator {
 	constructor(...args) {

@@ -1,3 +1,4 @@
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 export default class Matrix {
 	get interfaces_() {
 		return [];

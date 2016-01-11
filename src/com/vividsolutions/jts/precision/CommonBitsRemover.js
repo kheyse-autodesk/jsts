@@ -1,3 +1,5 @@
+import CommonBits from './CommonBits';
+import CoordinateFilter from '../geom/CoordinateFilter';
 import Coordinate from '../geom/Coordinate';
 import CoordinateSequenceFilter from '../geom/CoordinateSequenceFilter';
 export default class CommonBitsRemover {
@@ -18,6 +20,9 @@ export default class CommonBitsRemover {
 	}
 	get interfaces_() {
 		return [];
+	}
+	static get CommonCoordinateFilter() {
+		return CommonCoordinateFilter;
 	}
 	static get Translater() {
 		return Translater;
@@ -46,6 +51,27 @@ export default class CommonBitsRemover {
 	}
 	getClass() {
 		return CommonBitsRemover;
+	}
+}
+class CommonCoordinateFilter {
+	constructor(...args) {
+		(() => {
+			this.commonBitsX = new CommonBits();
+			this.commonBitsY = new CommonBits();
+		})();
+	}
+	get interfaces_() {
+		return [CoordinateFilter];
+	}
+	filter(coord) {
+		this.commonBitsX.add(coord.x);
+		this.commonBitsY.add(coord.y);
+	}
+	getCommonCoordinate() {
+		return new Coordinate(this.commonBitsX.getCommon(), this.commonBitsY.getCommon());
+	}
+	getClass() {
+		return CommonCoordinateFilter;
 	}
 }
 class Translater {

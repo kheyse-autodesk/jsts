@@ -1,8 +1,8 @@
 import CGAlgorithms from '../algorithm/CGAlgorithms';
 import Geometry from './Geometry';
 import CoordinateFilter from './CoordinateFilter';
-import GeometryFactory from './GeometryFactory';
 import BoundaryOp from '../operation/BoundaryOp';
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Lineal from './Lineal';
 import CoordinateSequences from './CoordinateSequences';
 import GeometryComponentFilter from './GeometryComponentFilter';
@@ -23,12 +23,6 @@ export default class LineString extends Geometry {
 						let [points, factory] = args;
 						super(factory);
 						this.init(points);
-					})(...args);
-				case 3:
-					return ((...args) => {
-						let [points, precisionModel, SRID] = args;
-						super(new GeometryFactory(precisionModel, SRID));
-						this.init(this.getFactory().getCoordinateSequenceFactory().create(points));
 					})(...args);
 			}
 		};

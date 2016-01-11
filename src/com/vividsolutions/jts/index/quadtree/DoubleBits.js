@@ -1,3 +1,4 @@
+import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import Double from 'java/lang/Double';
 export default class DoubleBits {
 	constructor(...args) {
@@ -78,7 +79,7 @@ export default class DoubleBits {
 		var numStr = Long.toBinaryString(this.xBits);
 		var zero64 = "0000000000000000000000000000000000000000000000000000000000000000";
 		var padStr = zero64 + numStr;
-		var bitStr = padStr.substring(padStr.length() - 64);
+		var bitStr = padStr.substring(padStr.length - 64);
 		var str = bitStr.substring(0, 1) + "  " + bitStr.substring(1, 12) + "(" + this.getExponent() + ") " + bitStr.substring(12) + " [ " + this.x + " ]";
 		return str;
 	}
