@@ -5,11 +5,8 @@ import GeometryMixin from 'com/vividsolutions/jts/geom/GeometryMixin'
 import GeometryFactory from 'com/vividsolutions/jts/geom/GeometryFactory'
 import PrecisionModel from 'com/vividsolutions/jts/geom/PrecisionModel'
 import WKTReader from 'com/vividsolutions/jts/io/WKTReader'
-import WKTWriter from 'com/vividsolutions/jts/io/WKTWriter'
 
 import BufferResultMatcher from './BufferResultMatcher'
-
-const writer = new WKTWriter()
 
 /**
  * @return GeometryFactory with PrecisionModel from test XML (undefined if no such info in XML)
@@ -31,7 +28,7 @@ function createGeometryFactory (precisionModelInfo) {
 /**
  * Translate JTS XML testcase document to Mocha suites
  */
-export default function(doc, title) {
+export default function (doc, title) {
   const cases = $('case', doc)
   const geometryFactory = createGeometryFactory($('precisionModel', doc))
   const reader = new WKTReader(geometryFactory)
@@ -46,7 +43,7 @@ export default function(doc, title) {
     else if (opname === 'symdifference') opname = 'symDifference'
 
     it('Executing ' + opname + ' on test geometry', function () {
-      var inputs = ' Input geometry A: ' + a + (b ? ' B: ' + b : '')
+      const inputs = ' Input geometry A: ' + a + (b ? ' B: ' + b : '')
 
       var result
 
@@ -72,7 +69,7 @@ export default function(doc, title) {
           expect(true).to.be.ok()
         }
       } else if (opname === 'distance') {
-        var expectedDistance = parseFloat(expected)
+        const expectedDistance = parseFloat(expected)
         if (result !== expectedDistance) {
           throw new Error('Result: ' + result + ' Expected: ' +
             parseFloat(expectedDistance) + inputs)
@@ -80,7 +77,7 @@ export default function(doc, title) {
           expect(true).to.be.ok()
         }
       } else if (opname === 'buffer') {
-        var expectedGeometry = reader.read(expected)
+        const expectedGeometry = reader.read(expected)
         result.normalize()
         expectedGeometry.normalize()
 
@@ -93,14 +90,7 @@ export default function(doc, title) {
           expect(true).to.be.ok()
         }
       } else {
-        var expectedGeometry = reader.read(expected)
-
-        /*
-        if (typeof result.normalize !== "function") {
-          console.log(result.constructor.name)
-        }
-        */
-
+        const expectedGeometry = reader.read(expected)
         result.normalize()
         expectedGeometry.normalize()
 

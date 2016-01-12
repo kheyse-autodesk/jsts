@@ -1,15 +1,19 @@
 import Cloneable from 'java/lang/Cloneable';
 export default class CoordinateSequence {
-	constructor(...args) {
-		(() => {
-			this.X = 0;
-			this.Y = 1;
-			this.Z = 2;
-			this.M = 3;
-		})();
-	}
 	get interfaces_() {
 		return [Cloneable];
+	}
+	static get X() {
+		return 0;
+	}
+	static get Y() {
+		return 1;
+	}
+	static get Z() {
+		return 2;
+	}
+	static get M() {
+		return 3;
 	}
 	setOrdinate(index, ordinateIndex, value) {}
 	size() {}

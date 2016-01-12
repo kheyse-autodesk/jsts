@@ -1,5 +1,6 @@
 var ArrayList = require('./ArrayList');
 var SortedMap = require('./SortedMap');
+var HashSet = require('./HashSet');
 
 
 /**
@@ -72,7 +73,9 @@ TreeMap.prototype.put = function(key, value) {
       left: null,
       right: null,
       parent: null,
-      color: BLACK
+      color: BLACK,
+      getValue() { return this.value },
+      getKey() { return this.key }
     };
     this.size_ = 1;
     return null;
@@ -97,7 +100,9 @@ TreeMap.prototype.put = function(key, value) {
     right: null,
     value: value,
     parent: parent,
-    color: BLACK
+    color: BLACK,
+    getValue() { return this.value },
+    getKey() { return this.key }
   };
   if (cmp < 0) {
     parent.left = e;
@@ -167,6 +172,22 @@ TreeMap.prototype.values = function() {
     }
   }
   return arrayList;
+};
+
+
+/**
+ * @override
+ */
+TreeMap.prototype.entrySet = function() {
+  var hashSet = new HashSet();
+  var p = this.getFirstEntry();
+  if (p !== null) {
+    hashSet.add(p);
+    while ((p = TreeMap.successor(p)) !== null) {
+      hashSet.add(p);
+    }
+  }
+  return hashSet;
 };
 
 

@@ -40,7 +40,6 @@ var b = reader.read('POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))')
 var union = a.union(b)
 console.log('Union: ' + union)
 
-
-var ep1 = reader.read('POINT EMPTY')
-var ep2 = reader.read('POINT EMPTY')
-console.log('Is equal: ' + ep1.equals(ep2))
+var mp2 = reader.read('MULTILINESTRING((10 10, 20 20), (20 20, 30 30))')
+var boundary = mp2.getBoundary()
+console.log('getBoundary: ' + boundary)

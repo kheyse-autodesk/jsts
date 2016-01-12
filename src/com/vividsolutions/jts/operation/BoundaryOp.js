@@ -60,7 +60,7 @@ export default class BoundaryOp {
 		if (bdyPts.length === 1) {
 			return this.geomFact.createPoint(bdyPts[0]);
 		}
-		return this.geomFact.createMultiPoint(bdyPts);
+		return this.geomFact.createMultiPointFromCoords(bdyPts);
 	}
 	getBoundary() {
 		if (this.geom instanceof LineString) return this.boundaryLineString(this.geom);
@@ -76,13 +76,13 @@ export default class BoundaryOp {
 			if (closedEndpointOnBoundary) {
 				return line.getStartPoint();
 			} else {
-				return this.geomFact.createMultiPoint(null);
+				return this.geomFact.createMultiPoint();
 			}
 		}
 		return this.geomFact.createMultiPoint([line.getStartPoint(), line.getEndPoint()]);
 	}
 	getEmptyMultiPoint() {
-		return this.geomFact.createMultiPoint(null);
+		return this.geomFact.createMultiPoint();
 	}
 	computeBoundaryCoordinates(mLine) {
 		var bdyPts = new ArrayList();

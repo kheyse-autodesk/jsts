@@ -39,7 +39,7 @@ export default class RandomPointsBuilder extends GeometricShapeBuilder {
 			if (this.extentLocator !== null && !this.isInExtent(p)) continue;
 			pts[i++] = p;
 		}
-		return this.geomFactory.createMultiPoint(pts);
+		return this.geomFactory.createMultiPointFromCoords(pts);
 	}
 	createRandomCoord(env) {
 		var x = env.getMinX() + env.getWidth() * Math.random();

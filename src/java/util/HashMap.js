@@ -1,6 +1,6 @@
-var ArrayList = require('./ArrayList');
-var MapInterface = require('./Map');
-
+var ArrayList = require('./ArrayList')
+var MapInterface = require('./Map')
+var HashSet = require('./HashSet')
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/HashMap.html
@@ -9,48 +9,53 @@ var MapInterface = require('./Map');
  * @constructor
  * @export
  */
-var HashMap = function() {
+var HashMap = function () {
   /**
    * @type {Object}
    * @private
   */
-  this.map_ = new Map();
-};
-HashMap.prototype = new MapInterface();
-
-
-/**
- * @override
- */
-HashMap.prototype.get = function(key) {
-  return this.map_.get(key) || null;
-};
-
+  this.map_ = new Map()
+}
+HashMap.prototype = new MapInterface()
 
 /**
  * @override
  */
-HashMap.prototype.put = function(key, value) {
-  this.map_.set(key, value);
-  return value;
-};
-
+HashMap.prototype.get = function (key) {
+  return this.map_.get(key) || null
+}
 
 /**
  * @override
  */
-HashMap.prototype.values = function() {
+HashMap.prototype.put = function (key, value) {
+  this.map_.set(key, value)
+  return value
+}
+
+/**
+ * @override
+ */
+HashMap.prototype.values = function () {
   const arrayList = new ArrayList()
   Array.from(this.map_.values()).forEach(value => arrayList.add(value))
   return arrayList
-};
-
+}
 
 /**
  * @override
  */
-HashMap.prototype.size = function() {
-  return this.map_.size();
-};
+HashMap.prototype.entrySet = function () {
+  const hashSet = new HashSet()
+  this.map_.entries().forEach(entry => hashSet.add(entry))
+  return hashSet
+}
 
-module.exports = HashMap;
+/**
+ * @override
+ */
+HashMap.prototype.size = function () {
+  return this.map_.size()
+}
+
+module.exports = HashMap

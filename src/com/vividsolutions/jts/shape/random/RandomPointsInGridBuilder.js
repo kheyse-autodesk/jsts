@@ -66,7 +66,7 @@ export default class RandomPointsInGridBuilder extends GeometricShapeBuilder {
 				pts[index++] = this.randomPointInCell(orgX, orgY, cellDX, cellDY);
 			}
 		}
-		return this.geomFactory.createMultiPoint(pts);
+		return this.geomFactory.createMultiPointFromCoords(pts);
 	}
 	setConstrainedToCircle(isConstrainedToCircle) {
 		this.isConstrainedToCircle = isConstrainedToCircle;

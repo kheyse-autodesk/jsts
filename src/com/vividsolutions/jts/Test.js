@@ -15,6 +15,9 @@ export default class Test {
 		var p = reader.read("POINT(1 1)");
 		var buffer = p.buffer(2);
 		System.out.println(writer.write(buffer));
+		var p1 = reader.read("POINT EMPTY");
+		var p2 = reader.read("POINT EMPTY");
+		System.out.println(p1.equals(p2));
 	}
 	getClass() {
 		return Test;

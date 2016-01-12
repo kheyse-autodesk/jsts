@@ -45,7 +45,7 @@ export default class PointGeometryUnion {
 		if (coords.length === 1) {
 			ptComp = this.geomFact.createPoint(coords[0]);
 		} else {
-			ptComp = this.geomFact.createMultiPoint(coords);
+			ptComp = this.geomFact.createMultiPointFromCoords(coords);
 		}
 		return GeometryCombiner.combine(ptComp, this.otherGeom);
 	}

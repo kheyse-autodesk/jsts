@@ -191,6 +191,9 @@ export default class GeometryFactory {
 		}
 		return geom0;
 	}
+	createMultiPointFromCoords(coordinates) {
+		return this.createMultiPoint(coordinates !== null ? this.getCoordinateSequenceFactory().create(coordinates) : null);
+	}
 	createPoint(...args) {
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -337,11 +340,6 @@ export default class GeometryFactory {
 						return ((...args) => {
 							let [point] = args;
 							return new MultiPoint(point, this);
-						})(...args);
-					} else if (args[0] instanceof Array) {
-						return ((...args) => {
-							let [coordinates] = args;
-							return this.createMultiPoint(coordinates !== null ? this.getCoordinateSequenceFactory().create(coordinates) : null);
 						})(...args);
 					} else if (args[0].interfaces_ && args[0].interfaces_.indexOf(CoordinateSequence) > -1) {
 						return ((...args) => {
