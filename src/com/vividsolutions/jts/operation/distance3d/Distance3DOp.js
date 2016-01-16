@@ -133,7 +133,7 @@ export default class Distance3DOp {
 		const overloads = (...args) => {
 			switch (args.length) {
 				case 3:
-					if (typeof args[2] === "boolean" && args[0] instanceof PlanarPolygon3D && args[1] instanceof Geometry) {
+					if (typeof args[2] === "boolean" && (args[0] instanceof PlanarPolygon3D && args[1] instanceof Geometry)) {
 						return ((...args) => {
 							let [poly, geom, flip] = args;
 							if (geom instanceof GeometryCollection) {
@@ -158,7 +158,7 @@ export default class Distance3DOp {
 								}
 							}
 						})(...args);
-					} else if (typeof args[2] === "boolean" && args[0] instanceof Geometry && args[1] instanceof Geometry) {
+					} else if (typeof args[2] === "boolean" && (args[0] instanceof Geometry && args[1] instanceof Geometry)) {
 						return ((...args) => {
 							let [g0, g1, flip] = args;
 							if (g1 instanceof GeometryCollection) {

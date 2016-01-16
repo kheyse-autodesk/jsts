@@ -62,7 +62,7 @@ export default class Vertex {
 						var segLen = p0.distance(p1);
 						var ptLen = p.distance(p0);
 						var dz = p1.z - p0.z;
-						var pz = p0.z + dz * ptLen / segLen;
+						var pz = p0.z + dz * (ptLen / segLen);
 						return pz;
 					})(...args);
 				case 4:

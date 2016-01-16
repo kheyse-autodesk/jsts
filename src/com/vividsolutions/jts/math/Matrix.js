@@ -30,7 +30,7 @@ export default class Matrix {
 		const overloads = (...args) => {
 			switch (args.length) {
 				case 3:
-					if (Number.isInteger(args[2]) && args[0] instanceof Array && Number.isInteger(args[1])) {
+					if (Number.isInteger(args[2]) && (args[0] instanceof Array && Number.isInteger(args[1]))) {
 						return ((...args) => {
 							let [m, i, j] = args;
 							if (i === j) return null;
@@ -40,7 +40,7 @@ export default class Matrix {
 								m[j][col] = temp;
 							}
 						})(...args);
-					} else if (Number.isInteger(args[2]) && args[0] instanceof Array && Number.isInteger(args[1])) {
+					} else if (Number.isInteger(args[2]) && (args[0] instanceof Array && Number.isInteger(args[1]))) {
 						return ((...args) => {
 							let [m, i, j] = args;
 							if (i === j) return null;

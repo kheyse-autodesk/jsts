@@ -50,7 +50,7 @@ export default class SineStarFactory extends GeometricShapeFactory {
 			var armAng = 2 * Math.PI * armAngFrac;
 			var armLenFrac = (Math.cos(armAng) + 1.0) / 2.0;
 			var curveRadius = insideRadius + armMaxLen * armLenFrac;
-			var ang = i * 2 * Math.PI / this.nPts;
+			var ang = i * (2 * Math.PI / this.nPts);
 			var x = curveRadius * Math.cos(ang) + centreX;
 			var y = curveRadius * Math.sin(ang) + centreY;
 			pts[iPt++] = this.coord(x, y);

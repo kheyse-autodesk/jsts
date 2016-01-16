@@ -23,14 +23,14 @@ export default class MathUtil {
 		const overloads = (...args) => {
 			switch (args.length) {
 				case 3:
-					if (typeof args[2] === "number" && typeof args[0] === "number" && typeof args[1] === "number") {
+					if (typeof args[2] === "number" && (typeof args[0] === "number" && typeof args[1] === "number")) {
 						return ((...args) => {
 							let [x, min, max] = args;
 							if (x < min) return min;
 							if (x > max) return max;
 							return x;
 						})(...args);
-					} else if (Number.isInteger(args[2]) && Number.isInteger(args[0]) && Number.isInteger(args[1])) {
+					} else if (Number.isInteger(args[2]) && (Number.isInteger(args[0]) && Number.isInteger(args[1]))) {
 						return ((...args) => {
 							let [x, min, max] = args;
 							if (x < min) return min;

@@ -49,7 +49,7 @@ export default class DoubleBits {
 		var db2 = new DoubleBits(d2);
 		if (db1.getExponent() !== db2.getExponent()) return 0.0;
 		var maxCommon = db1.numCommonMantissaBits(db2);
-		db1.zeroLowerBits(64 - 12 + maxCommon);
+		db1.zeroLowerBits(64 - (12 + maxCommon));
 		return db1.getDouble();
 	}
 	numCommonMantissaBits(db) {

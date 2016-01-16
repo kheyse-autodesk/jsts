@@ -47,7 +47,7 @@ export default class SubgraphDepthLocater {
 						return stabbedSegments;
 					})(...args);
 				case 3:
-					if (args[2].interfaces_ && args[2].interfaces_.indexOf(List) > -1 && args[0] instanceof Coordinate && args[1] instanceof DirectedEdge) {
+					if (args[2].interfaces_ && args[2].interfaces_.indexOf(List) > -1 && (args[0] instanceof Coordinate && args[1] instanceof DirectedEdge)) {
 						return ((...args) => {
 							let [stabbingRayLeftPt, dirEdge, stabbedSegments] = args;
 							var pts = dirEdge.getEdge().getCoordinates();
@@ -66,7 +66,7 @@ export default class SubgraphDepthLocater {
 								stabbedSegments.add(ds);
 							}
 						})(...args);
-					} else if (args[2].interfaces_ && args[2].interfaces_.indexOf(List) > -1 && args[0] instanceof Coordinate && args[1].interfaces_ && args[1].interfaces_.indexOf(List) > -1) {
+					} else if (args[2].interfaces_ && args[2].interfaces_.indexOf(List) > -1 && (args[0] instanceof Coordinate && (args[1].interfaces_ && args[1].interfaces_.indexOf(List) > -1))) {
 						return ((...args) => {
 							let [stabbingRayLeftPt, dirEdges, stabbedSegments] = args;
 							for (var i = dirEdges.iterator(); i.hasNext(); ) {

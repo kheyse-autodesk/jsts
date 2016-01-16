@@ -185,7 +185,7 @@ export default class STRtree extends AbstractSTRtree {
 							}
 							return [minPair.getBoundable(0).getItem(), minPair.getBoundable(1).getItem()];
 						})(...args);
-					} else if (args[0] instanceof STRtree && args[1].interfaces_ && args[1].interfaces_.indexOf(ItemDistance) > -1) {
+					} else if (args[0] instanceof STRtree && (args[1].interfaces_ && args[1].interfaces_.indexOf(ItemDistance) > -1)) {
 						return ((...args) => {
 							let [tree, itemDist] = args;
 							var bp = new BoundablePair(this.getRoot(), tree.getRoot(), itemDist);

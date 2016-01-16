@@ -82,7 +82,7 @@ export default class BoundaryOp {
 		return this.geomFact.createMultiPoint([line.getStartPoint(), line.getEndPoint()]);
 	}
 	getEmptyMultiPoint() {
-		return this.geomFact.createMultiPoint();
+		return this.geomFact.createMultiPoint(null);
 	}
 	computeBoundaryCoordinates(mLine) {
 		var bdyPts = new ArrayList();

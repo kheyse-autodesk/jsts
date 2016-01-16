@@ -459,7 +459,7 @@ export default class DD {
 		var ax = this.hi * x;
 		var axdd = DD.valueOf(ax);
 		var diffSq = this.subtract(axdd.sqr());
-		var d2 = diffSq.hi * x * 0.5;
+		var d2 = diffSq.hi * (x * 0.5);
 		return axdd.add(d2);
 	}
 	selfAdd(...args) {
@@ -478,12 +478,12 @@ export default class DD {
 							S = this.hi + y;
 							e = S - this.hi;
 							s = S - e;
-							s = y - e + this.hi - s;
+							s = y - e + (this.hi - s);
 							f = s + this.lo;
 							H = S + f;
-							h = f + S - H;
+							h = f + (S - H);
 							this.hi = H + h;
-							this.lo = h + H - this.hi;
+							this.lo = h + (H - this.hi);
 							return this;
 						})(...args);
 					}
@@ -497,14 +497,14 @@ export default class DD {
 						f = T - this.lo;
 						s = S - e;
 						t = T - f;
-						s = yhi - e + this.hi - s;
-						t = ylo - f + this.lo - t;
+						s = yhi - e + (this.hi - s);
+						t = ylo - f + (this.lo - t);
 						e = s + T;
 						H = S + e;
-						h = e + S - H;
+						h = e + (S - H);
 						e = t + h;
 						var zhi = H + e;
-						var zlo = e + H - zhi;
+						var zlo = e + (H - zhi);
 						this.hi = zhi;
 						this.lo = zlo;
 						return this;
@@ -541,7 +541,7 @@ export default class DD {
 						C = this.hi * yhi;
 						hy = c - hy;
 						ty = yhi - hy;
-						c = hx * hy - C + hx * ty + tx * hy + tx * ty + this.hi * ylo + this.lo * yhi;
+						c = hx * hy - C + hx * ty + tx * hy + tx * ty + (this.hi * ylo + this.lo * yhi);
 						var zhi = C + c;
 						hx = C - zhi;
 						var zlo = c + hx;

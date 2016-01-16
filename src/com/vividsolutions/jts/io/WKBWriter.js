@@ -67,7 +67,7 @@ export default class WKBWriter {
 	static toHexDigit(n) {
 		if (n < 0 || n > 15) throw new IllegalArgumentException("Nibble value out of range: " + n);
 		if (n <= 9) return '0' + n;
-		return 'A' + n - 10;
+		return 'A' + (n - 10);
 	}
 	static toHex(bytes) {
 		var buf = new StringBuffer();

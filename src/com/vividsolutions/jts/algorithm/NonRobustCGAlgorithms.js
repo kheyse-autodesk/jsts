@@ -50,7 +50,7 @@ export default class NonRobustCGAlgorithms extends CGAlgorithms {
 		var crossings = 0;
 		var x1 = null, y1 = null, x2 = null, y2 = null;
 		var nPts = ring.length;
-		for (i = 1; i < nPts; i++) {
+		for ((i = 1); i < nPts; i++) {
 			i1 = i - 1;
 			var p1 = ring[i];
 			var p2 = ring[i1];

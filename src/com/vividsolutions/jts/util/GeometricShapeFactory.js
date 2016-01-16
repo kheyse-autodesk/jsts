@@ -84,7 +84,7 @@ export default class GeometricShapeFactory {
 		var pts = new Array(this.nPts + 1);
 		var iPt = 0;
 		for (var i = 0; i < this.nPts; i++) {
-			var ang = i * 2 * Math.PI / this.nPts;
+			var ang = i * (2 * Math.PI / this.nPts);
 			var x = xRadius * Math.cos(ang) + centreX;
 			var y = yRadius * Math.sin(ang) + centreY;
 			pts[iPt++] = this.coord(x, y);
@@ -170,22 +170,22 @@ export default class GeometricShapeFactory {
 		var YsegLen = this.dim.getEnvelope().getHeight() / nSide;
 		var pts = new Array(4 * nSide + 1);
 		var env = this.dim.getEnvelope();
-		for (i = 0; i < nSide; i++) {
+		for ((i = 0); i < nSide; i++) {
 			var x = env.getMinX() + i * XsegLen;
 			var y = env.getMinY();
 			pts[ipt++] = this.coord(x, y);
 		}
-		for (i = 0; i < nSide; i++) {
+		for ((i = 0); i < nSide; i++) {
 			var x = env.getMaxX();
 			var y = env.getMinY() + i * YsegLen;
 			pts[ipt++] = this.coord(x, y);
 		}
-		for (i = 0; i < nSide; i++) {
+		for ((i = 0); i < nSide; i++) {
 			var x = env.getMaxX() - i * XsegLen;
 			var y = env.getMaxY();
 			pts[ipt++] = this.coord(x, y);
 		}
-		for (i = 0; i < nSide; i++) {
+		for ((i = 0); i < nSide; i++) {
 			var x = env.getMinX();
 			var y = env.getMaxY() - i * YsegLen;
 			pts[ipt++] = this.coord(x, y);

@@ -62,7 +62,7 @@ export default class BufferOp {
 						return geomBuf;
 					})(...args);
 				case 3:
-					if (Number.isInteger(args[2]) && args[0] instanceof Geometry && typeof args[1] === "number") {
+					if (Number.isInteger(args[2]) && (args[0] instanceof Geometry && typeof args[1] === "number")) {
 						return ((...args) => {
 							let [g, distance, quadrantSegments] = args;
 							var bufOp = new BufferOp(g);
@@ -70,7 +70,7 @@ export default class BufferOp {
 							var geomBuf = bufOp.getResultGeometry(distance);
 							return geomBuf;
 						})(...args);
-					} else if (args[2] instanceof BufferParameters && args[0] instanceof Geometry && typeof args[1] === "number") {
+					} else if (args[2] instanceof BufferParameters && (args[0] instanceof Geometry && typeof args[1] === "number")) {
 						return ((...args) => {
 							let [g, distance, params] = args;
 							var bufOp = new BufferOp(g, params);

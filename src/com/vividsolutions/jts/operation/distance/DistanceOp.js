@@ -87,7 +87,7 @@ export default class DistanceOp {
 						}
 					})(...args);
 				case 3:
-					if (args[2] instanceof Array && args[0] instanceof GeometryLocation && args[1] instanceof Polygon) {
+					if (args[2] instanceof Array && (args[0] instanceof GeometryLocation && args[1] instanceof Polygon)) {
 						return ((...args) => {
 							let [ptLoc, poly, locPtPoly] = args;
 							var pt = ptLoc.getCoordinate();
@@ -99,7 +99,7 @@ export default class DistanceOp {
 								return null;
 							}
 						})(...args);
-					} else if (args[2] instanceof Array && args[0].interfaces_ && args[0].interfaces_.indexOf(List) > -1 && args[1].interfaces_ && args[1].interfaces_.indexOf(List) > -1) {
+					} else if (args[2] instanceof Array && (args[0].interfaces_ && args[0].interfaces_.indexOf(List) > -1 && (args[1].interfaces_ && args[1].interfaces_.indexOf(List) > -1))) {
 						return ((...args) => {
 							let [locs, polys, locPtPoly] = args;
 							for (var i = 0; i < locs.size(); i++) {
@@ -187,7 +187,7 @@ export default class DistanceOp {
 						this.computeFacetDistance();
 					})(...args);
 				case 3:
-					if (args[2] instanceof Array && args[0] instanceof LineString && args[1] instanceof Point) {
+					if (args[2] instanceof Array && (args[0] instanceof LineString && args[1] instanceof Point)) {
 						return ((...args) => {
 							let [line, pt, locGeom] = args;
 							if (line.getEnvelopeInternal().distance(pt.getEnvelopeInternal()) > this.minDistance) return null;
@@ -205,7 +205,7 @@ export default class DistanceOp {
 								if (this.minDistance <= this.terminateDistance) return null;
 							}
 						})(...args);
-					} else if (args[2] instanceof Array && args[0] instanceof LineString && args[1] instanceof LineString) {
+					} else if (args[2] instanceof Array && (args[0] instanceof LineString && args[1] instanceof LineString)) {
 						return ((...args) => {
 							let [line0, line1, locGeom] = args;
 							if (line0.getEnvelopeInternal().distance(line1.getEnvelopeInternal()) > this.minDistance) return null;

@@ -64,7 +64,7 @@ export default class SegmentIntersector {
 		const overloads = (...args) => {
 			switch (args.length) {
 				case 2:
-					if (args[0] instanceof LineIntersector && args[1].interfaces_ && args[1].interfaces_.indexOf(Collection) > -1) {
+					if (args[0] instanceof LineIntersector && (args[1].interfaces_ && args[1].interfaces_.indexOf(Collection) > -1)) {
 						return ((...args) => {
 							let [li, bdyNodes] = args;
 							for (var i = bdyNodes.iterator(); i.hasNext(); ) {

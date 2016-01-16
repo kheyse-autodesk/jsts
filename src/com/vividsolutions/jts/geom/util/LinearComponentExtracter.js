@@ -63,7 +63,7 @@ export default class LinearComponentExtracter {
 							geom.apply(new LinearComponentExtracter(lines, forceToLineString));
 							return lines;
 						})(...args);
-					} else if (args[0] instanceof Geometry && args[1].interfaces_ && args[1].interfaces_.indexOf(Collection) > -1) {
+					} else if (args[0] instanceof Geometry && (args[1].interfaces_ && args[1].interfaces_.indexOf(Collection) > -1)) {
 						return ((...args) => {
 							let [geom, lines] = args;
 							if (geom instanceof LineString) {
@@ -73,7 +73,7 @@ export default class LinearComponentExtracter {
 							}
 							return lines;
 						})(...args);
-					} else if (args[0].interfaces_ && args[0].interfaces_.indexOf(Collection) > -1 && args[1].interfaces_ && args[1].interfaces_.indexOf(Collection) > -1) {
+					} else if (args[0].interfaces_ && args[0].interfaces_.indexOf(Collection) > -1 && (args[1].interfaces_ && args[1].interfaces_.indexOf(Collection) > -1)) {
 						return ((...args) => {
 							let [geoms, lines] = args;
 							for (var i = geoms.iterator(); i.hasNext(); ) {
@@ -84,13 +84,13 @@ export default class LinearComponentExtracter {
 						})(...args);
 					}
 				case 3:
-					if (typeof args[2] === "boolean" && args[0] instanceof Geometry && args[1].interfaces_ && args[1].interfaces_.indexOf(Collection) > -1) {
+					if (typeof args[2] === "boolean" && (args[0] instanceof Geometry && (args[1].interfaces_ && args[1].interfaces_.indexOf(Collection) > -1))) {
 						return ((...args) => {
 							let [geom, lines, forceToLineString] = args;
 							geom.apply(new LinearComponentExtracter(lines, forceToLineString));
 							return lines;
 						})(...args);
-					} else if (typeof args[2] === "boolean" && args[0].interfaces_ && args[0].interfaces_.indexOf(Collection) > -1 && args[1].interfaces_ && args[1].interfaces_.indexOf(Collection) > -1) {
+					} else if (typeof args[2] === "boolean" && (args[0].interfaces_ && args[0].interfaces_.indexOf(Collection) > -1 && (args[1].interfaces_ && args[1].interfaces_.indexOf(Collection) > -1))) {
 						return ((...args) => {
 							let [geoms, lines, forceToLineString] = args;
 							for (var i = geoms.iterator(); i.hasNext(); ) {

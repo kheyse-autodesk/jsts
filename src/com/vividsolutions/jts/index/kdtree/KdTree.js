@@ -97,7 +97,7 @@ export default class KdTree {
 						return result;
 					})(...args);
 				case 2:
-					if (args[0] instanceof Envelope && args[1].interfaces_ && args[1].interfaces_.indexOf(List) > -1) {
+					if (args[0] instanceof Envelope && (args[1].interfaces_ && args[1].interfaces_.indexOf(List) > -1)) {
 						return ((...args) => {
 							let [queryEnv, result] = args;
 							this.queryNode(this.root, queryEnv, true, new (class {
@@ -106,7 +106,7 @@ export default class KdTree {
 								}
 							})());
 						})(...args);
-					} else if (args[0] instanceof Envelope && args[1].interfaces_ && args[1].interfaces_.indexOf(KdNodeVisitor) > -1) {
+					} else if (args[0] instanceof Envelope && (args[1].interfaces_ && args[1].interfaces_.indexOf(KdNodeVisitor) > -1)) {
 						return ((...args) => {
 							let [queryEnv, visitor] = args;
 							this.queryNode(this.root, queryEnv, true, visitor);

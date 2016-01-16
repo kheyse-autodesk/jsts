@@ -58,7 +58,7 @@ export default class CommonBits {
 			return null;
 		}
 		this.commonMantissaBitsCount = CommonBits.numCommonMostSigMantissaBits(this.commonBits, numBits);
-		this.commonBits = CommonBits.zeroLowerBits(this.commonBits, 64 - 12 + this.commonMantissaBitsCount);
+		this.commonBits = CommonBits.zeroLowerBits(this.commonBits, 64 - (12 + this.commonMantissaBitsCount));
 	}
 	toString(bits) {
 		var x = Double.longBitsToDouble(bits);

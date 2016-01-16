@@ -27,7 +27,7 @@ export default class RayCrossingCounter {
 		const overloads = (...args) => {
 			switch (args.length) {
 				case 2:
-					if (args[0] instanceof Coordinate && args[1].interfaces_ && args[1].interfaces_.indexOf(CoordinateSequence) > -1) {
+					if (args[0] instanceof Coordinate && (args[1].interfaces_ && args[1].interfaces_.indexOf(CoordinateSequence) > -1)) {
 						return ((...args) => {
 							let [p, ring] = args;
 							var counter = new RayCrossingCounter(p);

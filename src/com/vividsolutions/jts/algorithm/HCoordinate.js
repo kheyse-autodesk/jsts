@@ -86,7 +86,7 @@ export default class HCoordinate {
 		var w = px * qy - qx * py;
 		var xInt = x / w;
 		var yInt = y / w;
-		if (Double.isNaN(xInt) || Double.isInfinite(xInt) || Double.isNaN(yInt) || Double.isInfinite(yInt)) {
+		if (Double.isNaN(xInt) || (Double.isInfinite(xInt) || Double.isNaN(yInt)) || Double.isInfinite(yInt)) {
 			throw new NotRepresentableException();
 		}
 		return new Coordinate(xInt, yInt);

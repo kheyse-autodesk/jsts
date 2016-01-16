@@ -33,7 +33,7 @@ export default class SimpleEdgeSetIntersector extends EdgeSetIntersector {
 		const overloads = (...args) => {
 			switch (args.length) {
 				case 3:
-					if (typeof args[2] === "boolean" && args[0].interfaces_ && args[0].interfaces_.indexOf(List) > -1 && args[1] instanceof SegmentIntersector) {
+					if (typeof args[2] === "boolean" && (args[0].interfaces_ && args[0].interfaces_.indexOf(List) > -1 && args[1] instanceof SegmentIntersector)) {
 						return ((...args) => {
 							let [edges, si, testAllSegments] = args;
 							this.nOverlaps = 0;
@@ -45,7 +45,7 @@ export default class SimpleEdgeSetIntersector extends EdgeSetIntersector {
 								}
 							}
 						})(...args);
-					} else if (args[2] instanceof SegmentIntersector && args[0].interfaces_ && args[0].interfaces_.indexOf(List) > -1 && args[1].interfaces_ && args[1].interfaces_.indexOf(List) > -1) {
+					} else if (args[2] instanceof SegmentIntersector && (args[0].interfaces_ && args[0].interfaces_.indexOf(List) > -1 && (args[1].interfaces_ && args[1].interfaces_.indexOf(List) > -1))) {
 						return ((...args) => {
 							let [edges0, edges1, si] = args;
 							this.nOverlaps = 0;

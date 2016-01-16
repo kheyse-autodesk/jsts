@@ -88,7 +88,7 @@ export default class CoordinateList extends ArrayList {
 						})(...args);
 					}
 				case 3:
-					if (typeof args[2] === "boolean" && args[0] instanceof Array && typeof args[1] === "boolean") {
+					if (typeof args[2] === "boolean" && (args[0] instanceof Array && typeof args[1] === "boolean")) {
 						return ((...args) => {
 							let [coord, allowRepeated, direction] = args;
 							if (direction) {
@@ -102,7 +102,7 @@ export default class CoordinateList extends ArrayList {
 							}
 							return true;
 						})(...args);
-					} else if (typeof args[2] === "boolean" && Number.isInteger(args[0]) && args[1] instanceof Coordinate) {
+					} else if (typeof args[2] === "boolean" && (Number.isInteger(args[0]) && args[1] instanceof Coordinate)) {
 						return ((...args) => {
 							let [i, coord, allowRepeated] = args;
 							if (!allowRepeated) {

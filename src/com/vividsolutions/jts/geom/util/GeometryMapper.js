@@ -9,7 +9,7 @@ export default class GeometryMapper {
 		const overloads = (...args) => {
 			switch (args.length) {
 				case 2:
-					if (args[0] instanceof Geometry && args[1].interfaces_ && args[1].interfaces_.indexOf(MapOp) > -1) {
+					if (args[0] instanceof Geometry && (args[1].interfaces_ && args[1].interfaces_.indexOf(MapOp) > -1)) {
 						return ((...args) => {
 							let [geom, op] = args;
 							var mapped = new ArrayList();
@@ -19,7 +19,7 @@ export default class GeometryMapper {
 							}
 							return geom.getFactory().buildGeometry(mapped);
 						})(...args);
-					} else if (args[0].interfaces_ && args[0].interfaces_.indexOf(Collection) > -1 && args[1].interfaces_ && args[1].interfaces_.indexOf(MapOp) > -1) {
+					} else if (args[0].interfaces_ && args[0].interfaces_.indexOf(Collection) > -1 && (args[1].interfaces_ && args[1].interfaces_.indexOf(MapOp) > -1)) {
 						return ((...args) => {
 							let [geoms, op] = args;
 							var mapped = new ArrayList();

@@ -91,7 +91,7 @@ export default class OffsetSegmentGenerator {
 		switch (this.bufParams.getEndCapStyle()) {
 			case BufferParameters.CAP_ROUND:
 				this.segList.addPt(offsetL.p1);
-				this.addFillet(p1, angle + Math.PI / 2, angle - Math.PI / 2, CGAlgorithms.CLOCKWISE, this.distance);
+				this.addFilletArc(p1, angle + Math.PI / 2, angle - Math.PI / 2, CGAlgorithms.CLOCKWISE, this.distance);
 				this.segList.addPt(offsetR.p1);
 				break;
 			case BufferParameters.CAP_FLAT:
@@ -132,6 +132,22 @@ export default class OffsetSegmentGenerator {
 			this.addLimitedMitreJoin(offset0, offset1, distance, this.bufParams.getMitreLimit());
 		}
 	}
+	addFilletCorner(p, p0, p1, direction, radius) {
+		var dx0 = p0.x - p.x;
+		var dy0 = p0.y - p.y;
+		var startAngle = Math.atan2(dy0, dx0);
+		var dx1 = p1.x - p.x;
+		var dy1 = p1.y - p.y;
+		var endAngle = Math.atan2(dy1, dx1);
+		if (direction === CGAlgorithms.CLOCKWISE) {
+			if (startAngle <= endAngle) startAngle += 2.0 * Math.PI;
+		} else {
+			if (startAngle >= endAngle) startAngle -= 2.0 * Math.PI;
+		}
+		this.segList.addPt(p0);
+		this.addFilletArc(p, startAngle, endAngle, direction, radius);
+		this.segList.addPt(p1);
+	}
 	addOutsideTurn(orientation, addStartPoint) {
 		if (this.offset0.p1.distance(this.offset1.p0) < this.distance * OffsetSegmentGenerator.OFFSET_SEGMENT_SEPARATION_FACTOR) {
 			this.segList.addPt(this.offset0.p1);
@@ -143,7 +159,7 @@ export default class OffsetSegmentGenerator {
 			this.addBevelJoin(this.offset0, this.offset1);
 		} else {
 			if (addStartPoint) this.segList.addPt(this.offset0.p1);
-			this.addFillet(this.s1, this.offset0.p1, this.offset1.p0, orientation, this.distance);
+			this.addFilletCorner(this.s1, this.offset0.p1, this.offset1.p0, orientation, this.distance);
 			this.segList.addPt(this.offset1.p0);
 		}
 	}
@@ -169,53 +185,6 @@ export default class OffsetSegmentGenerator {
 		this.side = side;
 		this.seg1.setCoordinates(s1, s2);
 		this.computeOffsetSegment(this.seg1, side, this.distance, this.offset1);
-	}
-	addFillet(...args) {
-		const overloads = (...args) => {
-			switch (args.length) {
-				case 5:
-					if (args[0] instanceof Coordinate) {
-						return ((...args) => {
-							let [p, startAngle, endAngle, direction, radius] = args;
-							var directionFactor = direction === CGAlgorithms.CLOCKWISE ? -1 : 1;
-							var totalAngle = Math.abs(startAngle - endAngle);
-							var nSegs = Math.trunc(totalAngle / this.filletAngleQuantum + 0.5);
-							if (nSegs < 1) return null;
-							var initAngle = null, currAngleInc = null;
-							initAngle = 0.0;
-							currAngleInc = totalAngle / nSegs;
-							var currAngle = initAngle;
-							var pt = new Coordinate();
-							while (currAngle < totalAngle) {
-								var angle = startAngle + directionFactor * currAngle;
-								pt.x = p.x + radius * Math.cos(angle);
-								pt.y = p.y + radius * Math.sin(angle);
-								this.segList.addPt(pt);
-								currAngle += currAngleInc;
-							}
-						})(...args);
-					} else if (args[0] instanceof Coordinate) {
-						return ((...args) => {
-							let [p, p0, p1, direction, radius] = args;
-							var dx0 = p0.x - p.x;
-							var dy0 = p0.y - p.y;
-							var startAngle = Math.atan2(dy0, dx0);
-							var dx1 = p1.x - p.x;
-							var dy1 = p1.y - p.y;
-							var endAngle = Math.atan2(dy1, dx1);
-							if (direction === CGAlgorithms.CLOCKWISE) {
-								if (startAngle <= endAngle) startAngle += 2.0 * Math.PI;
-							} else {
-								if (startAngle >= endAngle) startAngle -= 2.0 * Math.PI;
-							}
-							this.segList.addPt(p0);
-							this.addFillet(p, startAngle, endAngle, direction, radius);
-							this.segList.addPt(p1);
-						})(...args);
-					}
-			}
-		};
-		return overloads.apply(this, args);
 	}
 	addLimitedMitreJoin(offset0, offset1, distance, mitreLimit) {
 		var basePt = this.seg0.p1;
@@ -254,6 +223,24 @@ export default class OffsetSegmentGenerator {
 		offset.p1.x = seg.p1.x - uy;
 		offset.p1.y = seg.p1.y + ux;
 	}
+	addFilletArc(p, startAngle, endAngle, direction, radius) {
+		var directionFactor = direction === CGAlgorithms.CLOCKWISE ? -1 : 1;
+		var totalAngle = Math.abs(startAngle - endAngle);
+		var nSegs = Math.trunc(totalAngle / this.filletAngleQuantum + 0.5);
+		if (nSegs < 1) return null;
+		var initAngle = null, currAngleInc = null;
+		initAngle = 0.0;
+		currAngleInc = totalAngle / nSegs;
+		var currAngle = initAngle;
+		var pt = new Coordinate();
+		while (currAngle < totalAngle) {
+			var angle = startAngle + directionFactor * currAngle;
+			pt.x = p.x + radius * Math.cos(angle);
+			pt.y = p.y + radius * Math.sin(angle);
+			this.segList.addPt(pt);
+			currAngle += currAngleInc;
+		}
+	}
 	addInsideTurn(orientation, addStartPoint) {
 		this.li.computeIntersection(this.offset0.p0, this.offset0.p1, this.offset1.p0, this.offset1.p1);
 		if (this.li.hasIntersection()) {
@@ -279,7 +266,7 @@ export default class OffsetSegmentGenerator {
 	createCircle(p) {
 		var pt = new Coordinate(p.x + this.distance, p.y);
 		this.segList.addPt(pt);
-		this.addFillet(p, 0.0, 2.0 * Math.PI, -1, this.distance);
+		this.addFilletArc(p, 0.0, 2.0 * Math.PI, -1, this.distance);
 		this.segList.closeRing();
 	}
 	addBevelJoin(offset0, offset1) {
@@ -301,7 +288,7 @@ export default class OffsetSegmentGenerator {
 				if (addStartPoint) this.segList.addPt(this.offset0.p1);
 				this.segList.addPt(this.offset1.p0);
 			} else {
-				this.addFillet(this.s1, this.offset0.p1, this.offset1.p0, CGAlgorithms.CLOCKWISE, this.distance);
+				this.addFilletCorner(this.s1, this.offset0.p1, this.offset1.p0, CGAlgorithms.CLOCKWISE, this.distance);
 			}
 		}
 	}

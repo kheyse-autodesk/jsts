@@ -64,13 +64,13 @@ export default class SimpleSweepLineIntersector extends EdgeSetIntersector {
 						}
 					})(...args);
 				case 3:
-					if (typeof args[2] === "boolean" && args[0].interfaces_ && args[0].interfaces_.indexOf(List) > -1 && args[1] instanceof SegmentIntersector) {
+					if (typeof args[2] === "boolean" && (args[0].interfaces_ && args[0].interfaces_.indexOf(List) > -1 && args[1] instanceof SegmentIntersector)) {
 						return ((...args) => {
 							let [edges, si, testAllSegments] = args;
 							if (testAllSegments) this.add(edges, null); else this.add(edges);
 							this.computeIntersections(si);
 						})(...args);
-					} else if (args[2] instanceof SegmentIntersector && args[0].interfaces_ && args[0].interfaces_.indexOf(List) > -1 && args[1].interfaces_ && args[1].interfaces_.indexOf(List) > -1) {
+					} else if (args[2] instanceof SegmentIntersector && (args[0].interfaces_ && args[0].interfaces_.indexOf(List) > -1 && (args[1].interfaces_ && args[1].interfaces_.indexOf(List) > -1))) {
 						return ((...args) => {
 							let [edges0, edges1, si] = args;
 							this.add(edges0, edges0);

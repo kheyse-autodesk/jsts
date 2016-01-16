@@ -222,7 +222,7 @@ export default class GMLWriter {
 						this.write(geom, writer, this.startingIndentIndex);
 					})(...args);
 				case 3:
-					if (Number.isInteger(args[2]) && args[0] instanceof Geometry && args[1] instanceof Writer) {
+					if (Number.isInteger(args[2]) && (args[0] instanceof Geometry && args[1] instanceof Writer)) {
 						return ((...args) => {
 							let [geom, writer, level] = args;
 							this.isRootTag = true;
@@ -245,7 +245,7 @@ export default class GMLWriter {
 							}
 							writer.flush();
 						})(...args);
-					} else if (Number.isInteger(args[2]) && args[0] instanceof Array && args[1] instanceof Writer) {
+					} else if (Number.isInteger(args[2]) && (args[0] instanceof Array && args[1] instanceof Writer)) {
 						return ((...args) => {
 							let [coords, writer, level] = args;
 							this.startLine(level, writer);

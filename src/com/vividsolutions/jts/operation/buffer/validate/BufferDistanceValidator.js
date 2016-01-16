@@ -69,7 +69,7 @@ export default class BufferDistanceValidator {
 			this.checkNegativeValid();
 		}
 		if (BufferDistanceValidator.VERBOSE) {
-			System.out.println("Min Dist= " + this.minDistanceFound + "  err= " + 1.0 - this.minDistanceFound / this.bufDistance + "  Max Dist= " + this.maxDistanceFound + "  err= " + this.maxDistanceFound / this.bufDistance - 1.0);
+			System.out.println("Min Dist= " + this.minDistanceFound + "  err= " + (1.0 - this.minDistanceFound / this.bufDistance) + "  Max Dist= " + this.maxDistanceFound + "  err= " + (this.maxDistanceFound / this.bufDistance - 1.0));
 		}
 		return this._isValid;
 	}
