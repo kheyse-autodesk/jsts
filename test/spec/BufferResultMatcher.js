@@ -1,9 +1,9 @@
-var WKTReader = require('com/vividsolutions/jts/io/WKTReader')
-var WKTWriter = require('com/vividsolutions/jts/io/WKTWriter')
-var BufferOp = require('com/vividsolutions/jts/operation/buffer/BufferOp')
-var OverlayOp = require('com/vividsolutions/jts/operation/overlay/OverlayOp')
-var RelateOp = require('com/vividsolutions/jts/operation/relate/RelateOp')
-var DiscreteHausdorffDistance = require('com/vividsolutions/jts/algorithm/distance/DiscreteHausdorffDistance')
+import WKTReader from 'com/vividsolutions/jts/io/WKTReader'
+import WKTWriter from 'com/vividsolutions/jts/io/WKTWriter'
+import BufferOp from 'com/vividsolutions/jts/operation/buffer/BufferOp'
+import OverlayOp from 'com/vividsolutions/jts/operation/overlay/OverlayOp'
+import RelateOp from 'com/vividsolutions/jts/operation/relate/RelateOp'
+import DiscreteHausdorffDistance from 'com/vividsolutions/jts/algorithm/distance/DiscreteHausdorffDistance'
 
 /**
  * A {@link ResultMatcher} which compares the results of buffer operations for
