@@ -19,6 +19,27 @@ Stack.prototype = new List();
 
 
 /**
+ * @override
+ */
+Stack.prototype.add = function(e) {
+  this.array_.push(e);
+  return true;
+};
+
+
+/**
+ * @override
+ */
+Stack.prototype.get = function(index) {
+  if (index < 0 || index >= this.size()) {
+    throw new IndexOutOfBoundsException();
+  }
+
+  return this.array_[index];
+};
+
+
+/**
  * Pushes an item onto the top of this stack.
  * @param {Object} e
  * @return {Object}

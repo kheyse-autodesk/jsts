@@ -43,3 +43,8 @@ console.log('Union: ' + union)
 var mp2 = reader.read('MULTILINESTRING((10 10, 20 20), (20 20, 30 30))')
 var boundary = mp2.getBoundary()
 console.log('getBoundary: ' + boundary)
+
+var mp3 = reader.read('MULTIPOINT((130 240), (130 240), (130 240), (570 240), (570 240), (570 240), (650 240))')
+var convexHull = mp2.convexHull()
+console.log('convexHull: ' + convexHull)
+
