@@ -78,9 +78,6 @@ export default class WKBWriter {
 		}
 		return buf.toString();
 	}
-	static bytesToHex(bytes) {
-		return WKBWriter.toHex(bytes);
-	}
 	writeGeometryCollection(geometryType, gc, os) {
 		this.writeByteOrder(os);
 		this.writeGeometryType(geometryType, gc, os);

@@ -41,13 +41,6 @@ export default class EdgeRing {
 	static get EnvelopeComparator() {
 		return EnvelopeComparator;
 	}
-	static ptNotInList(testPts, pts) {
-		for (var i = 0; i < testPts.length; i++) {
-			var testPt = testPts[i];
-			if (!EdgeRing.isInList(testPt, pts)) return testPt;
-		}
-		return null;
-	}
 	static findDirEdgesInRing(startDE) {
 		var de = startDE;
 		var edges = new ArrayList();
@@ -58,12 +51,6 @@ export default class EdgeRing {
 			Assert.isTrue(de === startDE || !de.isInRing(), "found DE already in ring");
 		} while (de !== startDE);
 		return edges;
-	}
-	static isInList(pt, pts) {
-		for (var i = 0; i < pts.length; i++) {
-			if (pt.equals(pts[i])) return true;
-		}
-		return false;
 	}
 	static addEdge(coords, isForward, coordList) {
 		if (isForward) {

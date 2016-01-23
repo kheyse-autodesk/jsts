@@ -2,7 +2,6 @@ import TreeSet from 'java/util/TreeSet';
 import Geometry from './Geometry';
 import Arrays from 'java/util/Arrays';
 import CoordinateFilter from './CoordinateFilter';
-import GeometryFactory from './GeometryFactory';
 import IllegalArgumentException from 'java/lang/IllegalArgumentException';
 import GeometryComponentFilter from './GeometryComponentFilter';
 import Dimension from './Dimension';
@@ -29,11 +28,6 @@ export default class GeometryCollection extends Geometry {
 							throw new IllegalArgumentException("geometries must not contain null elements");
 						}
 						this.geometries = geometries;
-					})(...args);
-				case 3:
-					return ((...args) => {
-						let [geometries, precisionModel, SRID] = args;
-						overloads.call(this, geometries, new GeometryFactory(precisionModel, SRID));
 					})(...args);
 			}
 		};

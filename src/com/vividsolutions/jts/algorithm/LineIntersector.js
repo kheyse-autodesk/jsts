@@ -175,9 +175,6 @@ export default class LineIntersector {
 	toString() {
 		return WKTWriter.toLineString(this.inputLines[0][0], this.inputLines[0][1]) + " - " + WKTWriter.toLineString(this.inputLines[1][0], this.inputLines[1][1]) + this.getTopologySummary();
 	}
-	setMakePrecise(precisionModel) {
-		this.precisionModel = precisionModel;
-	}
 	getEndpoint(segmentIndex, ptIndex) {
 		return this.inputLines[segmentIndex][ptIndex];
 	}

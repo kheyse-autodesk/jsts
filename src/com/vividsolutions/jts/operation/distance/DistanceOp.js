@@ -56,10 +56,6 @@ export default class DistanceOp {
 		var distOp = new DistanceOp(g0, g1);
 		return distOp.nearestPoints();
 	}
-	static closestPoints(g0, g1) {
-		var distOp = new DistanceOp(g0, g1);
-		return distOp.nearestPoints();
-	}
 	computeContainmentDistance(...args) {
 		const overloads = (...args) => {
 			switch (args.length) {
@@ -149,15 +145,9 @@ export default class DistanceOp {
 		this.computeMinDistancePoints(pts0, pts1, locGeom);
 		this.updateMinDistance(locGeom, false);
 	}
-	closestPoints() {
-		return this.nearestPoints();
-	}
 	nearestLocations() {
 		this.computeMinDistance();
 		return this.minDistanceLocation;
-	}
-	closestLocations() {
-		return this.nearestLocations();
 	}
 	updateMinDistance(locGeom, flip) {
 		if (locGeom[0] === null) return null;

@@ -17,10 +17,6 @@ export default class IsSimpleOp {
 		})();
 		const overloads = (...args) => {
 			switch (args.length) {
-				case 0:
-					return ((...args) => {
-						let [] = args;
-					})(...args);
 				case 1:
 					return ((...args) => {
 						let [geom] = args;
@@ -135,35 +131,9 @@ export default class IsSimpleOp {
 		if (geom instanceof GeometryCollection) return this.isSimpleGeometryCollection(geom);
 		return true;
 	}
-	isSimple(...args) {
-		const overloads = (...args) => {
-			switch (args.length) {
-				case 0:
-					return ((...args) => {
-						let [] = args;
-						this.nonSimpleLocation = null;
-						return this.computeSimple(this.inputGeom);
-					})(...args);
-				case 1:
-					if (args[0] instanceof MultiPoint) {
-						return ((...args) => {
-							let [mp] = args;
-							return this.isSimpleMultiPoint(mp);
-						})(...args);
-					} else if (args[0] instanceof MultiLineString) {
-						return ((...args) => {
-							let [geom] = args;
-							return this.isSimpleLinearGeometry(geom);
-						})(...args);
-					} else if (args[0] instanceof LineString) {
-						return ((...args) => {
-							let [geom] = args;
-							return this.isSimpleLinearGeometry(geom);
-						})(...args);
-					}
-			}
-		};
-		return overloads.apply(this, args);
+	isSimple() {
+		this.nonSimpleLocation = null;
+		return this.computeSimple(this.inputGeom);
 	}
 	isSimpleGeometryCollection(geom) {
 		for (var i = 0; i < geom.getNumGeometries(); i++) {

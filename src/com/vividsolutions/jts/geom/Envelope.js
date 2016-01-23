@@ -263,30 +263,6 @@ export default class Envelope {
 		if (this.maxy > env.maxy) return 1;
 		return 0;
 	}
-	overlaps(...args) {
-		const overloads = (...args) => {
-			switch (args.length) {
-				case 1:
-					if (args[0] instanceof Coordinate) {
-						return ((...args) => {
-							let [p] = args;
-							return this.intersects(p);
-						})(...args);
-					} else if (args[0] instanceof Envelope) {
-						return ((...args) => {
-							let [other] = args;
-							return this.intersects(other);
-						})(...args);
-					}
-				case 2:
-					return ((...args) => {
-						let [x, y] = args;
-						return this.intersects(x, y);
-					})(...args);
-			}
-		};
-		return overloads.apply(this, args);
-	}
 	translate(transX, transY) {
 		if (this.isNull()) {
 			return null;
