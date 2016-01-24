@@ -91,10 +91,13 @@ class SegmentOverlapAction extends MonotoneChainOverlapAction {
 	get interfaces_() {
 		return [];
 	}
-	overlap(mc1, start1, mc2, start2) {
-		var ss1 = mc1.getContext();
-		var ss2 = mc2.getContext();
-		this.si.processIntersections(ss1, start1, ss2, start2);
+	overlap(...args) {
+		if (args.length === 4) {
+			let [mc1, start1, mc2, start2] = args;
+			var ss1 = mc1.getContext();
+			var ss2 = mc2.getContext();
+			this.si.processIntersections(ss1, start1, ss2, start2);
+		} else return super.overlap(...args);
 	}
 	getClass() {
 		return SegmentOverlapAction;

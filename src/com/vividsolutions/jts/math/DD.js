@@ -260,8 +260,11 @@ export default class DD {
 		};
 		return overloads.apply(this, args);
 	}
-	equals(y) {
-		return this.hi === y.hi && this.lo === y.lo;
+	equals(...args) {
+		if (args.length === 1) {
+			let [y] = args;
+			return this.hi === y.hi && this.lo === y.lo;
+		} else return super.equals(...args);
 	}
 	isZero() {
 		return this.hi === 0.0 && this.lo === 0.0;

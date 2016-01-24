@@ -62,9 +62,12 @@ export default class Coordinate {
 	static get DimensionalComparator() {
 		return DimensionalComparator;
 	}
-	static hashCode(x) {
-		var f = Double.doubleToLongBits(x);
-		return Math.trunc(f ^ f >>> 32);
+	static hashCode(...args) {
+		if (args.length === 1) {
+			let [x] = args;
+			var f = Double.doubleToLongBits(x);
+			return Math.trunc(f ^ f >>> 32);
+		} else return super.hashCode(...args);
 	}
 	setOrdinate(ordinateIndex, value) {
 		switch (ordinateIndex) {

@@ -84,14 +84,20 @@ export default class STRtree extends AbstractSTRtree {
 	createNode(level) {
 		return new STRtreeNode(level);
 	}
-	size() {
-		return super.size();
+	size(...args) {
+		if (args.length === 0) {
+			let [] = args;
+			return super.size();
+		} else return super.size(...args);
 	}
-	insert(itemEnv, item) {
-		if (itemEnv.isNull()) {
-			return null;
-		}
-		super.insert(itemEnv, item);
+	insert(...args) {
+		if (args.length === 2) {
+			let [itemEnv, item] = args;
+			if (itemEnv.isNull()) {
+				return null;
+			}
+			super.insert(itemEnv, item);
+		} else return super.insert(...args);
 	}
 	getIntersectsOp() {
 		return STRtree.intersectsOp;
@@ -134,11 +140,17 @@ export default class STRtree extends AbstractSTRtree {
 	createParentBoundablesFromVerticalSlice(childBoundables, newLevel) {
 		return super.createParentBoundables(childBoundables, newLevel);
 	}
-	remove(itemEnv, item) {
-		return super.remove(itemEnv, item);
+	remove(...args) {
+		if (args.length === 2) {
+			let [itemEnv, item] = args;
+			return super.remove(itemEnv, item);
+		} else return super.remove(...args);
 	}
-	depth() {
-		return super.depth();
+	depth(...args) {
+		if (args.length === 0) {
+			let [] = args;
+			return super.depth();
+		} else return super.depth(...args);
 	}
 	createParentBoundables(childBoundables, newLevel) {
 		Assert.isTrue(!childBoundables.isEmpty());

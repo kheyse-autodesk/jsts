@@ -278,8 +278,11 @@ export default class GeometryFactory {
 	createGeometry(g) {
 		var editor = new GeometryEditor(this);
 		return editor.edit(g, new (class {
-			edit(coordSeq, geometry) {
-				return this.coordinateSequenceFactory.create(coordSeq);
+			edit(...args) {
+				if (args.length === 2) {
+					let [coordSeq, geometry] = args;
+					return this.coordinateSequenceFactory.create(coordSeq);
+				} else return super.edit(...args);
 			}
 		})());
 	}

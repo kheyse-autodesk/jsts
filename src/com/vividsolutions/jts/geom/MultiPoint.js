@@ -35,8 +35,11 @@ export default class MultiPoint extends GeometryCollection {
 		}
 		return super.equalsExact(other, tolerance);
 	}
-	getCoordinate(n) {
-		return this.geometries[n].getCoordinate();
+	getCoordinate(...args) {
+		if (args.length === 1) {
+			let [n] = args;
+			return this.geometries[n].getCoordinate();
+		} else return super.getCoordinate(...args);
 	}
 	getBoundaryDimension() {
 		return Dimension.FALSE;

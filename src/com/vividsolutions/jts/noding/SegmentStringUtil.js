@@ -30,14 +30,17 @@ export default class SegmentStringUtil {
 	static extractSegmentStrings(geom) {
 		return SegmentStringUtil.extractNodedSegmentStrings(geom);
 	}
-	static toString(segStrings) {
-		var buf = new StringBuffer();
-		for (var i = segStrings.iterator(); i.hasNext(); ) {
-			var segStr = i.next();
-			buf.append(segStr.toString());
-			buf.append("\n");
-		}
-		return buf.toString();
+	static toString(...args) {
+		if (args.length === 1) {
+			let [segStrings] = args;
+			var buf = new StringBuffer();
+			for (var i = segStrings.iterator(); i.hasNext(); ) {
+				var segStr = i.next();
+				buf.append(segStr.toString());
+				buf.append("\n");
+			}
+			return buf.toString();
+		} else return super.toString(...args);
 	}
 	getClass() {
 		return SegmentStringUtil;

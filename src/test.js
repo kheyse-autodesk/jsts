@@ -11,40 +11,29 @@ var r1 = reader.read('LINEARRING(1 1, 1 2, 3 3, 1 1)')
 var a1 = reader.read('POLYGON(0 0, 1 2, 3 3, 0 0)')
 var a2 = reader.read('POLYGON(1 1, 1 3, 4 4, 1 1)')
 
-var convexHull = l1.convexHull()
-console.log('Convex Hull: ' + convexHull)
-
-/*var intersects = RelateOp.intersects(p1,a1)
+/*
+var intersects = RelateOp.intersects(p1,a1)
 console.log(intersects)
 
 var buffer = BufferOp.bufferOp(l1, 10)
 console.log(writer.write(buffer))
 
 var intersection = OverlayOp.intersection(l1, a1)
-console.log(writer.write(intersection))*/
+console.log(writer.write(intersection))
+*/
 
-/*var a = reader.read('LINESTRING(240 190, 120 120)')
+/*
+var a = reader.read('LINESTRING(240 190, 120 120)')
 var b = reader.read('POLYGON((110 240, 50 80, 240 70, 110 240))')
 var intersection = OverlayOp.intersection(a, b)
-console.log(writer.write(intersection))*/
+console.log(writer.write(intersection))
+*/
 // expected: LINESTRING(177 153, 120 120)
 
 //var union = OverlayOp.union(a1, a2)
-//console.log(writer.write(union))
+// console.log(writer.write(union))
 
-var buffer = a1.buffer(2)
-console.log('Buffer: ' + buffer)
+const tp1 = reader.read('MULTIPOINT((10 10),(20 20))')
+const tp2 = reader.read('MULTIPOINT((10 10),(20 20))')
 
-var a = reader.read('POLYGON((1 1, 1 5, 5 5, 5 1, 1 1))')
-var b = reader.read('POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))')
-var union = a.union(b)
-console.log('Union: ' + union)
-
-var mp2 = reader.read('MULTILINESTRING((10 10, 20 20), (20 20, 30 30))')
-var boundary = mp2.getBoundary()
-console.log('getBoundary: ' + boundary)
-
-var mp3 = reader.read('MULTIPOINT((130 240), (130 240), (130 240), (570 240), (570 240), (570 240), (650 240))')
-var convexHull = mp2.convexHull()
-console.log('convexHull: ' + convexHull)
-
+console.log(tp1.equalsExact(tp2))

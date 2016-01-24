@@ -106,25 +106,28 @@ export default class Polygon extends Geometry {
 		}
 		return true;
 	}
-	equalsExact(other, tolerance) {
-		if (!this.isEquivalentClass(other)) {
-			return false;
-		}
-		var otherPolygon = other;
-		var thisShell = this.shell;
-		var otherPolygonShell = otherPolygon.shell;
-		if (!thisShell.equalsExact(otherPolygonShell, tolerance)) {
-			return false;
-		}
-		if (this.holes.length !== otherPolygon.holes.length) {
-			return false;
-		}
-		for (var i = 0; i < this.holes.length; i++) {
-			if (!this.holes[i].equalsExact(otherPolygon.holes[i], tolerance)) {
+	equalsExact(...args) {
+		if (args.length === 2) {
+			let [other, tolerance] = args;
+			if (!this.isEquivalentClass(other)) {
 				return false;
 			}
-		}
-		return true;
+			var otherPolygon = other;
+			var thisShell = this.shell;
+			var otherPolygonShell = otherPolygon.shell;
+			if (!thisShell.equalsExact(otherPolygonShell, tolerance)) {
+				return false;
+			}
+			if (this.holes.length !== otherPolygon.holes.length) {
+				return false;
+			}
+			for (var i = 0; i < this.holes.length; i++) {
+				if (!this.holes[i].equalsExact(otherPolygon.holes[i], tolerance)) {
+					return false;
+				}
+			}
+			return true;
+		} else return super.equalsExact(...args);
 	}
 	normalize(...args) {
 		const overloads = (...args) => {

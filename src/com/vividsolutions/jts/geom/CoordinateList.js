@@ -36,13 +36,16 @@ export default class CoordinateList extends ArrayList {
 	getCoordinate(i) {
 		return this.get(i);
 	}
-	addAll(coll, allowRepeated) {
-		var isChanged = false;
-		for (var i = coll.iterator(); i.hasNext(); ) {
-			this.add(i.next(), allowRepeated);
-			isChanged = true;
-		}
-		return isChanged;
+	addAll(...args) {
+		if (args.length === 2) {
+			let [coll, allowRepeated] = args;
+			var isChanged = false;
+			for (var i = coll.iterator(); i.hasNext(); ) {
+				this.add(i.next(), allowRepeated);
+				isChanged = true;
+			}
+			return isChanged;
+		} else return super.addAll(...args);
 	}
 	clone() {
 		var clone = super.clone();

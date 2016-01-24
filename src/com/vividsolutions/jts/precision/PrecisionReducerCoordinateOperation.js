@@ -24,25 +24,28 @@ export default class PrecisionReducerCoordinateOperation extends CoordinateOpera
 	get interfaces_() {
 		return [];
 	}
-	edit(coordinates, geom) {
-		if (coordinates.length === 0) return null;
-		var reducedCoords = new Array(coordinates.length);
-		for (var i = 0; i < coordinates.length; i++) {
-			var coord = new Coordinate(coordinates[i]);
-			this.targetPM.makePrecise(coord);
-			reducedCoords[i] = coord;
-		}
-		var noRepeatedCoordList = new CoordinateList(reducedCoords, false);
-		var noRepeatedCoords = noRepeatedCoordList.toCoordinateArray();
-		var minLength = 0;
-		if (geom instanceof LineString) minLength = 2;
-		if (geom instanceof LinearRing) minLength = 4;
-		var collapsedCoords = reducedCoords;
-		if (this.removeCollapsed) collapsedCoords = null;
-		if (noRepeatedCoords.length < minLength) {
-			return collapsedCoords;
-		}
-		return noRepeatedCoords;
+	edit(...args) {
+		if (args.length === 2) {
+			let [coordinates, geom] = args;
+			if (coordinates.length === 0) return null;
+			var reducedCoords = new Array(coordinates.length);
+			for (var i = 0; i < coordinates.length; i++) {
+				var coord = new Coordinate(coordinates[i]);
+				this.targetPM.makePrecise(coord);
+				reducedCoords[i] = coord;
+			}
+			var noRepeatedCoordList = new CoordinateList(reducedCoords, false);
+			var noRepeatedCoords = noRepeatedCoordList.toCoordinateArray();
+			var minLength = 0;
+			if (geom instanceof LineString) minLength = 2;
+			if (geom instanceof LinearRing) minLength = 4;
+			var collapsedCoords = reducedCoords;
+			if (this.removeCollapsed) collapsedCoords = null;
+			if (noRepeatedCoords.length < minLength) {
+				return collapsedCoords;
+			}
+			return noRepeatedCoords;
+		} else return super.edit(...args);
 	}
 	getClass() {
 		return PrecisionReducerCoordinateOperation;

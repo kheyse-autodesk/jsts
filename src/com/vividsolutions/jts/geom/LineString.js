@@ -49,20 +49,23 @@ export default class LineString extends Geometry {
 	getCoordinates() {
 		return this.points.toCoordinateArray();
 	}
-	equalsExact(other, tolerance) {
-		if (!this.isEquivalentClass(other)) {
-			return false;
-		}
-		var otherLineString = other;
-		if (this.points.size() !== otherLineString.points.size()) {
-			return false;
-		}
-		for (var i = 0; i < this.points.size(); i++) {
-			if (!this.equal(this.points.getCoordinate(i), otherLineString.points.getCoordinate(i), tolerance)) {
+	equalsExact(...args) {
+		if (args.length === 2) {
+			let [other, tolerance] = args;
+			if (!this.isEquivalentClass(other)) {
 				return false;
 			}
-		}
-		return true;
+			var otherLineString = other;
+			if (this.points.size() !== otherLineString.points.size()) {
+				return false;
+			}
+			for (var i = 0; i < this.points.size(); i++) {
+				if (!this.equal(this.points.getCoordinate(i), otherLineString.points.getCoordinate(i), tolerance)) {
+					return false;
+				}
+			}
+			return true;
+		} else return super.equalsExact(...args);
 	}
 	normalize() {
 		for (var i = 0; i < Math.trunc(this.points.size() / 2); i++) {

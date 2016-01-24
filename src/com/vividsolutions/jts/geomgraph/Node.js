@@ -50,10 +50,13 @@ export default class Node extends GraphComponent {
 		}
 		return loc;
 	}
-	setLabel(argIndex, onLocation) {
-		if (this.label === null) {
-			this.label = new Label(argIndex, onLocation);
-		} else this.label.setLocation(argIndex, onLocation);
+	setLabel(...args) {
+		if (args.length === 2) {
+			let [argIndex, onLocation] = args;
+			if (this.label === null) {
+				this.label = new Label(argIndex, onLocation);
+			} else this.label.setLocation(argIndex, onLocation);
+		} else return super.setLabel(...args);
 	}
 	getEdges() {
 		return this.edges;

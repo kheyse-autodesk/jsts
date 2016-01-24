@@ -63,21 +63,24 @@ export default class CoordinateSequences {
 			CoordinateSequences.copyCoord(src, srcPos + i, dest, destPos + i);
 		}
 	}
-	static toString(cs) {
-		var size = cs.size();
-		if (size === 0) return "()";
-		var dim = cs.getDimension();
-		var buf = new StringBuffer();
-		buf.append('(');
-		for (var i = 0; i < size; i++) {
-			if (i > 0) buf.append(" ");
-			for (var d = 0; d < dim; d++) {
-				if (d > 0) buf.append(",");
-				buf.append(StringUtil.toString(cs.getOrdinate(i, d)));
+	static toString(...args) {
+		if (args.length === 1) {
+			let [cs] = args;
+			var size = cs.size();
+			if (size === 0) return "()";
+			var dim = cs.getDimension();
+			var buf = new StringBuffer();
+			buf.append('(');
+			for (var i = 0; i < size; i++) {
+				if (i > 0) buf.append(" ");
+				for (var d = 0; d < dim; d++) {
+					if (d > 0) buf.append(",");
+					buf.append(StringUtil.toString(cs.getOrdinate(i, d)));
+				}
 			}
-		}
-		buf.append(')');
-		return buf.toString();
+			buf.append(')');
+			return buf.toString();
+		} else return super.toString(...args);
 	}
 	static ensureValidRing(fact, seq) {
 		var n = seq.size();

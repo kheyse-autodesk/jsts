@@ -214,10 +214,13 @@ export default class GeometryGraph extends PlanarGraph {
 			}
 		}
 	}
-	add(g) {
-		if (g.isEmpty()) return null;
-		if (g instanceof MultiPolygon) this.useBoundaryDeterminationRule = false;
-		if (g instanceof Polygon) this.addPolygon(g); else if (g instanceof LineString) this.addLineString(g); else if (g instanceof Point) this.addPoint(g); else if (g instanceof MultiPoint) this.addCollection(g); else if (g instanceof MultiLineString) this.addCollection(g); else if (g instanceof MultiPolygon) this.addCollection(g); else if (g instanceof GeometryCollection) this.addCollection(g); else throw new UnsupportedOperationException(g.getClass().getName());
+	add(...args) {
+		if (args.length === 1) {
+			let [g] = args;
+			if (g.isEmpty()) return null;
+			if (g instanceof MultiPolygon) this.useBoundaryDeterminationRule = false;
+			if (g instanceof Polygon) this.addPolygon(g); else if (g instanceof LineString) this.addLineString(g); else if (g instanceof Point) this.addPoint(g); else if (g instanceof MultiPoint) this.addCollection(g); else if (g instanceof MultiLineString) this.addCollection(g); else if (g instanceof MultiPolygon) this.addCollection(g); else if (g instanceof GeometryCollection) this.addCollection(g); else throw new UnsupportedOperationException(g.getClass().getName());
+		} else return super.add(...args);
 	}
 	addCollection(gc) {
 		for (var i = 0; i < gc.getNumGeometries(); i++) {
@@ -234,8 +237,11 @@ export default class GeometryGraph extends PlanarGraph {
 		}
 		return this.ptLocator.locate(pt, this.parentGeom);
 	}
-	findEdge(line) {
-		return this.lineEdgeMap.get(line);
+	findEdge(...args) {
+		if (args.length === 1) {
+			let [line] = args;
+			return this.lineEdgeMap.get(line);
+		} else return super.findEdge(...args);
 	}
 	getClass() {
 		return GeometryGraph;

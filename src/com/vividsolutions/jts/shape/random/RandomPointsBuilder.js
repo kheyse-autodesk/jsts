@@ -50,11 +50,14 @@ export default class RandomPointsBuilder extends GeometricShapeBuilder {
 		if (this.extentLocator !== null) return this.extentLocator.locate(p) !== Location.EXTERIOR;
 		return this.getExtent().contains(p);
 	}
-	setExtent(mask) {
-		if (!(mask instanceof Polygonal)) throw new IllegalArgumentException("Only polygonal extents are supported");
-		this.maskPoly = mask;
-		this.setExtent(mask.getEnvelopeInternal());
-		this.extentLocator = new IndexedPointInAreaLocator(mask);
+	setExtent(...args) {
+		if (args.length === 1) {
+			let [mask] = args;
+			if (!(mask instanceof Polygonal)) throw new IllegalArgumentException("Only polygonal extents are supported");
+			this.maskPoly = mask;
+			this.setExtent(mask.getEnvelopeInternal());
+			this.extentLocator = new IndexedPointInAreaLocator(mask);
+		} else return super.setExtent(...args);
 	}
 	createCoord(x, y) {
 		var pt = new Coordinate(x, y);

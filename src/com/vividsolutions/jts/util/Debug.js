@@ -69,8 +69,11 @@ export default class Debug {
 	static isDebugging() {
 		return Debug.debugOn;
 	}
-	static equals(c1, c2, tolerance) {
-		return c1.distance(c2) <= tolerance;
+	static equals(...args) {
+		if (args.length === 3) {
+			let [c1, c2, tolerance] = args;
+			return c1.distance(c2) <= tolerance;
+		} else return super.equals(...args);
 	}
 	static print(...args) {
 		const overloads = (...args) => {

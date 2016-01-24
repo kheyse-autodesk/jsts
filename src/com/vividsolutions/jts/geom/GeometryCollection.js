@@ -71,20 +71,23 @@ export default class GeometryCollection extends Geometry {
 		}
 		return area;
 	}
-	equalsExact(other, tolerance) {
-		if (!this.isEquivalentClass(other)) {
-			return false;
-		}
-		var otherCollection = other;
-		if (this.geometries.length !== otherCollection.geometries.length) {
-			return false;
-		}
-		for (var i = 0; i < this.geometries.length; i++) {
-			if (!this.geometries[i].equalsExact(otherCollection.geometries[i], tolerance)) {
+	equalsExact(...args) {
+		if (args.length === 2) {
+			let [other, tolerance] = args;
+			if (!this.isEquivalentClass(other)) {
 				return false;
 			}
-		}
-		return true;
+			var otherCollection = other;
+			if (this.geometries.length !== otherCollection.geometries.length) {
+				return false;
+			}
+			for (var i = 0; i < this.geometries.length; i++) {
+				if (!this.geometries[i].equalsExact(otherCollection.geometries[i], tolerance)) {
+					return false;
+				}
+			}
+			return true;
+		} else return super.equalsExact(...args);
 	}
 	normalize() {
 		for (var i = 0; i < this.geometries.length; i++) {

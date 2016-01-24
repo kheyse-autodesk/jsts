@@ -53,7 +53,11 @@ export default function (doc, title) {
       } else if (opname === 'getCentroid') {
         result = a[opname]()
       } else {
-        result = a[opname](b, arg3)
+        if (arg3) {
+          result = a[opname](b, arg3)
+        } else {
+          result = a[opname](b)
+        }
       }
 
       // switch comparison logic depending on opname

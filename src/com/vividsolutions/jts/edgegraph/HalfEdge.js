@@ -81,8 +81,11 @@ export default class HalfEdge {
 		} while (e !== this);
 		return degree;
 	}
-	equals(p0, p1) {
-		return this._orig.equals2D(p0) && this._sym._orig.equals(p1);
+	equals(...args) {
+		if (args.length === 2) {
+			let [p0, p1] = args;
+			return this._orig.equals2D(p0) && this._sym._orig.equals(p1);
+		} else return super.equals(...args);
 	}
 	deltaY() {
 		return this._sym._orig.y - this._orig.y;

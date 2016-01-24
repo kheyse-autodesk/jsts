@@ -74,8 +74,11 @@ export default class StringUtil {
 		}
 		return res;
 	}
-	static toString(d) {
-		return StringUtil.SIMPLE_ORDINATE_FORMAT.format(d);
+	static toString(...args) {
+		if (args.length === 1) {
+			let [d] = args;
+			return StringUtil.SIMPLE_ORDINATE_FORMAT.format(d);
+		} else return super.toString(...args);
 	}
 	static spaces(n) {
 		return StringUtil.chars(' ', n);

@@ -22,30 +22,33 @@ export default class NonRobustLineIntersector extends LineIntersector {
 		}
 		return a < 0 && b < 0 || a > 0 && b > 0;
 	}
-	computeIntersection(p, p1, p2) {
-		var a1 = null;
-		var b1 = null;
-		var c1 = null;
-		var r = null;
-		this._isProper = false;
-		a1 = p2.y - p1.y;
-		b1 = p1.x - p2.x;
-		c1 = p2.x * p1.y - p1.x * p2.y;
-		r = a1 * p.x + b1 * p.y + c1;
-		if (r !== 0) {
-			this.result = LineIntersector.NO_INTERSECTION;
-			return null;
-		}
-		var dist = this.rParameter(p1, p2, p);
-		if (dist < 0.0 || dist > 1.0) {
-			this.result = LineIntersector.NO_INTERSECTION;
-			return null;
-		}
-		this._isProper = true;
-		if (p.equals(p1) || p.equals(p2)) {
+	computeIntersection(...args) {
+		if (args.length === 3) {
+			let [p, p1, p2] = args;
+			var a1 = null;
+			var b1 = null;
+			var c1 = null;
+			var r = null;
 			this._isProper = false;
-		}
-		this.result = LineIntersector.POINT_INTERSECTION;
+			a1 = p2.y - p1.y;
+			b1 = p1.x - p2.x;
+			c1 = p2.x * p1.y - p1.x * p2.y;
+			r = a1 * p.x + b1 * p.y + c1;
+			if (r !== 0) {
+				this.result = LineIntersector.NO_INTERSECTION;
+				return null;
+			}
+			var dist = this.rParameter(p1, p2, p);
+			if (dist < 0.0 || dist > 1.0) {
+				this.result = LineIntersector.NO_INTERSECTION;
+				return null;
+			}
+			this._isProper = true;
+			if (p.equals(p1) || p.equals(p2)) {
+				this._isProper = false;
+			}
+			this.result = LineIntersector.POINT_INTERSECTION;
+		} else return super.computeIntersection(...args);
 	}
 	computeCollinearIntersection(p1, p2, p3, p4) {
 		var r1 = null;

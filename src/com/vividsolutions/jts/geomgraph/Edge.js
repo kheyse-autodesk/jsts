@@ -40,12 +40,15 @@ export default class Edge extends GraphComponent {
 	get interfaces_() {
 		return [];
 	}
-	static updateIM(label, im) {
-		im.setAtLeastIfValid(label.getLocation(0, Position.ON), label.getLocation(1, Position.ON), 1);
-		if (label.isArea()) {
-			im.setAtLeastIfValid(label.getLocation(0, Position.LEFT), label.getLocation(1, Position.LEFT), 2);
-			im.setAtLeastIfValid(label.getLocation(0, Position.RIGHT), label.getLocation(1, Position.RIGHT), 2);
-		}
+	static updateIM(...args) {
+		if (args.length === 2) {
+			let [label, im] = args;
+			im.setAtLeastIfValid(label.getLocation(0, Position.ON), label.getLocation(1, Position.ON), 1);
+			if (label.isArea()) {
+				im.setAtLeastIfValid(label.getLocation(0, Position.LEFT), label.getLocation(1, Position.LEFT), 2);
+				im.setAtLeastIfValid(label.getLocation(0, Position.RIGHT), label.getLocation(1, Position.RIGHT), 2);
+			}
+		} else return super.updateIM(...args);
 	}
 	getDepth() {
 		return this.depth;

@@ -45,17 +45,20 @@ export default class Point extends Geometry {
 	getCoordinates() {
 		return this.isEmpty() ? [] : [this.getCoordinate()];
 	}
-	equalsExact(other, tolerance) {
-		if (!this.isEquivalentClass(other)) {
-			return false;
-		}
-		if (this.isEmpty() && other.isEmpty()) {
-			return true;
-		}
-		if (this.isEmpty() !== other.isEmpty()) {
-			return false;
-		}
-		return this.equal(other.getCoordinate(), this.getCoordinate(), tolerance);
+	equalsExact(...args) {
+		if (args.length === 2) {
+			let [other, tolerance] = args;
+			if (!this.isEquivalentClass(other)) {
+				return false;
+			}
+			if (this.isEmpty() && other.isEmpty()) {
+				return true;
+			}
+			if (this.isEmpty() !== other.isEmpty()) {
+				return false;
+			}
+			return this.equal(other.getCoordinate(), this.getCoordinate(), tolerance);
+		} else return super.equalsExact(...args);
 	}
 	normalize() {}
 	getCoordinate() {

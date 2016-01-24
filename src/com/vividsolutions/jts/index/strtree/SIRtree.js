@@ -50,8 +50,11 @@ export default class SIRtree extends AbstractSTRtree {
 			}
 		})();
 	}
-	insert(x1, x2, item) {
-		super.insert(new Interval(Math.min(x1, x2), Math.max(x1, x2)), item);
+	insert(...args) {
+		if (args.length === 3) {
+			let [x1, x2, item] = args;
+			super.insert(new Interval(Math.min(x1, x2), Math.max(x1, x2)), item);
+		} else return super.insert(...args);
 	}
 	getIntersectsOp() {
 		return this.intersectsOp;

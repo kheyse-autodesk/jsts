@@ -31,6 +31,12 @@
     "type": "git",
     "url": "git://github.com/bjornharrtell/jsts.git"
   },
+  "standard": {
+    "globals": [
+      "describe",
+      "it"
+    ]
+  },
   "scripts": {
     "test": "NODE_PATH=src mocha --compilers js:babel-register --recursive test/spec"
   }
