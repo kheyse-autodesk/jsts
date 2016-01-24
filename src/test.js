@@ -4,12 +4,14 @@ import GeometryMixin from './com/vividsolutions/jts/geom/GeometryMixin'
 
 var reader = new WKTReader()
 
+/*
 var p1 = reader.read('POINT(1 1)')
 var mp1 = reader.read('MULTIPOINT((1 1), (1 2))')
 var l1 = reader.read('LINESTRING(1 1, 1 2)')
 var r1 = reader.read('LINEARRING(1 1, 1 2, 3 3, 1 1)')
 var a1 = reader.read('POLYGON(0 0, 1 2, 3 3, 0 0)')
 var a2 = reader.read('POLYGON(1 1, 1 3, 4 4, 1 1)')
+*/
 
 /*
 var intersects = RelateOp.intersects(p1,a1)
@@ -33,7 +35,8 @@ console.log(writer.write(intersection))
 //var union = OverlayOp.union(a1, a2)
 // console.log(writer.write(union))
 
-const tp1 = reader.read('MULTIPOINT((10 10),(20 20))')
-const tp2 = reader.read('MULTIPOINT((10 10),(20 20))')
+const p = reader.read('POLYGON((40 60, 420 60, 420 320, 40 320, 40 60))')
+const boundary = p.getBoundary()
+const boundaryText = boundary.toString()
 
-console.log(tp1.equalsExact(tp2))
+console.log('Boundary: ' + boundaryText)

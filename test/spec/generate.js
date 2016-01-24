@@ -25,6 +25,10 @@ function createGeometryFactory (precisionModelInfo) {
   }
 }
 
+function fail(r, e, i) {
+  throw new Error(`\nResult: ${r}\nExpected: ${e}\nInput: ${i}`)
+}
+
 /**
  * Translate JTS XML testcase document to Mocha suites
  */
@@ -67,16 +71,14 @@ export default function (doc, title) {
         opname === 'equalsNorm' || opname === 'isSimple') {
         var expectedBool = expected === 'true'
         if (expectedBool !== result) {
-          throw new Error('Result: ' + result + ' Expected: ' + expected +
-            inputs)
+          fail(result, expectedBool, inputs)
         } else {
           expect(true).to.be.ok()
         }
       } else if (opname === 'distance') {
         const expectedDistance = parseFloat(expected)
         if (result !== expectedDistance) {
-          throw new Error('Result: ' + result + ' Expected: ' +
-            parseFloat(expectedDistance) + inputs)
+          fail(result, parseFloat(expectedDistance), inputs)
         } else {
           expect(true).to.be.ok()
         }
@@ -84,12 +86,9 @@ export default function (doc, title) {
         const expectedGeometry = reader.read(expected)
         result.normalize()
         expectedGeometry.normalize()
-
         var matcher = new BufferResultMatcher()
-
         if (!matcher.isBufferResultMatch(result, expectedGeometry, parseFloat(arg2))) {
-          throw new Error('\nResult: ' + result + '\nExpected: ' +
-            expectedGeometry + inputs)
+          fail(result, expected, inputs)
         } else {
           expect(true).to.be.ok()
         }
@@ -97,10 +96,8 @@ export default function (doc, title) {
         const expectedGeometry = reader.read(expected)
         result.normalize()
         expectedGeometry.normalize()
-
-        if (result.compareTo(expectedGeometry) !== 0) {
-          throw new Error('Result: ' + result + ' Expected: ' +
-            expectedGeometry + inputs)
+        if (!result.equalsExact(expectedGeometry)) {
+          fail(result, expected, inputs)
         } else {
           expect(true).to.be.ok()
         }
@@ -111,24 +108,19 @@ export default function (doc, title) {
   for (var i = 0; i < cases.length; i++) {
     var testcase = cases[i]
     var desc = $('desc', testcase).text().trim()
-
     describe(title + ' - ' + desc, function () {
       var awkt = $('a', testcase).text().trim().replace(/\n/g, '')
       var bwkt = $('b', testcase).text().trim().replace(/\n/g, '')
       var tests = $('test', testcase)
-
       for (var j = 0; j < tests.length; j++) {
         var test = tests[j]
-
         var opname = $('op', test).attr('name')
         var arg2 = $('op', test).attr('arg2')
         var arg3 = $('op', test).attr('arg3')
         var expected = $('op', test).text().trim().replace(/\n/g, '')
-
         try {
           var a = reader.read(awkt)
           var b = bwkt.length > 0 ? reader.read(bwkt) : undefined
-
           generateSpec(a, b, opname, arg2, arg3, expected)
         } catch (e) {}
       }

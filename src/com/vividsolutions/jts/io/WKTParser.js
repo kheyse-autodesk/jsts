@@ -23,7 +23,7 @@ import GeometryFactory from '../geom/GeometryFactory'
 export default class WKTParser {
   /**
    * Create a new parser for WKT
-   * 
+   *
    * @param {}
    *          geometryFactory
    * @return An instance of WKTParser.
@@ -45,7 +45,7 @@ export default class WKTParser {
    * Deserialize a WKT string and return a geometry. Supports WKT for POINT,
    * MULTIPOINT, LINESTRING, LINEARRING, MULTILINESTRING, POLYGON, MULTIPOLYGON,
    * and GEOMETRYCOLLECTION.
-   * 
+   *
    * @param {String}
    *          wkt A WKT string.
    * @return {jsts.geom.Geometry} A geometry instance.
@@ -74,7 +74,7 @@ export default class WKTParser {
 
   /**
    * Serialize a geometry into a WKT string.
-   * 
+   *
    * @param {jsts.geom.Geometry}
    *          geometry A feature or array of features.
    * @return {String} The WKT string representation of the input geometries.
@@ -85,10 +85,10 @@ export default class WKTParser {
 
   /**
    * Entry point to construct the WKT for a single Geometry object.
-   * 
+   *
    * @param {jsts.geom.Geometry}
    *          geometry
-   * 
+   *
    * @return {String} A WKT string of representing the geometry.
    */
   extractGeometry(geometry) {
@@ -117,7 +117,7 @@ export default class WKTParser {
 
     /**
      * Return a space delimited string of point coordinates.
-     * 
+     *
      * @param {jsts.geom.Point}
      *          point
      * @return {String} A string of coordinates representing the point.
@@ -128,7 +128,7 @@ export default class WKTParser {
 
     /**
      * Return a comma delimited string of point coordinates from a multipoint.
-     * 
+     *
      * @param {jsts.geom.MultiPoint>}
      *          multipoint
      * @return {String} A string of point coordinate strings representing the
@@ -145,7 +145,7 @@ export default class WKTParser {
 
     /**
      * Return a comma delimited string of point coordinates from a line.
-     * 
+     *
      * @param {jsts.geom.LineString>}
      *          linestring
      * @return {String} A string of point coordinate strings representing the
@@ -159,10 +159,18 @@ export default class WKTParser {
       return array.join(',');
     },
 
+    'linearring': function(linearring) {
+      var array = [];
+      for ( var i = 0, len = linearring.points.coordinates.length; i < len; ++i) {
+        array.push(this.extract.coordinate.apply(this, [linearring.points.coordinates[i]]));
+      }
+      return array.join(',');
+    },
+
     /**
      * Return a comma delimited string of linestring strings from a
      * multilinestring.
-     * 
+     *
      * @param {jsts.geom.MultiLineString>}
      *          multilinestring
      * @return {String} A string of of linestring strings representing the
@@ -180,7 +188,7 @@ export default class WKTParser {
 
     /**
      * Return a comma delimited string of linear ring arrays from a polygon.
-     * 
+     *
      * @param {jsts.geom.Polygon>}
      *          polygon
      * @return {String} An array of linear ring arrays representing the polygon.
@@ -196,7 +204,7 @@ export default class WKTParser {
 
     /**
      * Return an array of polygon arrays from a multipolygon.
-     * 
+     *
      * @param {jsts.geom.MultiPolygon>}
      *          multipolygon
      * @return {String} An array of polygon arrays representing the multipolygon.
@@ -212,7 +220,7 @@ export default class WKTParser {
     /**
      * Return the WKT portion between 'GEOMETRYCOLLECTION(' and ')' for an
      * geometrycollection.
-     * 
+     *
      * @param {jsts.geom.GeometryCollection>}
      *          collection
      * @return {String} internal WKT representation of the collection.
@@ -234,7 +242,7 @@ export default class WKTParser {
   get parse() { return {
     /**
      * Return point geometry given a point WKT fragment.
-     * 
+     *
      * @param {String}
      *          str A WKT fragment representing the point.
      * @return {jsts.geom.Point} A point geometry.
@@ -252,7 +260,7 @@ export default class WKTParser {
 
     /**
      * Return a multipoint geometry given a multipoint WKT fragment.
-     * 
+     *
      * @param {String}
      *          A WKT fragment representing the multipoint.
      * @return {jsts.geom.Point} A multipoint feature.
@@ -275,7 +283,7 @@ export default class WKTParser {
 
     /**
      * Return a linestring geometry given a linestring WKT fragment.
-     * 
+     *
      * @param {String}
      *          A WKT fragment representing the linestring.
      * @return {jsts.geom.LineString} A linestring geometry.
@@ -298,7 +306,7 @@ export default class WKTParser {
 
     /**
      * Return a linearring geometry given a linearring WKT fragment.
-     * 
+     *
      * @param {String}
      *          A WKT fragment representing the linearring.
      * @return {jsts.geom.LinearRing} A linearring geometry.
@@ -321,7 +329,7 @@ export default class WKTParser {
 
     /**
      * Return a multilinestring geometry given a multilinestring WKT fragment.
-     * 
+     *
      * @param {String}
      *          A WKT fragment representing the multilinestring.
      * @return {jsts.geom.MultiLineString} A multilinestring geometry.
@@ -344,7 +352,7 @@ export default class WKTParser {
 
     /**
      * Return a polygon geometry given a polygon WKT fragment.
-     * 
+     *
      * @param {String}
      *          A WKT fragment representing the polygon.
      * @return {jsts.geom.Polygon} A polygon geometry.
@@ -375,7 +383,7 @@ export default class WKTParser {
 
     /**
      * Return a multipolygon geometry given a multipolygon WKT fragment.
-     * 
+     *
      * @param {String}
      *          A WKT fragment representing the multipolygon.
      * @return {jsts.geom.MultiPolygon} A multipolygon geometry.
@@ -398,7 +406,7 @@ export default class WKTParser {
 
     /**
      * Return a geometrycollection given a geometrycollection WKT fragment.
-     * 
+     *
      * @param {String}
      *          A WKT fragment representing the geometrycollection.
      * @return {jsts.geom.GeometryCollection}
@@ -423,4 +431,3 @@ export default class WKTParser {
   };
 
 }
-
