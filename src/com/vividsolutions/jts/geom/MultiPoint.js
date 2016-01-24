@@ -29,11 +29,14 @@ export default class MultiPoint extends GeometryCollection {
 	isValid() {
 		return true;
 	}
-	equalsExact(other, tolerance) {
-		if (!this.isEquivalentClass(other)) {
-			return false;
-		}
-		return super.equalsExact(other, tolerance);
+	equalsExact(...args) {
+		if (args.length === 2) {
+			let [other, tolerance] = args;
+			if (!this.isEquivalentClass(other)) {
+				return false;
+			}
+			return super.equalsExact(other, tolerance);
+		} else return super.equalsExact(...args);
 	}
 	getCoordinate(...args) {
 		if (args.length === 1) {

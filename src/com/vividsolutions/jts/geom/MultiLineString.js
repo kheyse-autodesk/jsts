@@ -27,11 +27,14 @@ export default class MultiLineString extends GeometryCollection {
 	getSortIndex() {
 		return Geometry.SORTINDEX_MULTILINESTRING;
 	}
-	equalsExact(other, tolerance) {
-		if (!this.isEquivalentClass(other)) {
-			return false;
-		}
-		return super.equalsExact(other, tolerance);
+	equalsExact(...args) {
+		if (args.length === 2) {
+			let [other, tolerance] = args;
+			if (!this.isEquivalentClass(other)) {
+				return false;
+			}
+			return super.equalsExact(other, tolerance);
+		} else return super.equalsExact(...args);
 	}
 	getBoundaryDimension() {
 		if (this.isClosed()) {
