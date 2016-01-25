@@ -1,8 +1,15 @@
-import WKTReader from './com/vividsolutions/jts/io/WKTReader'
 
+import WKTReader from './com/vividsolutions/jts/io/WKTReader'
+import GeometryFactory from './com/vividsolutions/jts/geom/GeometryFactory'
+import PrecisionModel from './com/vividsolutions/jts/geom/PrecisionModel'
 import GeometryMixin from './com/vividsolutions/jts/geom/GeometryMixin'
 
-var reader = new WKTReader()
+String.prototype.equals = function(other) {
+  return this === other
+}
+
+const factory = new GeometryFactory(new PrecisionModel(1.0))
+var reader = new WKTReader(factory)
 
 /*
 var p1 = reader.read('POINT(1 1)')
@@ -35,8 +42,8 @@ console.log(writer.write(intersection))
 //var union = OverlayOp.union(a1, a2)
 // console.log(writer.write(union))
 
-const p = reader.read('POLYGON((40 60, 420 60, 420 320, 40 320, 40 60))')
-const boundary = p.getBoundary()
-const boundaryText = boundary.toString()
-
-console.log('Boundary: ' + boundaryText)
+const p1 = reader.read('POLYGON((160 330, 60 260, 20 150, 60 40, 190 20, 270 130, 260 250, 160 330), (140 240, 80 190, 90 100, 160 70, 210 130, 210 210, 140 240))')
+const p2 = reader.read('POLYGON((300 330, 190 270, 150 170, 150 110, 250 30, 380 50, 380 250, 300 330), (290 240, 240 200, 240 110, 290 80, 330 170, 290 240))')
+const intersection = p1.intersection(p2)
+console.log(p1)
+console.log('intersection: ' + intersection)

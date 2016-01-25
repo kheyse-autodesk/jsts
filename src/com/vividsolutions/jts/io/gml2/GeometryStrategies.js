@@ -22,7 +22,7 @@ export default class GeometryStrategies {
 		if (attrs.getIndex(GMLConstants.GML_ATTR_SRSNAME) >= 0) srs = attrs.getValue(GMLConstants.GML_ATTR_SRSNAME); else if (attrs.getIndex(GMLConstants.GML_NAMESPACE, GMLConstants.GML_ATTR_SRSNAME) >= 0) srs = attrs.getValue(GMLConstants.GML_NAMESPACE, GMLConstants.GML_ATTR_SRSNAME);
 		if (srs !== null) {
 			srs = srs.trim();
-			if (srs !== null && !"".equals(srs)) {
+			if (srs !== null && !(this.name === srs)) {
 				try {
 					return Integer.parseInt(srs);
 				} catch (e) {
@@ -181,7 +181,7 @@ export default class GeometryStrategies {
 		})());
 		strats.put(GMLConstants.GML_COORDINATES.toLowerCase(), new (class {
 			parse(arg, gf) {
-				if (arg.text === null || "".equals(arg.text)) throw new SAXException("Cannot create a coordinate sequence without text to parse");
+				if (arg.text === null || this.name === arg.text) throw new SAXException("Cannot create a coordinate sequence without text to parse");
 				var decimal = ".";
 				var coordSeperator = ",";
 				var toupleSeperator = " ";
@@ -206,7 +206,7 @@ export default class GeometryStrategies {
 				if (touples.length === 0) throw new SAXException("Cannot create a coordinate sequence without a touple to parse");
 				var numNonNullTouples = 0;
 				for (var i = 0; i < touples.length; i++) {
-					if (touples[i] !== null && !"".equals(touples[i].trim())) {
+					if (touples[i] !== null && !(this.name === touples[i].trim())) {
 						if (i !== numNonNullTouples) {
 							touples[numNonNullTouples] = touples[i];
 						}
@@ -218,7 +218,7 @@ export default class GeometryStrategies {
 				var dim = StringUtil.split(touples[0], coordSeperator).length;
 				var cs = gf.getCoordinateSequenceFactory().create(numNonNullTouples, dim);
 				dim = cs.getDimension();
-				var replaceDec = !".".equals(decimal);
+				var replaceDec = !(this.name === decimal);
 				for (var i = 0; i < numNonNullTouples; i++) {
 					ptn = this.patterns.get(coordSeperator);
 					if (ptn === null) {
@@ -235,7 +235,7 @@ export default class GeometryStrategies {
 					var coords = ptn.split(touples[i]);
 					var dimIndex = 0;
 					for (var j = 0; j < coords.length && j < dim; j++) {
-						if (coords[j] !== null && !"".equals(coords[j].trim())) {
+						if (coords[j] !== null && !(this.name === coords[j].trim())) {
 							var ordinate = Double.parseDouble(replaceDec ? coords[j].replaceAll(decimal, ".") : coords[j]);
 							cs.setOrdinate(i, dimIndex++, ordinate);
 						}

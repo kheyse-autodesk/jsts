@@ -28,7 +28,7 @@ export default class PrecisionModel {
 						return ((...args) => {
 							let [modelType] = args;
 							this.modelType = modelType;
-							if (modelType === PrecisionModel.FIXED) {
+							if (modelType.equals(PrecisionModel.FIXED)) {
 								this.setScale(1.0);
 							}
 						})(...args);
@@ -73,7 +73,7 @@ export default class PrecisionModel {
 			return false;
 		}
 		var otherPrecisionModel = other;
-		return this.modelType === otherPrecisionModel.modelType && this.scale === otherPrecisionModel.scale;
+		return this.modelType.equals(otherPrecisionModel.modelType) && this.scale === otherPrecisionModel.scale;
 	}
 	compareTo(o) {
 		var other = o;
@@ -85,18 +85,18 @@ export default class PrecisionModel {
 		return this.scale;
 	}
 	isFloating() {
-		return this.modelType === PrecisionModel.FLOATING || this.modelType === PrecisionModel.FLOATING_SINGLE;
+		return this.modelType.equals(PrecisionModel.FLOATING) || this.modelType.equals(PrecisionModel.FLOATING_SINGLE);
 	}
 	getType() {
 		return this.modelType;
 	}
 	toString() {
 		var description = "UNKNOWN";
-		if (this.modelType === PrecisionModel.FLOATING) {
+		if (this.modelType.equals(PrecisionModel.FLOATING)) {
 			description = "Floating";
-		} else if (this.modelType === PrecisionModel.FLOATING_SINGLE) {
+		} else if (this.modelType.equals(PrecisionModel.FLOATING_SINGLE)) {
 			description = "Floating-Single";
-		} else if (this.modelType === PrecisionModel.FIXED) {
+		} else if (this.modelType.equals(PrecisionModel.FIXED)) {
 			description = "Fixed (Scale=" + this.getScale() + ")";
 		}
 		return description;
@@ -116,11 +116,11 @@ export default class PrecisionModel {
 						return ((...args) => {
 							let [val] = args;
 							if (Double.isNaN(val)) return val;
-							if (this.modelType === PrecisionModel.FLOATING_SINGLE) {
+							if (this.modelType.equals(PrecisionModel.FLOATING_SINGLE)) {
 								var floatSingleVal = val;
 								return floatSingleVal;
 							}
-							if (this.modelType === PrecisionModel.FIXED) {
+							if (this.modelType.equals(PrecisionModel.FIXED)) {
 								return Math.round(val * this.scale) / this.scale;
 							}
 							return val;
@@ -132,11 +132,11 @@ export default class PrecisionModel {
 	}
 	getMaximumSignificantDigits() {
 		var maxSigDigits = 16;
-		if (this.modelType === PrecisionModel.FLOATING) {
+		if (this.modelType.equals(PrecisionModel.FLOATING)) {
 			maxSigDigits = 16;
-		} else if (this.modelType === PrecisionModel.FLOATING_SINGLE) {
+		} else if (this.modelType.equals(PrecisionModel.FLOATING_SINGLE)) {
 			maxSigDigits = 6;
-		} else if (this.modelType === PrecisionModel.FIXED) {
+		} else if (this.modelType.equals(PrecisionModel.FIXED)) {
 			maxSigDigits = 1 + Math.trunc(Math.ceil(Math.log(this.getScale()) / Math.log(10)));
 		}
 		return maxSigDigits;
@@ -176,6 +176,15 @@ class Type {
 	}
 	readResolve() {
 		return Type.nameToTypeMap.get(this.name);
+	}
+	hashCode() {
+		return this.name.hashCode();
+	}
+	equals(...args) {
+		if (args.length === 1) {
+			let [other] = args;
+			return this.name === other.name;
+		} else return super.equals(...args);
 	}
 	toString() {
 		return this.name;

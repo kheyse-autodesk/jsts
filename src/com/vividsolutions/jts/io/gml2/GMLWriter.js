@@ -77,7 +77,7 @@ export default class GMLWriter {
 		if (geom === null) return null;
 		if (!this.isRootTag) return null;
 		if (this.emitNamespace) {
-			writer.write(" xmlns" + (this.prefix === null || "".equals(this.prefix) ? "" : ":" + this.prefix) + "='" + this.namespace + "'");
+			writer.write(" xmlns" + (this.prefix === null || this.name === this.prefix ? "" : ":" + this.prefix) + "='" + this.namespace + "'");
 		}
 		if (this.srsName !== null && this.srsName.length > 0) {
 			writer.write(" " + GMLConstants.GML_ATTR_SRSNAME + "='" + this.srsName + "'");
@@ -117,7 +117,7 @@ export default class GMLWriter {
 		return this.prefix + ":";
 	}
 	startGeomTag(geometryName, g, writer) {
-		writer.write("<" + (this.prefix === null || "".equals(this.prefix) ? "" : this.prefix + ":"));
+		writer.write("<" + (this.prefix === null || this.name === this.prefix ? "" : this.prefix + ":"));
 		writer.write(geometryName);
 		this.writeAttributes(g, writer);
 		writer.write(">\n");
